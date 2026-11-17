@@ -1,4 +1,4 @@
-# The Central Valley in 3D, 1850 to 2025
+# The Central Valley in 3D, before 1900 to 2025
 
 California's Central Valley and the mountains around it, on real terrain, with the land cover of each year from 1850 to 2025. The valley floor follows the USGS CVHM2 land-use record (1874 to 2019) and, where land stayed native, the vegetation of the pre-1900 historic map. Dams, canals and dated events appear in their years. There is a summer and a winter view.
 
