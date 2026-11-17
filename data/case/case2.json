@@ -1,0 +1,431 @@
+{
+"SOURCE": "Measured layers added to the 3D page on the main California session's advice (2026-11-17, Ali: \"Yes, apply all\").\nStation positions only; every number on the page is copied from the record named beside it, not recomputed here.\n  fog      the 11 floor ISD stations of C5 (derived/m24_memory/stations.csv, grp floor)       raw/tests/2026-11-16_c5-floor-air-between-close-storms\n  cold     the four hill-floor pairs of the cold-layer test (GHCN station files)               raw/tests/2026-11-17_cold-layer-hill-minus-floor\n  upslope  the 45 floor and Sierra windward stations of A10b'/ERA5 bands, with their band (bands_of in\n           src/landscape/snow_path_era5_bands.py)                                              raw/tests/2026-11-07_snow-path-era5-bands, 2026-10-26_mimo1-reading",
+"fog_stations": [
+[
+1283.6,
+2201.2,
+"Meadows Field Airport"
+],
+[
+1081.1,
+1704.0,
+"Fresno Yosemite International Airport"
+],
+[
+830.8,
+1480.2,
+"Castle Afb"
+],
+[
+563.6,
+1060.8,
+"Sacramento Executive Airport"
+],
+[
+592.3,
+1001.9,
+"Sacramento Mcclellan Afb"
+],
+[
+585.4,
+829.1,
+"Beale Air Force Base"
+],
+[
+536.1,
+988.4,
+"Sacramento Intl Airport"
+],
+[
+639.0,
+1290.5,
+"Stockton Metropolitan Airport"
+],
+[
+717.4,
+1389.6,
+"Mdsto Cty-Co H Sham Fd Apt"
+],
+[
+357.8,
+447.2,
+"Red Bluff Municipal Arpt"
+],
+[
+1012.9,
+1869.7,
+"Naval Air Station"
+]
+],
+"cold_pairs": [
+[
+1348.2,
+1808.8,
+"Ash Mountain",
+521,
+1207.2,
+1870.7,
+"Visalia",
+92,
+-0.52,
+-0.98,
+-0.09
+],
+[
+1348.2,
+1808.8,
+"Ash Mountain",
+521,
+1106.4,
+1875.9,
+"Hanford",
+72,
+-0.93,
+-1.46,
+-0.37
+],
+[
+1268.3,
+1654.9,
+"Balch Power House",
+529,
+1081.1,
+1704.0,
+"Fresno airport",
+102,
+-0.6,
+-0.9,
+-0.29
+],
+[
+1268.3,
+1654.9,
+"Balch Power House",
+529,
+986.7,
+1639.7,
+"Madera",
+82,
+-0.14,
+-0.44,
+0.14
+]
+],
+"upslope_stations": [
+[
+586.4,
+1043.2,
+"Sacramento 5 Ese",
+12,
+"floor"
+],
+[
+357.8,
+447.3,
+"Red Bluff Muni Ap",
+108,
+"floor"
+],
+[
+482.5,
+1049.0,
+"Davis 2 Wsw Exp Farm",
+18,
+"floor"
+],
+[
+710.3,
+788.6,
+"Nevada City",
+848,
+"foothills"
+],
+[
+749.1,
+1435.5,
+"Turlock #2",
+31,
+"floor"
+],
+[
+839.3,
+1111.7,
+"W Pt",
+846,
+"foothills"
+],
+[
+728.1,
+533.2,
+"Quincy",
+1042,
+"middle"
+],
+[
+1207.2,
+1870.7,
+"Visalia",
+92,
+"floor"
+],
+[
+1378.0,
+2352.1,
+"Tejon Rancho",
+434,
+"foothills"
+],
+[
+810.0,
+712.7,
+"Bowman Dam",
+1641,
+"high"
+],
+[
+1106.5,
+1875.9,
+"Hanford 1 S",
+72,
+"floor"
+],
+[
+1288.7,
+1850.2,
+"Lemon Cove",
+156,
+"floor"
+],
+[
+845.7,
+1515.1,
+"Merced",
+47,
+"floor"
+],
+[
+1193.5,
+2144.5,
+"Wasco",
+89,
+"floor"
+],
+[
+697.5,
+1516.8,
+"Newman",
+27,
+"floor"
+],
+[
+370.0,
+598.0,
+"Orland",
+77,
+"floor"
+],
+[
+884.7,
+1264.0,
+"Sonora",
+510,
+"foothills"
+],
+[
+725.2,
+846.8,
+"Colfax",
+723,
+"foothills"
+],
+[
+738.8,
+824.6,
+"Gold Run 4 Sw",
+982,
+"foothills"
+],
+[
+684.9,
+914.1,
+"Auburn",
+394,
+"foothills"
+],
+[
+741.4,
+1600.5,
+"Los Banos",
+37,
+"floor"
+],
+[
+602.6,
+1367.1,
+"Tracy Carbona",
+41,
+"floor"
+],
+[
+1220.7,
+2078.0,
+"Delano",
+92,
+"floor"
+],
+[
+538.9,
+554.7,
+"De Sabla",
+826,
+"foothills"
+],
+[
+717.4,
+1389.4,
+"Modesto Ap",
+26,
+"floor"
+],
+[
+423.9,
+1051.4,
+"Winters",
+41,
+"floor"
+],
+[
+478.3,
+994.1,
+"Woodland 1 Wnw",
+20,
+"floor"
+],
+[
+1118.3,
+1344.3,
+"Yosemite Park Hq",
+1225,
+"middle"
+],
+[
+762.1,
+671.8,
+"Downieville",
+888,
+"foothills"
+],
+[
+542.3,
+379.2,
+"Mineral",
+1486,
+"middle"
+],
+[
+1061.4,
+1266.3,
+"Hetch Hetchy",
+1180,
+"middle"
+],
+[
+645.5,
+396.9,
+"Chester",
+1387,
+"middle"
+],
+[
+1084.8,
+1624.0,
+"Friant Government Camp",
+131,
+"floor"
+],
+[
+1281.0,
+1916.3,
+"Lindsay",
+133,
+"floor"
+],
+[
+688.9,
+446.2,
+"Canyon Dam",
+1390,
+"middle"
+],
+[
+1142.1,
+1588.2,
+"Auberry 2 Nw",
+637,
+"foothills"
+],
+[
+1348.2,
+1808.8,
+"Ash Mtn",
+521,
+"foothills"
+],
+[
+986.7,
+1639.7,
+"Madera",
+82,
+"floor"
+],
+[
+907.2,
+1149.3,
+"Calaveras Big Trees",
+1431,
+"middle"
+],
+[
+754.1,
+876.7,
+"Foresthill Rs",
+919,
+"foothills"
+],
+[
+1283.6,
+2201.1,
+"Bakersfield Ap",
+149,
+"floor"
+],
+[
+795.3,
+1056.8,
+"Fiddletown Dexter Rch",
+661,
+"foothills"
+],
+[
+1158.2,
+2213.7,
+"Buttonwillow",
+69,
+"floor"
+],
+[
+1306.5,
+1718.2,
+"Grant Grove",
+2006,
+"high"
+],
+[
+794.1,
+778.5,
+"Blue Canyon Nyack Ap",
+1611,
+"high"
+]
+]
+}

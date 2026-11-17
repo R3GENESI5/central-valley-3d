@@ -1,0 +1,1296 @@
+{
+ "SOURCE": "Peak surface temperature for the 3D Central Valley page (Ali, 2026-11-16: \"valley-wide hottest days, go\").\n\nRule, fixed before any number was looked at:\n  - Source: MODIS Aqua MYD11A1 v6.1 daytime land surface temperature (overpass about 13:30 local), 1 km, AppEEARS cubes.\n  - Good pixel: LST_Day_1km > 0, mandatory QA (QC_Day bits 0-1) = 0 or 1, LST error (bits 6-7) <= 1 (2 K or less).\n  - Valley floor: MODIS pixels whose centre falls in a CVHM2 cell of the page (floor.png).\n  - Candidate day: 1 June to 30 September, at least 70 % of floor pixels good.\n  - The year's 10 valley-wide hottest days: the 10 candidate days with the highest floor-mean LST.\n  - Peak map: per pixel, the mean LST over those 10 days where at least 4 of them are good; otherwise no value.\n  - Years: 2003-2025 (Aqua's first full summer is 2003).\nWrites figures/valley_3d/data/lst/peak_<year>.png on the page's 1 km mesh grid (EPSG:3310; value = round((LST C - 10) * 4),\n0 = no value) and figures/valley_3d/data/lst/lst_meta.json (the 10 days per year with floor mean and coverage).\nSOURCE  Z:/Data/california_central_valley/modis_lst/ca_cv_myd11a1_*/MYD11A1.061_1km_aid0001.nc",
+ "WHEN": "2026-11-16",
+ "STATUS": "derived",
+ "encoding": "LST C = 10 + value / 4; 0 = no value",
+ "years": {
+  "2003": {
+   "days": [
+    {
+     "date": "2003-06-26",
+     "floor_mean_c": 50.86,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2003-06-03",
+     "floor_mean_c": 49.86,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2003-06-28",
+     "floor_mean_c": 49.66,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2003-07-05",
+     "floor_mean_c": 49.22,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2003-07-14",
+     "floor_mean_c": 48.55,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2003-07-12",
+     "floor_mean_c": 47.97,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2003-06-17",
+     "floor_mean_c": 47.61,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2003-07-03",
+     "floor_mean_c": 47.57,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2003-07-21",
+     "floor_mean_c": 47.47,
+     "floor_cover": 0.904
+    },
+    {
+     "date": "2003-07-10",
+     "floor_mean_c": 47.31,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 102,
+   "floor_peak_mean_c": 48.63
+  },
+  "2004": {
+   "days": [
+    {
+     "date": "2004-08-08",
+     "floor_mean_c": 48.77,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-07-21",
+     "floor_mean_c": 48.46,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-07-05",
+     "floor_mean_c": 48.06,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-07-12",
+     "floor_mean_c": 47.49,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-09-07",
+     "floor_mean_c": 47.42,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-08-10",
+     "floor_mean_c": 47.31,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-07-23",
+     "floor_mean_c": 47.27,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2004-07-25",
+     "floor_mean_c": 47.11,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2004-07-14",
+     "floor_mean_c": 46.99,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2004-07-26",
+     "floor_mean_c": 46.85,
+     "floor_cover": 0.982
+    }
+   ],
+   "candidate_days": 111,
+   "floor_peak_mean_c": 47.57
+  },
+  "2005": {
+   "days": [
+    {
+     "date": "2005-07-17",
+     "floor_mean_c": 49.46,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2005-07-01",
+     "floor_mean_c": 49.03,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2005-07-26",
+     "floor_mean_c": 48.87,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2005-07-24",
+     "floor_mean_c": 48.76,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2005-07-03",
+     "floor_mean_c": 47.38,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2005-08-02",
+     "floor_mean_c": 47.31,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2005-08-11",
+     "floor_mean_c": 47.2,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2005-07-12",
+     "floor_mean_c": 46.96,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2005-07-19",
+     "floor_mean_c": 46.84,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2005-07-15",
+     "floor_mean_c": 46.79,
+     "floor_cover": 0.929
+    }
+   ],
+   "candidate_days": 112,
+   "floor_peak_mean_c": 47.86
+  },
+  "2006": {
+   "days": [
+    {
+     "date": "2006-07-22",
+     "floor_mean_c": 50.13,
+     "floor_cover": 0.922
+    },
+    {
+     "date": "2006-07-25",
+     "floor_mean_c": 49.03,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2006-07-24",
+     "floor_mean_c": 48.79,
+     "floor_cover": 0.972
+    },
+    {
+     "date": "2006-06-18",
+     "floor_mean_c": 48.6,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2006-06-23",
+     "floor_mean_c": 48.51,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2006-07-27",
+     "floor_mean_c": 48.35,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2006-06-22",
+     "floor_mean_c": 47.96,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2006-06-25",
+     "floor_mean_c": 47.76,
+     "floor_cover": 0.831
+    },
+    {
+     "date": "2006-07-20",
+     "floor_mean_c": 47.76,
+     "floor_cover": 0.978
+    },
+    {
+     "date": "2006-07-09",
+     "floor_mean_c": 47.52,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 102,
+   "floor_peak_mean_c": 48.52
+  },
+  "2007": {
+   "days": [
+    {
+     "date": "2007-07-05",
+     "floor_mean_c": 51.04,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2007-06-14",
+     "floor_mean_c": 49.96,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2007-07-30",
+     "floor_mean_c": 48.9,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2007-08-01",
+     "floor_mean_c": 48.35,
+     "floor_cover": 0.911
+    },
+    {
+     "date": "2007-07-07",
+     "floor_mean_c": 48.23,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2007-08-03",
+     "floor_mean_c": 48.18,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2007-07-04",
+     "floor_mean_c": 48.18,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2007-06-21",
+     "floor_mean_c": 47.74,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2007-06-12",
+     "floor_mean_c": 47.68,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2007-09-02",
+     "floor_mean_c": 47.66,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 100,
+   "floor_peak_mean_c": 48.59
+  },
+  "2008": {
+   "days": [
+    {
+     "date": "2008-06-09",
+     "floor_mean_c": 48.77,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2008-06-16",
+     "floor_mean_c": 48.67,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2008-08-12",
+     "floor_mean_c": 48.58,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2008-07-07",
+     "floor_mean_c": 48.29,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2008-06-20",
+     "floor_mean_c": 48.26,
+     "floor_cover": 0.923
+    },
+    {
+     "date": "2008-07-09",
+     "floor_mean_c": 48.24,
+     "floor_cover": 0.925
+    },
+    {
+     "date": "2008-08-28",
+     "floor_mean_c": 48.03,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2008-08-03",
+     "floor_mean_c": 47.87,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2008-09-04",
+     "floor_mean_c": 47.77,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2008-06-14",
+     "floor_mean_c": 47.58,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 112,
+   "floor_peak_mean_c": 48.21
+  },
+  "2009": {
+   "days": [
+    {
+     "date": "2009-06-28",
+     "floor_mean_c": 51.9,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2009-07-19",
+     "floor_mean_c": 51.16,
+     "floor_cover": 0.915
+    },
+    {
+     "date": "2009-07-14",
+     "floor_mean_c": 49.98,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2009-07-17",
+     "floor_mean_c": 49.14,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2009-07-28",
+     "floor_mean_c": 49.01,
+     "floor_cover": 0.977
+    },
+    {
+     "date": "2009-07-03",
+     "floor_mean_c": 48.94,
+     "floor_cover": 0.978
+    },
+    {
+     "date": "2009-06-26",
+     "floor_mean_c": 48.93,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2009-07-16",
+     "floor_mean_c": 48.93,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2009-07-26",
+     "floor_mean_c": 48.92,
+     "floor_cover": 0.952
+    },
+    {
+     "date": "2009-07-21",
+     "floor_mean_c": 48.61,
+     "floor_cover": 0.976
+    }
+   ],
+   "candidate_days": 95,
+   "floor_peak_mean_c": 49.54
+  },
+  "2010": {
+   "days": [
+    {
+     "date": "2010-08-25",
+     "floor_mean_c": 48.9,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2010-06-27",
+     "floor_mean_c": 48.25,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2010-06-29",
+     "floor_mean_c": 48.14,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2010-07-17",
+     "floor_mean_c": 48.07,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2010-06-13",
+     "floor_mean_c": 48.02,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2010-07-15",
+     "floor_mean_c": 47.88,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2010-07-19",
+     "floor_mean_c": 47.61,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2010-07-24",
+     "floor_mean_c": 47.36,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2010-07-10",
+     "floor_mean_c": 46.99,
+     "floor_cover": 0.876
+    },
+    {
+     "date": "2010-07-22",
+     "floor_mean_c": 46.67,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 109,
+   "floor_peak_mean_c": 47.81
+  },
+  "2011": {
+   "days": [
+    {
+     "date": "2011-06-21",
+     "floor_mean_c": 47.96,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2011-07-04",
+     "floor_mean_c": 47.8,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2011-07-02",
+     "floor_mean_c": 47.48,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2011-06-23",
+     "floor_mean_c": 46.97,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2011-07-09",
+     "floor_mean_c": 46.69,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2011-07-27",
+     "floor_mean_c": 46.58,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2011-06-22",
+     "floor_mean_c": 46.03,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2011-06-25",
+     "floor_mean_c": 45.92,
+     "floor_cover": 0.962
+    },
+    {
+     "date": "2011-08-03",
+     "floor_mean_c": 45.92,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2011-08-28",
+     "floor_mean_c": 45.76,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 105,
+   "floor_peak_mean_c": 46.7
+  },
+  "2012": {
+   "days": [
+    {
+     "date": "2012-06-11",
+     "floor_mean_c": 48.86,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2012-07-11",
+     "floor_mean_c": 48.53,
+     "floor_cover": 0.788
+    },
+    {
+     "date": "2012-06-18",
+     "floor_mean_c": 48.42,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2012-06-20",
+     "floor_mean_c": 48.34,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2012-07-04",
+     "floor_mean_c": 48.34,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2012-07-31",
+     "floor_mean_c": 48.06,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2012-07-22",
+     "floor_mean_c": 48.04,
+     "floor_cover": 0.953
+    },
+    {
+     "date": "2012-06-16",
+     "floor_mean_c": 47.73,
+     "floor_cover": 0.918
+    },
+    {
+     "date": "2012-08-10",
+     "floor_mean_c": 47.73,
+     "floor_cover": 0.969
+    },
+    {
+     "date": "2012-08-14",
+     "floor_mean_c": 47.58,
+     "floor_cover": 0.852
+    }
+   ],
+   "candidate_days": 105,
+   "floor_peak_mean_c": 48.18
+  },
+  "2013": {
+   "days": [
+    {
+     "date": "2013-06-30",
+     "floor_mean_c": 50.95,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2013-06-28",
+     "floor_mean_c": 50.24,
+     "floor_cover": 0.978
+    },
+    {
+     "date": "2013-07-09",
+     "floor_mean_c": 50.2,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2013-07-07",
+     "floor_mean_c": 49.83,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2013-06-07",
+     "floor_mean_c": 49.35,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2013-07-14",
+     "floor_mean_c": 49.31,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2013-06-08",
+     "floor_mean_c": 48.14,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2013-07-18",
+     "floor_mean_c": 47.61,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2013-08-19",
+     "floor_mean_c": 47.54,
+     "floor_cover": 0.739
+    },
+    {
+     "date": "2013-07-04",
+     "floor_mean_c": 47.49,
+     "floor_cover": 0.875
+    }
+   ],
+   "candidate_days": 101,
+   "floor_peak_mean_c": 49.09
+  },
+  "2014": {
+   "days": [
+    {
+     "date": "2014-06-08",
+     "floor_mean_c": 51.27,
+     "floor_cover": 0.979
+    },
+    {
+     "date": "2014-07-26",
+     "floor_mean_c": 51.21,
+     "floor_cover": 0.953
+    },
+    {
+     "date": "2014-07-01",
+     "floor_mean_c": 50.51,
+     "floor_cover": 0.967
+    },
+    {
+     "date": "2014-07-08",
+     "floor_mean_c": 50.36,
+     "floor_cover": 0.782
+    },
+    {
+     "date": "2014-07-03",
+     "floor_mean_c": 50.2,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2014-07-05",
+     "floor_mean_c": 49.68,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2014-08-01",
+     "floor_mean_c": 48.99,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2014-06-01",
+     "floor_mean_c": 48.94,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2014-06-10",
+     "floor_mean_c": 48.84,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2014-06-29",
+     "floor_mean_c": 48.75,
+     "floor_cover": 0.982
+    }
+   ],
+   "candidate_days": 96,
+   "floor_peak_mean_c": 49.86
+  },
+  "2015": {
+   "days": [
+    {
+     "date": "2015-07-29",
+     "floor_mean_c": 52.55,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2015-06-25",
+     "floor_mean_c": 51.19,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2015-06-13",
+     "floor_mean_c": 50.57,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2015-07-04",
+     "floor_mean_c": 50.11,
+     "floor_cover": 0.96
+    },
+    {
+     "date": "2015-06-18",
+     "floor_mean_c": 49.87,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2015-06-08",
+     "floor_mean_c": 49.48,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2015-08-17",
+     "floor_mean_c": 48.54,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2015-07-15",
+     "floor_mean_c": 48.53,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2015-07-31",
+     "floor_mean_c": 48.25,
+     "floor_cover": 0.709
+    },
+    {
+     "date": "2015-06-16",
+     "floor_mean_c": 48.19,
+     "floor_cover": 0.959
+    }
+   ],
+   "candidate_days": 91,
+   "floor_peak_mean_c": 49.72
+  },
+  "2016": {
+   "days": [
+    {
+     "date": "2016-07-24",
+     "floor_mean_c": 51.26,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2016-06-29",
+     "floor_mean_c": 51.14,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2016-07-01",
+     "floor_mean_c": 49.9,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2016-07-15",
+     "floor_mean_c": 49.88,
+     "floor_cover": 0.961
+    },
+    {
+     "date": "2016-07-26",
+     "floor_mean_c": 49.71,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2016-06-27",
+     "floor_mean_c": 49.52,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2016-06-22",
+     "floor_mean_c": 49.17,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2016-07-29",
+     "floor_mean_c": 49.0,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2016-08-14",
+     "floor_mean_c": 48.6,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2016-07-31",
+     "floor_mean_c": 48.38,
+     "floor_cover": 0.98
+    }
+   ],
+   "candidate_days": 114,
+   "floor_peak_mean_c": 49.64
+  },
+  "2017": {
+   "days": [
+    {
+     "date": "2017-06-23",
+     "floor_mean_c": 49.88,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-06-18",
+     "floor_mean_c": 49.66,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-08-28",
+     "floor_mean_c": 49.58,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2017-06-20",
+     "floor_mean_c": 48.9,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-07-04",
+     "floor_mean_c": 48.32,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-07-09",
+     "floor_mean_c": 48.32,
+     "floor_cover": 0.897
+    },
+    {
+     "date": "2017-06-21",
+     "floor_mean_c": 48.3,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-07-02",
+     "floor_mean_c": 48.24,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2017-07-16",
+     "floor_mean_c": 48.23,
+     "floor_cover": 0.851
+    },
+    {
+     "date": "2017-07-27",
+     "floor_mean_c": 48.17,
+     "floor_cover": 0.982
+    }
+   ],
+   "candidate_days": 100,
+   "floor_peak_mean_c": 48.82
+  },
+  "2018": {
+   "days": [
+    {
+     "date": "2018-06-03",
+     "floor_mean_c": 49.99,
+     "floor_cover": 0.973
+    },
+    {
+     "date": "2018-06-12",
+     "floor_mean_c": 49.04,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2018-06-26",
+     "floor_mean_c": 48.63,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2018-07-19",
+     "floor_mean_c": 48.15,
+     "floor_cover": 0.969
+    },
+    {
+     "date": "2018-06-21",
+     "floor_mean_c": 47.7,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2018-07-14",
+     "floor_mean_c": 47.65,
+     "floor_cover": 0.952
+    },
+    {
+     "date": "2018-06-24",
+     "floor_mean_c": 47.52,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2018-06-14",
+     "floor_mean_c": 47.5,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2018-07-07",
+     "floor_mean_c": 47.49,
+     "floor_cover": 0.873
+    },
+    {
+     "date": "2018-06-19",
+     "floor_mean_c": 47.45,
+     "floor_cover": 0.975
+    }
+   ],
+   "candidate_days": 108,
+   "floor_peak_mean_c": 48.09
+  },
+  "2019": {
+   "days": [
+    {
+     "date": "2019-08-16",
+     "floor_mean_c": 49.61,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-28",
+     "floor_mean_c": 48.09,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-24",
+     "floor_mean_c": 48.07,
+     "floor_cover": 0.968
+    },
+    {
+     "date": "2019-08-14",
+     "floor_mean_c": 47.57,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-26",
+     "floor_mean_c": 47.27,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-15",
+     "floor_mean_c": 47.22,
+     "floor_cover": 0.937
+    },
+    {
+     "date": "2019-08-25",
+     "floor_mean_c": 47.04,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-08-04",
+     "floor_mean_c": 47.0,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-13",
+     "floor_mean_c": 46.93,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2019-07-31",
+     "floor_mean_c": 46.93,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 99,
+   "floor_peak_mean_c": 47.59
+  },
+  "2020": {
+   "days": [
+    {
+     "date": "2020-07-12",
+     "floor_mean_c": 51.3,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2020-07-10",
+     "floor_mean_c": 50.54,
+     "floor_cover": 0.877
+    },
+    {
+     "date": "2020-06-26",
+     "floor_mean_c": 49.89,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2020-06-22",
+     "floor_mean_c": 49.07,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2020-08-02",
+     "floor_mean_c": 48.79,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2020-07-05",
+     "floor_mean_c": 48.65,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2020-07-26",
+     "floor_mean_c": 48.53,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2020-07-19",
+     "floor_mean_c": 48.45,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2020-07-28",
+     "floor_mean_c": 48.41,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2020-07-01",
+     "floor_mean_c": 48.34,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 96,
+   "floor_peak_mean_c": 49.16
+  },
+  "2021": {
+   "days": [
+    {
+     "date": "2021-06-18",
+     "floor_mean_c": 53.65,
+     "floor_cover": 0.918
+    },
+    {
+     "date": "2021-06-20",
+     "floor_mean_c": 53.15,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2021-07-11",
+     "floor_mean_c": 51.89,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2021-06-27",
+     "floor_mean_c": 51.31,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2021-06-02",
+     "floor_mean_c": 50.95,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2021-07-10",
+     "floor_mean_c": 50.55,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2021-06-04",
+     "floor_mean_c": 50.1,
+     "floor_cover": 0.899
+    },
+    {
+     "date": "2021-07-04",
+     "floor_mean_c": 50.05,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2021-07-08",
+     "floor_mean_c": 49.99,
+     "floor_cover": 0.927
+    },
+    {
+     "date": "2021-07-29",
+     "floor_mean_c": 49.93,
+     "floor_cover": 0.919
+    }
+   ],
+   "candidate_days": 110,
+   "floor_peak_mean_c": 51.16
+  },
+  "2022": {
+   "days": [
+    {
+     "date": "2022-06-26",
+     "floor_mean_c": 52.88,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2022-08-20",
+     "floor_mean_c": 52.26,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2022-07-21",
+     "floor_mean_c": 51.82,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2022-06-28",
+     "floor_mean_c": 51.57,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2022-07-19",
+     "floor_mean_c": 51.04,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2022-09-05",
+     "floor_mean_c": 51.04,
+     "floor_cover": 0.978
+    },
+    {
+     "date": "2022-07-23",
+     "floor_mean_c": 50.81,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2022-07-16",
+     "floor_mean_c": 50.77,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2022-08-15",
+     "floor_mean_c": 50.65,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2022-06-21",
+     "floor_mean_c": 50.55,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 98,
+   "floor_peak_mean_c": 51.33
+  },
+  "2023": {
+   "days": [
+    {
+     "date": "2023-07-01",
+     "floor_mean_c": 50.52,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2023-07-15",
+     "floor_mean_c": 49.78,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2023-07-20",
+     "floor_mean_c": 49.2,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2023-08-15",
+     "floor_mean_c": 48.59,
+     "floor_cover": 0.979
+    },
+    {
+     "date": "2023-07-22",
+     "floor_mean_c": 48.32,
+     "floor_cover": 0.891
+    },
+    {
+     "date": "2023-08-17",
+     "floor_mean_c": 48.18,
+     "floor_cover": 0.956
+    },
+    {
+     "date": "2023-07-13",
+     "floor_mean_c": 48.17,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2023-06-29",
+     "floor_mean_c": 47.33,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2023-07-27",
+     "floor_mean_c": 46.98,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2023-07-03",
+     "floor_mean_c": 46.97,
+     "floor_cover": 0.98
+    }
+   ],
+   "candidate_days": 96,
+   "floor_peak_mean_c": 48.42
+  },
+  "2024": {
+   "days": [
+    {
+     "date": "2024-07-06",
+     "floor_mean_c": 53.16,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2024-07-11",
+     "floor_mean_c": 51.93,
+     "floor_cover": 0.98
+    },
+    {
+     "date": "2024-07-04",
+     "floor_mean_c": 51.01,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2024-07-08",
+     "floor_mean_c": 50.33,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2024-07-23",
+     "floor_mean_c": 49.29,
+     "floor_cover": 0.934
+    },
+    {
+     "date": "2024-06-22",
+     "floor_mean_c": 48.91,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2024-06-12",
+     "floor_mean_c": 48.59,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2024-06-29",
+     "floor_mean_c": 48.52,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2024-07-03",
+     "floor_mean_c": 48.45,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2024-06-07",
+     "floor_mean_c": 48.35,
+     "floor_cover": 0.981
+    }
+   ],
+   "candidate_days": 104,
+   "floor_peak_mean_c": 49.85
+  },
+  "2025": {
+   "days": [
+    {
+     "date": "2025-07-14",
+     "floor_mean_c": 48.25,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2025-07-11",
+     "floor_mean_c": 48.24,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2025-06-29",
+     "floor_mean_c": 47.72,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2025-07-12",
+     "floor_mean_c": 47.56,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2025-08-09",
+     "floor_mean_c": 47.06,
+     "floor_cover": 0.978
+    },
+    {
+     "date": "2025-08-08",
+     "floor_mean_c": 47.03,
+     "floor_cover": 0.976
+    },
+    {
+     "date": "2025-08-11",
+     "floor_mean_c": 46.89,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2025-06-28",
+     "floor_mean_c": 46.29,
+     "floor_cover": 0.982
+    },
+    {
+     "date": "2025-07-06",
+     "floor_mean_c": 46.28,
+     "floor_cover": 0.981
+    },
+    {
+     "date": "2025-07-01",
+     "floor_mean_c": 46.22,
+     "floor_cover": 0.908
+    }
+   ],
+   "candidate_days": 111,
+   "floor_peak_mean_c": 47.18
+  }
+ }
+}

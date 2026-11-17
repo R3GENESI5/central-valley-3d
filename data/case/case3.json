@@ -1,0 +1,82 @@
+{
+"SOURCE": "Delta tower sites for the 3D page's \"where water is returned\" layer (main session's four additions, 2026-11-17).\nSites exactly as src/level0/m9_towers_rewetted_air.py lists them (WET rewetted, DRY drained); coordinates from the\nAmeriFlux site list held at Z:/Data/california_central_valley/ameriflux/amf_site_list_2026-11-14.json. Numbers on the\npage come from raw/tests/2026-11-16_m9-towers-rewetted-air (printed output), not from this file.",
+"towers": [
+[
+482.3,
+1228.8,
+"US-Myb",
+"Mayberry Wetland",
+"rewetted"
+],
+[
+517.2,
+1208.1,
+"US-Tw1",
+"Twitchell Wetland West Pond",
+"rewetted"
+],
+[
+518.8,
+1209.8,
+"US-Tw4",
+"Twitchell East End Wetland",
+"rewetted"
+],
+[
+518.5,
+1208.2,
+"US-Tw5",
+"East Pond Wetland",
+"rewetted"
+],
+[
+485.3,
+1233.6,
+"US-Sne",
+"Sherman Island Restored Wetland",
+"rewetted"
+],
+[
+515.4,
+1207.6,
+"US-Twt",
+"Twitchell Island",
+"rewetted"
+],
+[
+517.3,
+1205.2,
+"US-Tw3",
+"Twitchell Alfalfa",
+"drained"
+],
+[
+560.2,
+1211.8,
+"US-Bi1",
+"Bouldin Island Alfalfa",
+"drained"
+],
+[
+493.3,
+1232.6,
+"US-Snf",
+"Sherman Barn",
+"drained"
+],
+[
+549.9,
+1208.0,
+"US-Bi2",
+"Bouldin Island corn",
+"drained"
+],
+[
+520.2,
+1212.0,
+"US-Tw2",
+"Twitchell Corn",
+"drained"
+]
+]
+}

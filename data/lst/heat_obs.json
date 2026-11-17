@@ -1,0 +1,8 @@
+{
+ "SOURCE": "MODIS Aqua MYD11A1 day surface temperature (about 13:30), mean over the valley-wide 10 hottest June-September days of each year 2003-2025 (230 days); floor mean of the 1 km nodes with a value. Value from the printed line \"observed floor mean LST 48.79 C\" of raw/tests/2026-11-17_valley-3d-heat-model-r3 (observation step of src/landscape/valley3d_heat_model_r3.py); the model results of that record are withdrawn and not used here.",
+ "summer": {
+  "days": 230,
+  "floor_mean_c": 48.79,
+  "image": "r3_summer_obs.png"
+ }
+}
