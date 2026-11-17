@@ -2,7 +2,7 @@
 
 California's Central Valley and the mountains around it, on real terrain, with the land cover of each year from 1850 to 2025. The valley floor follows the USGS CVHM2 land-use record (1874 to 2019) and, where land stayed native, the vegetation of the pre-1900 historic map. Dams, canals and dated events appear in their years. There is a summer and a winter view.
 
-The page opens on a guided walkthrough of 21 chapters in four parts (the valley and what changed; the chain, link by link; coast to crest along one corridor; context, one model and one open question). Each chapter is tagged measured, mapped, model or open. At the end, or at any time, the map is free to explore with all its layers; the Walkthrough button starts the story again.
+The page opens on the case and the other explanation (a change in the weather from the Pacific), then a guided walkthrough of 15 chapters in seven parts: the valley before and after; the ground lost its water; the low air after rain; cloud and rain; where the change is, and where it is not; where water is returned; settled, and what is measured next. Each chapter gives one result in a large line, what the weather reading would predict beside what was measured, and the numbers and sources in a fold. Three chapters add a side view from the ocean to Reno. At the end, or at any time, the map is free to explore with all its layers; the Walkthrough button starts the story again.
 
 Live page: https://r3genesi5.github.io/central-valley-3d/
 
@@ -22,7 +22,9 @@ Live page: https://r3genesi5.github.io/central-valley-3d/
 - **Pre-1900 vegetation**: Central Valley Historic Mapping Project, Geographical Information Center, California State University, Chico. Obtained from Data Basin (Conservation Biology Institute), displayed here for non-commercial purposes.
 - **Terrain**: Copernicus GLO-90 DEM (© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018, provided under COPERNICUS by the European Union and ESA).
 - **Hills**: USGS Annual NLCD Collection 1 v2, 2025.
-- **Dams**: Global Dam Watch v1.0, barriers and reservoir outlines.
+- **Dams**: Global Dam Watch v1.0, barriers and reservoir outlines. Each dam is drawn as a wall from the year it was built, laid across the outlet end of its own reservoir (else across the nearest river line, else across the slope of the ground); a longer wall holds more water.
+- **Degree of regulation (DOR)**: storage upstream as a share of the mean yearly natural flow. Per river: GAGES-II dam storage in each gauge basin by date (before 1940 to 2009) over the CDEC natural flow. Per dam: Global Dam Watch DOR, which uses GDW's modelled flow at the dam and reads high where that flow is low. Regional totals before 1900, 1940, 1970 and now: `build/valley3d_regulation_totals.py`; per river and dam: `build/valley3d_dor.py`.
+- **Rain on fixed gauges, slope and north**: GHCN-Daily gauges with complete records in both eras, from the project's test records named on the page.
 - **Mountains**: forest stand age (Pan et al. 2011); Hansen Global Forest Change v1.11 loss year; USGS Annual NLCD 1985-2025; CAL FIRE fire perimeters 1878-2025 (California_Fire_Perimeters_Time_Enabled_View).
 - **Rain**: PRISM monthly precipitation, 4 km, 1895-2025 (PRISM Climate Group, Oregon State University).
 - **Surface temperature**: MODIS Aqua MYD11A1 v6.1 daytime land surface temperature, 2003-2025.
