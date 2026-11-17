@@ -93,7 +93,20 @@ main{margin-top:14px!important;margin-bottom:6px!important}h1{font-size:18px!imp
 .drop .card-o{background:#fff;color:#3c3c40;border-color:#d4d4d6}.drop .card-o b{color:#18181a}.drop .card-o[aria-pressed=true]{border-color:#18181a}
 .drop .card-o > :not(b):not(.q):not(.kind){display:none}
 .kind{align-self:flex-start;font:10.5px ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em;padding:1px 6px;border-radius:2px;color:#fff}
-.k-m{background:#1b6e3c}.k-e{background:#9a6a00}.k-x{background:#6a3d9a}.k-p{background:#55555a}
+.k-m{background:#1b6e3c}.k-e{background:#9a6a00}.k-x{background:#6a3d9a}.k-p{background:#55555a}.k-o{background:#2c6e8f}
+.story .kind{display:inline-block;margin:0 0 4px}
+.st-part{font:10.5px ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.06em;color:#55555a;margin:2px 0 6px}
+.st-prog{display:flex;gap:2px;margin:6px 0 8px}.app .story .st-prog button,.app .story .st-prog button:last-child{all:unset;flex:1;height:5px;border-radius:1px;background:#d9d9dc;cursor:pointer}.app .story .st-prog button.done{background:#77777c}.app .story .st-prog button.now{background:#18181a}.st-prog i{width:5px;flex:none}
+.app .story .st-top .st-x,.app .story .st-top .st-x:last-child{all:unset;cursor:pointer;font:16px/1 ui-sans-serif,system-ui,sans-serif;color:#55555a;padding:2px 6px;border-radius:3px}.app .story .st-top .st-x:hover{background:#ececee}
+.story .st-leave{all:unset;cursor:pointer;font-size:12px;color:#55555a;text-decoration:underline;margin-right:auto;align-self:center}
+.welcome{position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;background:rgba(24,24,26,.35);padding:16px}
+.welcome[hidden]{display:none}
+.welcome .wbox{background:#fbfbfa;color:#18181a;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.3);padding:20px 22px 18px;width:min(480px,100%);max-height:100%;overflow:auto;font-size:14px;line-height:1.5}
+.welcome h2{font-size:19px;margin:0 0 8px}.welcome p{margin:0 0 10px;color:#2c2c30}.welcome ol{margin:0 0 14px;padding-left:20px;color:#2c2c30}.welcome li{margin:2px 0}.welcome li span{color:#77777c}
+.welcome .wb{display:flex;gap:10px;flex-wrap:wrap}.welcome button{font:inherit;font-size:14px;padding:8px 16px;border-radius:4px;cursor:pointer;border:1px solid #c9c9cc;background:#fff;color:#18181a}.welcome button.primary{background:#18181a;color:#fff;border-color:#18181a}
+.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:15;background:#18181a;color:#fff;font-size:13px;line-height:1.4;padding:9px 14px;border-radius:6px;max-width:min(560px,calc(100% - 24px));box-shadow:0 4px 18px rgba(0,0,0,.25)}
+.hint[hidden]{display:none}
+.fp{border-top:1px solid #e0e0e2;padding:6px 0;font-size:12px;line-height:1.4}.fp b{display:block}.fp i{font-style:normal;color:#55555a}.fp small{display:block;color:#77777c;font-size:10.5px}
 .legend .kind{display:inline-block;margin:2px 0 2px}
 .legend{position:absolute;right:10px;bottom:calc(var(--bbh) + 10px);width:min(290px,calc(100% - 20px));font-size:12px!important;max-height:calc(100% - var(--bbh) - 76px);overflow:auto;background:rgba(251,251,250,.96);color:#3c3c40;border-radius:6px;box-shadow:0 2px 14px rgba(0,0,0,.2);font-size:13px;z-index:4}
 .leg-h{all:unset;box-sizing:border-box;display:flex;align-items:baseline;width:100%;gap:8px;padding:8px 12px;cursor:pointer;font:600 11px ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em;color:#18181a;position:sticky;top:0;background:rgba(251,251,250,.98)}
@@ -118,25 +131,98 @@ main{margin-top:14px!important;margin-bottom:6px!important}h1{font-size:18px!imp
 .note p{margin:0 0 8px}
 @media (max-width:760px){.readout{grid-template-columns:1fr}.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:640px){.stage{--bbh:92px}.bbar{flex-wrap:wrap;padding:6px 8px;gap:6px}.bbar .track{order:5;flex-basis:100%}.year{font-size:22px;bottom:calc(var(--bbh) + 52px)}#view{height:max(520px,calc(100svh - 70px))}.yd{left:6px;width:calc(100% - 12px)}.legend{left:10px;right:10px;width:auto}.drop{left:10px;width:auto}.tbar .ss{display:none}}
+/* ---- docked layout (design-tool pattern): left layers, centre map, right inspector, bottom timeline ---- */
+body.app{height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;margin:0;font-size:12.5px}
+.app .top{display:flex;align-items:center;gap:12px;padding:6px 12px;border-bottom:1px solid #d9d9dc;background:#fbfbfa;flex:none}
+.app .top h1{font-size:14px!important;margin:0;color:#18181a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.app .top .ss{font:10.5px ui-monospace,Consolas,monospace;color:#55555a;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap}
+.app .tools{margin-left:auto;display:flex;gap:6px;align-items:center}
+.tb{font:inherit;font-size:12.5px;padding:4px 10px;border:1px solid #c9c9cc;background:#fff;color:#18181a;border-radius:4px;cursor:pointer;white-space:nowrap}
+.tb[aria-expanded=true],.tb[aria-pressed=true]{background:#18181a;color:#fff;border-color:#18181a}
+.menu{position:relative}.pop{position:absolute;right:0;top:calc(100% + 6px);width:230px;background:#fff;border:1px solid #d9d9dc;border-radius:6px;box-shadow:0 6px 22px rgba(0,0,0,.18);padding:8px;z-index:20}.pop[hidden]{display:none}
+.app .pop.views{width:240px!important;left:auto;right:0}
+.pnote{font-size:11px;color:#77777c;margin-top:6px;line-height:1.35}.views .chk{margin-top:4px}
+.ph{font:10.5px ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em;color:#66666b;margin:2px 0 6px}.ph span{text-transform:none;letter-spacing:0;margin-left:4px}
+.app .work{flex:1;min-height:0;display:grid;grid-template-columns:auto minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr)}
+.dock{width:272px;min-height:0;overflow:auto;background:#f6f6f5;color:#2c2c30;display:flex;flex-direction:column}
+.dl{border-right:1px solid #d9d9dc}.dr{width:292px;border-left:1px solid #d9d9dc}
+.dock.collapsed{display:none}
+.tabs{position:sticky;top:0;z-index:2;display:flex;align-items:stretch;gap:2px;padding:0 6px;background:#efefed;border-bottom:1px solid #d9d9dc;flex:none}
+.tabs [role=tab]{all:unset;cursor:pointer;padding:8px 10px;font-size:12.5px;color:#55555a;border-bottom:2px solid transparent}
+.tabs [role=tab][aria-selected=true]{color:#18181a;font-weight:600;border-bottom-color:#18181a}
+.tabs .rail{all:unset;cursor:pointer;margin-left:auto;padding:6px 8px;color:#55555a;font-size:14px}.dr .tabs .rail{margin-left:0}.tabs .rail:hover{color:#18181a}
+.tabs .dh{padding:8px 4px;font-weight:600;color:#18181a}
+.pane{padding:10px}.pane[hidden]{display:none}
+.app .drop{position:static;width:auto;max-height:none;box-shadow:none;background:none;padding:10px;border-radius:0}
+.app .drop .cards{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+.app .card-o{padding:7px 9px!important;border-radius:5px;font-size:12px;gap:3px}.app .card-o b{font-size:12.5px}.app .card-o .q{font-size:11.5px;color:#55555a}
+.app #drop .card-o > :not(b):not(.q):not(.kind){display:none}
+.app .card-o[aria-pressed=true]{border:1px solid #18181a!important;box-shadow:inset 3px 0 0 #18181a}
+.app .kind{font-size:9.5px;padding:0 5px}
+.app .legend{position:static;width:auto;max-height:none;box-shadow:none;background:none;border-radius:0;overflow:visible;font-size:12px!important}
+.app .leg-h{position:static;background:none;padding:10px 10px 4px!important}
+.app .leg-b{padding:0 10px 10px}
+.sec{border-top:1px solid #d9d9dc;padding:0 0 10px}.sec-h{font:10.5px ui-monospace,Consolas,monospace;text-transform:uppercase;letter-spacing:.08em;color:#18181a;font-weight:600;padding:10px 10px 6px}
+.app .readout{display:block;padding:0 10px;min-height:0;border:0}
+.app .readout .tiles{grid-template-columns:1fr 1fr;margin-bottom:10px}.app .tile{padding:5px 7px;display:block}.app .tile b{font-size:13.5px}.app .tile span{font-size:11px}
+.app .evl li{font-size:12px}.app .evh{font-size:10px}
+.app .stage{position:relative;min-width:0;min-height:0;height:100%;overflow:hidden}
+.app .work>.dl{grid-column:1;grid-row:1}.app .work>.stage{grid-column:2;grid-row:1}.app .work>.dr{grid-column:3;grid-row:1}
+.app #view{height:100%!important;width:100%}
+.reopen{position:absolute;top:10px;z-index:4;font:inherit;font-size:12px;padding:5px 9px;border:1px solid #c9c9cc;background:rgba(255,255,255,.95);border-radius:4px;cursor:pointer}.reopen.l{left:10px}.reopen.r{right:10px}.reopen[hidden]{display:none}
+.app .timeline{flex:none;display:flex;align-items:center;gap:10px 14px;padding:6px 12px;border-top:1px solid #d9d9dc;background:#fbfbfa}
+.app .timeline .year{position:static;font:600 20px/1 ui-monospace,Consolas,monospace;background:none;padding:0;min-width:96px}.app .timeline .year small{font-size:10px}
+.app .timeline button{font:inherit;font-size:12.5px;padding:4px 10px;border:1px solid #c9c9cc;background:#fff;color:#18181a;border-radius:4px;cursor:pointer}
+.app .timeline .seg button[aria-pressed=true]{background:#18181a;color:#fff;border-color:#18181a}
+.app .timeline .track{flex:1 1 auto}
+.app .dock .story{position:static;width:auto;max-height:none;box-shadow:none;background:none;padding:0!important;font-size:12.5px!important;overflow:visible}
+.app .dock .story .st-x{display:none}.app .dock .story h2{font-size:14px}
+.st-intro p{margin:0 0 10px;line-height:1.5}.st-intro .primary,.app .story button:last-child{font:inherit;font-size:12.5px;padding:5px 12px;border-radius:4px;cursor:pointer;background:#18181a;color:#fff;border:1px solid #18181a}
+.app .story .st-b{position:sticky;bottom:-10px;background:#f6f6f5;padding:8px 0 2px}
+#about p{line-height:1.55;margin:0 0 10px}
+body.app.clean .dock,body.app.clean .reopen{display:none!important}
+.mtabs{display:none}
+@media (max-width:760px){
+  .app .top h1{font-size:12.5px!important}.app .top .ss{display:none}
+  .app .work{display:block;position:relative}.app .stage{height:100%}
+  .dock{position:absolute;left:0;right:0;bottom:0;width:auto!important;height:58%;z-index:10;border:0;border-top:1px solid #c9c9cc;box-shadow:0 -6px 20px rgba(0,0,0,.18);display:none}
+  .dock.open{display:flex}.dock.collapsed{display:none}.tabs .rail{display:none}
+  .dl .tabs{display:none}
+  .app .timeline{flex-wrap:wrap;gap:6px 8px;padding:6px 8px}.app .timeline .track{order:5;flex-basis:100%}.app .timeline .year{min-width:70px;font-size:16px}
+  .mtabs{display:flex;flex:none;border-top:1px solid #d9d9dc;background:#efefed}
+  .mtabs button{all:unset;flex:1;text-align:center;padding:9px 0;font-size:12.5px;color:#55555a;cursor:pointer}.mtabs button[aria-pressed=true]{color:#18181a;font-weight:600;box-shadow:inset 0 2px 0 #18181a}
+  .reopen{display:none!important}
+}
 </style>
 </head>
-<body>
-<main>
-<h1>The Central Valley in 3D, before 1900 to 2025</h1>
-<p class="sub">Land cover year by year on the real terrain, from the Coast Range to the Sierra Nevada. The valley floor follows the USGS CVHM2 land-use record (1874 to 2019) and, where land stayed native, the vegetation of the pre-1900 historic map. Dams, canals and the events of the project chronology appear on their dates.</p>
-<div class="card">
-  <div class="stage"><canvas id="view" aria-label="A 3D model of California's Central Valley and the mountains around it, coloured by land cover for the chosen year and season."></canvas>
-  <div class="loading" id="loading">Loading terrain and land cover…</div>
-  <div class="tbar"><span class="ss" id="seasonTag">Summer (August)</span><button id="bViews" class="lbtn" aria-expanded="false" aria-controls="views">View ▾</button><button id="bAbout" class="lbtn" aria-expanded="false" aria-controls="about">About</button><button id="bClean" class="lbtn eye" aria-pressed="false" title="Hide the text panels and labels (key H)">Hide text</button><button id="bLayers" class="lbtn" aria-expanded="false" aria-controls="drop">Layer: <b id="layerName">Just the land</b> ▾</button></div>
-  <div class="drop" id="drop" hidden>
-    <div class="ovl-h">What to show over the land <span>one at a time</span></div>
-    <div class="cards">
+<body class="app">
+<header class="top">
+  <h1>The Central Valley in 3D, before 1900 to 2025</h1>
+  <span class="ss" id="seasonTag">Summer (August)</span>
+  <div class="tools">
+    <div class="menu"><button id="bViews" class="tb" aria-expanded="false" aria-controls="views">View ▾</button>
+      <div class="pop views" id="views" hidden><div class="ph">Go to</div><div class="vlist"><button data-view="all">Whole valley</button><button data-view="sac">Sacramento</button><button data-view="delta">Delta</button><button data-view="sj">San Joaquin</button><button data-view="tulare">Tulare</button></div>
+    <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label><label class="chk"><input type="checkbox" id="bRoads"> Major roads, 2023</label><div class="pnote">Roads are today's network (Census TIGER 2023), shown in every year when on, at true ground width: the road, its corridor, and for freeways the road-effect zone.</div></div></div>
+    <button id="bTour" class="tb" title="Start the guided walkthrough from the beginning">Walkthrough</button>
+    <button id="bClean" class="tb" aria-pressed="false" title="Show the map alone (Ctrl+\)">Map only</button>
+  </div>
+</header>
+<div class="work">
+  <aside class="dock dl" id="dockL" aria-label="Layers, story and about">
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="layers" aria-selected="true">Layers</button><button role="tab" data-tab="story" aria-selected="false">Story</button><button role="tab" data-tab="about" aria-selected="false">About</button>
+      <button class="rail" data-collapse="dockL" title="Collapse this panel" aria-label="Collapse the left panel">«</button>
+    </div>
+    <div class="pane" data-pane="layers" id="drop">
+      <div class="ph">What to show over the land <span>one at a time</span></div>
+      <div class="cards">
       <button class="card-o" data-ov="none"><b>Just the land</b><span class="kind k-p">Mapped</span><span class="q">Land cover for the year on the slider</span><span class="src">CVHM2 land use · pre-1900 historic map · NLCD · areas and dams from the page data (record 2026-11-16_valley-3d-page)</span></button>
       <div class="card-o" data-ov="rivers" role="button" tabindex="0"><b>Rivers below the dams</b><span class="kind k-m">Measured</span><span class="q">How much of each river still flows past its dam</span><span class="dots"><i style="background:#e6e6e3;border:1px solid #bbb"></i>natural flow <i style="background:#2171b5"></i>measured below the dam</span><span class="src">CDEC and USGS · by decade</span></div>
       <div class="card-o" data-ov="wells" role="button" tabindex="0"><b>Water under the floor</b><span class="kind k-m">Measured</span><span class="q">How deep the water table was in each well</span><span class="dots"><i style="background:#053061"></i>flowing <i style="background:#2166ac"></i>within 3 m <i style="background:#92c5de"></i>3 to 7.6 m <i style="background:#d6604d"></i>deeper</span><span class="sub"><button data-ws="then">1905-14</button><button data-ws="now">Today</button></span><span class="src">USGS 1905-14 · DWR 2015-2024</span></div>
       <div class="card-o" data-ov="wetland" role="button" tabindex="0"><b>Wet land, then and now</b><span class="kind k-p">Mapped</span><span class="q">Where the floor was wet before 1900, and where it is still wet in the year on the slider</span><span class="dots"><i style="background:#9ecae1"></i>wet before 1900, now gone <i style="background:#08519c"></i>still wet <i style="background:#cfcfcf"></i>rest of the floor</span><span class="src">Pre-1900 historic map · CVHM2 · wet layers v3</span><span class="nod" data-nod="wetland"></span></div>
       <div class="card-o" data-ov="fog" role="button" tabindex="0"><b>Fog and the cold layer before storms</b><span class="kind k-m">Measured</span><span class="q">Floor weather stations and hill-floor station pairs: the air before storms that follow a dry spell</span><span class="dots"><i style="background:#5b6f8c"></i>floor airport (fog, cloud ceiling) <i style="background:#1e1e22;border-radius:1px;width:16px;height:3px;margin-right:-2px"></i>hill and floor station pair</span><span class="src">ISD airports · GHCN stations · 1980-99 against 2000-22</span><span class="nod" data-nod="fog"></span></div>
       <div class="card-o" data-ov="stations" role="button" tabindex="0"><b>Less rain from the same vapour</b><span class="kind k-m">Measured</span><span class="q">Stations where rain per unit of incoming vapour dropped</span><span class="dots"><i style="background:#b2182b"></i>after the drop <i style="background:#9a9a9a"></i>before</span><span class="src">29 of 137 stations · record 2026-10-23_a7-event-transients-full-86yr</span></div>
+      <div class="card-o" data-ov="corridor" role="button" tabindex="0"><b>Coast to crest: one corridor</b><span class="kind k-m">Measured</span><span class="q">One 400 km track from the ocean to Reno: where rain per unit of ocean vapour fell, and how the air after rain changed by height</span><span class="ramp" style="background:linear-gradient(90deg,#543005,#bf812d,#f5f5f5,#5ab4ac,#01665e)"></span><span class="dots"><i style="background:#2c7fb8"></i>sea <i style="background:#1e1e22"></i>coast edge <i style="background:#77777c"></i>gap <i style="background:#e66101"></i>floor <i style="background:#1b7837"></i>slope <i style="background:#34495e"></i>east</span><span class="src">PRISM daily · ERA5 · NOAA ISD hourly · NDBC buoy 46026 · records 2026-11-17_corridor-a-d, corridor-b-c, corridor-full-ladder</span></div>
       <div class="card-o" data-ov="upslope" role="button" tabindex="0"><b>Rain by height: floor against the Sierra slope</b><span class="kind k-m">Measured</span><span class="q">Rain stations on the floor and up the Sierra side, by height band</span><span class="dots"><i style="background:#8c510a"></i>floor <i style="background:#dfc27d"></i>foothills, under 1,000 m <i style="background:#80cdc1"></i>1,000 to 1,500 m <i style="background:#01665e"></i>above 1,500 m</span><span class="src">GHCN rain gauges · ERA5 storm classes · 1980-99 against 2000-22</span><span class="nod" data-nod="upslope"></span></div>
       <div class="card-o" data-ov="evap" role="button" tabindex="0"><b>Summer evaporation (June-September)</b><span class="kind k-e">Today measured · then estimated</span><span class="q">How much water the floor gave back to the air in summer</span><span class="ramp" style="background:linear-gradient(90deg,#f7fcf5,#c7e9c0,#74c476,#238b45,#00441b)"></span><span class="rl"><i>0 mm</i><i>500 mm in the season</i></span><span class="sub"><button data-es="now">Today (satellite)</button><button data-es="then">Pre-1900 land (estimate)</button></span><span class="src">Today: SSEBop satellite · then: class rates of the pre-1900 vegetation</span><span class="nod" data-nod="evap"></span></div>
       <button class="card-o" data-ov="rain"><b>Rain</b><span class="kind k-m">Measured, gridded</span><span class="q">Where rain fell in the water year shown</span><span class="ramp" style="background:linear-gradient(90deg,#f7fbff,#c6dbef,#6baed6,#2171b5,#08306b)"></span><span class="rl"><i>100 mm</i><i>2,000 mm</i></span><span class="src">PRISM · 1896 to 2025</span><span class="nod" data-nod="rain"></span></button>
@@ -144,30 +230,57 @@ main{margin-top:14px!important;margin-bottom:6px!important}h1{font-size:18px!imp
       <div class="card-o" data-ov="towers" role="button" tabindex="0"><b>Where water is returned: Delta towers</b><span class="kind k-m">Measured</span><span class="q">Air over rewetted Delta land against drained farmland nearby, same days</span><span class="dots"><i style="background:#2166ac"></i>rewetted (marsh, rice) <i style="background:#c49a5a"></i>drained farmland</span><span class="src">AmeriFlux towers · record 2026-11-16_m9-towers-rewetted-air</span><span class="nod" data-nod="towers"></span></div>
       <div class="card-o" data-ov="cloud" role="button" tabindex="0"><b>Cloud base, model, one winter: pre-1900 land against today</b><span class="kind k-x">Model</span><span class="q">How high cloud formed in storms over the old land and over today's land, same weather</span><span class="src">WRF, winter 2013-14, three members · no map</span><span class="nod" data-nod="cloud"></span></div>
     </div>
+    </div>
+    <div class="pane" data-pane="story" id="paneStory" hidden>
+      <div class="st-intro" id="stIntro"><p>Twenty-one chapters: the valley before 1900 and what changed, the chain of measured links from rivers held back to the rewetted Delta, one corridor from the coast to the crest, then context, one model and one open question. Each chapter carries a tag: measured, mapped, model or open.</p><button id="bStory" class="primary">Start the story</button></div>
+    </div>
+    <div class="pane" data-pane="about" id="about" hidden>
+      <div class="ph">About this page</div>
+<p><b>What the colours rest on.</b> Valley floor: one USGS CVHM2 land-use class per 1-mile model cell for each year from 1874 to 2019, grouped as in the project's era plates (water, groundwater-fed native, dry native, rice, orchard and vine, field crops, pasture, idle, irrigated unspecified, urban). Where a cell is native, the colour follows the pre-1900 historic vegetation map (Central Valley Historic Mapping Project, Geographical Information Center, CSU Chico; obtained from Data Basin, Conservation Biology Institute) at 300 m: tule marsh, riparian forest, valley oak, grassland, alkali scrub, floodplain. Before 1874 every floor cell is shown as the pre-1900 map. After 2019 the floor stays at 2019. Hills and the land outside the CVHM2 cells: USGS Annual NLCD 2025 at 300 m.</p>
+<p><b>What is estimated.</b> A native cell that the pre-1900 map shows as marsh, lake, riparian or floodplain, but that CVHM2 no longer calls groundwater-fed, is drawn as drained native land (dry grass). NLCD 2025 is projected back in time for the hills: reservoirs appear only from the year their dam was built (GDW reservoir outlines; Lake Tahoe, a natural lake held by a dam, stays water); towns and farms outside the floor are shown as grassland or oak savanna before rough start years (dense urban 1900, medium 1940, low 1960, open developed 1980, farmland 1880). Mountains and hills change with three dated records: forest stand age (Pan et al. 2011, 1 km, about 2006) gives the year each stand last established, so the stand is drawn as older forest before that year, cleared for five years, then regrowing; Hansen forest loss (2001 to 2023) draws forest before the loss year, a burnt or cut scar for four years, then the 2025 cover returning; and Annual NLCD gives the first year (1990 to 2025) each town pixel was developed. Stand age is read as time since the last stand-replacing disturbance (logging or fire), which is an estimate. Fires come from the CAL FIRE perimeters (20,802 fires, 1878 to 2025, simplified to about 50 m): a burnt pixel shows a scar for the fire year and the next two (one year on grass), then regrowth over twelve years; up to the four most recent fires per pixel are kept. Perimeter records before about 1950 are incomplete. Field patterns, season colours and snow (above about 1,800 m in winter) are drawn to look like the land, not measured. Terrain: Copernicus GLO-90, drawn 4 times higher than real.</p>
+<p><b>Kinds of layer.</b> Each layer says what it is: measured, mapped, estimated or model. Numbers on the page are copied from the project's test records, which each card and chapter names.</p>
+<div class="ph">Where the change is, and where it is not</div>
+<p>A change caused by the land sits on the low ground that was changed and is absent at the sea, on the slope above the valley and in the air aloft; a change of the weather shows at all of them. Each row: what each reading predicts, then what was measured (95 % ranges unless stated).</p>
+<div class="fp"><b>Afternoon warming per day since rain, change 1982-99 to 2000-22</b><i>Land: rises on the low ground only. Weather: rises everywhere.</i><div>Low ground: coast edge +0.200 K a day (+0.056 to +0.354), gap +0.340 (+0.153 to +0.517), floor +0.308 (+0.130 to +0.486).</div><div>Slope and sea: Blue Canyon +0.095 (−0.164 to +0.360); buoy air +0.031 (−0.060 to +0.132).</div><small>2026-11-17_corridor-full-ladder</small></div>
+<div class="fp"><b>Fog hours, growth per day since rain</b><i>Land: falls on the low ground. Weather: the same everywhere.</i><div>Low ground: gap −0.239 (−0.380 to −0.107), floor −0.220 (−0.401 to −0.044).</div><div>Elsewhere: coast edge −0.010 (−0.048 to +0.026); Reno −0.002 (−0.048 to +0.050); Blue Canyon −0.145 (−0.296 to −0.009).</div><small>2026-11-17_corridor-full-ladder; air-quality controls and the airport sensor change are not ruled out</small></div>
+<div class="fp"><b>Air after rain, February-March, T − Td in the first 1-5 days</b><i>Land: the floor dries, the coast does not. Weather: both change.</i><div>Floor +1.86 K (+0.92 to +3.03), median over 10 floor airports; coast −0.13 K (−0.53 to +0.86).</div><small>2026-11-16_m2-air-memory-after-rain</small></div>
+<div class="fp"><b>Warming at the corridor entry, Oakland soundings, afternoon</b><i>Land: the surface more than the air aloft, no rise of dew point. Weather: the whole lowest layer, with its dew point.</i><div>Surface +0.86 K (+0.37 to +1.36), dew point −0.49 (−1.69 to +0.56); 850 hPa +0.39 K (−0.28 to +1.06).</div><small>2026-11-17_coast-entry-oakland-soundings</small></div>
+<div class="fp"><b>Moisture the floor adds to air from the gap</b><i>Land: reverses. Weather: no change.</i><div>Floor minus gap afternoon dew point +0.33 K in 1982-99, −0.38 K in 2000-22, change −0.72 (−1.26 to −0.18).</div><small>2026-11-17_corridor-b-c-lowest-air-and-drying</small></div>
+<div class="fp"><b>Sea</b><i>Land: no change. Weather: may change.</i><div>Buoy 46026 air +0.22 K (−0.22 to +0.64), water +0.19 (−0.26 to +0.69).</div><small>2026-11-17_corridor-b-c-lowest-air-and-drying</small></div>
+<div class="fp"><b>Vapour supply</b><i>Land: no change. Weather: changes.</i><div>Mean flux in each third of storm strength, 1980-99 and 2000-22: 275 and 276, 346 and 348, 521 and 522 kg/m/s. Offshore inflow on corridor inflow days 249.8 to 237.6 kg/m/s, change −12.3 (−27.8 to +3.2).</div><small>2026-11-17_forcing-strength-split; 2026-11-17_corridor-a-d-conversion-and-frequency</small></div>
+<div class="fp"><b>Stability aloft (700 to 500 hPa) on blocked storms</b><i>Land: no change. Weather: more stable.</i><div>+0.037 K per km (−0.113 to +0.180).</div><small>2026-11-17_stability-aloft-rival</small></div>
+<div class="fp"><b>Rain per unit vapour at fixed direction</b><i>Land: falls on the floor. Weather: falls only if supply or the air aloft changed.</i><div>Floor −21.7 % (90 % range −31.1 to −8.9), lower at 22 of 22 stations; blocked storms with stability aloft also held −25.8 % (−35.0 to −8.0).</div><small>2026-11-14_test2c; 2026-11-17_stability-aloft-rival. Stations share storms, so the station count is not turned into odds.</small></div>
+<div class="fp"><b>Land changed alone, model, same weather</b><i>Land: moister air and a lower cloud base over the old land.</i><div>Cloud base 121.2 m lower than over today's land (53.9 to 183.1), 75.5 m lower than over today's land with winter water (46.2 to 115.9), on the same 246 storm hours.</div><small>2026-11-17_a29-same-hours-and-delivery-read</small></div>
+<div class="ph">Tested, not readable with one-day station readings</div>
+<p>Splits that sort storms or days by one reading on one day: long-resident against ventilated floor air −6.8 points (−24.3 to +12.1; 2026-11-17_floor-air-residence-split); weakest against strongest third of storm strength −7.1 points (−23.6 to +9.1; 2026-11-17_forcing-strength-split); driest against moistest air two afternoons before an inflow day −2.5 points (−12.6 to +7.2; 2026-11-17_before-the-storm-onset). Each range covers zero. Not measured yet: the size of the land's share of the rain loss after 1980.</p>
+    </div>
+  </aside>
+  <div class="stage">
+    <canvas id="view" aria-label="A 3D model of California's Central Valley and the mountains around it, coloured by land cover for the chosen year and season."></canvas>
+    <div class="loading" id="loading">Loading terrain and land cover…</div>
+    <div class="tip" id="tip" hidden></div>
+    <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle" hidden><div class="wbox">
+      <h2 id="wTitle">California's Central Valley, before 1900 to 2025</h2>
+      <p>A walkthrough of what changed on the valley floor and what the measurements show about its air and rain, on real terrain. It leads chapter by chapter; at the end the map is yours to explore with all its layers.</p>
+      <ol><li>The valley and what changed <span>(4 chapters)</span></li><li>The chain, link by link <span>(8)</span></li><li>Coast to crest: one corridor <span>(4)</span></li><li>Context, one model, one open question <span>(5)</span></li></ol>
+      <div class="wb"><button class="primary" id="wStart">Start the walkthrough</button><button id="wSkip">Explore the map on my own</button></div>
+    </div></div>
+    <div class="hint" id="hint" hidden></div>
+    <button class="reopen l" data-expand="dockL" hidden>Layers ›</button><button class="reopen r" data-expand="dockR" hidden>‹ Inspector</button>
   </div>
-
-  <div class="legend" id="legend"><button class="leg-h" id="legToggle" aria-expanded="true" aria-controls="legBody">Legend <span id="legName"></span><i id="legArrow">▾</i></button><div class="leg-b" id="legBody"></div></div>
-  <div class="tip" id="tip" hidden></div>
-  <div class="drop views" id="views" hidden>
-    <div class="ovl-h">Go to</div>
-    <div class="vlist"><button data-view="all">Whole valley</button><button data-view="sac">Sacramento</button><button data-view="delta">Delta</button><button data-view="sj">San Joaquin</button><button data-view="tulare">Tulare</button></div>
-    <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label>
-  </div>
-<div class="about" id="about" role="dialog" aria-modal="false" aria-labelledby="aboutH" hidden><div class="ab-h"><b id="aboutH">About this page</b><button id="aboutX" aria-label="Close">×</button></div>
-  <p><b>What the colours rest on.</b> Valley floor: one USGS CVHM2 land-use class per 1-mile model cell for each year from 1874 to 2019, grouped as in the project's era plates (water, groundwater-fed native, dry native, rice, orchard and vine, field crops, pasture, idle, irrigated unspecified, urban). Where a cell is native, the colour follows the pre-1900 historic vegetation map (Central Valley Historic Mapping Project, Geographical Information Center, CSU Chico; obtained from Data Basin, Conservation Biology Institute) at 300 m: tule marsh, riparian forest, valley oak, grassland, alkali scrub, floodplain. Before 1874 every floor cell is shown as the pre-1900 map. After 2019 the floor stays at 2019. Hills and the land outside the CVHM2 cells: USGS Annual NLCD 2025 at 300 m.</p>
-  <p><b>What is estimated.</b> A native cell that the pre-1900 map shows as marsh, lake, riparian or floodplain, but that CVHM2 no longer calls groundwater-fed, is drawn as drained native land (dry grass). NLCD 2025 is projected back in time for the hills: reservoirs appear only from the year their dam was built (GDW reservoir outlines; Lake Tahoe, a natural lake held by a dam, stays water); towns and farms outside the floor are shown as grassland or oak savanna before rough start years (dense urban 1900, medium 1940, low 1960, open developed 1980, farmland 1880). Mountains and hills change with three dated records: forest stand age (Pan et al. 2011, 1 km, about 2006) gives the year each stand last established, so the stand is drawn as older forest before that year, cleared for five years, then regrowing; Hansen forest loss (2001 to 2023) draws forest before the loss year, a burnt or cut scar for four years, then the 2025 cover returning; and Annual NLCD gives the first year (1990 to 2025) each town pixel was developed. Stand age is read as time since the last stand-replacing disturbance (logging or fire), which is an estimate. Fires come from the CAL FIRE perimeters (20,802 fires, 1878 to 2025, simplified to about 50 m): a burnt pixel shows a scar for the fire year and the next two (one year on grass), then regrowth over twelve years; up to the four most recent fires per pixel are kept. Perimeter records before about 1950 are incomplete. Field patterns, season colours and snow (above about 1,800 m in winter) are drawn to look like the land, not measured. Terrain: Copernicus GLO-90, drawn 4 times higher than real.</p>
-<p><b>Kinds of layer.</b> Each layer says what it is: measured, mapped, estimated or model. Numbers on the page are copied from the project's test records, which each card and chapter names.</p></div>
-  <div class="yd" id="yd" hidden><div class="readout" id="readout"></div></div>
-  <div class="bbar">
-    <button id="bStory" class="primary">Tell the story</button><button id="play" aria-pressed="false">Play</button>
-    <div class="track" id="track"><input id="slider" type="range" min="1850" max="2025" step="1" value="1850" aria-label="Year"></div>
-    <div class="seg" role="group" aria-label="Season"><button id="sWin" aria-pressed="false">Winter</button><button id="sSum" aria-pressed="true">Summer</button></div>
-    <button id="bYear" aria-expanded="false" aria-controls="yd">Year details ▴</button>
-  </div>
-  <div class="year" id="yearBig">1850<small id="yearSrc">pre-1900 map</small></div></div>
+  <aside class="dock dr" id="dockR" aria-label="Inspector">
+    <div class="tabs"><button class="rail" data-collapse="dockR" title="Collapse this panel" aria-label="Collapse the right panel">»</button><span class="dh">Inspector</span></div>
+    <div class="legend" id="legend"><button class="leg-h" id="legToggle" aria-expanded="true" aria-controls="legBody">Layer <span id="legName"></span><i id="legArrow">▾</i></button><div class="leg-b" id="legBody"></div></div>
+    <section class="sec"><div class="sec-h">This year</div><div class="readout" id="readout"></div></section>
+  </aside>
 </div>
-
-</main>
+<footer class="timeline">
+  <div class="year" id="yearBig">pre-1900<small id="yearSrc">historic map</small></div>
+  <button id="play" aria-pressed="false">Play</button>
+  <div class="track" id="track"><input id="slider" type="range" min="1850" max="2025" step="1" value="1850" aria-label="Year"></div>
+  <div class="seg" role="group" aria-label="Season"><button id="sWin" aria-pressed="false">Winter</button><button id="sSum" aria-pressed="true">Summer</button></div>
+</footer>
+<nav class="mtabs" aria-label="Panels"><button data-sheet="layers">Layers</button><button data-sheet="story">Story</button><button data-sheet="inspector">Inspector</button><button data-sheet="about">About</button></nav>
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script type="module">
 import * as THREE from "three";
@@ -405,6 +518,8 @@ function paint(year, s) {
 let regionsOn = true, REGIONS_DRAW = [];
 const RIVJ = await fetch("data/rivers.json").then((r) => r.json()).catch(() => ({ lines: [] }));
 const RIVP = [new Path2D(), new Path2D(), new Path2D()];
+const ROADJ = await fetch("data/roads.json").then((r) => r.json()).catch(() => ({ lines: [] }));
+let roadsOn = false;
 for (const l of RIVJ.lines) l.px.forEach(([px, py], k) => (k ? RIVP[l.r].lineTo(px * SC, py * SC) : RIVP[l.r].moveTo(px * SC, py * SC)));
 
 // ---------------------------------------------------------------- scene
@@ -560,7 +675,7 @@ const VIEWS = {
 };
 let goal = null;
 function view(key) {
-  const v = VIEWS[key], t = toWorld(v.t[0], v.t[1]);
+  const v = VIEWS[key] || VIEWS.all, t = toWorld(v.t[0], v.t[1]);
   const fit = Math.min(1.8, Math.max(1, 1.7 / Math.max(0.3, camera.aspect)));   // narrow screens step back so more of the area fits
   scene.fog.near = 700 * fit; scene.fog.far = 1500 * fit; controls.maxDistance = 1600 * fit;
   goal = { t, c: new THREE.Vector3(t.x + Math.sin(v.a) * v.d * fit * 0.7, v.d * fit * 0.62, t.z + Math.cos(v.a) * v.d * fit * 0.7) };
@@ -579,17 +694,20 @@ const SYMBOLS = `<div class="sym">
   <div><span class="ln" style="border-top:3px solid #1f6fb8;box-shadow:0 0 0 1px rgba(255,255,255,.6)"></span>River (today's channel, NHD)</div>
   <div><span class="ln" style="border-top:1px solid rgba(40,110,180,.85)"></span>Creek or slough</div>
   <div><span class="ln" style="border-top:2px dashed #0d3a66"></span>Canal, shown from the year it was built</div>
+  <div><span class="ln" style="border-top:3px solid #5b2c83"></span>Freeway, 2023: road 39.6 m, corridor 51.8 m (pale), effect zone about 600 m (faint purple)</div>
+  <div><span class="ln" style="border-top:2px solid #9a73c4"></span>US or state road, 2023: road 12.2 m, corridor 19.5 m; no sourced effect zone</div>
+  <div class="pnote" style="margin:0">Road and corridor from the Caltrans Highway Design Manual (lanes, shoulders, median, clear recovery zone), drawn as a rural four-lane freeway and a two-lane highway; effect zone from Forman and Deblinger (2000). Today's roads, switched on in the View menu.</div>
   <div><span class="ln" style="border-top:3px solid #1e1e22"></span>Edge of the valley floor</div>
   <div><span class="ln" style="border-top:2px dashed #1e1e22"></span>Region boundary (Sacramento, Delta, San Joaquin, Tulare)</div>
   <div><span class="sw" style="background:#d55e00;border-radius:50%;width:12px;height:12px"></span>Event on the timeline: year and what happened (point at a pin for the full text)</div>
 </div>`;
-let legOpen = matchMedia("(max-width:640px)").matches ? false : true, moreOpen = false;
+let legOpen = true, moreOpen = false;   // the inspector shows the layer section open; it folds on click
 function layerLine() { try { return (typeof caseLine === "function" ? caseLine() : "") + heatLine() + rainLine() + cloudLine(); } catch (e) { return ""; } }
 function renderLegend() {
   let ov = "none"; try { ov = overlay; } catch (e) { /* panel not built yet */ }
   const card = document.querySelector(`.card-o[data-ov="${ov}"]`);
   const title = card ? card.querySelector("b").textContent : "Just the land";
-  $("layerName").textContent = title; $("legName").textContent = ov === "none" ? "land cover" : title;
+  $("legName").textContent = ov === "none" ? "land cover" : title;
   let h = "";
   if (card && ov !== "none") h += `<div class="lg-t">${title}</div><p class="lg-q">${card.querySelector(".q").textContent}</p>` + [...card.children].filter((e) => !e.matches("b, .q, .src")).map((e) => e.outerHTML).join("") + `<details class="more" ${moreOpen ? "open" : ""}><summary>Numbers and sources</summary>${layerLine()}${card.querySelector(".src") ? card.querySelector(".src").outerHTML : ""}</details>`;
   h += `<details ${ov === "none" ? "open" : ""}><summary>Land colours (${season ? "summer" : "winter"})</summary><div class="key">${keyHtml}</div></details><details ${ov === "none" ? "open" : ""}><summary>Lines and markers</summary>${SYMBOLS}</details>`;
@@ -603,10 +721,10 @@ function renderLegend() {
 }
 $("legToggle").addEventListener("click", () => { legOpen = !legOpen; renderLegend(); });
 let clean = false;
-function setClean(v) { clean = v; document.querySelector(".stage").classList.toggle("clean", v); $("bClean").setAttribute("aria-pressed", String(v)); $("bClean").textContent = v ? "Show text" : "Hide text";
+function setClean(v) { clean = v; document.body.classList.toggle("clean", v); $("bClean").setAttribute("aria-pressed", String(v)); requestAnimationFrame(resize);
   for (const sp of pinLabels) sp.visible = !v; for (const sp of regionGroup.children) if (sp.isSprite) sp.visible = !v; dirty = true; }
 $("bClean").addEventListener("click", () => setClean(!clean));
-addEventListener("keydown", (e) => { if ((e.key === "h" || e.key === "H") && !e.target.closest("input, textarea")) setClean(!clean); });
+addEventListener("keydown", (e) => { if (((e.key === "h" || e.key === "H") && !e.ctrlKey && !e.target.closest("input, textarea")) || (e.ctrlKey && e.key === "\\")) { e.preventDefault(); setClean(!clean); } });
 
 // ---------------------------------------------------------------- timeline
 const slider = $("slider"), track = $("track"), Y0 = 1850, Y1 = 2025;
@@ -631,7 +749,6 @@ function readout() {
   const evHtml = evAll.length ? `<ul class="evl${evOpen ? "" : " collapsed"}">${evAll.slice().reverse().map((e) => `<li><span class="yr">${e.year}${e.end && e.end !== e.year ? "–" + e.end : ""}</span><span>${e.text}${e.place ? ` <span class="pl">· ${e.place}</span>` : ""}</span></li>`).join("")}</ul>${evAll.length > 2 ? `<button class="evmore" id="evMore">${evOpen ? "Show fewer" : `Show all ${evAll.length}`}</button>` : ""}` : `<div class="evnone">No dated step in the project chronology around ${year}.</div>`;
   $("readout").innerHTML = `<div><div class="evh"><span>The floor in ${year}</span></div><div class="tiles">${tiles}</div></div><div><div class="evh"><span>Steps around ${year}</span><span>project chronology</span></div>${evHtml}</div>`;
   if ($("evMore")) $("evMore").onclick = () => { evOpen = !evOpen; readout(); };
-  $("bYear").innerHTML = `${pre ? "Pre-1900" : year} details${evAll.length ? `<span>${evAll.length}</span>` : ""} ${$("yd").hidden ? "▴" : "▾"}`;
   const stack = {};
   for (const g of pinGroup.children) {
     const e = g.userData; g.visible = e.year <= year && year <= Math.max(e.end || e.year, e.year + 4);
@@ -645,12 +762,50 @@ function setYear(y) { year = Math.max(Y0, Math.min(Y1, y)); slider.value = Strin
 slider.addEventListener("input", () => setYear(+slider.value));
 $("play").addEventListener("click", () => { playing = !playing; $("play").textContent = playing ? "Pause" : "Play"; $("play").setAttribute("aria-pressed", String(playing)); if (playing && year >= Y1) setYear(Y0); });
 const setSeason = (s) => { season = s; $("sWin").setAttribute("aria-pressed", String(!s)); $("sSum").setAttribute("aria-pressed", String(!!s)); $("seasonTag").textContent = s ? "Summer (August)" : "Winter (February)"; scene.background.set(s ? "#dfe6ea" : "#d9dfe4"); drawKey(s); dirty = true; };
+// roads as bands on the terrain at true ground width (world units are km). Widths from the Caltrans Highway Design Manual, ch. 300 (2020):
+//   road: lanes 12 ft (301.1); paved shoulders 10 ft right and 5 ft left on a 4-lane freeway (Table 302.1), 8 ft on a two-lane road over 400 ADT (Table 307.2);
+//         rural freeway median 62 ft between inside lane edges (305.1). Freeway 48 + 62 + 2x10 = 130 ft (39.6 m); two-lane 24 + 2x8 = 40 ft (12.2 m).
+//   corridor: clear recovery zone from the lane edge, 30 ft freeways, 20 ft conventional highways (309.1(2)). Freeway 48 + 62 + 2x30 = 170 ft (51.8 m); two-lane 24 + 2x20 = 64 ft (19.5 m).
+//   effect zone: freeways only, about 600 m wide (Forman and Deblinger 2000, Conservation Biology 14: 36-46, a busy four-lane highway near Boston). No sourced width for smaller roads.
+// TIGER S1100 (primary) is drawn as a rural 4-lane freeway and S1200 (secondary) as a two-lane highway: an assumption, stated in the legend.
+const BANDS = [
+  { w: { 2: 0.600 }, col: { 2: "#6a3d9a" }, op: 0.22, off: -2, order: 2 },
+  { w: { 2: 0.0518, 1: 0.0195 }, col: { 2: "#d9c9b0", 1: "#d9c9b0" }, op: 0.9, off: -4, order: 3 },
+  { w: { 2: 0.0396, 1: 0.0122 }, col: { 2: "#5b2c83", 1: "#9a73c4" }, op: 1, off: -6, order: 4 },
+];
+let roadMeshes = null;
+function buildRoads() {
+  const lines = ROADJ.lines.map((l) => {
+    const pts = [];
+    for (let k = 0; k < l.px.length; k++) {   // densify to about 0.3 km so the band follows the 1 km terrain
+      const [x1, y1] = l.px[k]; if (k) { const [x0, y0] = l.px[k - 1], d = Math.hypot(x1 - x0, y1 - y0), n = Math.ceil(d); for (let j = 1; j < n; j++) pts.push(toWorld(x0 + ((x1 - x0) * j) / n, y0 + ((y1 - y0) * j) / n, 0.02)); }
+      pts.push(toWorld(x1, y1, 0.02));
+    }
+    return { r: l.r, pts };
+  });
+  roadMeshes = BANDS.map((B) => {
+    const pos = [], col = [], idx = [];
+    for (const { r, pts } of lines) {
+      if (!B.w[r]) continue; const hw = B.w[r] / 2, c = hex(B.col[r]).map((v) => (v / 255) ** 2.2);
+      for (let k = 0; k < pts.length; k++) {
+        const p = pts[k], q = pts[Math.min(pts.length - 1, k + 1)], o = pts[Math.max(0, k - 1)];
+        let dx = q.x - o.x, dz = q.z - o.z; const L = Math.hypot(dx, dz) || 1; dx /= L; dz /= L;
+        const base = pos.length / 3; pos.push(p.x - dz * hw, p.y, p.z + dx * hw, p.x + dz * hw, p.y, p.z - dx * hw); col.push(...c, ...c);
+        if (k) idx.push(base - 2, base, base - 1, base - 1, base, base + 1);
+      }
+    }
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); g.setIndex(idx);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide, transparent: B.op < 1, opacity: B.op, depthWrite: B.op === 1, polygonOffset: true, polygonOffsetFactor: B.off, polygonOffsetUnits: B.off,
+      stencilWrite: true, stencilRef: B.order, stencilFunc: THREE.NotEqualStencilFunc, stencilZPass: THREE.ReplaceStencilOp }));   // each band covers a pixel once, so overlapping zones do not stack
+    m.renderOrder = B.order; scene.add(m); return m;
+  });
+}
+$("bRoads").addEventListener("change", (e) => { roadsOn = e.target.checked; if (roadsOn && !roadMeshes) buildRoads(); if (roadMeshes) for (const m of roadMeshes) m.visible = roadsOn; });
 $("bReg").addEventListener("change", (e) => { regionGroup.visible = e.target.checked; regionsOn = e.target.checked; dirty = true; });
 $("sWin").addEventListener("click", () => setSeason(0)); $("sSum").addEventListener("click", () => setSeason(1));
 addEventListener("keydown", (e) => { if (e.target.tagName === "INPUT" && e.target !== slider) return; if (e.key === "ArrowRight") setYear(year + 1); if (e.key === "ArrowLeft") setYear(year - 1); });
 
 function resize() {
-  const bb = document.querySelector(".bbar"); if (bb) document.querySelector(".stage").style.setProperty("--bbh", bb.offsetHeight + "px");
   const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
   // labels keep the same share of the screen width on a phone as on a desktop
   const k = 0.00026 * Math.min(1, w / h / 1.7);
@@ -722,51 +877,64 @@ const NAT_KM2 = (t) => { let n = 0; for (let i = 0; i < N; i++) if (natOf[i] ===
 const stMedian = () => { const v = stations.map((s) => s.ch).sort((a, b) => a - b), n = v.length; return n ? (n % 2 ? v[(n - 1) / 2] : (v[n / 2 - 1] + v[n / 2]) / 2) : NaN; };
 const SRC_LAND = "Areas: CVHM2 land use by year; dams and storage: GDW, as stored in the page data (record 2026-11-16_valley-3d-page).";
 const CHAPTERS = [
-  { year: 1850, season: 0, view: "all", heat: "off", title: "Before 1900: a wet valley",
+  { year: 1850, season: 0, view: "all", heat: "off", tag: "p", title: "Before 1900: a wet valley",
     text: () => `Before farming, much of the valley floor was wet for part of the year. The pre-1900 historic map shows ${km(NAT_KM2(4))} of tule marsh, ${km(NAT_KM2(3))} of riparian forest, ${km(NAT_KM2(7))} of seasonally flooded floodplain and ${km(NAT_KM2(5))} of lakes and rivers (pixel areas of the map at 300 m). The blue in the south is Tulare Lake at its 1862 stage. This view is winter (February).` },
-  { year: 1930, season: 1, view: "delta", heat: "off", title: "1874 to 1930: drained, levelled, farmed",
+  { year: 1930, season: 1, view: "delta", heat: "off", tag: "p", title: "1874 to 1930: drained, levelled, farmed",
     text: () => `Levees and drains turned marsh into fields. Open water and groundwater-fed native land fell from ${km(wetOf(1874))} in 1874 to ${km(wetOf(1930))} in 1930, while farmed land grew from ${km(farmOf(1874))} to ${km(farmOf(1930))}. The patchwork of squares is farmland on the one-mile road grid. <span class="st-src">${SRC_LAND}</span>` },
-  { year: 1975, season: 1, view: "all", heat: "off", title: "1930 to 1975: dams and canals",
+  { year: 1975, season: 1, view: "all", heat: "off", tag: "p", title: "1930 to 1975: dams and canals",
     text: () => `Rivers were dammed in the mountains and moved across the valley in canals. By 1975, ${damsBy(1975).length} dams held ${Math.round(storeBy(1975)).toLocaleString("en-GB")} million m³ of water, against ${Math.round(storeBy(1930)).toLocaleString("en-GB")} million m³ in 1930. The new lakes appear in the hills in the year each dam was built. <span class="st-src">${SRC_LAND}</span>` },
-  { year: 2019, season: 1, view: "sj", heat: "off", title: "2019: a valley of fields and towns",
+  { year: 2019, season: 1, view: "sj", heat: "off", tag: "p", title: "2019: a valley of fields and towns",
     text: () => `By 2019 only ${km(wetOf(2019))} of open water and groundwater-fed native land was left on the floor, against ${km(wetOf(1874))} in 1874. Farms cover ${km(farmOf(2019))} and towns ${km(area(2019)[9])}. Yellow squares are farms (deep gold for orchards and vines, pale yellow for fallow); black is towns; tan is dry native land. <span class="st-src">${SRC_LAND}</span>` },
-  { year: 2015, season: 1, view: "sj", heat: "off", ov: "rivers", title: "Link 1 of 7. Rivers held back by dams",
+  { year: 2015, season: 1, view: "sj", heat: "off", ov: "rivers", tag: "m", title: "Link 1 of 7. Rivers held back by dams",
     text: () => { const dk = "2010", list = rivers.map((r) => { const d = r.decades[dk] || {}; return d.share != null ? [r.river, d.share] : null; }).filter(Boolean).sort((a, b) => a[1] - b[1]); return `At each river leaving the mountains, the white column is the natural flow and the blue column the flow measured below the dam, in km³ a year. Move the slider back to before the dams and the blue columns disappear: there was no dam to measure below. In the 2010s: ${list.map(([r, v]) => `${r} ${Math.round(v * 100)} %`).join(", ")} of natural flow passed the dam.`; } },
-  { year: 1910, season: 0, view: "sj", heat: "off", ov: "wells", sub: "then", title: "Link 2 of 7. The floor drained: the water table fell",
+  { year: 1910, season: 0, view: "sj", heat: "off", ov: "wells", sub: "then", tag: "m", title: "Link 2 of 7. The floor drained: the water table fell",
     text: () => { const c = CASE.wells_then_counts, d = CASE.wells_now_counts, n = c.reduce((a, b) => a + b, 0), m = d.reduce((a, b) => a + b, 0);
       return `Each dot is a well. In 1905-14 the USGS measured ${n.toLocaleString("en-GB")} wells on the floor: ${c[0].toLocaleString("en-GB")} had water within 3 m of the surface and ${c[3].toLocaleString("en-GB")} flowed at the surface. Of today's ${m.toLocaleString("en-GB")} state wells (spring 2015-2024), ${d[0].toLocaleString("en-GB")} have water within 3 m and ${d[3].toLocaleString("en-GB")} flow. The median depth to water went from ${CASE.wells_median_m.then_nonflowing} m to ${CASE.wells_median_m.now_on_floor} m. Switch to Today in the legend to see the wells of now.`; } },
-  { year: 2019, season: 1, view: "all", heat: "off", ov: "wetland", title: "Link 3 of 7. The wet land is gone",
+  { year: 2019, season: 1, view: "all", heat: "off", ov: "wetland", tag: "p", title: "Link 3 of 7. The wet land is gone",
     text: () => `Light blue is floor that was wet before 1900 and is not wet now; dark blue is what is still wet in 2019. On one 30 m grid the wet land went from about 20,723 km² to 925 km² (record 2026-10-30_wet-layers-v3). Wet land evaporates through the storm season; the fields that replaced it are dormant or bare for much of it, and after rain they warm faster than green land. Move the slider back to 1874 to watch the blue return.` },
-  { year: 2019, season: 0, view: "sj", heat: "off", ov: "fog", title: "Link 4 of 7. The air dried and the fog thinned",
-    text: () => `After rain in February-March, the floor's afternoon air now dries 1.86 K further from saturation in the first five days than it did in 1982-99 (range 0.92 to 3.03 K), while the coast barely changed (−0.13 K). Grey discs are floor airports; black bars join a foothill station to a floor station. Before storms that come after six or more dry days, fog hours at the airports fell from 4.9 % to 2.1 % between 1980-99 and 2000-22, and the afternoon air moved 1.7 K further from saturation. On those days the floor also warmed against the foothills: the cold, foggy layer that used to sit on the floor before a storm has weakened. Point at a bar for its station pair.` },
-  { year: 2019, season: 0, view: "all", heat: "off", ov: "stations", title: "Link 5 of 7. Less rain from the same vapour",
-    text: () => `Rain per unit of incoming vapour on the valley floor fell 21.7 % between 1980-99 and 2000-22 with storm direction held (90 % range −31.1 to −8.9), and it fell at all 22 floor stations (record 2026-11-14_test2c). The fall is larger in blocked storms, the ones that lift the valley's own air, than in unblocked storms: by 25.5 points (95 % range −82.7 to −2.6), measured, though that range is wider than the test's own detection limit, so its record gives no verdict word (2026-11-14_test1c). In February-March blocked storms at 9 floor stations it is −45.6 % (−77.2 to −8.8; 2026-11-16_m1). The ocean's supply in floor storms did not fall by a separable amount: offshore vapour transport went from 378 to 360 kg/m/s after short dry gaps (change −17.5, range −61.6 to +29.2) and from 334 to 317 after longer ones (−16.2, range −50.2 to +18.6; 2026-11-16_c7). On the map, each red cone is one of the ${stations.length} of 137 stations whose own record shows a significant drop in rain per unit of incoming vapour; the median of their changes is ${Math.round(stMedian() * 100)} % (computed from the per-station values shown; record 2026-10-23_a7-event-transients-full-86yr). It is red from the year of its drop; taller means a larger drop.` },
-  { year: 1960, season: 0, view: "all", heat: "off", title: "Since when: it began with the first land change",
-    text: () => `The same kind of contrast appears in the early record. Between the winters of 1925-41 and 1957-80, at equal offshore forcing, blocked days on the floor lost 17.0 points more wet days than unblocked days (95 % range −31.5 to −0.3), and the difference is negative at 23 of 30 gauges (record 2026-11-16_early-era-regime-contrast). Its limit, in plain words: the storm classes for those years come from a coarse reanalysis, and the same instrument did not reproduce the known 1981-2015 contrast (it gave +4.5 points on wet days where −25.5 points is known on rain per unit of vapour), so the record attaches no verdict word; the number stands as a measured value of the size written down before the run (−17). With the California ridge also held, the difference falls to −7.2 points and its range covers zero; the ridge over the land may itself be a land effect, and the run does not split it.` },
-  { year: 2019, season: 0, view: "sj", heat: "off", ov: "upslope", title: "Link 6 of 7. Rain moved upslope",
-    text: () => `Each post is a rain gauge, coloured by height. For the same incoming ocean vapour, storm rain fell 29 % on the valley floor but only 7 % on the Sierra windward slope (1980-99 against 2000-22); on the coast it fell 23 % and east of the crest 24 %. Weak storms whose air rises up the slope gave more rain on the foothills (+31 %, range −2 to +60 %), while weak storms held against the range lost a third of their rain on the floor. Read together (inference): rain the floor used to receive now falls higher up, or not at all.` },
-  { year: 2019, season: 1, view: "delta", heat: "off", ov: "towers", title: "Link 7 of 7. Where water is returned, the air responds",
+  { year: 2019, season: 0, view: "sj", heat: "off", ov: "fog", tag: "m", title: "Link 4 of 7. The air dried and the fog thinned",
+    text: () => `After rain in February-March, the floor's afternoon air now dries 1.86 K further from saturation in the first five days than it did in 1982-99 (range 0.92 to 3.03 K). Along the corridor from the coast to the crest, the coast edge and the floor both moved away from saturation on November-March afternoons: coast edge +0.94 K (range +0.34 to +1.54), floor +1.58 K (+0.58 to +2.64) (record 2026-11-17_corridor-b-c). The coast is the corridor's entry and is built land with its own change. Grey discs are floor airports; black bars join a foothill station to a floor station. Before storms that come after six or more dry days, fog hours at the airports fell from 4.9 % to 2.1 % between 1980-99 and 2000-22, and the afternoon air moved 1.7 K further from saturation. On those days the floor also warmed against the foothills: the cold, foggy layer that used to sit on the floor before a storm has weakened. Point at a bar for its station pair.` },
+  { year: 2019, season: 0, view: "all", heat: "off", ov: "stations", tag: "m", title: "Link 5 of 7. Less rain from the same vapour",
+    text: () => `Rain per unit of incoming vapour on the valley floor fell 21.7 % between 1980-99 and 2000-22 with storm direction held (90 % range −31.1 to −8.9), and it fell at all 22 floor stations (record 2026-11-14_test2c). The fall is larger in blocked storms, the ones that lift the valley's own air, than in unblocked storms, and three instruments show it: the storm table, −25.5 points (95 % range −82.7 to −2.6, a wide range that excludes zero; 2026-11-14_test1c); rain gauges between 1925-41 and 1957-80, −17.0 to −20.4 points on three measures (90 % ranges below zero; 2026-11-17_early-era-rain-amount-contrast); and the coast-to-crest corridor, where blocked storms lose at every land bin and unblocked storms gain at every bin (2026-11-17_corridor-a-d). A split as coarse as blocked against unblocked would not be expected to show a land signal; that it does counts for the land reading (Ali, note 2026-11-17). In February-March blocked storms at 9 floor stations it is −45.6 % (−77.2 to −8.8; 2026-11-16_m1). The ocean's supply in floor storms did not fall by a separable amount: offshore vapour transport went from 378 to 360 kg/m/s after short dry gaps (change −17.5, range −61.6 to +29.2) and from 334 to 317 after longer ones (−16.2, range −50.2 to +18.6; 2026-11-16_c7). What else did not change: the mean vapour flux in each third of storm strength (275 and 276, 346 and 348, 521 and 522 kg/m/s; 2026-11-17_forcing-strength-split), the stability aloft over Oakland on blocked storms (+0.037 K per km, range −0.113 to +0.180; 2026-11-17_stability-aloft-rival) and the sea at buoy 46026 (air +0.22 K, −0.22 to +0.64; water +0.19 K, −0.26 to +0.69; 2026-11-17_corridor-b-c). On the map, each red cone is one of the ${stations.length} of 137 stations whose own record shows a significant drop in rain per unit of incoming vapour; the median of their changes is ${Math.round(stMedian() * 100)} % (computed from the per-station values shown; record 2026-10-23_a7-event-transients-full-86yr). It is red from the year of its drop; taller means a larger drop.` },
+  { year: 1960, season: 0, view: "all", heat: "off", tag: "m", title: "Since when: it began with the first land change",
+    text: () => `The same kind of contrast appears in the early record. Between the winters of 1925-41 and 1957-80, at equal offshore forcing, blocked days on the floor lost 17.0 points more wet days than unblocked days (95 % range −31.5 to −0.3), and the difference is negative at 23 of 30 gauges (record 2026-11-16_early-era-regime-contrast). Rain amounts on the same days give the same size: −17.8 points in rain per unit forcing (90 % range −38.4 to −2.3) and −20.4 points in mean rain per day (−40.1 to −3.2) (record 2026-11-17_early-era-rain-amount-contrast). The ranges are wide because the storm classes for those years come from a coarse reanalysis: run on 1981-99 against 2000-15, the same instrument gave +13.4 points (−13.9 to +41.6) where the storm table gives −25.5. With the California ridge also held, the difference falls to −7.2 points and its range covers zero; the ridge over the land may itself be a land effect, and the run does not split it.` },
+  { year: 2019, season: 0, view: "sj", heat: "off", ov: "upslope", tag: "m", title: "Link 6 of 7. Rain moved upslope",
+    text: () => `Each post is a rain gauge, coloured by height. For the same incoming ocean vapour, storm rain fell 29 % on the valley floor but only 7 % on the Sierra windward slope (1980-99 against 2000-22); on the coast it fell 23 % and east of the crest 24 %. Weak storms whose air rises up the slope gave more rain on the foothills (+31 %, range −2 to +60 %), while weak storms held against the range lost a third of their rain on the floor. Read together (inference): rain the floor used to receive now falls higher up, or not at all. A second record does not show the upslope part: along the coast-to-crest corridor, with gridded daily rain, the upper windward slope lost the most in blocked storms (2026-11-17_corridor-a-d; the corridor chapters). Both records stand.` },
+  { year: 2019, season: 1, view: "delta", heat: "off", ov: "towers", tag: "m", title: "Link 7 of 7. Where water is returned, the air responds",
     text: () => `Blue posts are flux towers on rewetted Delta land (marsh and rice), tan posts towers on drained farmland nearby. On the same days, the day-night range of the air over rewetted land is smaller in every month group: from −0.27 K in November-January (range −0.41 to −0.12) to −1.89 K in June-September (−2.51 to −1.68), with all sites (record 2026-11-16_m9). The nights are warmer from February to October and the June-September afternoons cooler. Each link in this chain is measured on its own; how they connect is the reading (inference), and the land's share of the rain loss is not yet sized.` },
-  { year: 2021, season: 1, view: "sac", heat: "off", title: "The mountains: logging and fire",
+  { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", tag: "m", title: "Coast to crest, 1 of 4. Less rain from the first land inward",
+    text: () => `The coloured strip is one corridor, 400 km long and 80 km wide, from the ocean west of San Francisco to Reno, cut into 25 km bins. Each bin is coloured by the change of rain per unit of ocean vapour arriving offshore in blocked floor storms, 1982-99 against 2000-22: brown lost, green gained, faint where the range reaches zero. The vapour arriving from the ocean did not change (249.8 to 237.6 kg/m/s, change −12.3, range −27.8 to +3.2). Less of it becomes rain, from the first land bin inward: −15.6 % at 50 km (range −28.0 to −1.6), −16.8 to −18.5 % over the Delta and floor, −20.5 to −26.2 % on the upper windward slope. In unblocked storms every land bin gained (record 2026-11-17_corridor-a-d-conversion-and-frequency). On this track the upper windward slope lost the most, so the reading that rain moved upslope (Link 6) is not reproduced with gridded daily rain. Point at a bin for its values.` },
+  { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", tag: "m", title: "Coast to crest, 2 of 4. Drying after rain, by height",
+    text: () => `The posts are weather stations along the corridor: the buoy at sea, the coast edge, the gap at Travis, four floor airports, Blue Canyon at 1,611 m and Reno east of the crest. Before 2000 the low ground did not warm in the afternoons of the days after rain (+0.040, −0.021 and +0.034 K a day at the coast edge, gap and floor). Since 2000 it warms 0.2 to 0.34 K a day more: coast edge +0.200 (range +0.056 to +0.354), gap +0.340 (+0.153 to +0.517), floor +0.308 (+0.130 to +0.486). The slope at 1,611 m (+0.095, −0.164 to +0.360) and the air over the sea (+0.031, −0.060 to +0.132) did not change (record 2026-11-17_corridor-full-ladder). The relief shows the contrast: the change is on the low ground, not on the slope above it. A second record of the same quantity, with days since rain from each station's own bin, gives +0.213, +0.324 and +0.333 (2026-11-17_corridor-b-c).` },
+  { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", tag: "m", title: "Coast to crest, 3 of 4. Fog that no longer builds",
+    text: () => `After rain the valley used to build its own fog. In 1982-99 fog hours a day at the gap and on the floor grew by 0.230 and 0.224 for each day since rain; in 2000-22 by −0.009 and +0.004 (changes −0.239, range −0.380 to −0.107, and −0.220, −0.401 to −0.044). At the coast edge the change is −0.010 (−0.048 to +0.026) (record 2026-11-17_corridor-full-ladder). <span class="st-src">Two other causes are not ruled out: air-quality controls, which remove the particles fog forms on, and the change of airport sensors in the 1990s. The coast-edge airports went through the same sensor change and show no change. Blue Canyon fog also fell (−0.145, −0.296 to −0.009), where the land reading predicts no change.</span>` },
+  { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", tag: "m", title: "Coast to crest, 4 of 4. The floor's hand-over reversed",
+    text: () => `The orange arrow is the air arriving through the gap at Travis and crossing the floor. On the same afternoons, the floor's dew point was 0.33 K above the gap's in 1982-99 and is 0.38 K below it in 2000-22: change −0.72 K (range −1.26 to −0.18); one to two days after rain the change is −0.99 K (−1.63 to −0.40) (record 2026-11-17_corridor-b-c-lowest-air-and-drying). The floor used to add moisture to the air crossing it. It now leaves that air drier. <span class="st-src">Airport dew-point sensors changed in the 1990s, so era means of dew point carry an instrument term.</span>` },
+  { year: 2021, season: 1, view: "sac", heat: "off", tag: "p", title: "The mountains: logging and fire",
     text: () => `The forests above the valley changed too. Brown patches are recent burns (CAL FIRE perimeters) and forest lost since 2001 (Hansen); paler green is regrowth after logging or fire. 2020 and 2021 were the largest years of forest loss in the record.` },
-  { year: 2017, season: 0, view: "all", heat: "off", rain: true, title: "Rain: where and when it falls",
+  { year: 2021, season: 0, view: "north", heat: "off", tag: "o", title: "The north: an open chapter",
+    text: () => `Ali's observation from this 3D view, in his words: “[i]n the north you can see fires, and forests but no snow ... the north part though is kind of different, which winds touch it, they will have to travel a much larger land distance.” And for the east: “the simple read shows, how dry the air gets when it reaches the east sierras, but still gives snow”, with “lakes etc” behind the ridges (note 2026-11-17_ali-3d-view-observations). Observation, not yet tested. No corridor has been run for the north.` },
+  { year: 2017, season: 0, view: "all", heat: "off", rain: true, tag: "m", title: "Rain: where and when it falls",
     text: () => { if (!RAINM) return "Rain data is not loaded.";
       const ys = RAINM.years, tot = (y) => RAINM.wy[String(y)].floor_total_mm, w = RAINM.wy["2017"];
       const wet = ys.reduce((b, y) => (tot(y) > tot(b) ? y : b), ys[0]), dry = ys.reduce((b, y) => (tot(y) < tot(b) ? y : b), ys[0]);
       const winter = ys.reduce((p, y) => p + RAINM.wy[String(y)].floor_months_mm.slice(1, 6).reduce((a, b) => a + b, 0) / tot(y), 0) / ys.length;
       const pk = w.floor_months_mm.indexOf(Math.max(...w.floor_months_mm));
       return `Blue on the land is the year's rain: darker means more. Most falls on the Sierra and the northern ranges; the valley floor is dry and the Tulare floor driest. In the wet year to September 2017 the floor got ${Math.round(tot(2017))} mm, against a median of ${Math.round(RAINM.median_floor_total_mm)} mm since 1896; the wettest month was ${RAINM.months[pk]} (${Math.round(w.floor_months_mm[pk])} mm). On average ${Math.round(winter * 100)} % of the floor's rain falls from November to March (the bars below). The wettest year on record was ${wet} (${Math.round(tot(wet))} mm), the driest ${dry} (${Math.round(tot(dry))} mm). Use the year slider to compare years.`; } },
-  { year: hotYear, season: 1, view: "all", heat: "float", title: "Heat: the valley's hottest days",
+  { year: hotYear, season: 1, view: "all", heat: "float", tag: "m", title: "Heat: the valley's hottest days",
     text: () => { const m = LSTM.years[String(hotYear)]; if (!m) return "Satellite surface temperature is not loaded."; const st = heatStats && heatYearShown === hotYear ? heatStats.slice().sort((a, b) => b[1] - a[1]) : null;
       const T = st ? Object.fromEntries(st) : null, mean = (ks) => { const v = ks.map((k) => T[k]).filter((x) => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
       const cool = T && mean(["orchard", "rice"]), hot = T && mean(["idle", "dry_native"]), coolest = st && st[st.length - 1][0];
       return `The floating sheet hovers over the ground, lifted higher where the ground is hotter. It is the ground's surface temperature from satellite, averaged over the valley's 10 hottest clear days of ${hotYear} (the hottest summer in the 2003-2025 record by this measure). Higher and redder means hotter: floor average ${m.floor_peak_mean_c.toFixed(1)} °C.` + (st ? ` By land: ${st.map(([g, t]) => `${HEAT_NAMES[g]} ${t.toFixed(0)} °C`).join(", ")}.` + (cool != null && hot != null ? ` In ${hotYear}, orchards and rice averaged ${(hot - cool).toFixed(1)} °C cooler than fallow and dry native ground${coolest ? `; ${HEAT_NAMES[coolest]} was coolest` : ""}.` : "") : ""); } },
-  { year: 2014, season: 0, view: "all", heat: "off", ov: "cloud", title: "A model, for direction: cloud base over the old land",
+  { year: 2014, season: 0, view: "all", heat: "off", ov: "cloud", tag: "x", title: "A model, for direction: cloud base over the old land",
     text: () => `A weather model ran the winter of 2013-14 on today's land, on today's land with its winter applied water, and on the pre-1900 land, with the same incoming weather. On the 246 storm hours common to all three, cloud formed 121 m lower over the old land than over today's land (range 54 to 183 m), and 76 m lower than over today's land with applied water (record 2026-11-17_a29-same-hours-and-delivery-read). A lower cloud base lets rain form lower and sooner (inference). It is one model winter, read for its direction only; no map is shown because free model runs drift apart in their weather.` },
 ];
+const TAGS = { m: ["k-m", "Measured"], p: ["k-p", "Mapped"], x: ["k-x", "Model"], o: ["k-o", "Open, not yet tested"] };
 let chapter = -1, storyMin = false;
 const storyBox = document.createElement("div"); storyBox.className = "story"; storyBox.hidden = true;
-document.querySelector(".stage").appendChild(storyBox);
+document.querySelector(".stage").appendChild(storyBox);   // the walkthrough card floats on the map; the panels return for free exploration
+const PARTS = [[0, "Part 1 of 4 · The valley and what changed"], [4, "Part 2 of 4 · The chain, link by link"], [12, "Part 3 of 4 · Coast to crest"], [16, "Part 4 of 4 · Context, one model, one open question"]];
+const partOf = (k) => PARTS.filter(([s]) => s <= k).pop()[1];
 function showChapter(k) {
   chapter = Math.max(0, Math.min(CHAPTERS.length - 1, k)); const c = CHAPTERS[chapter];
   playing = false; $("play").textContent = "Play"; $("play").setAttribute("aria-pressed", "false");
@@ -776,17 +944,33 @@ function showChapter(k) {
 }
 function renderStory() {
   if (chapter < 0) return; const c = CHAPTERS[chapter];
-  storyBox.hidden = false;
+  storyBox.hidden = false; $("stIntro").hidden = true;
+  if (!$("dockL").classList.contains("collapsed") && !isPhone()) dock("dockL", false);
+  if (isPhone()) sheet(null);
+  const prog = CHAPTERS.map((_, k) => `${PARTS.some(([s]) => s === k && k) ? "<i></i>" : ""}<button data-go="${k}" class="${k < chapter ? "done" : k === chapter ? "now" : ""}" title="${CHAPTERS[k].title.replace(/"/g, "&quot;")}" aria-label="Chapter ${k + 1}"></button>`).join("");
   storyBox.classList.toggle("min", storyMin);
   if (storyMin) { storyBox.innerHTML = `<div class="st-top"><span class="st-n">${chapter + 1} / ${CHAPTERS.length}</span><span class="st-t">${c.title}</span><button class="st-x" data-st="max" title="Open the chapter" aria-label="Open the chapter">▸</button></div>`; storyBox.onclick = () => { storyMin = false; renderStory(); }; return; }
   storyBox.onclick = null;
-  storyBox.innerHTML = `<div class="st-top"><span class="st-n">${chapter + 1} / ${CHAPTERS.length}</span><button class="st-x" data-st="min" title="Minimise" aria-label="Minimise the chapter">–</button></div><h2>${c.title}</h2><p>${c.text()}</p>
-    <div class="st-b"><button data-st="prev" ${chapter ? "" : "disabled"}>Back</button><button data-st="next">${chapter < CHAPTERS.length - 1 ? "Next" : "Explore freely"}</button></div>`;
+  storyBox.innerHTML = `<div class="st-top"><span class="st-n">${chapter + 1} / ${CHAPTERS.length}</span><button class="st-x" data-st="min" title="Minimise" aria-label="Minimise the chapter">–</button></div><div class="st-prog">${prog}</div><div class="st-part">${partOf(chapter)}</div>${c.tag ? `<span class="kind ${TAGS[c.tag][0]}">${TAGS[c.tag][1]}</span>` : ""}<h2>${c.title}</h2><p>${c.text()}</p>
+    <div class="st-b"><button class="st-leave" data-st="leave">Leave the walkthrough</button><button data-st="prev" ${chapter ? "" : "disabled"}>Back</button><button data-st="next">${chapter < CHAPTERS.length - 1 ? "Next" : "Explore the map"}</button></div>`;
+  storyBox.querySelectorAll("[data-go]").forEach((b) => (b.onclick = () => showChapter(+b.dataset.go)));
+  storyBox.querySelector('[data-st="leave"]').onclick = () => closeStory();
   storyBox.querySelector('[data-st="min"]').onclick = (e) => { e.stopPropagation(); storyMin = true; renderStory(); };
   storyBox.querySelector('[data-st="prev"]').onclick = () => showChapter(chapter - 1);
   storyBox.querySelector('[data-st="next"]').onclick = () => (chapter < CHAPTERS.length - 1 ? showChapter(chapter + 1) : closeStory());
 }
-function closeStory() { chapter = -1; storyBox.hidden = true; }
+function closeStory() {   // hand over to free exploration: the panels come back with the layers open
+  chapter = -1; storyBox.hidden = true; $("stIntro").hidden = false;
+  if (!isPhone()) { dock("dockL", true); showTab("layers"); }
+  showHint("Explore freely: pick a layer on the left, drag to turn the map, scroll to zoom, and move the year slider. The Walkthrough button starts the story again.");
+}
+let hintT = 0;
+function showHint(t) { const h = $("hint"); h.textContent = t; h.hidden = false; clearTimeout(hintT); hintT = setTimeout(() => (h.hidden = true), 9000); }
+$("hint").addEventListener("click", () => ($("hint").hidden = true));
+function welcome(v) { $("welcome").hidden = !v; if (v) $("wStart").focus(); }
+$("wStart").addEventListener("click", () => { welcome(false); showChapter(0); });
+$("wSkip").addEventListener("click", () => { welcome(false); closeStory(); });
+$("bTour").addEventListener("click", () => { welcome(false); showChapter(0); });
 $("bStory").addEventListener("click", () => showChapter(0));
 
 // ---------------------------------------------------------------- case layers: water table, evaporation by season, rivers below the dams, rain-yield stations
@@ -887,9 +1071,77 @@ if (CASE3) for (const [x, y, id, name, kind] of CASE3.towers) {
   const top = new THREE.Mesh(new THREE.SphereGeometry(1.6, 12, 8), mat); top.position.set(b.x, b.y + h + 1, b.z); towerGroup.add(top);
   m.userData.tip = top.userData.tip = () => `<b>${name}</b> (${id})<br>${kind === "rewetted" ? "Rewetted land" : "Drained farmland"}<br><span>AmeriFlux tower used in the rewetted-against-drained comparison</span>`;
 }
+// ---------------------------------------------------------------- coast-to-crest corridor (note 2026-11-17 from the evidence-check session, applied on Ali's go "Yes, apply it")
+// Track bins coloured by the change of rain per unit offshore inflow in blocked floor storms, WY 1982-99 to 2000-22. Values copied from the printed
+// output of raw/tests/2026-11-17_corridor-a-d-conversion-and-frequency ("inflow days in blocked floor storms" and "unblocked floor storms"); bins 0-1 are ocean.
+const CORJ = await fetch("data/case/corridor.json").then((r) => r.json()).catch(() => null);
+const COR_BLK = [null, null, [-15.6, -28.0, -1.6], [-12.4, -26.4, 3.2], [-11.3, -26.6, 7.5], [-14.5, -30.2, 4.7], [-18.5, -34.0, -0.0], [-17.3, -32.3, 0.4], [-16.8, -31.3, 0.4], [-13.6, -26.3, 2.5], [-13.6, -26.0, 2.4], [-20.5, -32.7, -5.3], [-26.2, -37.9, -12.0], [-23.3, -38.3, -5.2], [-17.3, -36.2, 7.2], [-8.5, -31.0, 20.9]];
+const COR_UNB = [null, null, [11.9, -10.1, 42.2], [20.5, -1.1, 49.4], [25.5, 2.8, 54.8], [27.5, 2.0, 64.4], [21.2, -6.2, 63.3], [15.6, -11.0, 56.4], [15.9, -9.4, 54.2], [24.3, -1.1, 60.5], [22.0, -3.3, 55.9], [11.9, -12.3, 43.6], [9.2, -14.6, 43.0], [15.9, -12.5, 55.6], [6.0, -26.0, 51.3], [7.8, -26.9, 55.5]];
+const COR_SEG = ["ocean", "ocean", "first land bin, built coast", "coast edge", "coast edge", "coast edge", "Delta and floor", "floor", "floor", "foothills", "foothills", "upper windward slope", "upper windward slope", "upper windward slope", "crest", "east of the crest"];
+const COR_STOPS = [[-30, "#543005"], [-15, "#bf812d"], [0, "#f5f5f5"], [15, "#5ab4ac"], [30, "#01665e"]].map(([t, h]) => [t, hex(h)]);
+const corCol = (v) => { v = Math.max(-30, Math.min(30, v)); for (let k = 1; k < COR_STOPS.length; k++) if (v <= COR_STOPS[k][0]) { const [t0, c0] = COR_STOPS[k - 1], [t1, c1] = COR_STOPS[k]; return mix(c0, c1, (v - t0) / (t1 - t0)); } return COR_STOPS[COR_STOPS.length - 1][1]; };
+const sgn = (v, d = 1) => `${v > 0 ? "+" : v < 0 || Object.is(v, -0) ? "−" : ""}${Math.abs(v).toFixed(d)}`;
+// station groups: values from raw/tests/2026-11-17_corridor-full-ladder (warming and fog slopes) and 2026-11-17_corridor-b-c-lowest-air-and-drying (all-day afternoon T - Td, sea)
+const COR_GRP = {
+  sea: ["#2c7fb8", "Sea, buoy 46026", "Daily air +0.22 K (−0.22 to +0.64), water +0.19 K (−0.26 to +0.69), 1982-99 to 2000-22. Warming of the air per day since rain: change +0.031 K a day (−0.060 to +0.132)."],
+  rim: ["#1e1e22", "Coast edge (two bay-shore airports)", "Afternoon warming per day since rain: change +0.200 K a day (+0.056 to +0.354). Afternoon T − Td, all days: +0.94 K (+0.34 to +1.54). Fog growth after rain: −0.010 h a day (−0.048 to +0.026)."],
+  gap: ["#77777c", "Gap (Travis)", "Afternoon warming per day since rain: change +0.340 K a day (+0.153 to +0.517). Afternoon T − Td, all days: +1.48 K (+0.31 to +2.64). Fog growth after rain: +0.230 to −0.009 h a day, change −0.239 (−0.380 to −0.107). The night record suggests a site or instrument change at this station."],
+  floor: ["#e66101", "Floor (four airports)", "Afternoon warming per day since rain: change +0.308 K a day (+0.130 to +0.486). Afternoon T − Td, all days: +1.58 K (+0.58 to +2.64). Fog growth after rain: +0.224 to +0.004 h a day, change −0.220 (−0.401 to −0.044)."],
+  slope: ["#1b7837", "Windward slope, 1,611 m", "Afternoon warming per day since rain: change +0.095 K a day (−0.164 to +0.360). Afternoon T − Td, all days: +0.20 K (−0.99 to +1.35). Fog growth after rain: −0.145 h a day (−0.296 to −0.009). 75 km off the track."],
+  east: ["#34495e", "East of the crest, 1,343 m", "Afternoon warming per day since rain: change +0.077 K a day (−0.105 to +0.269). Afternoon T − Td, all days: +1.83 K (+0.69 to +2.90). A built basin with its own land change; 73 km off the track."],
+};
+const corGroup = new THREE.Group(); corGroup.visible = false; scene.add(corGroup);
+const corPick = [];
+if (CORJ) {
+  const L = CORJ.lattice, nA = CORJ.na, nC = CORJ.nc, st = CORJ.step_km;
+  const at = (a, c) => {   // bilinear on the 5 km lattice of track points, in page pixels
+    const fa = Math.min(nA - 1.0001, Math.max(0, a / st)), fc = Math.min(nC - 1.0001, Math.max(0, (c + 40) / st)), i = Math.floor(fa), j = Math.floor(fc), u = fa - i, v = fc - j;
+    const p = (ii, jj) => L[ii * nC + jj];
+    const q = [0, 1].map((d) => (1 - u) * (1 - v) * p(i, j)[d] + u * (1 - v) * p(i + 1, j)[d] + (1 - u) * v * p(i, j + 1)[d] + u * v * p(i + 1, j + 1)[d]);
+    return q;
+  };
+  const W = (a, c, up) => { const [x, y] = at(a, c); return toWorld(x, y, up); };
+  for (let b = 2; b < 16; b++) {   // one draped sheet per land bin, 1 km steps so it follows the terrain
+    const [v, lo, hi] = COR_BLK[b], solid = hi < 0, c0 = corCol(v).map((t) => (t / 255) ** 2.2), pos = [], col = [], idx = [], NA = 26, NC = 81;
+    for (let i = 0; i < NA; i++) for (let j = 0; j < NC; j++) { const p = W(25 * b + i, -40 + j, 0.35); pos.push(p.x, p.y, p.z); col.push(...c0); }
+    for (let i = 0; i < NA - 1; i++) for (let j = 0; j < NC - 1; j++) { const a = i * NC + j; idx.push(a, a + NC, a + 1, a + 1, a + NC, a + NC + 1); }
+    const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); g.setIndex(idx);
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: solid ? 0.82 : 0.45, side: THREE.DoubleSide, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 }));
+    m.renderOrder = 3; corGroup.add(m); corPick.push(m);
+    const [u, ulo, uhi] = COR_UNB[b];
+    m.userData.tip = () => `<b>${25 * b} to ${25 * b + 25} km: ${COR_SEG[b]}</b><br>Blocked floor storms: ${sgn(v)} % (${sgn(lo)} to ${sgn(hi)})<br>Unblocked floor storms: ${sgn(u)} % (${sgn(ulo)} to ${sgn(uhi)})<br><span>Rain per unit of ocean vapour arriving offshore, WY 1982-99 against 2000-22; 95 % ranges. ${solid ? "The blocked range excludes zero." : "Faint: the blocked range reaches zero."} Record 2026-11-17_corridor-a-d-conversion-and-frequency</span>`;
+  }
+  const lineMat = new THREE.LineBasicMaterial({ color: "#2b2b2b", transparent: true, opacity: 0.75 });
+  const drape = (pts) => { const l = new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), lineMat); l.renderOrder = 4; corGroup.add(l); };
+  for (let k = 0; k <= 16; k++) drape(Array.from({ length: 81 }, (_, j) => W(25 * k, -40 + j, 0.45)));   // bin edges across the track
+  for (const c of [-40, 40]) drape(Array.from({ length: 401 }, (_, i) => W(i, c, 0.45)));   // the two long sides
+  const grpOf = {};
+  for (const [x, y, name, grp, a, c] of CORJ.stations) {
+    const [hexc, gname, txt] = COR_GRP[grp], b = toWorld(x, y, 0), h = 9, mat = new THREE.MeshLambertMaterial({ color: hexc });
+    const m = new THREE.Mesh(new THREE.CylinderGeometry(0.9, 0.9, h, 10), mat); m.position.set(b.x, b.y + h / 2, b.z);
+    const top = new THREE.Mesh(new THREE.SphereGeometry(1.8, 12, 8), mat); top.position.set(b.x, b.y + h + 1, b.z);
+    m.userData.tip = top.userData.tip = () => `<b>${name}</b>, ${gname}<br>${txt}<br><span>${a} km along the track, ${Math.abs(c)} km ${c < 0 ? "north" : "south"} of its line. Values are for the station group; 1982-99 against 2000-22, 95 % ranges.</span>`;
+    corGroup.add(m, top); corPick.push(m, top); (grpOf[grp] = grpOf[grp] || []).push(b);
+  }
+  if (grpOf.gap && grpOf.floor) {   // the hand-over: air from the gap crossing the floor
+    const from = grpOf.gap[0].clone().setY(grpOf.gap[0].y + 16), to = grpOf.floor.reduce((s, p) => s.add(p), new THREE.Vector3()).multiplyScalar(1 / grpOf.floor.length).setY(16);
+    const d = to.clone().sub(from), len = d.length(), arrow = new THREE.ArrowHelper(d.normalize(), from, len, 0xe66101, 6, 3.5);
+    arrow.renderOrder = 5; corGroup.add(arrow); corPick.push(arrow.line, arrow.cone);
+    arrow.line.userData.tip = arrow.cone.userData.tip = () => `<b>The floor's hand-over, gap to floor</b><br>Afternoon dew point, floor minus gap, same days: +0.33 K in 1982-99, −0.38 K in 2000-22, change −0.72 K (−1.26 to −0.18). One to two days after rain: change −0.99 K (−1.63 to −0.40).<br><span>The floor used to add moisture to the air crossing it; it now leaves that air drier. Record 2026-11-17_corridor-b-c-lowest-air-and-drying</span>`;
+  }
+  VIEWS.corridor = { t: L[42 * nC + 8], d: 640, a: -0.3 };
+}
+VIEWS.north = { t: [TW * 0.2, TH * 0.12], d: 330, a: -0.5 };
+function corLine() {
+  return `<div class="ev"><b>Rain per unit of ocean vapour, blocked floor storms, WY 1982-99 against 2000-22</b> (819 inflow days; 95 % ranges): first land bin, 50 km, −15.6 % (−28.0 to −1.6); coast edge −12.4, −11.3 and −14.5 % (ranges reach zero); Delta and floor −18.5 % (−34.0 to −0.0), −17.3 (−32.3 to +0.4), −16.8 (−31.3 to +0.4); upper windward slope −20.5 % (−32.7 to −5.3), −26.2 (−37.9 to −12.0), −23.3 (−38.3 to −5.2). In unblocked floor storms (229 days) every land bin gained, +6.0 to +27.5 %; the ranges are above zero at 100 km (+25.5 %, +2.8 to +54.8) and 125 km (+27.5 %, +2.0 to +64.4). Ocean vapour arriving offshore on inflow days: 249.8 to 237.6 kg/m/s, change −12.3 (−27.8 to +3.2). <span>Record 2026-11-17_corridor-a-d-conversion-and-frequency. Faint bins: the blocked range reaches zero. PRISM daily is a station-based grid whose network changed, most on the high slope.</span></div>`
+    + `<div class="ev"><b>Afternoon air, all November-March days, change in T − Td:</b> coast edge +0.94 K (+0.34 to +1.54), gap +1.48 (+0.31 to +2.64), floor +1.58 (+0.58 to +2.64), Blue Canyon +0.20 (−0.99 to +1.35), Reno +1.83 (+0.69 to +2.90). <b>Warming per day since rain, change:</b> coast edge +0.200 K a day (+0.056 to +0.354), gap +0.340 (+0.153 to +0.517), floor +0.308 (+0.130 to +0.486), Blue Canyon +0.095 (−0.164 to +0.360), buoy air +0.031 (−0.060 to +0.132). <span>T − Td: record 2026-11-17_corridor-b-c. Warming per day: record 2026-11-17_corridor-full-ladder; corridor-b-c, with days since rain taken from each station's own bin, gives +0.213, +0.324 and +0.333 for coast edge, gap and floor, ranges above zero.</span></div>`
+    + `<div class="ev"><b>Fog hours a day (visibility under 1,000 m), growth per day since rain:</b> gap +0.230 in 1982-99, −0.009 in 2000-22 (change −0.239, −0.380 to −0.107); floor +0.224 to +0.004 (change −0.220, −0.401 to −0.044); coast edge −0.010 (−0.048 to +0.026); Blue Canyon −0.145 (−0.296 to −0.009). <span>Record 2026-11-17_corridor-full-ladder. Not ruled out: air-quality controls, which remove the particles fog forms on, and the change of airport sensors in the 1990s; the coast-edge airports went through the same sensor change and show no change.</span></div>`
+    + `<div class="ev"><b>Hand-over, floor minus gap afternoon dew point, same days:</b> +0.33 K in 1982-99, −0.38 K in 2000-22, change −0.72 (−1.26 to −0.18). <span>Record 2026-11-17_corridor-b-c. Airport dew-point sensors changed in the 1990s, so era means of dew point carry an instrument term.</span></div>`;
+}
 function caseLine() {
+  if (overlay === "corridor") return corLine();
   if (!CASE) return "";
-  if (overlay === "stations") { const on = stations.filter((s) => s.yr <= year).length; return `<div class="ev"><b>Valley floor, 1980-99 against 2000-22, storm direction held:</b> rain per unit of incoming vapour −21.7 % (90 % range −31.1 to −8.9), lower at 22 of 22 floor stations (record 2026-11-14_test2c). Blocked minus unblocked storms −25.5 points (95 % range −82.7 to −2.6; wider than the test's detection limit, so no verdict word; 2026-11-14_test1c). Blocked storms in February-March −45.6 % (−77.2 to −8.8; 2026-11-16_m1). <span>Offshore vapour transport in floor storms: 378 to 360 kg/m/s after gaps of 1-5 days (−17.5, range −61.6 to +29.2), 334 to 317 after 6 days or more (−16.2, range −50.2 to +18.6; 2026-11-16_c7).</span></div><div class="ev"><b>The red cones:</b> the ${stations.length} stations where the drop is significant on its own (30 of 137 changed, 29 lower; A7 record), red from the year of the drop (${on} by ${year}); taller cones dropped more; median of the 29 changes ${Math.round(stMedian() * 100)} % (computed from the values shown). <span>Not explained by the reanalysis, gauges, storm strength or snow.</span></div>`; }
+  if (overlay === "stations") { const on = stations.filter((s) => s.yr <= year).length; return `<div class="ev"><b>Valley floor, 1980-99 against 2000-22, storm direction held:</b> rain per unit of incoming vapour −21.7 % (90 % range −31.1 to −8.9), lower at 22 of 22 floor stations (record 2026-11-14_test2c). Blocked minus unblocked storms −25.5 points (95 % range −82.7 to −2.6, a wide range that excludes zero; 2026-11-14_test1c). The same contrast on gauges, 1925-41 against 1957-80: −17.0 to −20.4 points on three measures, 90 % ranges below zero (2026-11-17_early-era-rain-amount-contrast); along the corridor, blocked storms lose at every land bin and unblocked storms gain (2026-11-17_corridor-a-d). Blocked storms in February-March −45.6 % (−77.2 to −8.8; 2026-11-16_m1). <span>Offshore vapour transport in floor storms: 378 to 360 kg/m/s after gaps of 1-5 days (−17.5, range −61.6 to +29.2), 334 to 317 after 6 days or more (−16.2, range −50.2 to +18.6; 2026-11-16_c7).</span></div><div class="ev"><b>The red cones:</b> the ${stations.length} stations where the drop is significant on its own (30 of 137 changed, 29 lower; A7 record), red from the year of the drop (${on} by ${year}); taller cones dropped more; median of the 29 changes ${Math.round(stMedian() * 100)} % (computed from the values shown). <span>Not explained by the reanalysis, gauges, storm strength or snow.</span></div>`; }
   if (overlay === "wells") {
     const c = wellWhen === "then" ? CASE.wells_then_counts : CASE.wells_now_counts, n = c.reduce((a, b) => a + b, 0);
     return `<div class="ev"><b>Water table, ${wellWhen === "then" ? "1905-14 (wells measured by the USGS)" : "today (DWR wells, spring 2015-2024)"}:</b> ${n.toLocaleString("en-GB")} wells on the floor; within 3 m of the surface ${c[0].toLocaleString("en-GB")} (${Math.round((100 * c[0]) / n)} %), flowing or at the surface ${c[3].toLocaleString("en-GB")}, deeper than 7.6 m ${c[2].toLocaleString("en-GB")} (${Math.round((100 * c[2]) / n)} %). <span>Median depth ${CASE.wells_median_m.then_nonflowing} m then (non-flowing), ${CASE.wells_median_m.now_on_floor} m today.</span></div>`;
@@ -897,7 +1149,7 @@ function caseLine() {
   if (overlay === "evap") return `<div class="ev"><b>June-September evaporation, ${evWhen === "now" ? "today (SSEBop satellite, 2003-2025)" : "pre-1900 land (estimate)"}:</b> darker green gave more water to the air. <span>${evWhen === "now" ? "Measured from satellite. Summer is the season irrigation adds water to today's floor." : "Estimated from class rates of the historic vegetation; not a measurement."} No whole-floor totals are shown: a season total over the whole floor hides where and when the water was.</span></div>`;
   if (overlay === "wetland") return `<div class="ev"><b>Wet land on the floor:</b> about 20,723 km² before 1900 against 925 km² today (Sacramento 7,895 to 426; San Joaquin 5,825 to 384; Tulare 7,003 to 116 km²): marsh, riverside forest, flooded land, open water and groundwater-fed land, on one 30 m grid. <span>Totals: wet layers v3. The map uses the pre-1900 historic map and the CVHM2 cells of the year on the slider, a different grid, so its areas differ from the totals.</span></div><div class="ev"><b>After rain, February-March (satellite, 2003-2022):</b> dormant or bare fields warm 0.033 K a day faster than winter-green fields, measured against fixed wet cells [0.023, 0.042]. <span>Marsh is cooler than seasonally bare cropland by 4.30 K in December-February [3.31, 5.30] and 14.27 K in June-September [12.35, 15.98] (Landsat, day surface temperature).</span></div>`;
   if (overlay === "towers") return `<div class="ev"><b>Rewetted minus drained Delta land, same days, all sites</b> (mean over pairs, 95 % range; record 2026-11-16_m9): day-night range of the air (afternoon minus night) November-January −0.27 K (−0.41 to −0.12), February-March −0.47 (−0.66 to −0.35), April-May −0.95 (−1.65 to −0.79), June-September −1.89 (−2.51 to −1.68), October −1.88 (−2.31 to −1.49). Night air warmer from February to October (+0.48 to +1.27 K); afternoon air June-September −1.17 K (−1.80 to −0.79). <span>With all sites, February-March runs the other way for afternoon dryness (T − Td +0.86 K) and daytime sensible heat; the record finds these two February-March lines run the other way only when the US-Tw1 marsh tower is included.</span></div>`;
-  if (overlay === "fog") return `<div class="ev"><b>After rain, February-March, 1982-99 against 2000-22:</b> in the first 1-5 days the floor's afternoon air is 1.86 K further from saturation (range +0.92 to +3.03; median over 10 floor airports), while the coast changed −0.13 K (−0.53 to +0.86); floor minus coast +1.99 K (+0.98 to +2.80). <span>Measured; the record's rule set a precision its interval does not reach, so it attaches no verdict word (record 2026-11-16_m2).</span></div><div class="ev"><b>Before storms that follow 6 or more dry days, 11 floor airports, 1980-99 against 2000-22:</b> fog hours (visibility under 1 km) fell from 4.9 % to 2.1 % of hours (change −2.8 points [−4.1, −1.5]); cloud ceiling under 300 m from 10.6 % to 6.2 % (change −4.4 points [−7.8, −0.9]); afternoon air 1.74 K further from saturation [+0.80, +2.68]. <span>Before storms that follow within 5 days, fog did not change [−0.8, +0.9 points].</span></div><div class="ev"><b>The cold layer between floor and foothills, four southern Sierra pairs:</b> afternoon hill-minus-floor temperature on the day before those storms went from +0.16 to −0.76 K (change −0.92 [−1.62, −0.21]); on all November-March days −0.60 K [−0.93, −0.29]. A falling value means the floor warmed against the hill: the cold layer weakened. <span>Observation times are not recorded in these station files. Point at a pair line for its own value.</span></div>`;
+  if (overlay === "fog") return `<div class="ev"><b>After rain, February-March, 1982-99 against 2000-22:</b> in the first 1-5 days the floor's afternoon air is 1.86 K further from saturation (range +0.92 to +3.03; median over 10 floor airports), while the coast changed −0.13 K (−0.53 to +0.86); floor minus coast +1.99 K (+0.98 to +2.80). <span>Measured; the floor's range is wide and excludes zero (record 2026-11-16_m2).</span></div><div class="ev"><b>Before storms that follow 6 or more dry days, 11 floor airports, 1980-99 against 2000-22:</b> fog hours (visibility under 1 km) fell from 4.9 % to 2.1 % of hours (change −2.8 points [−4.1, −1.5]); cloud ceiling under 300 m from 10.6 % to 6.2 % (change −4.4 points [−7.8, −0.9]); afternoon air 1.74 K further from saturation [+0.80, +2.68]. <span>Before storms that follow within 5 days, fog did not change [−0.8, +0.9 points].</span></div><div class="ev"><b>The cold layer between floor and foothills, four southern Sierra pairs:</b> afternoon hill-minus-floor temperature on the day before those storms went from +0.16 to −0.76 K (change −0.92 [−1.62, −0.21]); on all November-March days −0.60 K [−0.93, −0.29]. A falling value means the floor warmed against the hill: the cold layer weakened. <span>Observation times are not recorded in these station files. Point at a pair line for its own value.</span></div>`;
   if (overlay === "upslope") return `<div class="ev"><b>Rain per unit of incoming ocean vapour at storm peaks, 1980-99 against 2000-22</b> (median over stations): valley floor −29 %, Sierra windward slope −7 %, coast −23 %, east of the crest −24 %; the ocean input itself fell 3 %. <span>Corridor reading MIMO-1.</span></div><div class="ev"><b>Weak storms, by height:</b> held against the range (blocked), the floor fell −33.3 % [−51.5, −14.9] and the foothills −14.3 % [−39.5, +5.7]; rising up the slope (unblocked), the foothills rose +31.4 % [−2.3, +59.5] and the whole windward side +15.0 % [−9.4, +37.9], while the floor changed −4.5 % [−72.6, +43.7]. <span>The unblocked ranges include zero. Same stations and years for both storm types.</span></div>`;
   if (overlay === "rivers") {
     const dk = decadeOf(year), list = rivers.map((r) => { const d = r.decades[dk] || {}; return d.share != null ? `${r.river} ${Math.round(d.share * 100)} %` : null; }).filter(Boolean);
@@ -909,6 +1161,7 @@ function caseLine() {
 // ---------------------------------------------------------------- the layer panel: one overlay at a time
 let overlay = "none", heatStyle = "float", cloudStyle = "diff";
 function setOverlay(o, sub) {
+  $("tip").hidden = true;   // a tooltip from the previous layer does not stay on screen
   overlay = o; dirty = true;
   if (o === "heat" && sub) heatStyle = sub;
   if (o === "cloud" && sub) cloudStyle = sub;
@@ -918,7 +1171,7 @@ function setOverlay(o, sub) {
   if (o === "wells" && sub) wellWhen = sub;
   if (o === "evap" && sub && (sub === "then" || sub === "now")) evWhen = sub;
   for (const k in wells) wells[k].visible = o === "wells" && k === wellWhen;
-  riverGroup.visible = o === "rivers"; stationGroup.visible = o === "stations"; fogGroup.visible = o === "fog"; upGroup.visible = o === "upslope"; towerGroup.visible = o === "towers";
+  corGroup.visible = o === "corridor"; riverGroup.visible = o === "rivers"; stationGroup.visible = o === "stations"; fogGroup.visible = o === "fog"; upGroup.visible = o === "upslope"; towerGroup.visible = o === "towers";
   updateEvap(); updateRivers(); updateStations();
   updateHeat(year); updateRain(year); renderCards(); readout();
 }
@@ -944,17 +1197,31 @@ document.addEventListener("click", (e) => {
   if (d.hs) setOverlay("heat", d.hs); else if (d.cs) setOverlay("cloud", d.cs);
   else if (d.ws) setOverlay("wells", d.ws); else if (d.es) setOverlay("evap", d.es); else if (d.ess) setOverlay("evap", d.ess);
 });
-function dropOpen(v) { $("drop").hidden = !v; $("bLayers").setAttribute("aria-expanded", String(v)); if (v) viewsOpen(false); }
-function viewsOpen(v) { $("views").hidden = !v; $("bViews").setAttribute("aria-expanded", String(v)); if (v) dropOpen(false); }
-function aboutOpen(v) { $("about").hidden = !v; $("bAbout").setAttribute("aria-expanded", String(v)); if (v) { dropOpen(false); viewsOpen(false); } }
-$("bAbout").addEventListener("click", () => aboutOpen($("about").hidden)); $("aboutX").addEventListener("click", () => aboutOpen(false));
-function ydOpen(v) { $("yd").hidden = !v; readout(); $("bYear").setAttribute("aria-expanded", String(v)); if (v && innerWidth < 900 && legOpen) { legOpen = false; renderLegend(); } }
+function showTab(t) {
+  document.querySelectorAll("#dockL [role=tab]").forEach((b) => b.setAttribute("aria-selected", String(b.dataset.tab === t)));
+  document.querySelectorAll("#dockL .pane").forEach((p) => (p.hidden = p.dataset.pane !== t));
+  if (isPhone()) sheet(t);
+}
+const isPhone = () => matchMedia("(max-width:760px)").matches;
+function sheet(t) {   // phone: one bottom sheet at a time
+  const L = $("dockL"), Rr = $("dockR"), open = t && t !== "inspector" ? L : t === "inspector" ? Rr : null;
+  L.classList.toggle("open", open === L); Rr.classList.toggle("open", open === Rr);
+  if (open === L) { document.querySelectorAll("#dockL .pane").forEach((p) => (p.hidden = p.dataset.pane !== t)); }
+  document.querySelectorAll(".mtabs button").forEach((b) => b.setAttribute("aria-pressed", String(!!open && b.dataset.sheet === t)));
+}
+document.querySelectorAll("#dockL [role=tab]").forEach((b) => b.addEventListener("click", () => showTab(b.dataset.tab)));
+document.querySelectorAll(".mtabs button").forEach((b) => b.addEventListener("click", () => { const on = b.getAttribute("aria-pressed") === "true"; sheet(on ? null : b.dataset.sheet); }));
+function dock(id, open) { $(id).classList.toggle("collapsed", !open); document.querySelector(`.reopen[data-expand="${id}"]`).hidden = open; requestAnimationFrame(resize); }
+document.querySelectorAll("[data-collapse]").forEach((b) => b.addEventListener("click", () => dock(b.dataset.collapse, false)));
+document.querySelectorAll("[data-expand]").forEach((b) => b.addEventListener("click", () => dock(b.dataset.expand, true)));
+function dropOpen(v) { if (v) showTab("layers"); }
+function viewsOpen(v) { $("views").hidden = !v; $("bViews").setAttribute("aria-expanded", String(v)); }
+function ydOpen() {}
+function aboutOpen(v) { if (v) showTab("about"); }
 $("bViews").addEventListener("click", (e) => { e.stopPropagation(); viewsOpen($("views").hidden); });
-$("bYear").addEventListener("click", () => ydOpen($("yd").hidden));
 document.querySelectorAll("#views [data-view]").forEach((b) => b.addEventListener("click", () => viewsOpen(false)));
-$("bLayers").addEventListener("click", (e) => { e.stopPropagation(); dropOpen($("drop").hidden); });
-document.addEventListener("pointerdown", (e) => { if (!$("drop").hidden && !e.target.closest("#drop, #bLayers")) dropOpen(false); if (!$("views").hidden && !e.target.closest("#views, #bViews")) viewsOpen(false); });
-addEventListener("keydown", (e) => { if (e.key === "Escape") { dropOpen(false); viewsOpen(false); ydOpen(false); aboutOpen(false); } });
+document.addEventListener("pointerdown", (e) => { if (!$("views").hidden && !e.target.closest("#views, #bViews")) viewsOpen(false); });
+addEventListener("keydown", (e) => { if (e.key === "Escape") { viewsOpen(false); if (isPhone()) sheet(null); if (!$("welcome").hidden) { welcome(false); closeStory(); } } });
 // point at a pin, a cone or a river column to see what it is
 const ray = new THREE.Raycaster(), ptr = new THREE.Vector2(), tip = $("tip");
 function hoverAt(cx, cy) {
@@ -964,7 +1231,7 @@ function hoverAt(cx, cy) {
   for (const g of pinGroup.children) if (g.visible) objs.push(g.children[1]);
   if (stationGroup.visible) objs.push(...stationGroup.children);
   if (riverGroup.visible) objs.push(...riverGroup.children.filter((m) => m.visible));
-  if (fogGroup.visible) objs.push(...fogGroup.children); if (upGroup.visible) objs.push(...upGroup.children); if (towerGroup.visible) objs.push(...towerGroup.children);
+  if (fogGroup.visible) objs.push(...fogGroup.children); if (upGroup.visible) objs.push(...upGroup.children); if (towerGroup.visible) objs.push(...towerGroup.children); if (corGroup.visible) objs.push(...corPick);
   const hit = ray.intersectObjects(objs, false)[0];
   if (!hit || !hit.object.userData.tip) { tip.hidden = true; return; }
   tip.innerHTML = hit.object.userData.tip(); tip.hidden = false;
@@ -978,9 +1245,10 @@ canvas.addEventListener("pointerdown", (e) => { downAt = [e.clientX, e.clientY];
 canvas.addEventListener("pointerup", (e) => { if (downAt && Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) < 6) hoverAt(e.clientX, e.clientY); downAt = null; });
 document.querySelectorAll(".card-o[role=button]").forEach((c) => c.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOverlay(c.dataset.ov); } }));
 
-window.__cv = { setOverlay, setCloud: (m) => setOverlay(m === "off" ? "none" : "cloud", m), setRain: (on) => setOverlay(on ? "rain" : "none"), story: (k) => showChapter(k), setHeat: (m) => setOverlay(m === "off" ? "none" : "heat", m), setYear, setSeason, view, hoverAt, screenOf: (o) => { const v = o.getWorldPosition(new THREE.Vector3()).project(camera), r = canvas.getBoundingClientRect(); return [r.left + (v.x + 1) / 2 * r.width, r.top + (1 - v.y) / 2 * r.height]; }, stations, pins: pinGroup, get year() { return year; } };
+window.__cv = { setOverlay, setCloud: (m) => setOverlay(m === "off" ? "none" : "cloud", m), setRain: (on) => setOverlay(on ? "rain" : "none"), story: (k) => showChapter(k), setHeat: (m) => setOverlay(m === "off" ? "none" : "heat", m), setYear, setSeason, view, hoverAt, lookAt: (px, py, d) => { VIEWS._look = { t: [px, py], d, a: -0.6 }; view("_look"); }, screenOf: (o) => { const v = o.getWorldPosition(new THREE.Vector3()).project(camera), r = canvas.getBoundingClientRect(); return [r.left + (v.x + 1) / 2 * r.width, r.top + (1 - v.y) / 2 * r.height]; }, stations, pins: pinGroup, get year() { return year; } };
 resize();
 requestAnimationFrame(tick);   // started last, once every layer above has loaded
+welcome(true);   // every visit opens on the walkthrough's first screen
 </script>
 </body>
 </html>

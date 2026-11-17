@@ -2,6 +2,8 @@
 
 California's Central Valley and the mountains around it, on real terrain, with the land cover of each year from 1850 to 2025. The valley floor follows the USGS CVHM2 land-use record (1874 to 2019) and, where land stayed native, the vegetation of the pre-1900 historic map. Dams, canals and dated events appear in their years. There is a summer and a winter view.
 
+The page opens on a guided walkthrough of 21 chapters in four parts (the valley and what changed; the chain, link by link; coast to crest along one corridor; context, one model and one open question). Each chapter is tagged measured, mapped, model or open. At the end, or at any time, the map is free to explore with all its layers; the Walkthrough button starts the story again.
+
 Live page: https://r3genesi5.github.io/central-valley-3d/
 
 ![The Delta in 1850](preview_1850_delta.png)
@@ -33,10 +35,12 @@ Live page: https://r3genesi5.github.io/central-valley-3d/
 - **Rivers and creeks on the map**: USGS NHD flowlines (named streams; today's channels) and Natural Earth rivers outside the NHD extent.
 - **Rivers**: CDEC full natural flow and USGS NWIS flow below the rim dams.
 - **Rain per unit of vapour**: the project's station test (29 of 137 stations).
+- **Coast to crest corridor**: one track of 400 km from 37.80 N, 123.50 W on bearing 71 degrees, in 25 km bins. Rain per unit of offshore inflow from PRISM daily rain and ERA5 vapour transport; afternoon air, drying after rain and fog from NOAA ISD hourly reports at nine airports; the sea from NDBC buoy 46026. Values are copied from the project's test records named on the page.
+- **Major roads, 2023**: US Census TIGER/Line 2023 primary and secondary roads, California. Drawn widths from the Caltrans Highway Design Manual, chapter 300 (2020): lanes, shoulders, median and clear recovery zone. The freeway road-effect zone, about 600 m, from Forman and Deblinger 2000 (Conservation Biology 14: 36-46), as given in summaries of that paper.
 - **Events**: the author's project chronology.
 
 ## Kinds of layer
-Each layer card says what it is: **Measured** (wells, river flow, rain stations, fog and station pairs, satellite surface temperature, rain), **Mapped** (land cover, wet land), **Estimated** (anything "then" built from class rates) or **Model** (cloud base). No layer shows a whole-floor, whole-season average of then against now.
+Each layer card says what it is: **Measured** (wells, river flow, rain stations, fog and station pairs, the coast-to-crest corridor, flux towers, satellite surface temperature, rain), **Mapped** (land cover, wet land), **Estimated** (anything "then" built from class rates) or **Model** (cloud base). No layer shows a whole-floor, whole-season average of then against now.
 
 ## What is estimated
 - **Before 1874**: the floor is the pre-1900 map.
