@@ -2,7 +2,7 @@
 
 California's Central Valley and the mountains around it, on real terrain, with the land cover of each year from 1850 to 2025. The valley floor follows the USGS CVHM2 land-use record (1874 to 2019) and, where land stayed native, the vegetation of the pre-1900 historic map. Dams, canals and dated events appear in their years. There is a summer and a winter view.
 
-The page opens on the case and the other explanation (a change in the weather from the Pacific), then a guided walkthrough of 15 chapters in seven parts: the valley before and after; the ground lost its water; the low air after rain; cloud and rain; where the change is, and where it is not; where water is returned; settled, and what is measured next. Each chapter gives one result in a large line, what the weather reading would predict beside what was measured, and the numbers and sources in a fold. Three chapters add a side view from the ocean to Reno. At the end, or at any time, the map is free to explore with all its layers; the Walkthrough button starts the story again.
+The page opens on the case and the other explanation (a change in the weather from the Pacific), then a guided walkthrough of 15 chapters in seven parts: the valley before and after; the ground lost its water; the low air after rain; cloud and rain; where the change is, and where it is not; where water is returned; settled, and what is measured next. Each chapter gives one result in a large line, what the weather reading would predict beside what was measured, and the numbers and sources in a fold. Three chapters add a side view from the ocean to Reno. The first chapters play the land use through their years (1874 to 1930, 1930 to 1975, 1975 to 2019), and each chapter shows only its own markers; hold "Land underneath" (or the space bar) to see the land under any layer. At the end, or at any time, the map is free to explore with all its layers; Play runs the land use from 1850 to 2025, and the Walkthrough button starts the story again.
 
 Live page: https://r3genesi5.github.io/central-valley-3d/
 
@@ -39,6 +39,8 @@ Live page: https://r3genesi5.github.io/central-valley-3d/
 - **Rain per unit of vapour**: the project's station test (29 of 137 stations).
 - **Coast to crest corridor**: one track of 400 km from 37.80 N, 123.50 W on bearing 71 degrees, in 25 km bins. Rain per unit of offshore inflow from PRISM daily rain and ERA5 vapour transport; afternoon air, drying after rain and fog from NOAA ISD hourly reports at nine airports; the sea from NDBC buoy 46026. Values are copied from the project's test records named on the page.
 - **Major roads, 2023**: US Census TIGER/Line 2023 primary and secondary roads, California. Drawn widths from the Caltrans Highway Design Manual, chapter 300 (2020): lanes, shoulders, median and clear recovery zone. The freeway road-effect zone, about 600 m, from Forman and Deblinger 2000 (Conservation Biology 14: 36-46), as given in summaries of that paper.
+- **Winds**: ERA5 column vapour flux (0.25°), 2 m temperature and dew point (cloud base, 125 m per kelvin of their gap) and column water vapour (WeatherBench-2, 1.5°), as means over storm days (offshore inflow of at least 150 kg/m/s on the corridor) and the afternoon after, winters 1959-60 to 1979-80 and 1999-2000 to 2021-22. A reanalysis: a then-and-now difference mixes land and weather. `build/valley3d_wind.py`.
+- **Name labels**: dams (Global Dam Watch), rivers (NHD, Natural Earth), roads (TIGER 2023) and stations, in the View menu.
 - **Events**: the author's project chronology.
 
 ## Kinds of layer

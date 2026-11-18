@@ -210,6 +210,20 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
   .mtabs button{all:unset;flex:1;text-align:center;padding:9px 0;font-size:12.5px;color:#55555a;cursor:pointer}.mtabs button[aria-pressed=true]{color:#18181a;font-weight:600;box-shadow:inset 0 2px 0 #18181a}
   .reopen{display:none!important}
 }
+
+/* walkthrough redesign 2026-11-18: big year on the map while time plays, peek at the land, prominent Play, short card */
+.yearmap{position:absolute;right:16px;top:48px;z-index:4;font:700 46px/1 ui-monospace,Consolas,monospace;color:#18181a;background:rgba(251,251,250,.86);padding:7px 14px 8px;border-radius:6px;pointer-events:none;box-shadow:0 1px 8px rgba(0,0,0,.12)}
+.yearmap small{display:block;font:12px/1.3 ui-sans-serif,system-ui,sans-serif;color:#55555a;margin-top:4px;letter-spacing:0}
+.yearmap[hidden],.peek[hidden]{display:none}
+.peek{position:absolute;right:12px;bottom:14px;z-index:4;font:inherit;font-size:13px;padding:8px 14px;border:1px solid #18181a;background:rgba(255,255,255,.96);color:#18181a;border-radius:20px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;box-shadow:0 1px 6px rgba(0,0,0,.15)}
+.peek[aria-pressed=true]{background:#18181a;color:#fff}
+.app .timeline #play{background:#18181a;color:#fff;border-color:#18181a;font-weight:600;font-size:14px;padding:7px 16px;border-radius:20px;white-space:nowrap}
+.app .timeline #play[aria-pressed=true]{background:#fff;color:#18181a}
+.app .timeline #play.pulse{animation:playpulse 1.1s ease-in-out 5}
+@keyframes playpulse{0%,100%{box-shadow:0 0 0 0 rgba(213,94,0,0)}50%{box-shadow:0 0 0 7px rgba(213,94,0,.5)}}
+.story .st-replay{display:flex;margin:2px 0 8px}.story .st-replay button{font-weight:600}
+.story .st-key{padding:0!important;margin:0 0 8px}.story .st-key .src{display:none}.story .st-key details{margin-top:0;border-top:0;padding-top:0}
+.story{max-height:min(calc(100% - var(--bbh) - 120px),560px)}
 </style>
 </head>
 <body class="app">
@@ -219,7 +233,7 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
   <div class="tools">
     <div class="menu"><button id="bViews" class="tb" aria-expanded="false" aria-controls="views">View ▾</button>
       <div class="pop views" id="views" hidden><div class="ph">Go to</div><div class="vlist"><button data-view="all">Whole valley</button><button data-view="sac">Sacramento</button><button data-view="delta">Delta</button><button data-view="sj">San Joaquin</button><button data-view="tulare">Tulare</button></div>
-    <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label><label class="chk"><input type="checkbox" id="bRoads"> Major roads, 2023</label><div class="pnote">Roads are today's network (Census TIGER 2023), shown in every year when on, at true ground width: the road, its corridor, and for freeways the road-effect zone.</div></div></div>
+    <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label><label class="chk"><input type="checkbox" id="bRoads"> Major roads, 2023</label><label class="chk"><input type="checkbox" id="bNames"> Name labels</label><div class="pnote">Roads are today's network (Census TIGER 2023), shown in every year when on, at true ground width: the road, its corridor, and for freeways the road-effect zone.</div></div></div>
     <button id="bTour" class="tb" title="Start the guided walkthrough from the beginning">Walkthrough</button>
     <button id="bClean" class="tb" aria-pressed="false" title="Show the map alone (Ctrl+\)">Map only</button>
   </div>
@@ -246,6 +260,7 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
       <div class="card-o" data-ov="heat" role="button" tabindex="0"><b>Ground heat</b><span class="kind k-m">Measured</span><span class="q">How hot the ground got on the valley's 10 hottest days a year</span><span class="ramp" style="background:linear-gradient(90deg,#ffffb2,#fecc5c,#fd8d3c,#f03b20,#bd0026,#67000d)"></span><span class="rl"><i>25 °C</i><i>66 °C</i></span><span class="sub"><button data-hs="float">Floating sheet</button><button data-hs="drape">On the land</button></span><span class="sub"><button data-hs="obsclim" title="Mean over all 230 hottest days 2003-2025, satellite">Today, all years</button></span><span class="src">Satellite (MODIS) · 2003 to 2025</span><span class="nod" data-nod="heat"></span></div>
       <div class="card-o" data-ov="towers" role="button" tabindex="0"><b>Where water is returned</b><span class="kind k-m">Measured</span><span class="q">Air over rewetted Delta land against drained farmland nearby, same days</span><span class="dots"><i style="background:#2166ac"></i>rewetted (marsh, rice) <i style="background:#c49a5a"></i>drained farmland</span><span class="src">AmeriFlux towers · record 2026-11-16_m9-towers-rewetted-air</span><span class="nod" data-nod="towers"></span></div>
       <div class="card-o" data-ov="cloud" role="button" tabindex="0"><b>A model: cloud base over the old land</b><span class="kind k-x">Model</span><span class="q">How high cloud formed in storms over the old land and over today's land, same weather</span><span class="src">WRF, winter 2013-14, three members · no map</span><span class="nod" data-nod="cloud"></span></div>
+      <div class="card-o" data-ov="wind" role="button" tabindex="0"><b>How the wind runs across the valley, before and now</b><span class="kind k-x">Reanalysis</span><span class="q">Streaks follow the wind on storm days and on the afternoon after, near the ground, higher up, or as the vapour the whole air column carries; a colour under them can add the cloud base or the vapour in the column</span><span class="ramp" data-wramp style="display:block"></span><span class="rl" data-wrl style="display:flex"></span><span class="sub" data-whrow><button data-wh="10m">Near the ground</button><button data-wh="925">~750 m</button><button data-wh="850">~1,500 m</button><button data-wh="ivt">Vapour carried</button></span><span class="sub"><button data-wd="before">1959-80</button><button data-wd="now">2000-22</button><button data-wd="diff">Change</button></span><span class="sub"><button data-wc="storm">Storm days</button><button data-wc="after">Afternoon after</button></span><span class="sub"><button data-wf="lcl">Cloud base</button><button data-wf="tcwv">Column vapour (TCWV, TPW)</button><button data-wf="none">No colour</button></span><span class="src">ERA5, winters November to March · storm day = offshore inflow of at least 150 kg/m/s (the corridor rule) · vapour transport and cloud base 0.25°, column vapour 1.5° · src/landscape/valley3d_wind.py</span><span class="nod" data-nod="wind"></span></div>
     </div>
     </div>
     <div class="pane" data-pane="story" id="paneStory" hidden>
@@ -285,6 +300,8 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
       <div class="wb"><button class="primary" id="wStart">Start the walkthrough</button><button id="wSkip">Explore the map on my own</button></div>
     </div></div>
     <div class="hint" id="hint" hidden></div>
+    <div class="yearmap" id="yearMap" hidden></div>
+    <button class="peek" id="peek" hidden title="Hold to see the land under the layer; the space bar does the same">Hold: land underneath</button>
     <button class="reopen l" data-expand="dockL" hidden>Layers ›</button><button class="reopen r" data-expand="dockR" hidden>‹ Inspector</button>
   </div>
   <aside class="dock dr" id="dockR" aria-label="Inspector">
@@ -295,7 +312,7 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
 </div>
 <footer class="timeline">
   <div class="year" id="yearBig">pre-1900<small id="yearSrc">historic map</small></div>
-  <button id="play" aria-pressed="false">Play</button>
+  <button id="play" aria-pressed="false" title="Watch the land use change, year by year">▶ Play 1850-2025</button>
   <div class="track" id="track"><input id="slider" type="range" min="1850" max="2025" step="1" value="1850" aria-label="Year"></div>
   <div class="seg" role="group" aria-label="Season"><button id="sWin" aria-pressed="false">Winter</button><button id="sSum" aria-pressed="true">Summer</button></div>
 </footer>
@@ -458,7 +475,7 @@ function quad(o, u0, v0, u1, v1) {
 const pathQ = (q) => { tg.moveTo(q[0][0], q[0][1]); tg.lineTo(q[1][0], q[1][1]); tg.lineTo(q[2][0], q[2][1]); tg.lineTo(q[3][0], q[3][1]); tg.closePath(); };
 const WLC = { still: hex("#08519c"), gone: hex("#9ecae1"), rest: hex("#cfcfcf") };
 function paint(year, s) {
-  let WL = false; try { WL = overlay === "wetland"; } catch (e) { /* panel not built yet */ }
+  let WL = false; try { WL = overlay === "wetland" && !window.__peek; } catch (e) { /* panel not built yet */ }
   const pre = year < M.years[0], code = pre ? null : codes(Math.min(year, M.years[1]));
   const d = img.data;
   for (let y = 0; y < TH; y++) for (let x = 0; x < TW; x++) {
@@ -697,7 +714,7 @@ async function updateHeat(y) {
   // the floating sheet covers the valley floor only; on the land it covers everything
   const onFloor = (k) => { const i = k % MW, j = (k / MW) | 0, tx = Math.min(TW - 1, Math.round((i * G.mesh_m) / G.tex_m)), ty = Math.min(TH - 1, Math.round((j * G.mesh_m) / G.tex_m)); return cellOf[ty * TW + tx] >= 0; };
   const use = (k) => Number.isFinite(v[k]);
-  heatMesh.material.opacity = heatMode === "float" ? 0.85 : 0.55;
+  heatMesh.material.opacity = heatMode === "float" ? 0.72 : 0.55;
   for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) {
     const k = j * MW + i, t = v[k], land = (Math.max(0, demM[k]) / 1000) * EX;
     pos.setY(k, Number.isFinite(t) ? (heatMode !== "drape" ? land + LIFT_KM + Math.max(0, t - 30) * KM_PER_C : land + 0.6) : 0);
@@ -749,6 +766,7 @@ let goal = null;
 function view(key) {
   const v = VIEWS[key] || VIEWS.all, t = toWorld(v.t[0], v.t[1]);
   const fit = Math.min(1.8, Math.max(1, 1.7 / Math.max(0.3, camera.aspect)));   // narrow screens step back so more of the area fits
+  if (document.body.classList.contains("touring") && !matchMedia("(max-width:760px)").matches) { const sh = v.d * fit * 0.2; t.x -= Math.cos(v.a) * sh; t.z += Math.sin(v.a) * sh; }   // the card covers the left: aim left of the subject so it sits in the open part
   scene.fog.near = 700 * fit; scene.fog.far = 1500 * fit; controls.maxDistance = 1600 * fit;
   goal = { t, c: new THREE.Vector3(t.x + Math.sin(v.a) * v.d * fit * 0.7, v.d * fit * 0.62, t.z + Math.cos(v.a) * v.d * fit * 0.7) };
 }
@@ -775,7 +793,7 @@ const SYMBOLS = `<div class="sym">
   <div><span class="sw" style="background:#d55e00;border-radius:50%;width:12px;height:12px"></span>Event on the timeline: year and what happened (point at a pin for the full text)</div>
 </div>`;
 let legOpen = true, moreOpen = false;   // the inspector shows the layer section open; it folds on click
-function layerLine() { try { return (typeof caseLine === "function" ? caseLine() : "") + heatLine() + rainLine() + cloudLine(); } catch (e) { return ""; } }
+function layerLine() { try { return (typeof caseLine === "function" ? caseLine() : "") + heatLine() + rainLine() + cloudLine() + windLine(); } catch (e) { return ""; } }
 function renderLegend() {
   let ov = "none"; try { ov = overlay; } catch (e) { /* panel not built yet */ }
   const card = document.querySelector(`.card-o[data-ov="${ov}"]`);
@@ -796,7 +814,7 @@ $("legToggle").addEventListener("click", () => { legOpen = !legOpen; renderLegen
 let clean = false;
 function setClean(v) { clean = v; document.body.classList.toggle("clean", v); $("bClean").setAttribute("aria-pressed", String(v)); requestAnimationFrame(resize);
   for (const sp of pinLabels) sp.visible = !v; for (const sp of regionGroup.children) if (sp.isSprite) sp.visible = !v; dirty = true; }
-$("bClean").addEventListener("click", () => setClean(!clean));
+$("bClean").addEventListener("click", () => { setClean(!clean); if (window.__declutter) window.__declutter(true); });
 addEventListener("keydown", (e) => { if (((e.key === "h" || e.key === "H") && !e.ctrlKey && !e.target.closest("input, textarea")) || (e.ctrlKey && e.key === "\\")) { e.preventDefault(); setClean(!clean); } });
 
 // ---------------------------------------------------------------- timeline
@@ -807,7 +825,14 @@ for (let y = 1850; y <= 2025; y += 25) {
 for (const ev of M.events) {
   const f = (ev.year - Y0) / (Y1 - Y0), t = document.createElement("div"); t.className = "tick"; t.style.left = `${f * 100}%`; t.title = `${ev.year}: ${ev.text}`; track.appendChild(t);
 }
-let year = 1850, season = 1, playing = false, dirty = true, lastStep = 0;
+let year = 1850, season = 1, playing = false, dirty = true, lastStep = 0, playTo = null, playMs = 200, playT0 = 0, playY0 = 1850, tourShow = null;
+function setPlayBtn(v) { playing = v; if (!v) playTo = null; $("play").textContent = v ? "❚❚ Pause" : "▶ Play 1850-2025"; $("play").setAttribute("aria-pressed", String(v)); yearMapUpd(); }
+function playSpan(a, b) { setYear(a); playTo = b; playMs = 8000 / Math.max(1, b - a); playT0 = performance.now() + 700; playY0 = a; setPlayBtn(true); }   // a chapter's span in about 8 s, after the camera moves
+function yearMapUpd() {
+  let ch = null; try { ch = chapter >= 0 ? CHAPTERS[chapter] : null; } catch (e) { /* story not built yet */ }
+  const on = playing || !!(ch && ch.from != null), el = $("yearMap"); el.hidden = !on; if (!on) return;
+  el.innerHTML = `${year < M.years[0] ? "pre-1900" : year}<small>${ch && ch.from != null ? `land use, ${ch.from} to ${ch.year}` : "land use"}</small>`;
+}
 const area = (y) => M.areas[String(Math.max(M.years[0], Math.min(M.years[1], y)))];
 let evOpen = false;
 function readout() {
@@ -822,19 +847,19 @@ function readout() {
   const evHtml = evAll.length ? `<ul class="evl${evOpen ? "" : " collapsed"}">${evAll.slice().reverse().map((e) => `<li><span class="yr">${e.year}${e.end && e.end !== e.year ? "–" + e.end : ""}</span><span>${e.text}${e.place ? ` <span class="pl">· ${e.place}</span>` : ""}</span></li>`).join("")}</ul>${evAll.length > 2 ? `<button class="evmore" id="evMore">${evOpen ? "Show fewer" : `Show all ${evAll.length}`}</button>` : ""}` : `<div class="evnone">No dated step in the project chronology around ${year}.</div>`;
   $("readout").innerHTML = `<div><div class="evh"><span>The floor in ${year}</span></div><div class="tiles">${tiles}</div></div><div><div class="evh"><span>Steps around ${year}</span><span>project chronology</span></div>${evHtml}</div>`;
   if ($("evMore")) $("evMore").onclick = () => { evOpen = !evOpen; readout(); };
-  for (const m of damGroup.children) m.visible = m.userData.built <= year;
+  for (const m of damGroup.children) m.visible = m.userData.built <= year && (!tourShow || !!tourShow.dams);
   const stack = {};
   for (const g of pinGroup.children) {
-    const e = g.userData; g.visible = e.year <= year && year <= Math.max(e.end || e.year, e.year + 4);
+    const e = g.userData; g.visible = e.year <= year && year <= Math.max(e.end || e.year, e.year + 4) && (!tourShow || !!tourShow.pins);
     if (!g.visible) continue;
     const k = (stack[e.key] = (stack[e.key] || 0) + 1) - 1;   // pins on the same spot stand at different heights
     g.children[0].scale.y = 1 + k * 0.55; g.children[0].position.y = 11 * (1 + k * 0.55); g.children[1].position.y = 23 + k * 12; g.children[2].position.y = 29 + k * 12;
   }
-  renderLegend();
+  renderLegend(); yearMapUpd();
 }
 function setYear(y) { year = Math.max(Y0, Math.min(Y1, y)); slider.value = String(year); dirty = true; }
 slider.addEventListener("input", () => setYear(+slider.value));
-$("play").addEventListener("click", () => { playing = !playing; $("play").textContent = playing ? "Pause" : "Play"; $("play").setAttribute("aria-pressed", String(playing)); if (playing && year >= Y1) setYear(Y0); });
+$("play").addEventListener("click", () => { $("play").classList.remove("pulse"); playMs = 200; setPlayBtn(!playing); if (playing && year >= Y1) setYear(Y0); playT0 = performance.now(); playY0 = year; });
 const setSeason = (s) => { season = s; $("sWin").setAttribute("aria-pressed", String(!s)); $("sSum").setAttribute("aria-pressed", String(!!s)); $("seasonTag").textContent = s ? "Summer (August)" : "Winter (February)"; scene.background.set(s ? "#dfe6ea" : "#d9dfe4"); drawKey(s); dirty = true; };
 // roads as bands on the terrain at true ground width (world units are km). Widths from the Caltrans Highway Design Manual, ch. 300 (2020):
 //   road: lanes 12 ft (301.1); paved shoulders 10 ft right and 5 ft left on a 4-lane freeway (Table 302.1), 8 ft on a two-lane road over 400 ADT (Table 307.2);
@@ -892,10 +917,11 @@ $("loading").remove();
 let last = 0;
 function tick(now) {
   const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016; last = now;
-  if (playing && now - lastStep > 260) { lastStep = now; if (year >= Y1) { playing = false; $("play").textContent = "Play"; $("play").setAttribute("aria-pressed", "false"); } else setYear(year + 1); }
+  if (playing && now >= playT0) { const end = playTo ?? Y1, ty = Math.min(end, playY0 + Math.floor((now - playT0) / playMs)); if (ty > year) setYear(ty); if (year >= end) setPlayBtn(false); }
   if (dirty) { paint(year, season); readout(); updateHeat(year); updateRain(year); if (typeof updateRivers === "function") { updateRivers(); updateStations(); } dirty = false; }
   if (goal) { const k = Math.min(1, dt * 2.2); controls.target.lerp(goal.t, k); camera.position.lerp(goal.c, k); if (camera.position.distanceTo(goal.c) < 0.5) goal = null; }
-  controls.update(); renderer.render(scene, camera);
+  windStep(dt); if (window.__peek) peekHid.forEach((o) => (o.visible = false));   // a year step during a peek does not bring a layer back
+  controls.update(); if (window.__declutter) window.__declutter(); renderer.render(scene, camera);
   requestAnimationFrame(tick);
 }
 let cloudMode = "off";
@@ -915,6 +941,102 @@ rainGeo.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(
 for (let k = 0; k < MW * MH; k++) rainGeo.attributes.position.setY(k, (Math.max(0, demM[k]) / 1000) * EX + 0.35);
 const rainMesh = new THREE.Mesh(rainGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.62, side: THREE.DoubleSide, depthWrite: false }));
 rainMesh.renderOrder = 2; rainMesh.visible = false; scene.add(rainMesh);
+
+// ---------------------------------------------------------------- winds that bring the vapour: ERA5 storm-day and after-storm composites, 1959-80 against 2000-22 (src/landscape/valley3d_wind.py)
+const WINDM = await fetch("data/wind/wind_meta.json").then((r) => r.json()).catch(() => null);
+const WINDB = WINDM ? new Float32Array(await fetch("data/wind/wind.bin").then((r) => r.arrayBuffer())) : null;
+const WINDLM = await fetch("data/wind/wind_low_meta.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);   // low-level winds (src/landscape/valley3d_lowwind.py)
+const WINDLB = WINDLM ? new Float32Array(await fetch("data/wind/wind_low.bin").then((r) => r.arrayBuffer())) : null;
+const WG = WINDM ? WINDM.grid : null;
+let windOn = false, windEra = "now", windComp = "storm", windField = "none", windShown = "", windHeight = WINDLM ? "10m" : "ivt";
+const W_LEVELS = { "10m": "near the ground (10 m)", 925: "about 750 m up (925 hPa)", 850: "about 1,500 m up (850 hPa)" };
+const wLowOff = (era, comp, lev, c) => { const o = WINDLM.order; return ((((o.era.indexOf(era) * o.comp.length + o.comp.indexOf(comp)) * o.level.length + o.level.indexOf(lev)) * 2 + c) * WG.wx * WG.wy); };
+const wOff = (era, comp, field) => { const o = WINDM.order; return ((o.era.indexOf(era) * o.comp.length + o.comp.indexOf(comp)) * o.field.length + o.field.indexOf(field)) * WG.wx * WG.wy; };
+function wAt(off, gx, gy, B = WINDB) {   // bilinear on the 5 km grid (gx, gy in 5 km steps from the north-west corner)
+  const W = WG.wx, x = Math.max(0, Math.min(W - 1.001, gx)), y = Math.max(0, Math.min(WG.wy - 1.001, gy)), i = Math.floor(x), j = Math.floor(y), fx = x - i, fy = y - j, o = off + j * W + i;
+  return (B[o] * (1 - fx) + B[o + 1] * fx) * (1 - fy) + (B[o + W] * (1 - fx) + B[o + W + 1] * fx) * fy;
+}
+const W_RAMPS = {
+  lcl: { lo: 0, hi: 2000, u: "m", stops: ["#fff5eb", "#fdd0a2", "#fd8d3c", "#d94801", "#7f2704"], name: "cloud base above the ground" },
+  tcwv: { lo: 5, hi: 35, u: "mm", stops: ["#f7fcfd", "#ccece6", "#66c2a4", "#238b45", "#00441b"], name: "water vapour in the whole air column" },
+  lclD: { lo: -300, hi: 300, u: "m", stops: ["#01665e", "#5ab4ac", "#f5f5f5", "#d8b365", "#8c510a"], name: "change in cloud base, 2000-22 minus 1959-80" },
+  tcwvD: { lo: -3, hi: 3, u: "mm", stops: ["#8c510a", "#d8b365", "#f5f5f5", "#5ab4ac", "#01665e"], name: "change in column vapour, 2000-22 minus 1959-80" },
+};
+const wRamp = () => W_RAMPS[windField + (windEra === "diff" ? "D" : "")];
+function wCol(R, v) { const s = R.stops.map(hex), f = Math.max(0, Math.min(1, (v - R.lo) / (R.hi - R.lo))) * (s.length - 1), k = Math.min(s.length - 2, Math.floor(f)); return mix(s[k], s[k + 1], f - k); }
+const windGeo = new THREE.PlaneGeometry(wKm, hKm, MW - 1, MH - 1); windGeo.rotateX(-Math.PI / 2);
+windGeo.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(MW * MH * 3), 3));
+for (let k = 0; k < MW * MH; k++) windGeo.attributes.position.setY(k, (Math.max(0, demM[k]) / 1000) * EX + 0.4);
+const windMesh = new THREE.Mesh(windGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.6, side: THREE.DoubleSide, depthWrite: false }));
+windMesh.renderOrder = 2; windMesh.visible = false; scene.add(windMesh);
+const NP = 3500, TL = 10, ptRec = new Float32Array(NP), ptX = new Float32Array(NP), ptY = new Float32Array(NP), ptAge = new Float32Array(NP), ptLife = new Float32Array(NP), trail = new Float32Array(NP * TL * 3);
+// streaks as flat ribbons on the air above the ground (WebGL lines are one pixel wide): per segment 4 vertices, RGBA, wide dark head fading to a thin clear tail
+const NS = TL - 1, windLineGeo = new THREE.BufferGeometry();
+windLineGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(NP * NS * 4 * 3), 3));
+const wlc = new Float32Array(NP * NS * 4 * 4), wli = new Uint32Array(NP * NS * 6);
+for (let p = 0; p < NP; p++) for (let s = 0; s < NS; s++) {
+  const q = p * NS + s;
+  for (let e = 0; e < 4; e++) { const f = (s + (e >> 1)) / NS, o = (q * 4 + e) * 4; wlc[o] = wlc[o + 1] = wlc[o + 2] = 1.0; wlc[o + 3] = 0.95 * (1 - f) ** 1.3; }
+  const v = q * 4, o = q * 6; wli[o] = v; wli[o + 1] = v + 2; wli[o + 2] = v + 1; wli[o + 3] = v + 1; wli[o + 4] = v + 2; wli[o + 5] = v + 3;
+}
+windLineGeo.setAttribute("color", new THREE.BufferAttribute(wlc, 4)); windLineGeo.setIndex(new THREE.BufferAttribute(wli, 1));
+const windLines = new THREE.Mesh(windLineGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, side: THREE.DoubleSide, depthWrite: false }));
+windLines.renderOrder = 3; windLines.visible = false; windLines.frustumCulled = false; scene.add(windLines);
+const W_HALF = 0.75;   // km: half the width of a streak at its head
+const wY = (x, y) => (Math.max(0, demM[Math.min(MH - 1, Math.max(0, Math.round(y))) * MW + Math.min(MW - 1, Math.max(0, Math.round(x)))]) / 1000) * EX + 1.2;
+function wSpawn(p) {
+  ptX[p] = Math.random() * (MW - 1); ptY[p] = Math.random() * (MH - 1); ptAge[p] = 0; ptLife[p] = 2 + Math.random() * 4;
+  for (let s = 0; s < TL; s++) { const o = (p * TL + s) * 3; trail[o] = ptX[p] - wKm / 2; trail[o + 1] = wY(ptX[p], ptY[p]); trail[o + 2] = ptY[p] - hKm / 2; }
+}
+for (let p = 0; p < NP; p++) { wSpawn(p); ptAge[p] = Math.random() * ptLife[p]; }
+const W_SPEED = 1.6, W_SPEED_W = 7, W_REC = 0.1;   // wind heights: 7 x the square root of the wind speed (m/s)
+   // animation only: streak speed in km per second = 1.6 x the square root of the vapour transport (kg/m/s), so slow inland flow stays visible   // animation only: km of streak travel per second for each kg/m/s of vapour transport
+function windStep(dt) {
+  if (!windOn || !WINDM) return;
+  const era = windEra === "diff" ? "now" : windEra, low = windHeight !== "ivt" && WINDLB, pos = windLineGeo.attributes.position.array;
+  const src = low ? WINDLB : WINDB, oe = low ? wLowOff(era, windComp, windHeight, 0) : wOff(era, windComp, "ivt_e"), on = low ? wLowOff(era, windComp, windHeight, 1) : wOff(era, windComp, "ivt_n"), kS = low ? W_SPEED_W : W_SPEED;
+  for (let p = 0; p < NP; p++) {
+    ptAge[p] += dt;
+    const gx = ptX[p] / 5, gy = ptY[p] / 5, u = wAt(oe, gx, gy, src), v = wAt(on, gx, gy, src);
+    if (ptAge[p] > ptLife[p] || !isFinite(u) || !isFinite(v)) { wSpawn(p); continue; }
+    const sp = Math.hypot(u, v), k = sp > 0 ? (kS * Math.sqrt(sp)) / sp : 0; ptX[p] += u * k * dt; ptY[p] -= v * k * dt;   // north is up the page: rows count southward
+    if (ptX[p] < 0 || ptY[p] < 0 || ptX[p] > MW - 1 || ptY[p] > MH - 1) { wSpawn(p); continue; }
+    const b = p * TL * 3; ptRec[p] += dt; if (ptRec[p] >= W_REC) { ptRec[p] = 0; trail.copyWithin(b + 3, b, b + (TL - 1) * 3); }
+    trail[b] = ptX[p] - wKm / 2; trail[b + 1] = wY(ptX[p], ptY[p]); trail[b + 2] = ptY[p] - hKm / 2;
+  }
+  for (let p = 0; p < NP; p++) for (let s = 0; s < NS; s++) {
+    const t = (p * TL + s) * 3, x0 = trail[t], y0 = trail[t + 1], z0 = trail[t + 2], x1 = trail[t + 3], y1 = trail[t + 4], z1 = trail[t + 5];
+    let nx = -(z1 - z0), nz = x1 - x0; const L = Math.hypot(nx, nz) || 1; nx /= L; nz /= L;
+    const w0 = W_HALF * (1 - s / NS) + 0.08, w1 = W_HALF * (1 - (s + 1) / NS) + 0.08, o = (p * NS + s) * 12;
+    pos[o] = x0 + nx * w0; pos[o + 1] = y0; pos[o + 2] = z0 + nz * w0; pos[o + 3] = x0 - nx * w0; pos[o + 4] = y0; pos[o + 5] = z0 - nz * w0;
+    pos[o + 6] = x1 + nx * w1; pos[o + 7] = y1; pos[o + 8] = z1 + nz * w1; pos[o + 9] = x1 - nx * w1; pos[o + 10] = y1; pos[o + 11] = z1 - nz * w1;
+  }
+  windLineGeo.attributes.position.needsUpdate = true;
+}
+function updateWind() {
+  const card = document.querySelector('.card-o[data-ov="wind"]');
+  if (!WINDM) { windMesh.visible = windLines.visible = false; return; }
+  windLines.visible = windOn; windMesh.visible = windOn && windField !== "none";
+  if (card) { const R = wRamp(), r = card.querySelector("[data-wramp]"), l = card.querySelector("[data-wrl]"); r.hidden = l.hidden = !R || windField === "none"; if (R && windField !== "none") { r.style.display = "block"; l.style.display = "flex"; r.style.background = `linear-gradient(90deg,${R.stops.join(",")})`; l.innerHTML = `<i>${R.lo > 0 || windEra !== "diff" ? R.lo : "−" + Math.abs(R.lo)} ${R.u}</i><i>${windEra === "diff" ? "+" : ""}${R.hi} ${R.u}</i>`; } }
+  const key = windEra + windComp + windField;
+  if (!windOn || windField === "none" || windShown === key) return;
+  const R = wRamp(), col = windGeo.attributes.color, idx = [], val = new Float32Array(MW * MH);
+  const o1 = wOff(windEra === "diff" ? "now" : windEra, windComp, windField), o0 = windEra === "diff" ? wOff("before", windComp, windField) : -1;
+  for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) {
+    const k = j * MW + i, v = wAt(o1, i / 5, j / 5) - (o0 >= 0 ? wAt(o0, i / 5, j / 5) : 0); val[k] = v;
+    const c = isFinite(v) ? wCol(R, v) : [0, 0, 0]; col.setXYZ(k, c[0] / 255, c[1] / 255, c[2] / 255);
+  }
+  for (let j = 0; j < MH - 1; j++) for (let i = 0; i < MW - 1; i++) { const a = j * MW + i, b = a + 1, c = a + MW, d = c + 1; if (isFinite(val[a]) && isFinite(val[b]) && isFinite(val[c]) && isFinite(val[d])) idx.push(a, c, b, b, c, d); }
+  windGeo.setIndex(idx); col.needsUpdate = true; windShown = key;
+}
+function windLine() {
+  if (overlay !== "wind" || !WINDM) return "";
+  const F = WINDM.floor, c = windComp, w = c === "storm" ? "on storm days" : "on the afternoon after a storm day", sg = (v, d) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d), f = (a, d = 0) => `${a[0].toFixed(d)} → ${a[1].toFixed(d)}, change ${sg(a[2], d)} [${sg(a[3], d)}, ${sg(a[4], d)}]`;
+  let lowTxt = "";
+  if (WINDLM && windHeight !== "ivt") { const L = WINDLM.floor, a = L[`before_${c}_${windHeight}`], b = L[`now_${c}_${windHeight}`], al = (x) => `${x > 0 ? "+" : x < 0 ? "−" : ""}${Math.abs(x).toFixed(1)}`;
+    lowTxt = `<div class="ev"><b>Wind over the floor ${w}, ${W_LEVELS[windHeight]}:</b> 1959-80 ${a[0].toFixed(1)} m/s from ${a[1]}°, 2000-22 ${b[0].toFixed(1)} m/s from ${b[1]}°; along the valley toward the north-north-west ${al(a[2])} → ${al(b[2])} m/s. <span>Floor means of the composite wind (ERA5 0.25°). ${windHeight === "925" ? "Over the Sierra above about 700 m the 925 hPa level lies under the ground and ERA5 extrapolates it. " : ""}ERA5's land cover is one fixed map for all years, so a change in the near-ground wind here comes from the weather and the analysed air, not from rougher or smoother land.</span></div>`; }
+  return lowTxt + `<div class="ev"><b>Valley floor ${w}, 1959-80 → 2000-22:</b> cloud base ${f(F[c + "_lcl"])} m; column vapour ${f(F[c + "_tcwv"], 1)} mm. <b>Offshore inflow</b> (the ocean's supply, the other explanation's channel): ${f(F[c + "_f0"])} kg/m/s. <span>Means over ${WINDM.steps.before[c].toLocaleString("en-GB")} and ${WINDM.steps.now[c].toLocaleString("en-GB")} six-hourly ERA5 steps; ranges are 95 % water-year resamples.</span></div><div class="ev"><span>ERA5 is a reanalysis, a weather model held to the observations. Its land model has no irrigation, but its 2 m air is analysed from station reports, so cloud base over the floor follows what the stations measured. A then-and-now difference here mixes land change and weather. 1959-80 is already a dammed, irrigated valley; ERA5 has no state before 1940. Column vapour is on a 1.5° grid (about 150 km), coarser than the floor. With "Vapour carried" the streaks follow the vapour moved through the whole air column; at the three heights they follow the wind itself. Streak speed is drawn for the eye, on a square-root scale. No CAPE is shown: it is not in the project's ERA5 holdings.</span></div>`;
+}
 let rainOn = false, rainYearShown = null;
 function updateRain(y) {
   const n = RAINM ? RAINM.years.indexOf(y) : -1;
@@ -1085,12 +1207,18 @@ CHAPTERS.splice(0, CHAPTERS.length, CHAPTERS[0], CHAPTERS[1], CHAPTERS[2], CHAPT
 let chapter = -1, storyMin = false;
 const storyBox = document.createElement("div"); storyBox.className = "story"; storyBox.hidden = true;
 document.querySelector(".stage").appendChild(storyBox);   // the walkthrough card floats on the map; the panels return for free exploration
+CHAPTERS[1].from = 1874; CHAPTERS[2].from = 1930; CHAPTERS[3].from = 1975;   // Part 1 plays its years
+const SHOW = [{ regions: 1 }, { pins: 1, dams: 1 }, { pins: 1, dams: 1 }, { regions: 1 }, { dams: 1 }];   // markers each chapter needs; the rest stay off in the walkthrough
+CHAPTERS.forEach((c, k) => (c.show = SHOW[k] || {}));
+let stMoreOpen = false;
 const PARTS = [[0, "Part 1 of 7 · The valley before and after"], [4, "Part 2 of 7 · The ground lost its water"], [7, "Part 3 of 7 · The low air after rain"], [8, "Part 4 of 7 · Cloud and rain"], [12, "Part 5 of 7 · Where the change is, and where it is not"], [13, "Part 6 of 7 · Where water is returned"], [14, "Part 7 of 7 · Settled, and what is measured next"]];
 const partOf = (k) => PARTS.filter(([s]) => s <= k).pop()[1];
 function showChapter(k) {
   chapter = Math.max(0, Math.min(CHAPTERS.length - 1, k)); const c = CHAPTERS[chapter];
-  playing = false; $("play").textContent = "Play"; $("play").setAttribute("aria-pressed", "false");
+  setPlayBtn(false); stMoreOpen = false; document.body.classList.add("touring");
+  tourShow = c.show || {}; regionGroup.visible = $("bReg").checked && !!tourShow.regions;
   setSeason(c.season); setYear(c.year); view(c.view);
+  if (c.from != null) playSpan(c.from, c.year);
   setOverlay(c.ov ? c.ov : c.rain ? "rain" : c.heat !== "off" ? "heat" : c.cloud ? "cloud" : "none", c.ov ? c.sub : c.heat !== "off" ? c.heat : c.cloud);
   corBins(c.bins !== false); sideView(c.side || null);  
   updateHeat(year).then(renderStory); renderStory();
@@ -1114,18 +1242,55 @@ function renderStory() {
   document.body.classList.add("touring");
   storyBox.innerHTML = `<div class="st-top st-head"><span class="st-pp">${chapter + 1} / ${CHAPTERS.length} · ${partOf(chapter)}</span><button class="st-x" data-st="min" title="Minimise" aria-label="Minimise the chapter">–</button></div><div class="st-prog">${prog}</div><h2>${c.title}${c.tag ? `<span class="kind ${TAGS[c.tag][0]}">${TAGS[c.tag][1]}</span>` : ""}</h2>${nm ? `<div class="st-num"><b>${nm[0]}</b><span>${nm[1]}</span></div>` : ""}${c.fig ? c.fig() : ""}${isPhone() || (c.side && matchMedia("(max-width:1100px)").matches) ? `<details class="st-more"><summary>Read the chapter</summary>${body}</details>` : body}
     <div class="st-b"><button class="st-leave" data-st="leave">Leave the walkthrough</button><button data-st="prev" ${chapter ? "" : "disabled"}>Back</button><button data-st="next">${chapter < CHAPTERS.length - 1 ? "Next" : "Explore the map"}</button></div>`;
+  shortenCard(c);
+  if (!isPhone() && !$("dockR").classList.contains("collapsed")) dock("dockR", false);   // the Inspector repeats the card; the key moves into the card
   storyBox.querySelectorAll("[data-go]").forEach((b) => (b.onclick = () => showChapter(+b.dataset.go)));
   storyBox.querySelector('[data-st="leave"]').onclick = () => closeStory();
   storyBox.querySelector('[data-st="min"]').onclick = (e) => { e.stopPropagation(); storyMin = true; renderStory(); };
   storyBox.querySelector('[data-st="prev"]').onclick = () => showChapter(chapter - 1);
   storyBox.querySelector('[data-st="next"]').onclick = () => (chapter < CHAPTERS.length - 1 ? showChapter(chapter + 1) : closeStory());
 }
+function shortenCard(c) {
+  const head = storyBox.querySelector(".st-num") || storyBox.querySelector("h2");
+  if (c.from != null) { const r = document.createElement("div"); r.className = "st-replay"; r.innerHTML = `<button>▶ Replay ${c.from} to ${c.year}</button>`; r.firstChild.onclick = () => playSpan(c.from, c.year); head.after(r); }
+  // key: the active layer's colours, or the land colours when no layer is on
+  const key = document.createElement("div"); key.className = "leg-b st-key";
+  const oc = overlay !== "none" ? document.querySelector(`.card-o[data-ov="${overlay}"]`) : null;
+  if (oc) key.innerHTML = [...oc.querySelectorAll(".dots, .ramp, .rl")].filter((e) => !e.hidden).map((e) => e.outerHTML).join("");
+  else { const lc = [...$("legBody").querySelectorAll("details")].find((d) => /land colours/i.test((d.querySelector("summary") || {}).textContent || "")); if (lc) { const d = lc.cloneNode(true); d.open = false; d.querySelector("summary").textContent = "Land colour key"; key.appendChild(d); } }
+  // long text and tables fold away when the chapter has a headline number; Part 1 keeps its text, which carries its numbers
+  if (!storyBox.querySelector(".st-more") && c.num) {
+    const txt = storyBox.querySelector(".st-txt"), tabs = [...storyBox.querySelectorAll("table")];
+    if (txt || tabs.length) {
+      const d = document.createElement("details"); d.className = "st-more"; d.innerHTML = "<summary>Read the chapter</summary>"; d.open = stMoreOpen; d.addEventListener("toggle", () => (stMoreOpen = d.open));
+      if (txt) d.appendChild(txt);
+      for (const t of tabs) { const nx = t.nextElementSibling; d.appendChild(t); if (nx && nx.classList.contains("h")) d.appendChild(nx); }
+      const ref = storyBox.querySelector(".st-fold") || storyBox.querySelector(".st-b"); ref.parentNode.insertBefore(d, ref);
+    }
+  }
+  if (key.innerHTML.trim()) { const ref = storyBox.querySelector(".st-more") || storyBox.querySelector(".st-fold") || storyBox.querySelector(".st-b"); ref.parentNode.insertBefore(key, ref); }
+}
 function closeStory() {   // hand over to free exploration: the panels come back with the layers open
   chapter = -1; storyBox.hidden = true; $("stIntro").hidden = false; sideView(null); corBins(true);
+  tourShow = null; regionGroup.visible = $("bReg").checked; setPlayBtn(false); dirty = true;
+  if (!isPhone()) dock("dockR", true);
+  $("play").classList.add("pulse"); setTimeout(() => $("play").classList.remove("pulse"), 6000);
   document.body.classList.remove("touring"); document.querySelector(".stage").classList.remove("dim"); storyBox.style.maxHeight = "";
   if (!isPhone()) { dock("dockL", true); showTab("layers"); }
-  showHint("Explore freely: pick a layer on the left, drag to turn the map, scroll to zoom, and move the year slider. The Walkthrough button starts the story again.");
+  showHint("Explore freely: press ▶ Play at the bottom to watch the land use change from 1850 to 2025, pick a layer on the left, drag to turn the map and scroll to zoom. The Walkthrough button starts the story again.");
 }
+// peek: hold the button or the space bar to hide every layer and marker and see the land; release to bring them back
+let peekHid = [];
+function setPeek(v) {
+  if (!!window.__peek === v) return; window.__peek = v; $("peek").setAttribute("aria-pressed", String(v));
+  if (v) { peekHid = scene.children.filter((o) => o !== land && o.visible && !o.isLight); peekHid.forEach((o) => (o.visible = false)); $("sv").style.visibility = "hidden"; }
+  else { peekHid.forEach((o) => (o.visible = true)); peekHid = []; $("sv").style.visibility = ""; }
+  if (overlay === "wetland") dirty = true;
+}
+$("peek").addEventListener("pointerdown", (e) => { e.preventDefault(); $("peek").setPointerCapture(e.pointerId); setPeek(true); });
+["pointerup", "pointercancel", "lostpointercapture"].forEach((t) => $("peek").addEventListener(t, () => setPeek(false)));
+addEventListener("keydown", (e) => { if (e.code === "Space" && !e.repeat && !e.target.closest("input, textarea, button, select, [contenteditable]") && overlay !== "none") { e.preventDefault(); setPeek(true); } });
+addEventListener("keyup", (e) => { if (e.code === "Space") setPeek(false); });
 let hintT = 0;
 function showHint(t) { const h = $("hint"); h.textContent = t; h.hidden = false; clearTimeout(hintT); hintT = setTimeout(() => (h.hidden = true), 9000); }
 $("hint").addEventListener("click", () => ($("hint").hidden = true));
@@ -1156,7 +1321,7 @@ const evCol = (t) => { for (let k = 1; k < EV_STOPS.length; k++) if (t <= EV_STO
 const evGeo = new THREE.PlaneGeometry(wKm, hKm, MW - 1, MH - 1); evGeo.rotateX(-Math.PI / 2);
 evGeo.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(MW * MH * 3), 3));
 for (let k = 0; k < MW * MH; k++) evGeo.attributes.position.setY(k, (Math.max(0, demM[k]) / 1000) * EX + 0.4);
-const evMesh = new THREE.Mesh(evGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.9, side: THREE.DoubleSide, depthWrite: false }));
+const evMesh = new THREE.Mesh(evGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.72, side: THREE.DoubleSide, depthWrite: false }));
 evMesh.renderOrder = 2; evMesh.visible = false; scene.add(evMesh);
 let evWhen = "now", evSeason = "jun_sep";   // summer only (main session advice, 2026-11-17)
 async function updateEvap() {
@@ -1419,13 +1584,14 @@ function setOverlay(o, sub) {
   if (o === "heat" && sub) heatStyle = sub;
   if (o === "cloud" && sub) cloudStyle = sub;
   heatMode = o === "heat" ? heatStyle : "off";
-  rainOn = o === "rain";
+  rainOn = o === "rain"; windOn = o === "wind";
+  if (o === "wind" && sub) { if (sub.wd) windEra = sub.wd; if (sub.wc) windComp = sub.wc; if (sub.wf) windField = sub.wf; if (sub.wh && (sub.wh === "ivt" || WINDLM)) windHeight = sub.wh; }
   setCloud("off");   // the cloud-base card is numbers only
   if (o === "wells" && sub) wellWhen = sub;
   if (o === "evap" && sub && (sub === "then" || sub === "now")) evWhen = sub;
   for (const k in wells) wells[k].visible = o === "wells" && k === wellWhen;
   corGroup.visible = o === "corridor"; riverGroup.visible = o === "rivers"; stationGroup.visible = o === "stations"; fogGroup.visible = o === "fog"; upGroup.visible = o === "upslope"; towerGroup.visible = o === "towers";
-  updateEvap(); updateRivers(); updateStations();
+  updateEvap(); updateRivers(); updateStations(); updateWind();
   updateHeat(year); updateRain(year); renderCards(); readout();
 }
 function renderCards() {
@@ -1439,15 +1605,22 @@ function renderCards() {
   nod("rain", RAINM && !RAINM.wy[String(year)] ? `No rain data for ${year}: move the slider to 1896 or later` : "");
   nod("heat", overlay === "heat" && heatStyle === "obsclim" ? "Shows the hottest June-September days of 2003-2025 whatever year the slider is on" : !LSTM.years[String(year)] ? `No satellite data for ${year}: move the slider to 2003 or later` : "");
   nod("cloud", overlay === "cloud" ? "Numbers only, no map: see below" : "");
+  $("peek").hidden = overlay === "none" || overlay === "cloud";
+  document.querySelectorAll("[data-wd]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wd === windEra)));
+  document.querySelectorAll("[data-wc]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wc === windComp)));
+  document.querySelectorAll("[data-wf]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wf === windField)));
+  document.querySelectorAll("[data-wh]").forEach((b) => { b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wh === windHeight)); if (b.dataset.wh !== "ivt") b.hidden = !WINDLM; });
+  nod("wind", overlay === "wind" ? (WINDM ? "Same map whatever year the slider is on: winters 1959-60 to 1979-80 or 1999-2000 to 2021-22" : "Wind data not loaded") : "");
 }
 document.querySelectorAll(".card-o").forEach((c) => c.addEventListener("click", (e) => {
-  if (e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess]")) return;
+  if (e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh]")) return;
   setOverlay(c.dataset.ov); dropOpen(false);
 }));
 document.addEventListener("click", (e) => {
-  const b = e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess]"); if (!b) return;
+  const b = e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh]"); if (!b) return;
   const d = b.dataset;
   if (d.hs) setOverlay("heat", d.hs); else if (d.cs) setOverlay("cloud", d.cs);
+  else if (d.wd || d.wc || d.wf || d.wh) setOverlay("wind", { wd: d.wd, wc: d.wc, wf: d.wf, wh: d.wh });
   else if (d.ws) setOverlay("wells", d.ws); else if (d.es) setOverlay("evap", d.es); else if (d.ess) setOverlay("evap", d.ess);
 });
 function showTab(t) {
@@ -1498,6 +1671,62 @@ canvas.addEventListener("pointerleave", () => { tip.hidden = true; });
 canvas.addEventListener("pointerdown", (e) => { downAt = [e.clientX, e.clientY]; });
 canvas.addEventListener("pointerup", (e) => { if (downAt && Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) < 6) hoverAt(e.clientX, e.clientY); downAt = null; });
 document.querySelectorAll(".card-o[role=button]").forEach((c) => c.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setOverlay(c.dataset.ov); } }));
+
+// ---------------------------------------------------------------- name labels: one toggle for every named thing on the map (off by default)
+// Dams (all, from their build year), rivers and creeks (one label per name, at the middle of its longest line, names with 15 km or more of line),
+// roads (shown with the roads layer; one label per name and road class, more along the longest routes), stations (river gauges, rain stations,
+// corridor stations). Overlaps are removed on screen: a label is drawn only where it does not cover a label of higher rank.
+let namesOn = false, NAMES = null, namesAt = 0, namesCam = "";
+const NAMES_MAX = 60;   // at most this many names on screen at once; zooming in brings in the smaller ones
+function nameLabel(text, colour) {
+  const c = document.createElement("canvas"), g = c.getContext("2d"), font = "600 26px ui-sans-serif, system-ui, Segoe UI, sans-serif";
+  g.font = font; const w = Math.ceil(g.measureText(text).width) + 40; c.width = w; c.height = 44;
+  g.font = font; g.fillStyle = "rgba(251,251,250,0.88)"; g.beginPath(); g.roundRect(1, 4, w - 2, 36, 7); g.fill();
+  g.fillStyle = colour; g.beginPath(); g.arc(17, 22, 7, 0, 7); g.fill(); g.strokeStyle = "#111"; g.lineWidth = 1.5; g.stroke();
+  g.fillStyle = "#202024"; g.textBaseline = "middle"; g.fillText(text, 30, 23);
+  const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace;
+  const sp = new THREE.Sprite(new THREE.SpriteMaterial({ map: t, depthTest: false, transparent: true, sizeAttenuation: false }));
+  sp.center.set(0, 0); sp.renderOrder = 11; sp.userData.w = w; sp.userData.h = 44; sp.visible = false; return sp;
+}
+const lineLen = (p) => { let s = 0; for (let k = 1; k < p.length; k++) s += Math.hypot(p[k][0] - p[k - 1][0], p[k][1] - p[k - 1][1]); return s * 0.3; };   // km (300 m pixels)
+const lineMid = (p) => { const L = lineLen(p) / 0.3 / 2; let s = 0; for (let k = 1; k < p.length; k++) { const d = Math.hypot(p[k][0] - p[k - 1][0], p[k][1] - p[k - 1][1]); if (s + d >= L) { const f = (L - s) / (d || 1); return [p[k - 1][0] + f * (p[k][0] - p[k - 1][0]), p[k - 1][1] + f * (p[k][1] - p[k - 1][1])]; } s += d; } return p[0]; };
+const titleCase = (s) => s.toLowerCase().replace(/\b[a-z]/g, (m) => m.toUpperCase());
+function buildNames() {
+  NAMES = new THREE.Group(); scene.add(NAMES); const items = [];
+  const add = (text, px, colour, rank, show) => { const sp = nameLabel(text, colour); sp.position.copy(toWorld(px[0], px[1], 3)); sp.userData.rank = rank; sp.userData.show = show; NAMES.add(sp); items.push(sp); };
+  for (const g of damGroup.children) add(`${g.userData.name.replace(/[A-Z]{3,}/g, (w) => w[0] + w.slice(1).toLowerCase())} Dam`, g.userData.px, "#3b7dd8", 3 + Math.log10(1 + (M.dams.find((d) => d.name === g.userData.name && d.built === g.userData.built)?.mcm || 0)), () => g.visible);
+  const byRiver = {}; for (const l of RIVJ.lines) if (l.n) { const L = lineLen(l.px), b = byRiver[l.n] || (byRiver[l.n] = { tot: 0, best: null, L: 0 }); b.tot += L; if (L > b.L) { b.L = L; b.best = l.px; } }
+  for (const [n, b] of Object.entries(byRiver)) if (b.tot >= 15) add(n, lineMid(b.best), "#4a90c2", 2 + Math.log10(b.tot), () => true);
+  const byRoad = {}; for (const l of ROADJ.lines) if (l.n) { const k = `${l.n}|${l.r}`; (byRoad[k] = byRoad[k] || []).push(l); }
+  for (const [k, ls] of Object.entries(byRoad)) {
+    const tot = ls.reduce((s, l) => s + lineLen(l.px), 0); if (tot < 20) continue;
+    const name = k.split("|")[0].replace(/^I- /, "I-"), placed = [];
+    for (const l of ls.slice().sort((a, b) => lineLen(b.px) - lineLen(a.px))) {   // the longest pieces first, at least 120 km apart, one label per 150 km of route
+      if (placed.length >= Math.max(1, Math.round(tot / 150))) break; const m = lineMid(l.px);
+      if (placed.some((q) => Math.hypot(q[0] - m[0], q[1] - m[1]) * 0.3 < 120)) continue; placed.push(m);
+      add(name, m, "#9a9a9a", 1 + Math.log10(tot), () => roadsOn);
+    }
+  }
+  if (CASE) for (const r of CASE.rivers) add(`${r.river} gauge`, r.px, "#2c7fb8", 6, () => true);
+  if (CASE) for (const [x, y, n] of CASE.stations) add(titleCase(n), [x, y], "#b2182b", 5, () => true);
+  if (CORJ) for (const [x, y, n] of CORJ.stations) add(n, [x, y], "#1e1e22", 7, () => true);
+  items.sort((a, b) => b.userData.rank - a.userData.rank); NAMES.userData.items = items;
+}
+function declutter(force) {   // greedy: highest rank first, skip a label whose screen box overlaps one already placed
+  if (!NAMES) return; const now = performance.now(), key = camera.matrixWorld.elements.map((v) => v.toFixed(2)).join() + year + roadsOn;
+  if (!force && (key === namesCam || now - namesAt < 120)) return; namesCam = key; namesAt = now;
+  const W = canvas.clientWidth, H = canvas.clientHeight, f = camera.projectionMatrix.elements[5], s = 0.00042, boxes = [], v = new THREE.Vector3();
+  for (const sp of NAMES.userData.items) {
+    sp.visible = false; if (!namesOn || clean || !sp.userData.show()) continue;
+    v.copy(sp.position).project(camera); if (v.z > 1 || Math.abs(v.x) > 1 || Math.abs(v.y) > 1) continue;
+    const ph = sp.userData.h * s * f * H / 2, pw = sp.userData.w * s * f * H / 2, x = (v.x + 1) / 2 * W, y = (1 - v.y) / 2 * H, bx = [x, y - ph, x + pw, y];
+    if (boxes.length >= NAMES_MAX || boxes.some((b) => bx[0] < b[2] + 14 && bx[2] > b[0] - 14 && bx[1] < b[3] + 10 && bx[3] > b[1] - 10)) continue;
+    boxes.push(bx); sp.scale.set(sp.userData.w * s, sp.userData.h * s, 1); sp.visible = true;
+  }
+}
+window.__declutter = declutter;
+$("bNames").addEventListener("change", (e) => { namesOn = e.target.checked; if (namesOn && !NAMES) buildNames(); declutter(true); dirty = true; });
+window.__names = () => NAMES;
 
 window.__cv = { setOverlay, setCloud: (m) => setOverlay(m === "off" ? "none" : "cloud", m), setRain: (on) => setOverlay(on ? "rain" : "none"), story: (k) => showChapter(k), setHeat: (m) => setOverlay(m === "off" ? "none" : "heat", m), setYear, setSeason, view, hoverAt, lookAt: (px, py, d) => { VIEWS._look = { t: [px, py], d, a: -0.6 }; view("_look"); }, screenOf: (o) => { const v = o.getWorldPosition(new THREE.Vector3()).project(camera), r = canvas.getBoundingClientRect(); return [r.left + (v.x + 1) / 2 * r.width, r.top + (1 - v.y) / 2 * r.height]; }, stations, pins: pinGroup, get year() { return year; } };
 resize();
