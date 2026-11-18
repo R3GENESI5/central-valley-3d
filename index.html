@@ -382,7 +382,7 @@ body{color:#14212A}
       <div class="card-o" data-ov="wetland" role="button" tabindex="0"><b>The wet land is gone</b><span class="kind k-p">Mapped</span><span class="q">Where the floor was wet before 1900, and where it is still wet in the year on the slider</span><span class="dots"><i style="background:#9ecae1"></i>wet before 1900, now gone <i style="background:#08519c"></i>still wet <i style="background:#cfcfcf"></i>rest of the floor</span><span class="src">Pre-1900 historic map · CVHM2 · wet layers v3</span><span class="nod" data-nod="wetland"></span></div>
       <div class="card-o" data-ov="fog" role="button" tabindex="0"><b>Fog and the cold layer before storms</b><span class="kind k-m">Measured</span><span class="q">Floor weather stations and hill-floor station pairs: the air before storms that follow a dry spell</span><span class="dots"><i style="background:#5b6f8c"></i>floor airport (fog, cloud ceiling) <i style="background:#1e1e22;border-radius:1px;width:16px;height:3px;margin-right:-2px"></i>hill and floor station pair</span><span class="src">ISD airports · GHCN stations · 1980-99 against 2000-22</span><span class="nod" data-nod="fog"></span></div>
       <div class="card-o" data-ov="stations" role="button" tabindex="0"><b>Less rain from the same ocean vapour</b><span class="kind k-m">Measured</span><span class="q">Stations where rain per unit of incoming vapour dropped</span><span class="dots"><i style="background:#b2182b"></i>after the drop <i style="background:#9a9a9a"></i>before</span><span class="src">29 of 137 stations · record 2026-10-23_a7-event-transients-full-86yr</span></div>
-      <div class="card-o" data-ov="corridor" role="button" tabindex="0"><b>Coast to crest strip: rain change in blocked storms</b><span class="kind k-m">Measured</span><span class="q">One 400 km track from the ocean to Reno: where rain per unit of ocean vapour fell, and how the air after rain changed by height</span><span class="ramp" style="background:linear-gradient(90deg,#543005,#bf812d,#f5f5f5,#5ab4ac,#01665e)"></span><span class="dots"><i style="background:#2c7fb8"></i>sea <i style="background:#1e1e22"></i>coast edge <i style="background:#77777c"></i>gap <i style="background:#e66101"></i>floor <i style="background:#1b7837"></i>slope <i style="background:#34495e"></i>east</span><span class="src">PRISM daily · ERA5 · NOAA ISD hourly · NDBC buoy 46026 · records 2026-11-17_corridor-a-d, corridor-b-c, corridor-full-ladder</span></div>
+      <div class="card-o" data-ov="corridor" role="button" tabindex="0"><b>Coast to crest strip: rain change in blocked storms</b><span class="kind k-m">Measured</span><span class="q">One 400 km track from the ocean to Reno: where rain per unit of ocean vapour fell, and how the air after rain changed by height</span><span class="ramp" style="background:linear-gradient(90deg,#543005,#bf812d,#f5f5f5,#5ab4ac,#01665e)"></span><span class="rl"><i>−30 %</i><i>0</i><i>+30 %</i></span><span class="q2" style="font-size:11px;color:#5B6B70">Coloured where the change is measured (its 95 % range excludes zero); grey: no change detected</span><span class="dots"><i style="background:#2c7fb8"></i>sea <i style="background:#1e1e22"></i>coast edge <i style="background:#77777c"></i>gap <i style="background:#e66101"></i>floor <i style="background:#1b7837"></i>slope <i style="background:#34495e"></i>east</span><span class="src">PRISM daily · ERA5 · NOAA ISD hourly · NDBC buoy 46026 · records 2026-11-17_corridor-a-d, corridor-b-c, corridor-full-ladder</span></div>
       <div class="card-o" data-ov="upslope" role="button" tabindex="0"><b>Rain by height at storm peaks (second reading)</b><span class="kind k-m">Measured</span><span class="q">Rain stations on the floor and up the Sierra side, by height band</span><span class="dots"><i style="background:#8c510a"></i>floor <i style="background:#dfc27d"></i>foothills, under 1,000 m <i style="background:#80cdc1"></i>1,000 to 1,500 m <i style="background:#01665e"></i>above 1,500 m</span><span class="src">GHCN rain gauges · ERA5 storm classes · 1980-99 against 2000-22</span><span class="nod" data-nod="upslope"></span></div>
       <div class="card-o" data-ov="evap" role="button" tabindex="0"><b>Summer evaporation (June-September)</b><span class="kind k-e">Today measured · then estimated</span><span class="q">How much water the floor gave back to the air in summer</span><span class="ramp" style="background:linear-gradient(90deg,#f7fcf5,#c7e9c0,#74c476,#238b45,#00441b)"></span><span class="rl"><i>0 mm</i><i>500 mm in the season</i></span><span class="sub"><button data-es="now">Today (satellite)</button><button data-es="then">Pre-1900 land (estimate)</button></span><span class="src">Today: SSEBop satellite · then: class rates of the pre-1900 vegetation</span><span class="nod" data-nod="evap"></span></div>
       <button class="card-o" data-ov="rain"><b>Rain</b><span class="kind k-m">Measured, gridded</span><span class="q">Where rain fell in the water year shown</span><span class="ramp" style="background:linear-gradient(90deg,#f7fbff,#c6dbef,#6baed6,#2171b5,#08306b)"></span><span class="rl"><i>100 mm</i><i>2,000 mm</i></span><span class="src">PRISM · 1896 to 2025</span><span class="nod" data-nod="rain"></span></button>
@@ -1355,14 +1355,14 @@ const CHAPTERS = [
 const TAGS = { m: ["k-m", "Measured"], p: ["k-p", "Mapped"], x: ["k-x", "Model"], o: ["k-o", "Open, not yet tested"] };
 // PILOT (STORY_SPEC.md chapters 9 and 14): the chain's ground chapters keep their text; the low air and the fingerprint replace Link 4 to the end
 const PILOT_AIR = { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", bins: false, side: "air", tag: "m", title: "After rain, the floor now heats up instead of staying cool and foggy",
-  num: ["Floor afternoons now warm 0.34 °C a day after rain (0.03 before 2000)", "change +0.31 °C a day, 95 % range +0.13 to +0.49; floor airports, November-March"],
+  num: ["A week after rain, floor afternoons are now 2.0 °C warmer than the day after; before 2000, 0.1 °C", "change +1.85 °C, 95 % range +0.72 to +2.97; four floor airports, November-March, 1982-99 against 2000-22"],
   text: () => `What is measured: on November-March afternoons at the airports, how much warmer each day is than the one before, counting from the last rain (°C; a change of 1 K is a change of 1 °C). Before 2000 the floor stayed about as cool as on the day of the rain, and fog built up day by day (about one more hour of fog a day by the fifth day). Since 2000 the floor warms 0.34 °C each day, about 1.5 °C more by day five than it used to, and the fog no longer builds. The slope at 1,611 m warmed after rain before 2000 (0.35 °C a day) and still does (0.45): the floor now behaves as the slope always did. Reading (inference): the cool, moist layer the wet floor kept after rain is gone.`,
   rival: "that the air over the sea and on the slope changes as the floor did. Measured change, °C a day: sea +0.03 (range −0.06 to +0.13), slope +0.10 (−0.16 to +0.36). Both ranges include zero, so no change can be detected there. Floor +0.31 (+0.13 to +0.49): the whole range is above zero.",
   fold: () => `<div class="ev"><b>Afternoon warming per day after rain</b> (November-March, °C a day, 1982-99 then 2000-22, change and 95 % range): floor +0.034 then +0.342, change +0.308; slope at 1,611 m +0.352 then +0.447, change +0.095; coast edge +0.200 °C a day (+0.056 to +0.354), gap +0.340 (+0.153 to +0.517), floor +0.308 (+0.130 to +0.486), slope at 1,611 m +0.095 (−0.164 to +0.360), air over the sea +0.031 (−0.060 to +0.132), Reno +0.077 (−0.105 to +0.269). <span>Record 2026-11-17_corridor-full-ladder. With days since rain from each station's own bin: +0.213, +0.324, +0.333 for coast edge, gap, floor (2026-11-17_corridor-b-c). Drying, a separate measure (temperature minus dew point, °C): February-March, first 1-5 days after rain, median over 10 floor airports, 1.86 °C further from saturation (+0.92 to +3.03; 2026-11-16_m2).</span></div>`
     + `<div class="ev"><b>Fog hours a day, growth per day since rain:</b> gap +0.230 then, −0.009 now (change −0.239, −0.380 to −0.107); floor +0.224 then, +0.004 now (change −0.220, −0.401 to −0.044); coast edge −0.010 (−0.048 to +0.026); Blue Canyon −0.145 (−0.296 to −0.009). Before storms after 6 or more dry days, fog hours at 11 floor airports fell from 4.9 % to 2.1 % of hours. <span>2026-11-17_corridor-full-ladder; fog before storms: 2026-11-16_c5-floor-air-between-close-storms. Not ruled out: air-quality controls (fewer particles for fog to form on) and the 1990s airport sensor change; the coast-edge airports had the same sensor change and show none. Blue Canyon fog also fell, where the land reading predicts no change.</span></div>`
     + `<div class="ev"><b>The floor's hand-over</b> (afternoon dew point, floor minus gap, same days): +0.33 °C in 1982-99, −0.38 °C in 2000-22, change −0.72 °C (−1.26 to −0.18); one to two days after rain −0.99 °C (−1.63 to −0.40). <span>2026-11-17_corridor-b-c-lowest-air-and-drying. Airport dew-point sensors changed in the 1990s, so era means of dew point carry an instrument term. The gap station's night record suggests a site or instrument change.</span></div>` };
 const PILOT_FP = { year: 2019, season: 0, view: "corridor", heat: "off", ov: "corridor", bins: false, side: "fp", tag: "m", title: "Where the change is, and where it is not",
-  num: ["Afternoon warming after rain changed on the low ground only: floor +0.31, slope +0.10, sea +0.03 °C a day", "change since 2000; only the low-ground ranges (coast edge, gap, floor) are wholly above zero"],
+  num: ["Only the low ground changed: a week after rain the floor now warms 2.0 °C (0.1 before 2000), the slope 2.8 (3.1), the sea 0.1 (−0.2)", "rise of the afternoon above the day after rain, 1982-99 to 2000-22; only the coast edge, gap and floor changes are wholly above zero"],
   text: () => `If the weather from the Pacific had changed, the change would show at sea, in the vapour arriving, in the air aloft and on the mountain slope. None of these changed by an amount the records can separate from zero. The change sits in the low air over the coast edge, the gap and the floor: the land that was drained and built. Reno, east of the crest, is a built basin with its own land change.`,
   rival: "change at sea, aloft and on the slope as large as on the floor. Measured: none of the three changed by a separable amount.",
   fold: () => `<div class="ev"><b>Did not change</b> (1982-99 against 2000-22, 95 % ranges): ocean vapour arriving offshore on blocked-storm inflow days, 249.8 to 237.6 kg/m/s, change −12.3 (−27.8 to +3.2) <span>(2026-11-17_corridor-a-d)</span>; air at buoy 46026 +0.22 °C (−0.22 to +0.64), water +0.19 °C (−0.26 to +0.69) <span>(2026-11-17_corridor-b-c)</span>; stability aloft over Oakland on blocked storms +0.037 °C per km (−0.113 to +0.180) <span>(2026-11-17_stability-aloft-rival)</span>; mean vapour flux in each third of storm strength 275 and 276, 346 and 348, 521 and 522 kg/m/s <span>(2026-11-17_forcing-strength-split)</span>; afternoon warming per day after rain on the slope at 1,611 m +0.095 °C a day (−0.164 to +0.360) and over the sea +0.031 (−0.060 to +0.132).</div>`
@@ -1786,6 +1786,10 @@ if (CASE3) for (const [x, y, id, name, kind] of CASE3.towers) {
 const CORJ = await fetch("data/case/corridor.json").then((r) => r.json()).catch(() => null);
 const COR_BLK = [null, null, [-15.6, -28.0, -1.6], [-12.4, -26.4, 3.2], [-11.3, -26.6, 7.5], [-14.5, -30.2, 4.7], [-18.5, -34.0, -0.0], [-17.3, -32.3, 0.4], [-16.8, -31.3, 0.4], [-13.6, -26.3, 2.5], [-13.6, -26.0, 2.4], [-20.5, -32.7, -5.3], [-26.2, -37.9, -12.0], [-23.3, -38.3, -5.2], [-17.3, -36.2, 7.2], [-8.5, -31.0, 20.9]];
 const COR_UNB = [null, null, [11.9, -10.1, 42.2], [20.5, -1.1, 49.4], [25.5, 2.8, 54.8], [27.5, 2.0, 64.4], [21.2, -6.2, 63.3], [15.6, -11.0, 56.4], [15.9, -9.4, 54.2], [24.3, -1.1, 60.5], [22.0, -3.3, 55.9], [11.9, -12.3, 43.6], [9.2, -14.6, 43.0], [15.9, -12.5, 55.6], [6.0, -26.0, 51.3], [7.8, -26.9, 55.5]];
+const CDAYS = await fetch("data/case/corridor_days.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);
+const CD_KEY = { sea: "buoy", rim: "rim", gap: "gap", floor: "floor", slope: "Blue Canyon", east: "Reno" };
+const COR_RB = { early: [null, null, 7.89, 7.15, 5.53, 5.02, 4.15, 3.87, 3.95, 5.07, 7.66, 9.97, 9.32, 5.39, 2.45, 1.5], late: [null, null, 6.66, 6.26, 4.91, 4.3, 3.38, 3.2, 3.29, 4.39, 6.61, 7.92, 6.88, 4.14, 2.03, 1.37] };
+const COR_RU = { early: [null, null, 7.27, 6.49, 5.2, 4.5, 3.54, 3.45, 3.67, 4.86, 7.51, 9.73, 8.95, 5.23, 2.74, 1.78], late: [null, null, 8.13, 7.81, 6.53, 5.74, 4.28, 3.98, 4.26, 6.04, 9.17, 10.9, 9.77, 6.07, 2.9, 1.92] };
 const COR_SEG = ["ocean", "ocean", "first land bin, built coast", "coast edge", "coast edge", "coast edge", "Delta and floor", "floor", "floor", "foothills", "foothills", "upper windward slope", "upper windward slope", "upper windward slope", "crest", "east of the crest"];
 const COR_STOPS = [[-30, "#543005"], [-15, "#bf812d"], [0, "#f5f5f5"], [15, "#5ab4ac"], [30, "#01665e"]].map(([t, h]) => [t, hex(h)]);
 const corCol = (v) => { v = Math.max(-30, Math.min(30, v)); for (let k = 1; k < COR_STOPS.length; k++) if (v <= COR_STOPS[k][0]) { const [t0, c0] = COR_STOPS[k - 1], [t1, c1] = COR_STOPS[k]; return mix(c0, c1, (v - t0) / (t1 - t0)); } return COR_STOPS[COR_STOPS.length - 1][1]; };
@@ -1813,12 +1817,13 @@ if (CORJ) {
   };
   const W = (a, c, up) => { const [x, y] = at(a, c); return toWorld(x, y, up); };
   for (let b = 2; b < 16; b++) {   // one draped sheet per land bin, 1 km steps so it follows the terrain
-    const [v, lo, hi] = COR_BLK[b], solid = hi < 0, c0 = corCol(v).map((t) => (t / 255) ** 2.2), pos = [], col = [], idx = [], NA = 26, NC = 81;
+    const [v, lo, hi] = COR_BLK[b], solid = hi < 0, c0 = (solid ? corCol(v) : hex("#c9c9c9")).map((t) => (t / 255) ** 2.2), pos = [], col = [], idx = [], NA = 26, NC = 81;   // grey: no change detected
     for (let i = 0; i < NA; i++) for (let j = 0; j < NC; j++) { const p = W(25 * b + i, -40 + j, 0.35); pos.push(p.x, p.y, p.z); col.push(...c0); }
     for (let i = 0; i < NA - 1; i++) for (let j = 0; j < NC - 1; j++) { const a = i * NC + j; idx.push(a, a + NC, a + 1, a + 1, a + NC, a + NC + 1); }
     const g = new THREE.BufferGeometry(); g.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3)); g.setAttribute("color", new THREE.Float32BufferAttribute(col, 3)); g.setIndex(idx);
-    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: solid ? 0.82 : 0.45, side: THREE.DoubleSide, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 }));
+    const m = new THREE.Mesh(g, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: solid ? 0.85 : 0.5, side: THREE.DoubleSide, depthWrite: false, polygonOffset: true, polygonOffsetFactor: -4, polygonOffsetUnits: -4 }));
     m.renderOrder = 3; corGroup.add(m); corPick.push(m); corBinObjs.push(m);
+    { const sp = label(`${sgn(v, 0)} %`, null); sp.position.copy(W(25 * b + 12.5, 0, 6)); sp.material.opacity = solid ? 1 : 0.7; corGroup.add(sp); corBinObjs.push(sp); pinLabels.push(sp); }   // the bin's change, written on it
     const [u, ulo, uhi] = COR_UNB[b];
     m.userData.tip = () => `<b>${25 * b} to ${25 * b + 25} km: ${COR_SEG[b]}</b><br>Blocked floor storms: ${sgn(v)} % (${sgn(lo)} to ${sgn(hi)})<br>Unblocked floor storms: ${sgn(u)} % (${sgn(ulo)} to ${sgn(uhi)})<br><span>Rain per unit of ocean vapour arriving offshore, WY 1982-99 against 2000-22; 95 % ranges. ${solid ? "The blocked range excludes zero." : "Faint: the blocked range reaches zero."} Record 2026-11-17_corridor-a-d-conversion-and-frequency${b >= 10 ? ". Above 250 km this is the gridded daily rain; the fixed gauges at 275 to 300 km read −12.3 and −8.0 % (2026-11-17_slope-fixed-gauges)" : ""}</span>`;
   }
@@ -1864,6 +1869,21 @@ function svMark(x, y, r, d = 2, unit = "") {   // measured: dark filled = change
   const g = svSig(r);
   return `<circle cx="${x}" cy="${y}" r="5" fill="${g ? SV_INK : "#fff"}" stroke="${g ? SV_INK : SV_INK2}" stroke-width="1.6"/><text x="${x}" y="${y + 18}" font-size="12.5" font-weight="700" text-anchor="middle" fill="#18181a">${sgn(r[0], d)}${unit}</text><text x="${x}" y="${y + 30}" font-size="10.5" text-anchor="middle" fill="${g ? SV_INK : SV_INK2}">${g ? "changed" : "no change"}</text>`;
 }
+function svWeek(cx, top, g, q, lo, hi, h, unit, dec) {
+  const G_ = CDAYS && CDAYS.groups[CD_KEY[g]] && CDAYS.groups[CD_KEY[g]][q]; if (!G_) return "";
+  const w = 58, x0 = cx - w / 2, xs = (d) => x0 + ((d - 1) / 7) * w, ys = (v) => top + h - ((v - lo) / (hi - lo)) * h;
+  let o = `<rect x="${x0}" y="${top}" width="${w}" height="${h}" fill="#fafaf8" stroke="#e2e2df"/><line x1="${x0}" y1="${ys(0)}" x2="${x0 + w}" y2="${ys(0)}" stroke="#cfcfcc" stroke-width="0.8"/>`;
+  const line = (e, col, wd, dash) => { const r = G_[e].rise; let dd = "", first = true; r.forEach((v, i) => { if (v == null || i > 6) return; dd += `${first ? "M" : "L"}${xs(i + 1).toFixed(1)},${ys(Math.max(lo, Math.min(hi, v))).toFixed(1)} `; first = false; }); return `<path d="${dd}" fill="none" stroke="${col}" stroke-width="${wd}"${dash ? ' stroke-dasharray="3 2"' : ""}/>`; };
+  o += line("1982-99", "#8a8a90", 1.4, true) + line("2000-22", "#D55E00", 2.2, false);
+  const d7 = G_.day7, v0 = d7["1982-99"][0], v1 = d7["2000-22"][0], ch = d7.change, sig = ch[1] != null && ch[2] != null && (ch[1] > 0 || ch[2] < 0);
+  const fmt = (v) => (v == null || !isFinite(v) ? "–" : sgn(v, dec));
+  let y1 = ys(Math.max(lo, Math.min(hi, v1 ?? 0))) + 3, y0 = ys(Math.max(lo, Math.min(hi, v0 ?? 0))) + 3;
+  if (Math.abs(y1 - y0) < 11) { const m = (y0 + y1) / 2, up = (v1 ?? 0) >= (v0 ?? 0); y1 = m + (up ? -5.5 : 5.5); y0 = m + (up ? 5.5 : -5.5); }
+  if (g === "sea") o += `<text x="${cx}" y="${top + h + 24}" font-size="9.5" text-anchor="middle"><tspan font-weight="700" fill="#D55E00">${fmt(v1)}</tspan><tspan fill="#77777c"> (${fmt(v0)})</tspan></text>`;   // no room to the right: the coast-edge chart
+  else o += `<text x="${x0 + w + 3}" y="${y1}" font-size="10" font-weight="700" fill="#D55E00">${fmt(v1)}</text><text x="${x0 + w + 3}" y="${y0}" font-size="9.5" fill="#77777c">${fmt(v0)}</text>`;
+  o += `<circle cx="${x0 + 5}" cy="${top + h + 9}" r="3.5" fill="${sig ? SV_INK : "#fff"}" stroke="${sig ? SV_INK : SV_INK2}" stroke-width="1.3"/><text x="${x0 + 12}" y="${top + h + 12}" font-size="9.5" fill="${sig ? SV_INK : SV_INK2}">${sig ? "changed" : "no change"}</text>`;
+  return o;
+}
 function svPred(x, y, yes, txt) {   // predicted by a reading: dashed box
   const w = txt ? 80 : 58;
   return `<rect x="${x - w / 2}" y="${y - 11}" width="${w}" height="17" rx="3" fill="#fff" stroke="${yes ? SV_INK : SV_INK2}" stroke-dasharray="3 2"/><text x="${x}" y="${y + 2}" font-size="10.5" text-anchor="middle" fill="${yes ? SV_INK : SV_INK2}">${txt || (yes ? "change" : "no change")}</text>`;
@@ -1878,7 +1898,7 @@ function fitStory(box) {   // keep the card clear of the side view where they sh
 function sideView(kind) {
   const box = $("sv"); if (!isPhone()) dock("dockR", !kind);   // the side view is the chapter's legend: the inspector folds while it shows
   if (!kind || !corAt) { box.hidden = true; storyBox.style.maxHeight = ""; return; }
-  const B = kind === "rain" ? 232 : 262, K = 0.034, H = B + (kind === "air" ? 52 : 40), X = SV_X, Y = (m) => B - m * K;
+  const B = kind === "rain" ? 232 : kind === "air" ? 282 : 262, K = 0.034, H = B + (kind === "air" ? 52 : 40), X = SV_X, Y = (m) => B - m * K;
   const prof = []; for (let a = 0; a <= 400; a += 2) prof.push([a, svElev(a)]);
   const land0 = (prof.find(([, m]) => m > 3) || [75])[0];
   const gy = (g, a) => Y(g === "slope" ? 1611 : g === "sea" ? 0 : svElev(a));
@@ -1889,11 +1909,24 @@ function sideView(kind) {
   const la = prof.filter(([a]) => a >= land0 && a <= 240);
   s += `<path d="M${la.map(([a, m]) => `${X(a).toFixed(1)},${Y(m + 700).toFixed(1)}`).join(" L")} L${la.slice().reverse().map(([a, m]) => `${X(a).toFixed(1)},${Y(m).toFixed(1)}`).join(" L")} Z" fill="#e66101" fill-opacity="0.14"/>`;
   s += `<rect x="${X(land0)}" y="${B + 23}" width="12" height="8" fill="#e66101" fill-opacity="0.25"/><text x="${X(land0) + 16}" y="${B + 31}" font-size="11" fill="#55555a">low air over the drained and built land</text>`;
-  if (kind === "rain") {   // two bars per 25 km land bin; dashed: what the weather reading predicts for unblocked storms (the same loss as blocked)
-    const z = 70, k = 0.85, yv = (v) => z - v * k;
+  if (kind === "rain") {   // per 25 km land bin, 1982-99 (hollow) to 2000-22 (filled), blocked and unblocked storms; dashed tick: the weather reading's prediction for unblocked storms
+    const z = 118, k = 9.5, yv = (v) => z - v * k;   // 0 to 11 mm a day per 100 kg/m/s
+    for (const [g, a, lab] of SV_PL) s += `<line x1="${X(a)}" y1="${gy(g, a)}" x2="${X(a)}" y2="${B + 12}" stroke="${SV_INK2}" stroke-width="0.8"/><circle cx="${X(a)}" cy="${gy(g, a)}" r="3" fill="${SV_INK}"/><text x="${X(a)}" y="${B + 19}" font-size="11" text-anchor="middle" fill="#2c2c30">${lab}</text>`;
+    s += `<text x="${X(0)}" y="13" font-size="11.5" fill="#2c2c30">Rain per unit of ocean vapour arriving offshore, mm a day per 100 kg/m/s: ○ 1982-99 to ● 2000-22</text>`;
+    for (const t of [0, 5, 10]) s += `<line x1="${X(40)}" y1="${yv(t)}" x2="${X(400)}" y2="${yv(t)}" stroke="#e6e6e3" stroke-width="0.8"/><text x="${X(40) - 4}" y="${yv(t) + 4}" font-size="10.5" text-anchor="end" fill="#55555a">${t}</text>`;
+    for (let b = 2; b < 16; b++) {
+      const x0 = X(25 * b);
+      for (const [E, R, dx, col] of [[COR_RB, COR_BLK[b], 13, "#8c510a"], [COR_RU, COR_UNB[b], 30, "#01665e"]]) {
+        const e = E.early[b], l = E.late[b], sig = R[1] > 0 || R[2] < 0, op = sig ? 1 : 0.38, cx = x0 + dx;
+        s += `<line x1="${cx}" y1="${yv(e)}" x2="${cx}" y2="${yv(l)}" stroke="${col}" stroke-width="2.2" stroke-opacity="${op}"/><circle cx="${cx}" cy="${yv(e)}" r="3.6" fill="#fff" stroke="${col}" stroke-width="1.5" stroke-opacity="${op}"/><circle cx="${cx}" cy="${yv(l)}" r="3.6" fill="${col}" fill-opacity="${op}"/>`;
+      }
+      const pu = COR_RU.early[b] * (COR_RB.late[b] / COR_RB.early[b]);   // computed: the unblocked value if it had changed by the blocked ratio
+      s += `<line x1="${x0 + 24}" y1="${yv(pu)}" x2="${x0 + 36}" y2="${yv(pu)}" stroke="${SV_INK}" stroke-width="1.4" stroke-dasharray="2 2"/>`;
+    }
+  } else if (false) {   // the previous bar chart of % change, kept unreachable for reference
     for (const [g, a, lab] of SV_PL) s += `<line x1="${X(a)}" y1="${gy(g, a)}" x2="${X(a)}" y2="${B + 12}" stroke="${SV_INK2}" stroke-width="0.8"/><circle cx="${X(a)}" cy="${gy(g, a)}" r="3" fill="${SV_INK}"/><text x="${X(a)}" y="${B + 19}" font-size="11" text-anchor="middle" fill="#2c2c30">${lab}</text>`;
     s += `<line x1="${X(0)}" y1="${z}" x2="${X(400)}" y2="${z}" stroke="#55555a" stroke-width="0.8"/><text x="${X(0)}" y="${z - 3}" font-size="10.5" fill="#55555a">0 %</text><text x="${X(0)}" y="${yv(40) + 4}" font-size="10.5" fill="#55555a">+40 %</text><text x="${X(0)}" y="${yv(-30) + 4}" font-size="10.5" fill="#55555a">−30 %</text>`;
-    for (let b = 2; b < 16; b++) {
+    for (let b = 2; b < 16 && false; b++) {
       const x0 = X(25 * b);
       s += `<line x1="${x0}" y1="${yv(66)}" x2="${x0}" y2="${yv(-40)}" stroke="#e6e6e3" stroke-width="0.8"/>`;
       const bv = COR_BLK[b][0];
@@ -1904,25 +1937,25 @@ function sideView(kind) {
       }
     }
   } else {
-    const top = kind === "air" ? 146 : 136;
-    for (const [g, a, lab] of SV_PL) s += `<text x="${X(a)}" y="30" font-size="11.5" font-weight="700" text-anchor="middle" fill="#18181a">${lab}</text><line x1="${X(a)}" y1="${top}" x2="${X(a)}" y2="${gy(g, a)}" stroke="${SV_INK2}" stroke-width="1"/><circle cx="${X(a)}" cy="${gy(g, a)}" r="3.2" fill="${SV_INK}"/>`;
+    const top = kind === "air" ? 172 : 150;
+    for (const [g, a, lab] of SV_PL) s += `<text x="${X(a)}" y="${kind === "fp" ? 30 : 30}" font-size="11.5" font-weight="700" text-anchor="middle" fill="#18181a">${lab}</text><line x1="${X(a)}" y1="${top}" x2="${X(a)}" y2="${gy(g, a)}" stroke="${SV_INK2}" stroke-width="1"/><circle cx="${X(a)}" cy="${gy(g, a)}" r="3.2" fill="${SV_INK}"/>`;
     if (kind === "air") {
-      s += `<text x="${X(0)}" y="13" font-size="11.5" fill="#2c2c30">Afternoon warming per day after rain: change since 2000, °C a day</text>`;
-      for (const [g, a] of SV_PL) s += svMark(X(a), 46, SV_DRY[g]);
-      s += `<text x="${X(0)}" y="98" font-size="11.5" fill="#2c2c30">Fog after rain: change since 2000 in fog hours added per day</text>`;
-      for (const [g, a] of SV_PL) if (SV_FOG[g]) s += svMark(X(a), 112, SV_FOG[g]);
+      s += `<text x="${X(0)}" y="13" font-size="11.5" fill="#2c2c30">How much warmer the afternoon gets in the week after rain, °C above the day after: <tspan fill="#8a8a90">1982-99</tspan> and <tspan fill="#D55E00" font-weight="700">2000-22</tspan></text>`;
+      for (const [g, a] of SV_PL) s += svWeek(X(a), 40, g, "aT", -1, 4.5, 40, "°C", 1);
+      s += `<text x="${X(0)}" y="113" font-size="11.5" fill="#2c2c30">Fog in the week after rain, hours a day more than the day after</text>`;
+      for (const [g, a] of SV_PL) if (g !== "sea" && g !== "slope") s += svWeek(X(a), 120, g, "fog", -1, 2.5, 26, "h", 1);
       const g0 = X(147), f0 = X(196), yh = Y(Math.max(svElev(150), svElev(195)) + 330);
       s += `<defs><marker id="svA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#a03d00"/></marker></defs><line x1="${g0 + 5}" y1="${yh}" x2="${f0 - 5}" y2="${yh}" stroke="#a03d00" stroke-width="2.2" marker-end="url(#svA)"/>`;
       s += `<text x="${X(land0)}" y="${B + 46}" font-size="11" fill="#a03d00">→ air crossing the floor from the gap: floor minus gap dew point +0.33 °C then, −0.38 °C now</text>`;
     } else {
-      s += `<text x="${X(0)}" y="13" font-size="11.5" fill="#2c2c30">Change since 2000 in afternoon warming per day after rain, °C a day, and what each reading predicts</text>`;
-      s += `<text x="2" y="50" font-size="10.5" font-weight="700" fill="#18181a">Measured</text>`;
-      for (const [g, a] of SV_PL) s += svMark(X(a), 46, SV_DRY[g]);
-      s += `<text x="2" y="94" font-size="10.5" fill="#2c2c30">If the land</text><text x="2" y="105" font-size="10.5" fill="#2c2c30">changed it</text>`;
+      s += `<text x="${X(0)}" y="13" font-size="11.5" fill="#2c2c30">Afternoon warming in the week after rain, °C above the day after: <tspan fill="#8a8a90">1982-99</tspan> and <tspan fill="#D55E00" font-weight="700">2000-22</tspan>; and what each reading predicts</text>`;
+      s += `<text x="2" y="60" font-size="10.5" font-weight="700" fill="#18181a">Measured</text>`;
+      for (const [g, a] of SV_PL) s += svWeek(X(a), 40, g, "aT", -1, 4.5, 34, "°C", 1);
+      s += `<text x="2" y="108" font-size="10.5" fill="#2c2c30">If the land</text><text x="2" y="119" font-size="10.5" fill="#2c2c30">changed it</text>`;
       const landYes = { sea: false, rim: true, gap: true, floor: true, slope: false, east: true };
-      for (const [g, a] of SV_PL) s += svPred(X(a), 100, landYes[g], g === "east" ? "change (built)" : "");
-      s += `<text x="2" y="122" font-size="10.5" fill="#2c2c30">If the weather</text><text x="2" y="133" font-size="10.5" fill="#2c2c30">changed it</text>`;
-      for (const [g, a] of SV_PL) s += svPred(X(a), 127, true);
+      for (const [g, a] of SV_PL) s += svPred(X(a), 114, landYes[g], g === "east" ? "change (built)" : "");
+      s += `<text x="2" y="136" font-size="10.5" fill="#2c2c30">If the weather</text><text x="2" y="147" font-size="10.5" fill="#2c2c30">changed it</text>`;
+      for (const [g, a] of SV_PL) s += svPred(X(a), 141, true);
       const ax = X(95), ay0 = Y(3300), ay1 = Y(1800);
       s += `<rect x="${ax - 75}" y="${ay0}" width="150" height="${ay1 - ay0}" fill="#fff" fill-opacity="0.92" stroke="${SV_INK2}" stroke-dasharray="3 2"/><text x="${ax}" y="${ay0 + 14}" font-size="10.5" text-anchor="middle" fill="#2c2c30">Air aloft, Oakland, 1.5-3 km</text><text x="${ax}" y="${ay0 + 28}" font-size="11" font-weight="700" text-anchor="middle" fill="#18181a">+0.037 °C/km: no change</text><text x="${ax}" y="${ay0 + 42}" font-size="10.5" text-anchor="middle" fill="${SV_INK2}">weather reading: more stable</text>`;
       const vy0 = Y(1550);
@@ -1930,9 +1963,9 @@ function sideView(kind) {
     }
   }
   s += `</svg>`;
-  const title = kind === "air" ? "Side view, ocean to Reno: the days after a winter rain, 1982-99 against 2000-22" : kind === "rain" ? "Side view, ocean to Reno: change in rain per unit of ocean vapour, 1982-99 against 2000-22, each 25 km bin" : "Side view, ocean to Reno: where the change is, and where it is not";
-  const key = kind === "rain" ? `<span style="display:inline-block;width:10px;height:10px;background:#8c510a;vertical-align:-1px"></span> blocked storms (the valley's own air is lifted) · <span style="display:inline-block;width:10px;height:10px;background:#01665e;vertical-align:-1px"></span> unblocked storms · dashed outline: what the weather reading predicts for unblocked storms (the same loss as blocked). Solid bar: the 95 % range (thin black line) is wholly above or below zero; pale: the range includes zero.`
-    : `● filled: changed (the 95 % range is wholly above or below zero). ○ hollow: no change detected (the range includes zero).${kind === "fp" ? " Dashed boxes: what each reading predicts." : ""}`;
+  const title = kind === "air" ? "Side view, ocean to Reno: the week after a winter rain, 1982-99 against 2000-22" : kind === "rain" ? "Side view, ocean to Reno: rain per unit of ocean vapour, 1982-99 and 2000-22, each 25 km bin" : "Side view, ocean to Reno: where the change is, and where it is not";
+  const key = kind === "rain" ? `<span style="display:inline-block;width:10px;height:10px;background:#8c510a;vertical-align:-1px"></span> blocked storms (the valley's own air is lifted); <span style="display:inline-block;width:10px;height:10px;background:#01665e;vertical-align:-1px"></span> unblocked storms. Hollow dot 1982-99, filled dot 2000-22. Dashed tick: the unblocked value if it had changed by the same share as the blocked one, what the weather reading predicts (computed on the page). Strong colour: the change's 95 % range excludes zero; pale: it includes zero.`
+    : `Each small chart: days 1 to 7 after a winter rain (rain of 1 mm or more), the afternoon value above the day after, all November-March days of each era. ● changed: the 95 % range of the day-7 change, by resampled water years, excludes zero; ○ no change detected. Sea: the buoy's daily air. Measured day by day, page data from the same stations and days as the corridor ladder (src/landscape/valley3d_corridor_days.py).${kind === "fp" ? " Dashed boxes: what each reading predicts." : ""}`;
   box.innerHTML = `<div class="svt">${title}</div>${s}<div class="svl${kind === "rain" ? " keep" : ""}">${key} Ground from the page's terrain along the corridor centre line, ${exag} times higher than real; the slope station is 75 km off the line, drawn at its own height. Values: records under Numbers and sources.</div>`;
   box.hidden = false;
   requestAnimationFrame(() => fitStory(box));
