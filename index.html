@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Central Valley in 3D</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#fbfbfa;--page:#f2f2ef;--ink:#18181a;--text:#3c3c40;--muted:#77777c;--rule:#d4d4d6}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--paper:#151517;--page:#0d0d0e;--ink:#ededef;--text:#c4c4c8;--muted:#8a8a90;--rule:#2c2c30}}
@@ -225,133 +224,6 @@ body.app.clean .dock,body.app.clean .reopen{display:none!important}
 .story .st-replay{display:flex;margin:2px 0 8px}.story .st-replay button{font-weight:600}
 .story .st-key{padding:0!important;margin:0 0 8px}.story .st-key .src{display:none}.story .st-key details{margin-top:0;border-top:0;padding-top:0}
 .story{max-height:min(calc(100% - var(--bbh) - 120px),560px)}
-
-/* map controls 2026-11-18: compass, 2D/3D, scale bar */
-.mapctl{position:absolute;right:12px;bottom:64px;z-index:4;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
-.mapctl #compass{all:unset;cursor:pointer;width:40px;height:40px;border-radius:50%;box-shadow:0 1px 6px rgba(0,0,0,.18)}
-.mapctl #compass:focus-visible,.mapctl #bPlan:focus-visible{outline:2px solid #14808E;outline-offset:2px}
-.mapctl #bPlan{font:600 12.5px Inter,system-ui,sans-serif;padding:6px 11px;border:1px solid #14212A;background:rgba(255,255,255,.96);color:#14212A;border-radius:16px;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.12)}
-.mapctl #bPlan[aria-pressed=true]{background:#14212A;color:#fff}
-.blc{position:absolute;left:12px;bottom:12px;z-index:3;display:flex;flex-direction:column;align-items:flex-start;gap:6px;pointer-events:none}.blc>*{pointer-events:auto}
-.scalebar{background:rgba(255,255,255,.88);padding:5px 8px 4px;border-radius:4px;font:11.5px Inter,system-ui,sans-serif;color:#14212A;pointer-events:none}
-.scalebar .sb-bar{height:6px;border:1px solid #14212A;border-top:0;display:flex}.scalebar .sb-bar i{flex:1}.scalebar .sb-bar i:first-child{background:#14212A}
-.scalebar .sb-t{margin-top:3px;white-space:nowrap}.scalebar .sb-t small{display:block;color:#5B6B70;font-size:10.5px}
-body.touring .blc{left:auto;right:64px;align-items:flex-end}
-
-/* layers panel 2026-11-18: grouped compact rows; the active row opens; legend card on the map */
-#drop .cards{display:flex;flex-direction:column;gap:2px}
-#drop .lgrp{font:600 12px Inter,system-ui,sans-serif;color:#5B6B70;margin:12px 2px 4px;letter-spacing:0}
-#drop .lgrp:first-child{margin-top:4px}
-#drop .card-o{flex-direction:row;flex-wrap:wrap;align-items:center;gap:2px 8px;padding:6px 9px!important;border:1px solid transparent;border-radius:5px;background:transparent;font-size:12.5px}
-#drop .card-o:hover{background:#F3F6F5}
-#drop .card-o b{font-size:13px;font-weight:600;flex:1 1 auto}
-#drop .card-o .kind{order:2;margin:0}
-#drop .card-o > :not(b):not(.kind){display:none}
-#drop .card-o[aria-pressed=true]{border:1px solid #14212A;background:#fff;padding:7px 9px!important}
-#drop .card-o[aria-pressed=true] > .q,#drop .card-o[aria-pressed=true] > .sub,#drop .card-o[aria-pressed=true] > .nod:not([hidden]){display:flex;flex:1 1 100%;flex-wrap:wrap;gap:6px}
-#drop .card-o[aria-pressed=true] > .q{display:block;color:#5B6B70;font-size:12px;line-height:1.35}
-#drop .ctx{display:flex;flex-direction:column;gap:2px;padding:2px 4px}
-#drop .ctx label{display:flex;gap:8px;align-items:center;font-size:12.5px;padding:3px 5px;cursor:pointer}
-#drop .ctx .pnote{font-size:11px;color:#5B6B70;margin:2px 5px 0}
-#drop .strength{display:flex;align-items:center;gap:8px;white-space:nowrap;font-size:12px;color:#5B6B70;padding:6px 9px 2px}
-#drop .strength input{flex:1}
-#drop .strength[hidden]{display:none}
-#drop .ph{text-transform:none!important;letter-spacing:0!important;font:600 13px Inter,system-ui,sans-serif!important;color:#14212A!important}
-.mapleg{min-width:210px;max-width:260px;background:rgba(255,255,255,.94);border-radius:6px;box-shadow:0 1px 8px rgba(0,0,0,.14);padding:8px 10px;font:12px/1.35 Inter,system-ui,sans-serif;color:#14212A}
-.mapleg[hidden],body.touring .mapleg,body.clean .mapleg{display:none}@media (max-width:760px){.mapleg{display:none!important}.scalebar .sb-t small{display:none}}
-.mapleg b{display:block;font-size:12.5px;margin-bottom:4px}.mapleg .mlab{font-size:11px;color:#5B6B70;margin-top:4px}
-.mapleg .ramp{display:block;height:9px;border-radius:2px;margin:2px 0}.mapleg .rl{display:flex;justify-content:space-between;color:#5B6B70;font-size:11px}.mapleg .rl i{font-style:normal}
-.mapleg .dots{display:flex;flex-wrap:wrap;gap:3px 10px;align-items:center}.mapleg .dots i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:-5px}
-.mapleg .lk{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px}.mapleg .lk span{display:flex;align-items:center;gap:5px;white-space:nowrap}.mapleg .lk i{display:inline-block;width:11px;height:11px;border-radius:2px;flex:none}
-
-/* before/after swipe 2026-11-18 */
-.mapctl #bCmp{font:600 12.5px Inter,system-ui,sans-serif;padding:6px 11px;border:1px solid #14212A;background:rgba(255,255,255,.96);color:#14212A;border-radius:16px;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.12)}
-.mapctl #bCmp[aria-pressed=true]{background:#14212A;color:#fff}
-.cmp{position:absolute;inset:0;z-index:2;pointer-events:none}.cmp[hidden]{display:none}
-.cmp-line{position:absolute;top:0;bottom:0;width:2px;margin-left:-1px;background:#fff;box-shadow:0 0 0 1px rgba(20,33,42,.55);pointer-events:auto;cursor:ew-resize}
-.cmp-h{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font:600 11px Inter,system-ui,sans-serif;padding:7px 9px;border-radius:16px;border:1px solid #14212A;background:#fff;color:#14212A;cursor:ew-resize;white-space:nowrap;touch-action:none}
-.cmp-l,.cmp-r{position:absolute;top:12px;font:600 13px Inter,system-ui,sans-serif;color:#14212A;background:rgba(255,255,255,.94);padding:5px 10px;border-radius:5px;box-shadow:0 1px 6px rgba(0,0,0,.14);pointer-events:auto;white-space:nowrap}
-.cmp-l select{font:inherit;border:1px solid #D8E0DF;border-radius:4px;padding:1px 4px;background:#fff}
-body.touring .cmp-l,body.touring .cmp-r{top:auto;bottom:70px}
-
-/* welcome over the swipe 2026-11-18: no dimming, panel bottom left, the map stays live */
-.welcome{position:absolute!important;inset:auto auto 16px 16px!important;background:none!important;padding:0!important;display:block!important;z-index:6!important;width:min(430px,calc(100% - 32px))}
-.welcome[hidden]{display:none!important}
-.welcome .wbox{width:100%!important;max-height:calc(100vh - 220px);box-shadow:0 4px 24px rgba(0,0,0,.22)!important}
-.welcome .wlead{font-weight:600;color:#14212A!important}
-#welcome:not([hidden]) ~ .blc{display:none}
-.welcome .wparts{margin:0 0 12px;font-size:13px}.welcome .wparts summary{cursor:pointer;color:#5B6B70}
-.welcome .wparts ol{margin:6px 0 0}
-@media (max-width:760px){.welcome{inset:auto 8px 8px 8px!important;width:auto}.welcome .wbox{max-height:52vh;padding:14px 16px 12px!important;font-size:13px}.welcome p:not(.wlead){display:none}}
-
-/* layers panel, collapsible groups 2026-11-18 (Ali: small caps, own colour, tighter rows with dividers) */
-#drop details.lgd{border-top:1px solid #D8E0DF}
-#drop details.lgd:last-of-type{border-bottom:1px solid #D8E0DF}
-#drop summary.lgrp{list-style:none;cursor:pointer;display:flex;align-items:center;gap:6px;margin:0;padding:8px 4px 7px;font:600 12.5px Inter,system-ui,sans-serif;font-variant-caps:all-small-caps;letter-spacing:.06em;color:#0C5560}
-#drop summary.lgrp::-webkit-details-marker{display:none}
-#drop summary.lgrp::before{content:"";width:0;height:0;border-left:5px solid #0C5560;border-top:4px solid transparent;border-bottom:4px solid transparent;transition:transform .12s}
-#drop details[open] > summary.lgrp::before{transform:rotate(90deg)}
-#drop summary.lgrp .lgn{margin-left:auto;font-variant-caps:normal;letter-spacing:0;font-weight:500;font-size:11px;color:#5B6B70}
-#drop summary.lgrp:hover{color:#14808E}
-#drop summary.lgrp:focus-visible{outline:2px solid #14808E;outline-offset:-2px}
-#drop .lgb{display:flex;flex-direction:column;padding:0 0 6px}
-#drop .lgb > .card-o{padding:4px 8px!important;border-radius:0;border:0;border-bottom:1px solid #EDF1F0}
-#drop .lgb > .card-o:last-child{border-bottom:0}
-#drop .lgb > .card-o[aria-pressed=true]{border:1px solid #14212A;border-radius:5px;padding:6px 8px!important;margin:2px 0}
-#drop .lgb > .card-o b{font-size:12.5px;line-height:1.3}
-#drop .cards{gap:0!important}
-#drop .lgb > .card-o[aria-pressed=true] > .sub{display:flex!important;flex:1 1 100%;flex-wrap:wrap;gap:6px;margin-top:4px}
-#drop .lgb > .card-o[aria-pressed=true] > .sub[hidden]{display:none!important}
-#drop .lgb > .card-o > .q,#drop .lgb > .card-o > .sub,#drop .lgb > .card-o > .nod{order:3}
-#drop .sub button{font:inherit;font-size:12px;padding:3px 8px;border:1px solid #c9c9cc;background:#fff;color:#14212A;border-radius:3px;cursor:pointer}
-#drop .sub button[aria-pressed=true]{background:#14212A;color:#fff;border-color:#14212A}
-#drop .lgb > .card-o[aria-pressed=true] > .sub{gap:4px!important}
-
-/* type and colour pass 2026-11-18: one face (Inter); small headings in small caps, house teal; tags and years in Inter;
-   sources and caveats smaller and muted. Overrides only; remove this block to go back. */
-body,.app,button,select,input{font-family:Inter,"Segoe UI",system-ui,sans-serif}
-body{color:#14212A}
-.evh,.group .lab,.goto .lab,.ovl-h,.leg-b summary,.key .kh,.ph,.sec-h,.app .top .ss,.tbar .ss,.leg-h{font:600 12px/1.3 Inter,system-ui,sans-serif!important;font-variant-caps:all-small-caps;text-transform:none!important;letter-spacing:.06em!important;color:#0C5560!important}
-.st-head,.st-part,.story .st-n{font:500 12px/1.3 Inter,system-ui,sans-serif!important;font-variant-caps:all-small-caps;text-transform:none!important;letter-spacing:.05em!important;color:#5B6B70!important}
-.kind{font:700 10px/1.5 Inter,system-ui,sans-serif!important;font-variant-caps:all-small-caps;text-transform:none!important;letter-spacing:.05em!important;padding:0 6px!important}
-.card-o .src,.leg-b .src,.track .lab,.loading,.corner{font:400 10.5px/1.4 Inter,system-ui,sans-serif!important;color:#5B6B70!important;letter-spacing:0!important}
-.ev span,.leg-b .ev span,.st-src,.story .st-src,.st-fold .ev span,.st-bars .h,.st-dor + .h,.lgb .card-o .q,.mapleg .mlab,.sb-t small{font-size:11px!important;line-height:1.4!important;color:#5B6B70!important}
-.st-fold,.leg-b details.more{font-size:12px!important}
-.yearmap,.app .timeline .year,.year{font-family:Inter,system-ui,sans-serif!important;font-weight:700!important;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
-.year small,.app .timeline .year small{font:500 10.5px/1.3 Inter,system-ui,sans-serif!important;color:#5B6B70!important;letter-spacing:0!important}
-.evl .yr{font:600 11px/1.6 Inter,system-ui,sans-serif!important;font-variant-numeric:tabular-nums}
-.story h2{font-weight:700;letter-spacing:-.005em}
-.st-num b{font-weight:800;letter-spacing:-.01em}
-
-/* how-to-use guide 2026-11-18: a card that steps through the controls; a ring marks each control while it is shown working */
-#guide{position:fixed;left:50%;bottom:76px;transform:translateX(-50%);z-index:60;width:min(520px,calc(100vw - 24px));background:#fff;border:1px solid #D8E0DF;border-left:4px solid #0C5560;border-radius:8px;box-shadow:0 8px 28px rgba(20,33,42,.22);padding:12px 14px 10px;font:13px/1.45 Inter,system-ui,sans-serif;color:#14212A}
-#guide[hidden],#gring[hidden]{display:none}
-#guide .g-step{font:600 12px Inter,system-ui,sans-serif;font-variant-caps:all-small-caps;letter-spacing:.06em;color:#5B6B70}
-#guide .g-title{font-size:15px;font-weight:700;margin:2px 0 4px}
-#guide .g-text{color:#2c3a40}
-#guide .g-text kbd{font:600 11px Inter,system-ui,sans-serif;border:1px solid #c9c9cc;border-bottom-width:2px;border-radius:3px;padding:0 4px;background:#F5F5F2}
-#guide .g-nav{display:flex;gap:8px;justify-content:flex-end;margin-top:10px}
-#guide .g-nav button{font:600 12.5px Inter,system-ui,sans-serif;padding:5px 12px;border-radius:5px;border:1px solid #c9c9cc;background:#fff;color:#14212A;cursor:pointer}
-#guide .g-nav button.pri{background:#0C5560;border-color:#0C5560;color:#fff}
-#guide .g-nav button[disabled]{opacity:.4;cursor:default}
-#gring{position:fixed;z-index:59;pointer-events:none;border:2px solid #14808E;border-radius:10px;box-shadow:0 0 0 4px rgba(20,128,142,.18);transition:all .35s ease;animation:gpulse 1.4s ease-in-out infinite}
-@keyframes gpulse{0%,100%{box-shadow:0 0 0 3px rgba(20,128,142,.18)}50%{box-shadow:0 0 0 9px rgba(20,128,142,.08)}}
-@media (prefers-reduced-motion:reduce){#gring{animation:none;transition:none}}
-@media (max-width:760px){#guide{bottom:auto;top:52px}#bClean{display:none!important}}
-
-/* print plate 2026-11-18 */
-.mapctl #bPlate{font:600 12.5px Inter,system-ui,sans-serif;padding:6px 11px;border:1px solid #14212A;background:rgba(255,255,255,.96);color:#14212A;border-radius:16px;cursor:pointer;box-shadow:0 1px 6px rgba(0,0,0,.12)}
-#plateDlg{position:fixed;inset:0;z-index:70;background:rgba(20,33,42,.28);display:flex;align-items:center;justify-content:center;padding:12px}
-#plateDlg[hidden]{display:none}
-#plateDlg .pd-box{width:min(460px,100%);max-height:100%;overflow:auto;background:#fff;border-radius:8px;border-left:4px solid #0C5560;box-shadow:0 8px 28px rgba(20,33,42,.25);padding:14px 16px 12px;font:13px/1.45 Inter,system-ui,sans-serif;color:#14212A}
-#plateDlg .pd-h{font-size:15px;font-weight:700;margin-bottom:4px}
-#plateDlg .pd-n,#plateDlg .pd-s{font-size:11.5px;color:#5B6B70;margin:0 0 10px}
-#plateDlg label{display:flex;flex-direction:column;gap:3px;font-size:12px;font-weight:600;margin:0 0 8px}
-#plateDlg input,#plateDlg select,#plateDlg textarea{font:400 13px Inter,system-ui,sans-serif;border:1px solid #c9c9cc;border-radius:4px;padding:5px 7px;color:#14212A}
-#plateDlg .pd-b{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
-#plateDlg .pd-b button{font:600 12.5px Inter,system-ui,sans-serif;padding:6px 12px;border-radius:5px;border:1px solid #c9c9cc;background:#fff;color:#14212A;cursor:pointer}
-#plateDlg .pd-b button.pri{background:#0C5560;border-color:#0C5560;color:#fff}
-#plateDlg .pd-b button[disabled]{opacity:.5;cursor:default}
 </style>
 </head>
 <body class="app">
@@ -362,7 +234,6 @@ body{color:#14212A}
     <div class="menu"><button id="bViews" class="tb" aria-expanded="false" aria-controls="views">View ▾</button>
       <div class="pop views" id="views" hidden><div class="ph">Go to</div><div class="vlist"><button data-view="all">Whole valley</button><button data-view="sac">Sacramento</button><button data-view="delta">Delta</button><button data-view="sj">San Joaquin</button><button data-view="tulare">Tulare</button></div>
     <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label><label class="chk"><input type="checkbox" id="bRoads"> Major roads, 2023</label><label class="chk"><input type="checkbox" id="bNames"> Name labels</label><div class="pnote">Roads are today's network (Census TIGER 2023), shown in every year when on, at true ground width: the road, its corridor, and for freeways the road-effect zone.</div></div></div>
-    <button id="bHow" class="tb" title="A short tour of the controls, each shown working">How to use</button>
     <button id="bTour" class="tb" title="Start the guided walkthrough from the beginning">Walkthrough</button>
     <button id="bClean" class="tb" aria-pressed="false" title="Show the map alone (Ctrl+\)">Map only</button>
   </div>
@@ -374,7 +245,7 @@ body{color:#14212A}
       <button class="rail" data-collapse="dockL" title="Collapse this panel" aria-label="Collapse the left panel">«</button>
     </div>
     <div class="pane" data-pane="layers" id="drop">
-      <div class="ph">Layers</div><div class="strength" id="strength" hidden><span>Layer strength</span><input type="range" id="opac" min="0.15" max="1" step="0.05" value="1" aria-label="Layer strength"></div>
+      <div class="ph">What to show over the land <span>one at a time</span></div>
       <div class="cards">
       <button class="card-o" data-ov="none"><b>Just the land</b><span class="kind k-p">Mapped</span><span class="q">Land cover for the year on the slider</span><span class="src">CVHM2 land use · pre-1900 historic map · NLCD · areas and dams from the page data (record 2026-11-16_valley-3d-page)</span></button>
       <div class="card-o" data-ov="rivers" role="button" tabindex="0"><b>The rivers held back</b><span class="kind k-m">Measured</span><span class="q">How much of each river still flows past its dam</span><span class="dots"><i style="background:#e6e6e3;border:1px solid #bbb"></i>natural flow <i style="background:#2171b5"></i>measured below the dam</span><span class="src">CDEC and USGS · by decade</span></div>
@@ -388,9 +259,8 @@ body{color:#14212A}
       <button class="card-o" data-ov="rain"><b>Rain</b><span class="kind k-m">Measured, gridded</span><span class="q">Where rain fell in the water year shown</span><span class="ramp" style="background:linear-gradient(90deg,#f7fbff,#c6dbef,#6baed6,#2171b5,#08306b)"></span><span class="rl"><i>100 mm</i><i>2,000 mm</i></span><span class="src">PRISM · 1896 to 2025</span><span class="nod" data-nod="rain"></span></button>
       <div class="card-o" data-ov="heat" role="button" tabindex="0"><b>Ground heat</b><span class="kind k-m">Measured</span><span class="q">How hot the ground got on the valley's 10 hottest days a year</span><span class="ramp" style="background:linear-gradient(90deg,#ffffb2,#fecc5c,#fd8d3c,#f03b20,#bd0026,#67000d)"></span><span class="rl"><i>25 °C</i><i>66 °C</i></span><span class="sub"><button data-hs="float">Floating sheet</button><button data-hs="drape">On the land</button></span><span class="sub"><button data-hs="obsclim" title="Mean over all 230 hottest days 2003-2025, satellite">Today, all years</button></span><span class="src">Satellite (MODIS) · 2003 to 2025</span><span class="nod" data-nod="heat"></span></div>
       <div class="card-o" data-ov="towers" role="button" tabindex="0"><b>Where water is returned</b><span class="kind k-m">Measured</span><span class="q">Air over rewetted Delta land against drained farmland nearby, same days</span><span class="dots"><i style="background:#2166ac"></i>rewetted (marsh, rice) <i style="background:#c49a5a"></i>drained farmland</span><span class="src">AmeriFlux towers · record 2026-11-16_m9-towers-rewetted-air</span><span class="nod" data-nod="towers"></span></div>
-      <div class="card-o" data-ov="wrf" role="button" tabindex="0"><b>A model: the low air over the old land and today's land</b><span class="kind k-x">Model</span><span class="q">The same winter's weather run twice, over the pre-1900 land and over today's land: wind near the ground, coloured by the air temperature it carries</span><span class="sub"><button data-rm="pre_w">Old land</button><button data-rm="ctrl">Today's land</button><button data-rm="diff">Difference</button></span><span class="sub"><button data-rc="afternoon">Afternoon (13:00)</button><button data-rc="predawn">Pre-dawn (04:00)</button><button data-rc="storm">Storm hours</button></span><span class="sub"><button data-rf="T2">Air temperature</button><button data-rf="Q2">Vapour</button><button data-rf="HFX">Heat to the air</button><button data-rf="LH">Evaporation</button><button data-rf="none">No colour</button></span><span class="src">WRF winter 2013-14 (A28 pair), 12 km cells; afternoons and pre-dawn of 150 days, 326 storm hours · src/landscape/valley3d_wrf_wind.py · stand-in: run-to-run drift not yet removed</span><span class="nod" data-nod="wrf"></span></div>
       <div class="card-o" data-ov="cloud" role="button" tabindex="0"><b>A model: cloud base over the old land</b><span class="kind k-x">Model</span><span class="q">How high cloud formed in storms over the old land and over today's land, same weather</span><span class="src">WRF, winter 2013-14, three members · no map</span><span class="nod" data-nod="cloud"></span></div>
-      <div class="card-o" data-ov="wind" role="button" tabindex="0"><b>How the wind runs across the valley, before and now</b><span class="kind k-x">Reanalysis</span><span class="q">Streaks follow the wind on storm days and on the afternoon after, near the ground, higher up, or as the vapour the whole air column carries; a colour under them can add the cloud base or the vapour in the column</span><span class="ramp" data-wramp style="display:block"></span><span class="rl" data-wrl style="display:flex"></span><span class="sub" data-whrow><button data-wh="10m">Near the ground</button><button data-wh="925">~750 m</button><button data-wh="850">~1,500 m</button><button data-wh="ivt">Vapour carried</button></span><span class="sub"><button data-wd="before">1959-80</button><button data-wd="now">2000-22</button><button data-wd="diff">Change</button></span><span class="sub"><button data-wc="storm">Storm days</button><button data-wc="after">Afternoon after</button></span><span class="sub"><button data-wf="lcl">Cloud base</button><button data-wf="tcwv">Column vapour (TCWV, TPW)</button><button data-wf="t2m" data-t2m>Air temperature (2 m)</button><button data-wf="none">No colour</button></span><span class="sub"><button data-wm="1">Streaks: moisture</button><button data-wm="0">Streaks: white</button></span><span class="src">ERA5, winters November to March · storm day = offshore inflow of at least 150 kg/m/s (the corridor rule) · vapour transport and cloud base 0.25°, column vapour 1.5° · src/landscape/valley3d_wind.py</span><span class="nod" data-nod="wind"></span></div>
+      <div class="card-o" data-ov="wind" role="button" tabindex="0"><b>How the wind runs across the valley, before and now</b><span class="kind k-x">Reanalysis</span><span class="q">Streaks follow the wind on storm days and on the afternoon after, near the ground, higher up, or as the vapour the whole air column carries; a colour under them can add the cloud base or the vapour in the column</span><span class="ramp" data-wramp style="display:block"></span><span class="rl" data-wrl style="display:flex"></span><span class="sub" data-whrow><button data-wh="10m">Near the ground</button><button data-wh="925">~750 m</button><button data-wh="850">~1,500 m</button><button data-wh="ivt">Vapour carried</button></span><span class="sub"><button data-wd="before">1959-80</button><button data-wd="now">2000-22</button><button data-wd="diff">Change</button></span><span class="sub"><button data-wc="storm">Storm days</button><button data-wc="after">Afternoon after</button></span><span class="sub"><button data-wf="lcl">Cloud base</button><button data-wf="tcwv">Column vapour (TCWV, TPW)</button><button data-wf="none">No colour</button></span><span class="src">ERA5, winters November to March · storm day = offshore inflow of at least 150 kg/m/s (the corridor rule) · vapour transport and cloud base 0.25°, column vapour 1.5° · src/landscape/valley3d_wind.py</span><span class="nod" data-nod="wind"></span></div>
     </div>
     </div>
     <div class="pane" data-pane="story" id="paneStory" hidden>
@@ -422,33 +292,15 @@ body{color:#14212A}
     <div class="loading" id="loading">Loading terrain and land cover…</div>
     <div class="tip" id="tip" hidden></div>
     <div class="sv" id="sv" hidden></div>
-    <div class="welcome" id="welcome" role="dialog" aria-modal="false" aria-labelledby="wTitle" hidden><div class="wbox">
+    <div class="welcome" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle" hidden><div class="wbox">
       <h2 id="wTitle">California's Central Valley, before 1900 to 2025</h2>
-      <p class="wlead">Drag the line on the map: the valley before 1900 on the left, in 2019 on the right.</p>
       <p><b>The case:</b> the valley floor lost its water: drained, dammed and pumped. Since then the low air over it warms and dries faster after rain, no longer builds its own fog, and turns less of the same ocean vapour into rain.</p>
       <p><b>The other explanation:</b> a change in the weather from the Pacific (less vapour, a warmer sea, more stable air aloft) would show at sea, aloft and on the mountain slope as much as on the floor. The walkthrough shows both, place by place.</p>
-      <details class="wparts"><summary>The walkthrough: 7 parts, 15 chapters</summary><ol><li>The valley before and after <span>(4 chapters)</span></li><li>The ground lost its water <span>(3)</span></li><li>The low air after rain <span>(1)</span></li><li>Cloud and rain <span>(4)</span></li><li>Where the change is, and where it is not <span>(1)</span></li><li>Where water is returned <span>(1)</span></li><li>Settled, and what is measured next <span>(1)</span></li></ol></details>
-      <div class="wb"><button class="primary" id="wStart">Start the walkthrough</button><button id="wSkip">Explore the map on my own</button><button id="wHow">How to use</button></div>
+      <ol><li>The valley before and after <span>(4 chapters)</span></li><li>The ground lost its water <span>(3)</span></li><li>The low air after rain <span>(1)</span></li><li>Cloud and rain <span>(4)</span></li><li>Where the change is, and where it is not <span>(1)</span></li><li>Where water is returned <span>(1)</span></li><li>Settled, and what is measured next <span>(1)</span></li></ol>
+      <div class="wb"><button class="primary" id="wStart">Start the walkthrough</button><button id="wSkip">Explore the map on my own</button></div>
     </div></div>
     <div class="hint" id="hint" hidden></div>
-    <div id="gring" hidden></div>
-    <div id="plateDlg" role="dialog" aria-label="Print plate" hidden><div class="pd-box">
-      <div class="pd-h">Print plate</div>
-      <p class="pd-n">A map plate of this view in the 2D map, north up, at one scale, in the layout of the project's map plates. With Compare on, the two years sit side by side.</p>
-      <label>Paper <select id="pdPaper"><option value="a3">A3 landscape (420 x 297 mm)</option><option value="a4">A4 landscape (297 x 210 mm)</option></select></label>
-      <label>Plate code <input id="pdCode" value="Plate W1"></label>
-      <label>Title <textarea id="pdTitle" rows="3"></textarea></label>
-      <label>Line under the title <textarea id="pdSub" rows="3"></textarea></label>
-      <div class="pd-b"><button id="pdPng" class="pri">PNG, 300 dpi</button><button id="pdPdf">PDF</button><button id="pdQgis" title="A request file for the QGIS route: src/landscape/valley3d_plate_qgis.py">QGIS spec</button><button id="pdX">Close</button></div>
-      <p class="pd-s" id="pdStatus"></p>
-    </div></div>
-    <div id="guide" role="dialog" aria-live="polite" aria-label="How to use" hidden></div>
     <div class="yearmap" id="yearMap" hidden></div>
-    <div class="mapctl"><button id="compass" title="Turn north up (N)" aria-label="Compass: turn north up"><svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="rgba(255,255,255,.95)" stroke="#14212A" stroke-width="1"/><g id="needle"><path d="M20 5 L25 21 L20 18 L15 21 Z" fill="#b2182b"/><path d="M20 35 L25 21 L20 24 L15 21 Z" fill="#8d8f94"/><text x="20" y="13.5" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" font-family="Inter,system-ui,sans-serif">N</text></g></svg></button><button id="bPlate" title="Make a print plate of this view: A3 or A4, PNG or PDF, or a QGIS spec (P)">Plate</button><button id="bCmp" aria-pressed="false" title="Compare two years side by side; drag the divider (C)">Compare</button><button id="bPlan" aria-pressed="false" title="Switch between the 3D view and a flat map, north up, true scale (M)">2D map</button></div>
-    <div class="cmp" id="cmp" hidden><div class="cmp-line" id="cmpLine"><button class="cmp-h" id="cmpH" aria-label="Drag to compare">◀ ▶</button></div>
-      <div class="cmp-l" id="cmpL"><label>Left <select id="cmpA" aria-label="Year on the left"><option value="1850">before 1900</option><option value="1874">1874</option><option value="1900">1900</option><option value="1930">1930</option><option value="1950">1950</option><option value="1975">1975</option><option value="2000">2000</option></select></label></div>
-      <div class="cmp-r" id="cmpR"></div></div>
-    <div class="blc"><div class="mapleg" id="mapLeg" hidden></div><div class="scalebar" id="scalebar"><div class="sb-bar" id="sbBar"><i></i><i></i></div><div class="sb-t" id="sbT"></div></div></div>
     <button class="peek" id="peek" hidden title="Hold to see the land under the layer; the space bar does the same">Hold: land underneath</button>
     <button class="reopen l" data-expand="dockL" hidden>Layers ›</button><button class="reopen r" data-expand="dockR" hidden>‹ Inspector</button>
   </div>
@@ -511,19 +363,18 @@ function codes(year) {
 const hex = (h) => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
 const P = {
   ocean: ["#4d7088", "#4d7088"], water: ["#3f6f8a", "#466f80"], marsh: ["#4f6a48", "#5c7a3c"], marshWet: ["#46685f", "#5c7a3c"],
-  riparian: ["#465a36", "#3c5a2c"], oak: ["#7f9450", "#a39a62"], grass: ["#8eab5c", "#b8a057"], tuft: ["#78984c", "#9a8644"], crown: ["#4e6438", "#5b6236"], alkali: ["#b4b394", "#d2c8a6"],
+  riparian: ["#465a36", "#3c5a2c"], oak: ["#7f9450", "#a39a62"], grass: ["#8eab5c", "#cbb27c"], alkali: ["#b4b394", "#d2c8a6"],
   flood: ["#5f8a62", "#a9a368"], drained: ["#93a35f", "#c4ae80"], chaparral: ["#6a7048", "#7a7650"],
   rice: ["#c9bf72", "#d9cf3a"], orchard: ["#b8a25a", "#c9a227"], field: ["#d9c86e", "#f2d64b"], fieldB: ["#cfbd64", "#e8c840"],
-  pasture: ["#cfc878", "#e6dc6a"], idle: ["#d8ceaa", "#eadfb4"], urban: ["#5b5d63", "#5b5d63"], burn0: ["#8c2d04", "#8c2d04"], burn1: ["#d95f0e", "#d95f0e"],
+  pasture: ["#cfc878", "#e6dc6a"], idle: ["#d8ceaa", "#eadfb4"], urban: ["#202022", "#202022"],
   forestE: ["#3e5638", "#3f5a36"], forestD: ["#6a6f50", "#5c7344"], forestM: ["#4d6040", "#4c6840"], shrub: ["#76805a", "#8c8562"],
   barren: ["#b6aea0", "#c2b8a6"], snow: ["#f1f3f5", "#f1f3f5"], wetland: ["#526e4a", "#5c7a46"], crops: ["#d9c86e", "#ebd24c"],
-  devOpen: ["#8d8f94", "#8d8f94"], devLow: ["#6c6e74", "#6c6e74"], devHi: ["#4c4e54", "#4c4e54"],
+  devOpen: ["#5e5e60", "#626264"], devLow: ["#38383a", "#3a3a3c"], devHi: ["#1c1c1e", "#1c1c1e"],
   forestOld: ["#33492f", "#34502f"], scar: ["#5a5048", "#6a5a4a"], cut: ["#8c7d60", "#a38e6a"], young: ["#6f7f50", "#7d8a52"],
 };
 const PAL = {}; for (const k in P) PAL[k] = P[k].map(hex);
 const GROUPS = M.groups;   // water, wet_native, dry_native, rice, orchard, field, pasture, idle, irr_unspec, urban
 const WET_TYPES = new Set([3, 4, 5, 7]);   // riparian, marsh, water, floodplain
-const TOWNS_NLCD = new URLSearchParams(location.search).get("towns") !== "cells";   // town shapes from NLCD 300 m inside CVHM2 town cells (Ali, 2026-11-18); ?towns=cells shows the one-mile cells
 
 function natColour(t, wetStill, s) {
   switch (t) {
@@ -562,7 +413,7 @@ function hillColour(c, year, s, i) {
   let F = 0; for (let k = 0; k < 4; k++) { const f = fireY[i * 4 + k]; if (f && f <= year) { F = f; break; } }
   if (!F) return base;
   const age = year - F, grassy = c === 71 || c === 81 || c === 82;
-  if (age < (grassy ? 1 : 3)) return age < 1 ? PAL.burn0[s] : PAL.burn1[s];   // burnt this year: red-brown; second and third year: orange
+  if (age < (grassy ? 1 : 3)) return PAL.scar[s];
   if (grassy || age >= 15) return base;
   return mix(PAL.young[s], base, (age - 3) / 12);
 }
@@ -637,10 +488,8 @@ function paint(year, s) {
       const t = natOf[i], gname = GROUPS[pre ? (WET_TYPES.has(t) ? 1 : 2) : code[cellOf[i]]];
       if (gname === "wet_native") c = natColour(t, true, s);
       else if (gname === "dry_native") c = natColour(t, pre ? WET_TYPES.has(t) : false, s);
-      else if (TOWNS_NLCD && gname === "urban") { const n = nlcd[i], built = n >= 21 && n <= 24 && !(devY[i] > 1985 && year < devY[i]); c = built ? (n === 24 ? PAL.devHi[s] : PAL.urban[s]) : PAL.idle[s]; /* open space (roads, yards) in the town grey so towns read as one mass (Ali, 2026-11-18) */ }
       else c = PAL.idle[s];   // covered by the cell drawing below
     } else c = hillColour(nlcd[i], year, s, i);
-    if (c === PAL.grass[s] || c === PAL.oak[s]) { const h2 = (hash[i] * 7.137) % 1; if (c === PAL.grass[s] ? h2 < 0.22 : h2 < 0.15) c = c === PAL.grass[s] ? PAL.tuft[s] : PAL.crown[s]; }   // living cover drawn as tufts and crowns, not a flat fill
     let r = c[0], gg = c[1], b = c[2];
     if (!s && elev[i] > 1800 && !ocean[i]) { const f = Math.min(1, (elev[i] - 1800) / 800); r += (241 - r) * f; gg += (243 - gg) * f; b += (245 - b) * f; }
     const n = 1 + (hash[i] - 0.5) * 0.1;
@@ -659,7 +508,6 @@ function paint(year, s) {
       const gname = GROUPS[code[ci]], o = ci * 8;
       if (gname === "water") { tg.fillStyle = rgb(PAL.water[s]); tg.beginPath(); pathQ(quad(o, 0, 0, 1, 1)); tg.fill(); continue; }
       if (gname === "urban") {
-        if (TOWNS_NLCD) { roads.push(o); continue; }   // drawn per pixel above
         for (let a = 0; a < 4; a++) for (let b2 = 0; b2 < 4; b2++) { tg.fillStyle = rgb(PAL.urban[s], 0.86 + 0.24 * h1(ci + a * 7, b2)); tg.beginPath(); pathQ(quad(o, a / 4, b2 / 4, (a + 1) / 4, (b2 + 1) / 4)); tg.fill(); }
         roads.push(o); continue;
       }
@@ -697,8 +545,8 @@ function paint(year, s) {
   tg.setLineDash([]);
   // region boundaries, map style: one dark line on a white halo; sub-regions dashed, the floor edge solid and drawn last
   if (regionsOn) for (const r of REGIONS_DRAW) {
-    tg.setLineDash([]); tg.strokeStyle = "rgba(255,255,255,0.35)"; tg.lineWidth = r.w * 0.55 + 1.2; tg.stroke(r.path);
-    tg.strokeStyle = "rgba(20,33,42,0.5)"; tg.lineWidth = r.w * 0.45; tg.setLineDash(r.floor ? [] : [9, 6]); tg.stroke(r.path);   // thin grey, under the data
+    tg.setLineDash([]); tg.strokeStyle = "rgba(255,255,255,0.9)"; tg.lineWidth = r.w + 3.5; tg.stroke(r.path);
+    tg.strokeStyle = "#1e1e22"; tg.lineWidth = r.w; tg.setLineDash(r.floor ? [] : [12, 6]); tg.stroke(r.path);
   }
   tg.setLineDash([]);
   texture.needsUpdate = true;
@@ -721,13 +569,8 @@ scene.fog = new THREE.Fog("#dfe6ea", 700, 1500);
 const camera = new THREE.PerspectiveCamera(38, 1, 1, 5000);
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true; controls.maxPolarAngle = Math.PI * 0.46; controls.minDistance = 25; controls.maxDistance = 1600;
-// 2D map: the same camera with a 1.5 degree field of view far overhead, north up, rotation off. At that distance a point
-// 17 km high (the Sierra at 4 times) shifts under 0.3 km at the edge of the view, so the map is a plan at one scale.
-let planOn = false, save3d = null;
-const PLAN_FOV = 1.5, PLAN_T = Math.tan((PLAN_FOV / 2) * Math.PI / 180), planDist = (halfKm) => halfKm / PLAN_T;
-const LAB_K = () => (planOn ? PLAN_T / Math.tan((19 * Math.PI) / 180) : 1);   // labels drawn at screen size scale with the field of view: keep their 3D size in the 2D map
 scene.add(new THREE.HemisphereLight(0xffffff, 0x9a937f, 1.25));
-const sun = new THREE.DirectionalLight(0xffffff, 2.1); sun.position.set(-600, 500, -300); scene.add(sun);   // light from the west-north-west (z is south)
+const sun = new THREE.DirectionalLight(0xffffff, 2.1); sun.position.set(-600, 500, -300); scene.add(sun);   // light from the south-west, afternoon
 
 const texture = new THREE.CanvasTexture(tex);
 texture.colorSpace = THREE.SRGBColorSpace; texture.anisotropy = renderer.capabilities.getMaxAnisotropy(); texture.flipY = true;
@@ -742,10 +585,6 @@ geo.rotateX(-Math.PI / 2);
 }
 const land = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ map: texture }));
 scene.add(land);
-// before/after: the comparison year is painted once into its own canvas and drawn on a second mesh that shares the terrain
-const cmpCanvas = document.createElement("canvas"); cmpCanvas.width = tex.width; cmpCanvas.height = tex.height;
-const cmpTexture = new THREE.CanvasTexture(cmpCanvas); cmpTexture.colorSpace = THREE.SRGBColorSpace; cmpTexture.anisotropy = texture.anisotropy; cmpTexture.flipY = true;
-const land2 = new THREE.Mesh(geo, new THREE.MeshLambertMaterial({ map: cmpTexture })); land2.visible = false; scene.add(land2);
 // pixel (texture) to world
 const toWorld = (px, py, up = 0) => {
   const x = (px * G.tex_m) / 1000 - wKm / 2, z = (py * G.tex_m) / 1000 - hKm / 2;
@@ -815,7 +654,7 @@ for (const d of M.dams) {
   const geo = new THREE.ExtrudeGeometry(sh, { depth: L, bevelEnabled: false }); geo.translate(0, 0, -L / 2); geo.rotateY(Math.PI / 2);   // wall section: wide base, narrow crest
   const g = new THREE.Group(), wall = new THREE.Mesh(geo, damMat), edges = new THREE.LineSegments(new THREE.EdgesGeometry(geo), damEdge);
   g.add(wall, edges); g.position.copy(toWorld(x, y, 0.1)); g.rotation.y = th; g.visible = false;
-  g.userData = { built: d.built, name: d.name, how, dist: rv ? rv.dist : null, px: d.px, mcm: d.mcm || 0 };
+  g.userData = { built: d.built, name: d.name, how, dist: rv ? rv.dist : null, px: d.px };
   wall.userData.tip = () => `<b>${d.name}</b> (dam), ${d.river}<br>Built ${d.built}; storage ${Math.round(d.mcm || 0).toLocaleString("en-GB")} million m³${dorDam(d) ? `<br>Degree of regulation ${dorDam(d).dor_pct.toLocaleString("en-GB")} %: storage as a share of the mean yearly flow at the dam (${dorDam(d).mean_flow_m3s} m³/s, modelled by GDW; read as an estimate)` : ""}<br><span>Global Dam Watch v1.0. Drawn from the year it was built; the wall is laid ${how === "terrain" ? "across the slope of the ground (no reservoir or river line found near the point)" : how === "own reservoir" || how === "nearby water" ? "across the outlet end of its reservoir" : "across the river channel at the dam"}; a longer wall holds more water.</span>`;
   damGroup.add(g);
 }
@@ -926,7 +765,6 @@ const VIEWS = {
 let goal = null;
 function view(key) {
   const v = VIEWS[key] || VIEWS.all, t = toWorld(v.t[0], v.t[1]);
-  if (planOn) { const half = key === "all" || !VIEWS[key] ? hKm * 0.54 : v.d * 0.62; goal = { t, c: new THREE.Vector3(t.x, t.y + planDist(half), t.z + 0.01) }; return; }
   const fit = Math.min(1.8, Math.max(1, 1.7 / Math.max(0.3, camera.aspect)));   // narrow screens step back so more of the area fits
   if (document.body.classList.contains("touring") && !matchMedia("(max-width:760px)").matches) { const sh = v.d * fit * 0.2; t.x -= Math.cos(v.a) * sh; t.z += Math.sin(v.a) * sh; }   // the card covers the left: aim left of the subject so it sits in the open part
   scene.fog.near = 700 * fit; scene.fog.far = 1500 * fit; controls.maxDistance = 1600 * fit;
@@ -937,9 +775,9 @@ controls.addEventListener("start", () => { goal = null; });
 
 // ---------------------------------------------------------------- key
 const KEY = [["head", "Wet land (mostly gone)"], ["water", "Lake, river, open water"], ["marsh", "Tule marsh"], ["riparian", "Riverside forest"], ["flood", "Seasonally flooded land"],
-  ["head", "Grassland and savanna (green in winter, golden and dormant in summer)"], ["grass", "Grassland"], ["oak", "Oak savanna"], ["alkali", "Alkali scrub"], ["drained", "Former wetland, drained"],
-  ["head", "Farms (yellow) and towns (grey)"], ["field", "Field crops"], ["orchard", "Orchard and vine"], ["rice", "Rice"], ["pasture", "Irrigated pasture"], ["idle", "Fallow"], ["urban", "Town"],
-  ["head", "Mountains"], ["forestE", "Conifer forest"], ["shrub", "Chaparral and shrub"], ["young", "Regrowth after logging or fire"], ["burn0", "Burnt this year (CAL FIRE perimeter)"], ["burn1", "Burnt one or two years before"], ["scar", "Recent forest loss, logging (Hansen)"]];
+  ["head", "Dry native land"], ["grass", "Grassland"], ["oak", "Oak savanna"], ["alkali", "Alkali scrub"], ["drained", "Former wetland, drained"],
+  ["head", "Farms (yellow) and towns (black)"], ["field", "Field crops"], ["orchard", "Orchard and vine"], ["rice", "Rice"], ["pasture", "Irrigated pasture"], ["idle", "Fallow"], ["urban", "Town"],
+  ["head", "Mountains"], ["forestE", "Conifer forest"], ["shrub", "Chaparral and shrub"], ["young", "Regrowth after logging or fire"], ["scar", "Recent burn or forest loss"]];
 let keyHtml = "";
 function drawKey(s) { keyHtml = KEY.map(([k, t]) => k === "head" ? `<div class="kh">${t}</div>` : `<div><span class="sw" style="background:rgb(${PAL[k][s].join(",")})"></span>${t}</div>`).join(""); }
 const SYMBOLS = `<div class="sym">
@@ -955,7 +793,7 @@ const SYMBOLS = `<div class="sym">
   <div><span class="sw" style="background:#d55e00;border-radius:50%;width:12px;height:12px"></span>Event on the timeline: year and what happened (point at a pin for the full text)</div>
 </div>`;
 let legOpen = true, moreOpen = false;   // the inspector shows the layer section open; it folds on click
-function layerLine() { try { return (typeof caseLine === "function" ? caseLine() : "") + heatLine() + rainLine() + cloudLine() + windLine() + wrfLine(); } catch (e) { return ""; } }
+function layerLine() { try { return (typeof caseLine === "function" ? caseLine() : "") + heatLine() + rainLine() + cloudLine() + windLine(); } catch (e) { return ""; } }
 function renderLegend() {
   let ov = "none"; try { ov = overlay; } catch (e) { /* panel not built yet */ }
   const card = document.querySelector(`.card-o[data-ov="${ov}"]`);
@@ -987,8 +825,6 @@ for (let y = 1850; y <= 2025; y += 25) {
 for (const ev of M.events) {
   const f = (ev.year - Y0) / (Y1 - Y0), t = document.createElement("div"); t.className = "tick"; t.style.left = `${f * 100}%`; t.title = `${ev.year}: ${ev.text}`; track.appendChild(t);
 }
-const DAM_BIG = 100;   // million m3: at the whole-valley scale only these dams show; the rest appear on zoom
-let zoomedIn = false, ctxOn = { dams: true, pins: true };
 let year = 1850, season = 1, playing = false, dirty = true, lastStep = 0, playTo = null, playMs = 200, playT0 = 0, playY0 = 1850, tourShow = null;
 function setPlayBtn(v) { playing = v; if (!v) playTo = null; $("play").textContent = v ? "❚❚ Pause" : "▶ Play 1850-2025"; $("play").setAttribute("aria-pressed", String(v)); yearMapUpd(); }
 function playSpan(a, b) { setYear(a); playTo = b; playMs = 8000 / Math.max(1, b - a); playT0 = performance.now() + 700; playY0 = a; setPlayBtn(true); }   // a chapter's span in about 8 s, after the camera moves
@@ -1011,16 +847,15 @@ function readout() {
   const evHtml = evAll.length ? `<ul class="evl${evOpen ? "" : " collapsed"}">${evAll.slice().reverse().map((e) => `<li><span class="yr">${e.year}${e.end && e.end !== e.year ? "–" + e.end : ""}</span><span>${e.text}${e.place ? ` <span class="pl">· ${e.place}</span>` : ""}</span></li>`).join("")}</ul>${evAll.length > 2 ? `<button class="evmore" id="evMore">${evOpen ? "Show fewer" : `Show all ${evAll.length}`}</button>` : ""}` : `<div class="evnone">No dated step in the project chronology around ${year}.</div>`;
   $("readout").innerHTML = `<div><div class="evh"><span>The floor in ${year}</span></div><div class="tiles">${tiles}</div></div><div><div class="evh"><span>Steps around ${year}</span><span>project chronology</span></div>${evHtml}</div>`;
   if ($("evMore")) $("evMore").onclick = () => { evOpen = !evOpen; readout(); };
-  for (const m of damGroup.children) m.visible = m.userData.built <= year && (tourShow ? !!tourShow.dams : ctxOn.dams) && (m.userData.mcm >= DAM_BIG || zoomedIn);
+  for (const m of damGroup.children) m.visible = m.userData.built <= year && (!tourShow || !!tourShow.dams);
   const stack = {};
   for (const g of pinGroup.children) {
-    const e = g.userData; g.visible = e.year <= year && year <= Math.max(e.end || e.year, e.year + 4) && (tourShow ? !!tourShow.pins : ctxOn.pins);
+    const e = g.userData; g.visible = e.year <= year && year <= Math.max(e.end || e.year, e.year + 4) && (!tourShow || !!tourShow.pins);
     if (!g.visible) continue;
-    if (g.children[2]) g.children[2].visible = !!tourShow;   // free exploration: a dot, its text on hover
     const k = (stack[e.key] = (stack[e.key] || 0) + 1) - 1;   // pins on the same spot stand at different heights
     g.children[0].scale.y = 1 + k * 0.55; g.children[0].position.y = 11 * (1 + k * 0.55); g.children[1].position.y = 23 + k * 12; g.children[2].position.y = 29 + k * 12;
   }
-  renderLegend(); yearMapUpd(); try { mapLegend(); if (cmpOn) cmpLayout(); } catch (e) { /* panel not built yet */ }
+  renderLegend(); yearMapUpd();
 }
 function setYear(y) { year = Math.max(Y0, Math.min(Y1, y)); slider.value = String(year); dirty = true; }
 slider.addEventListener("input", () => setYear(+slider.value));
@@ -1072,10 +907,10 @@ addEventListener("keydown", (e) => { if (e.target.tagName === "INPUT" && e.targe
 function resize() {
   const w = canvas.clientWidth, h = canvas.clientHeight; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
   // labels keep the same share of the screen width on a phone as on a desktop
-  const k = 0.00026 * Math.min(1, w / h / 1.7) * LAB_K();
+  const k = 0.00026 * Math.min(1, w / h / 1.7);
   try { for (const sp of [...regionGroup.children, ...pinLabels]) if (sp.userData.labelW) sp.scale.set(sp.userData.labelW * k * (pinLabels.includes(sp) ? 0.8 : 1), 92 * k * (pinLabels.includes(sp) ? 0.8 : 1), 1); } catch (e) { /* labels not built yet */ }
 }
-addEventListener("resize", () => { resize(); try { if (cmpOn) cmpLayout(); } catch (e) { /* not built yet */ } });
+addEventListener("resize", resize);
 resize(); setSeason(1); view("all");
 { const g = goal; camera.position.copy(g.c); controls.target.copy(g.t); goal = null; }
 $("loading").remove();
@@ -1083,11 +918,10 @@ let last = 0;
 function tick(now) {
   const dt = last ? Math.min(0.05, (now - last) / 1000) : 0.016; last = now;
   if (playing && now >= playT0) { const end = playTo ?? Y1, ty = Math.min(end, playY0 + Math.floor((now - playT0) / playMs)); if (ty > year) setYear(ty); if (year >= end) setPlayBtn(false); }
-  if (cmpOn) cmpPrepare();
   if (dirty) { paint(year, season); readout(); updateHeat(year); updateRain(year); if (typeof updateRivers === "function") { updateRivers(); updateStations(); } dirty = false; }
   if (goal) { const k = Math.min(1, dt * 2.2); controls.target.lerp(goal.t, k); camera.position.lerp(goal.c, k); if (camera.position.distanceTo(goal.c) < 0.5) goal = null; }
   windStep(dt); if (window.__peek) peekHid.forEach((o) => (o.visible = false));   // a year step during a peek does not bring a layer back
-  controls.update(); mapRefs(); if (window.__declutter) window.__declutter(); renderFrame();
+  controls.update(); if (window.__declutter) window.__declutter(); renderer.render(scene, camera);
   requestAnimationFrame(tick);
 }
 let cloudMode = "off";
@@ -1114,7 +948,7 @@ const WINDB = WINDM ? new Float32Array(await fetch("data/wind/wind.bin").then((r
 const WINDLM = await fetch("data/wind/wind_low_meta.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);   // low-level winds (src/landscape/valley3d_lowwind.py)
 const WINDLB = WINDLM ? new Float32Array(await fetch("data/wind/wind_low.bin").then((r) => r.arrayBuffer())) : null;
 const WG = WINDM ? WINDM.grid : null;
-let streakMoist = true, windOn = false, windEra = "now", windComp = "storm", windField = "none", windShown = "", windHeight = WINDLM ? "10m" : "ivt";
+let windOn = false, windEra = "now", windComp = "storm", windField = "none", windShown = "", windHeight = WINDLM ? "10m" : "ivt";
 const W_LEVELS = { "10m": "near the ground (10 m)", 925: "about 750 m up (925 hPa)", 850: "about 1,500 m up (850 hPa)" };
 const wLowOff = (era, comp, lev, c) => { const o = WINDLM.order; return ((((o.era.indexOf(era) * o.comp.length + o.comp.indexOf(comp)) * o.level.length + o.level.indexOf(lev)) * 2 + c) * WG.wx * WG.wy); };
 const wOff = (era, comp, field) => { const o = WINDM.order; return ((o.era.indexOf(era) * o.comp.length + o.comp.indexOf(comp)) * o.field.length + o.field.indexOf(field)) * WG.wx * WG.wy; };
@@ -1122,55 +956,20 @@ function wAt(off, gx, gy, B = WINDB) {   // bilinear on the 5 km grid (gx, gy in
   const W = WG.wx, x = Math.max(0, Math.min(W - 1.001, gx)), y = Math.max(0, Math.min(WG.wy - 1.001, gy)), i = Math.floor(x), j = Math.floor(y), fx = x - i, fy = y - j, o = off + j * W + i;
   return (B[o] * (1 - fx) + B[o + 1] * fx) * (1 - fy) + (B[o + W] * (1 - fx) + B[o + W + 1] * fx) * fy;
 }
-const T2M = await fetch("data/wind/wind_t2m_meta.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);   // src/landscape/valley3d_wind_t2m.py
-const T2B = T2M ? new Float32Array(await fetch("data/wind/wind_t2m.bin").then((r) => r.arrayBuffer())) : null;
-const tOff = (era, comp) => (T2M.order.era.indexOf(era) * T2M.order.comp.length + T2M.order.comp.indexOf(comp)) * WG.wx * WG.wy;
-// streak colour: the water vapour in the air column under each streak (ERA5 TCWV), dry amber to moist blue
-const W_MOIST = { lo: 6, hi: 21, stops: ["#a85d00", "#d39a2a", "#9db8b0", "#3f86c0", "#1a4f94"] };   // 6 to 21 mm: the range of the storm-day and afternoon composites (5.6 to 21.1 mm)
-const WRFM = await fetch("data/wind/wrf_wind_meta.json").then((r) => (r.ok ? r.json() : null)).catch(() => null);   // src/landscape/valley3d_wrf_wind.py
-const WRFB = WRFM ? new Float32Array(await fetch("data/wind/wrf_wind.bin").then((r) => r.arrayBuffer())) : null;
-let wrfMem = "diff", wrfComp = "afternoon", wrfField = "T2", wrfShown = "";
-const rOff = (mem, comp, f) => { const o = WRFM.order; return ((o.member.indexOf(mem) * o.comp.length + o.comp.indexOf(comp)) * o.field.length + o.field.indexOf(f)) * WG.wx * WG.wy; };
-const R_RAMPS = {   // absolute ramps are set from the data's 2nd to 98th percentile on the valley grid when first drawn
-  T2: { u: "°C", stops: ["#2c7bb6", "#abd9e9", "#ffffbf", "#fdae61", "#d7191c"], name: "air temperature at 2 m" },
-  Q2: { u: "g/kg", stops: ["#f7fcf0", "#ccebc5", "#7bccc4", "#2b8cbe", "#084081"], name: "water vapour at 2 m" },
-  HFX: { u: "W/m²", stops: ["#fff5eb", "#fdbe85", "#fd8d3c", "#d94701", "#7f2704"], name: "heat the ground gives the air" },
-  LH: { u: "W/m²", stops: ["#f7fbff", "#c6dbef", "#6baed6", "#2171b5", "#08306b"], name: "evaporation, as latent heat" },
-  T2D: { lo: -1.5, hi: 1.5, u: "K", stops: ["#2166ac", "#92c5de", "#f7f7f7", "#f4a582", "#b2182b"], name: "air temperature, old land minus today" },
-  Q2D: { lo: -1.2, hi: 1.2, u: "g/kg", stops: ["#8c510a", "#d8b365", "#f5f5f5", "#5ab4ac", "#01665e"], name: "vapour, old land minus today" },
-  HFXD: { lo: -60, hi: 60, u: "W/m²", stops: ["#2166ac", "#92c5de", "#f7f7f7", "#f4a582", "#b2182b"], name: "heat to the air, old land minus today" },
-  LHD: { lo: -80, hi: 80, u: "W/m²", stops: ["#8c510a", "#d8b365", "#f5f5f5", "#5ab4ac", "#01665e"], name: "evaporation, old land minus today" },
-};
-const _wrfR = {};
-function wrfRamp(f) {
-  const key = f + (wrfMem === "diff" ? "D" : ""), R = R_RAMPS[key], ck = key + wrfComp; if (_wrfR[ck]) return _wrfR[ck];
-  return (_wrfR[ck] = wrfRamp0(f, key, R));
-}
-function wrfRamp0(f, key, R) {
-  if (wrfMem !== "diff" && R && R.lo == null) {   // one scale for both runs: percentiles over both members, this composite
-    const v = []; for (const m of WRFM.order.member) { const o = rOff(m, wrfComp, f); for (let i = 0; i < WG.wx * WG.wy; i += 3) { const x = WRFB[o + i]; if (isFinite(x)) v.push(x); } }
-    v.sort((a, b) => a - b); const q = (k) => v[Math.floor(k * (v.length - 1))], dec = f === "T2" || f === "Q2" ? 1 : 0;
-    return Object.assign({}, R, { lo: +q(0.02).toFixed(dec), hi: +q(0.98).toFixed(dec) });
-  }
-  return R;
-}
-const wrfVal = (f, gx, gy) => wrfMem === "diff" ? wAt(rOff("pre_w", wrfComp, f), gx, gy, WRFB) - wAt(rOff("ctrl", wrfComp, f), gx, gy, WRFB) : wAt(rOff(wrfMem, wrfComp, f), gx, gy, WRFB);
 const W_RAMPS = {
-  t2m: { lo: -5, hi: 15, u: "°C", stops: ["#fff5f0", "#fcbba1", "#fb6a4a", "#cb181d", "#67000d"], name: "air temperature at 2 m" },
-  t2mD: { lo: -1.5, hi: 1.5, u: "°C", stops: ["#2166ac", "#92c5de", "#f7f7f7", "#f4a582", "#b2182b"], name: "change in air temperature at 2 m, 2000-22 minus 1959-80" },
   lcl: { lo: 0, hi: 2000, u: "m", stops: ["#fff5eb", "#fdd0a2", "#fd8d3c", "#d94801", "#7f2704"], name: "cloud base above the ground" },
   tcwv: { lo: 5, hi: 35, u: "mm", stops: ["#f7fcfd", "#ccece6", "#66c2a4", "#238b45", "#00441b"], name: "water vapour in the whole air column" },
   lclD: { lo: -300, hi: 300, u: "m", stops: ["#01665e", "#5ab4ac", "#f5f5f5", "#d8b365", "#8c510a"], name: "change in cloud base, 2000-22 minus 1959-80" },
   tcwvD: { lo: -3, hi: 3, u: "mm", stops: ["#8c510a", "#d8b365", "#f5f5f5", "#5ab4ac", "#01665e"], name: "change in column vapour, 2000-22 minus 1959-80" },
 };
 const wRamp = () => W_RAMPS[windField + (windEra === "diff" ? "D" : "")];
-function wCol(R, v) { const s = R._s || (R._s = R.stops.map(hex)), f = Math.max(0, Math.min(1, (v - R.lo) / (R.hi - R.lo))) * (s.length - 1), k = Math.min(s.length - 2, Math.floor(f)); return mix(s[k], s[k + 1], f - k); }
+function wCol(R, v) { const s = R.stops.map(hex), f = Math.max(0, Math.min(1, (v - R.lo) / (R.hi - R.lo))) * (s.length - 1), k = Math.min(s.length - 2, Math.floor(f)); return mix(s[k], s[k + 1], f - k); }
 const windGeo = new THREE.PlaneGeometry(wKm, hKm, MW - 1, MH - 1); windGeo.rotateX(-Math.PI / 2);
 windGeo.setAttribute("color", new THREE.Float32BufferAttribute(new Float32Array(MW * MH * 3), 3));
 for (let k = 0; k < MW * MH; k++) windGeo.attributes.position.setY(k, (Math.max(0, demM[k]) / 1000) * EX + 0.4);
 const windMesh = new THREE.Mesh(windGeo, new THREE.MeshBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.6, side: THREE.DoubleSide, depthWrite: false }));
 windMesh.renderOrder = 2; windMesh.visible = false; scene.add(windMesh);
-const NP = 3500, TL = 10, ptR = new Float32Array(NP).fill(1), ptG = new Float32Array(NP).fill(1), ptB = new Float32Array(NP).fill(1), ptRec = new Float32Array(NP), ptX = new Float32Array(NP), ptY = new Float32Array(NP), ptAge = new Float32Array(NP), ptLife = new Float32Array(NP), trail = new Float32Array(NP * TL * 3);
+const NP = 3500, TL = 10, ptRec = new Float32Array(NP), ptX = new Float32Array(NP), ptY = new Float32Array(NP), ptAge = new Float32Array(NP), ptLife = new Float32Array(NP), trail = new Float32Array(NP * TL * 3);
 // streaks as flat ribbons on the air above the ground (WebGL lines are one pixel wide): per segment 4 vertices, RGBA, wide dark head fading to a thin clear tail
 const NS = TL - 1, windLineGeo = new THREE.BufferGeometry();
 windLineGeo.setAttribute("position", new THREE.BufferAttribute(new Float32Array(NP * NS * 4 * 3), 3));
@@ -1194,10 +993,8 @@ const W_SPEED = 1.6, W_SPEED_W = 7, W_REC = 0.1;   // wind heights: 7 x the squa
    // animation only: streak speed in km per second = 1.6 x the square root of the vapour transport (kg/m/s), so slow inland flow stays visible   // animation only: km of streak travel per second for each kg/m/s of vapour transport
 function windStep(dt) {
   if (!windOn || !WINDM) return;
-  const model = overlay === "wrf" && WRFB, tR = model ? wrfRamp("T2") : null;
   const era = windEra === "diff" ? "now" : windEra, low = windHeight !== "ivt" && WINDLB, pos = windLineGeo.attributes.position.array;
-  const om = wOff(era, windComp, "tcwv"), wm = wrfMem === "diff" ? "ctrl" : wrfMem;
-  const src = model ? WRFB : low ? WINDLB : WINDB, oe = model ? rOff(wm, wrfComp, "U10") : low ? wLowOff(era, windComp, windHeight, 0) : wOff(era, windComp, "ivt_e"), on = model ? rOff(wm, wrfComp, "V10") : low ? wLowOff(era, windComp, windHeight, 1) : wOff(era, windComp, "ivt_n"), kS = model ? W_SPEED_W : low ? W_SPEED_W : W_SPEED;
+  const src = low ? WINDLB : WINDB, oe = low ? wLowOff(era, windComp, windHeight, 0) : wOff(era, windComp, "ivt_e"), on = low ? wLowOff(era, windComp, windHeight, 1) : wOff(era, windComp, "ivt_n"), kS = low ? W_SPEED_W : W_SPEED;
   for (let p = 0; p < NP; p++) {
     ptAge[p] += dt;
     const gx = ptX[p] / 5, gy = ptY[p] / 5, u = wAt(oe, gx, gy, src), v = wAt(on, gx, gy, src);
@@ -1206,12 +1003,7 @@ function windStep(dt) {
     if (ptX[p] < 0 || ptY[p] < 0 || ptX[p] > MW - 1 || ptY[p] > MH - 1) { wSpawn(p); continue; }
     const b = p * TL * 3; ptRec[p] += dt; if (ptRec[p] >= W_REC) { ptRec[p] = 0; trail.copyWithin(b + 3, b, b + (TL - 1) * 3); }
     trail[b] = ptX[p] - wKm / 2; trail[b + 1] = wY(ptX[p], ptY[p]); trail[b + 2] = ptY[p] - hKm / 2;
-    if (model) { const m = wrfVal("T2", gx, gy), c = isFinite(m) ? wCol(tR, m) : [255, 255, 255]; ptR[p] = (c[0] / 255) ** 2.2; ptG[p] = (c[1] / 255) ** 2.2; ptB[p] = (c[2] / 255) ** 2.2; }
-    else if (streakMoist) { const m = wAt(om, gx, gy), c = isFinite(m) ? wCol(W_MOIST, m) : [255, 255, 255]; ptR[p] = (c[0] / 255) ** 2.2; ptG[p] = (c[1] / 255) ** 2.2; ptB[p] = (c[2] / 255) ** 2.2; }   /* vertex colours are linear in three.js: convert from screen colour */
   }
-  { const colA = windLineGeo.attributes.color.array;
-    for (let p = 0; p < NP; p++) { const col = streakMoist || model, r = col ? ptR[p] : 1, g = col ? ptG[p] : 1, b2 = col ? ptB[p] : 1, o0 = p * NS * 16; for (let q = 0; q < NS * 4; q++) { const o = o0 + q * 4; colA[o] = r; colA[o + 1] = g; colA[o + 2] = b2; } }
-    windLineGeo.attributes.color.needsUpdate = true; }
   for (let p = 0; p < NP; p++) for (let s = 0; s < NS; s++) {
     const t = (p * TL + s) * 3, x0 = trail[t], y0 = trail[t + 1], z0 = trail[t + 2], x1 = trail[t + 3], y1 = trail[t + 4], z1 = trail[t + 5];
     let nx = -(z1 - z0), nz = x1 - x0; const L = Math.hypot(nx, nz) || 1; nx /= L; nz /= L;
@@ -1221,24 +1013,7 @@ function windStep(dt) {
   }
   windLineGeo.attributes.position.needsUpdate = true;
 }
-function updateWrf() {
-  if (overlay !== "wrf" || !WRFM) return false;
-  windLines.visible = true; windMesh.visible = wrfField !== "none";
-  const key = wrfMem + wrfComp + wrfField; if (wrfField === "none" || wrfShown === key) return true;
-  const R = wrfRamp(wrfField), col = windGeo.attributes.color, idx = [], val = new Float32Array(MW * MH);
-  for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) { const k = j * MW + i, v = wrfVal(wrfField, i / 5, j / 5); val[k] = v; const c = isFinite(v) ? wCol(R, v) : [0, 0, 0]; col.setXYZ(k, c[0] / 255, c[1] / 255, c[2] / 255); }
-  for (let j = 0; j < MH - 1; j++) for (let i = 0; i < MW - 1; i++) { const a = j * MW + i, b = a + 1, c = a + MW, d = c + 1; if (isFinite(val[a]) && isFinite(val[b]) && isFinite(val[c]) && isFinite(val[d])) idx.push(a, c, b, b, c, d); }
-  windGeo.setIndex(idx); col.needsUpdate = true; wrfShown = key; windShown = "";
-  return true;
-}
-function wrfLine() {
-  if (overlay !== "wrf" || !WRFM) return "";
-  const c = wrfComp, F = WRFM.pre_w_minus_ctrl, fm = WRFM.floor_means, w = { afternoon: "in the afternoon (13:00)", predawn: "before dawn (04:00)", storm: "in storm hours" }[c];
-  const sg = (v, d) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d), r = (k, d) => `${sg(F[k][0], d)} [${sg(F[k][1], d)}, ${sg(F[k][2], d)}]`;
-  return `<div class="ev"><b>Valley floor ${w}, old land minus today's land:</b> air at 2 m ${r(c + "_T2", 2)} K; vapour ${r(c + "_Q2", 2)} g/kg; heat to the air ${r(c + "_HFX", 0)} W/m²; evaporation ${r(c + "_LH", 0)} W/m² (today's land ${fm[c + "_T2"].ctrl.toFixed(1)} °C, ${fm[c + "_LH"].ctrl.toFixed(0)} W/m² of evaporation). <span>Floor means over ${WRFM.hours[c]} ${c === "storm" ? "storm hours" : "days"} of winter 2013-14; ranges are 95 % day resamples. Record raw/tests/2026-11-18_valley-3d-wrf-wind-pair.</span></div><div class="ev"><span>A model, one winter, 12 km cells: fields, fallow strips and towns are not resolved apart, each cell holds the mix of its land. Today's-land run is dry against 12 weather stations (air-to-dew-point gap 3.4 K too wide). Stand-in: the two runs also drift apart by chance; a same-land run is being read by the science thread, and cells where the land difference is smaller than that drift will be greyed when it is recorded. Floor winds are weak (under 1.1 m/s on average in the afternoon), so most of the difference is made by the ground under the air, not carried in by the wind.</span></div>`;
-}
 function updateWind() {
-  if (updateWrf()) return;
   const card = document.querySelector('.card-o[data-ov="wind"]');
   if (!WINDM) { windMesh.visible = windLines.visible = false; return; }
   windLines.visible = windOn; windMesh.visible = windOn && windField !== "none";
@@ -1246,10 +1021,9 @@ function updateWind() {
   const key = windEra + windComp + windField;
   if (!windOn || windField === "none" || windShown === key) return;
   const R = wRamp(), col = windGeo.attributes.color, idx = [], val = new Float32Array(MW * MH);
-  const isT = windField === "t2m", B = isT ? T2B : WINDB, off = (e) => (isT ? tOff(e, windComp) : wOff(e, windComp, windField));
-  const o1 = off(windEra === "diff" ? "now" : windEra), o0 = windEra === "diff" ? off("before") : -1;
+  const o1 = wOff(windEra === "diff" ? "now" : windEra, windComp, windField), o0 = windEra === "diff" ? wOff("before", windComp, windField) : -1;
   for (let j = 0; j < MH; j++) for (let i = 0; i < MW; i++) {
-    const k = j * MW + i, v = wAt(o1, i / 5, j / 5, B) - (o0 >= 0 ? wAt(o0, i / 5, j / 5, B) : 0); val[k] = v;
+    const k = j * MW + i, v = wAt(o1, i / 5, j / 5) - (o0 >= 0 ? wAt(o0, i / 5, j / 5) : 0); val[k] = v;
     const c = isFinite(v) ? wCol(R, v) : [0, 0, 0]; col.setXYZ(k, c[0] / 255, c[1] / 255, c[2] / 255);
   }
   for (let j = 0; j < MH - 1; j++) for (let i = 0; i < MW - 1; i++) { const a = j * MW + i, b = a + 1, c = a + MW, d = c + 1; if (isFinite(val[a]) && isFinite(val[b]) && isFinite(val[c]) && isFinite(val[d])) idx.push(a, c, b, b, c, d); }
@@ -1261,7 +1035,6 @@ function windLine() {
   let lowTxt = "";
   if (WINDLM && windHeight !== "ivt") { const L = WINDLM.floor, a = L[`before_${c}_${windHeight}`], b = L[`now_${c}_${windHeight}`], al = (x) => `${x > 0 ? "+" : x < 0 ? "−" : ""}${Math.abs(x).toFixed(1)}`;
     lowTxt = `<div class="ev"><b>Wind over the floor ${w}, ${W_LEVELS[windHeight]}:</b> 1959-80 ${a[0].toFixed(1)} m/s from ${a[1]}°, 2000-22 ${b[0].toFixed(1)} m/s from ${b[1]}°; along the valley toward the north-north-west ${al(a[2])} → ${al(b[2])} m/s. <span>Floor means of the composite wind (ERA5 0.25°). ${windHeight === "925" ? "Over the Sierra above about 700 m the 925 hPa level lies under the ground and ERA5 extrapolates it. " : ""}ERA5's land cover is one fixed map for all years, so a change in the near-ground wind here comes from the weather and the analysed air, not from rougher or smoother land.</span></div>`; }
-  if (T2M) lowTxt += `<div class="ev"><b>Air at 2 m over the floor ${w}:</b> ${f(T2M.floor[c], 1)} °C. <span>ERA5 2 m temperature, analysed from station reports; same days and resample as below.</span></div>`;
   return lowTxt + `<div class="ev"><b>Valley floor ${w}, 1959-80 → 2000-22:</b> cloud base ${f(F[c + "_lcl"])} m; column vapour ${f(F[c + "_tcwv"], 1)} mm. <b>Offshore inflow</b> (the ocean's supply, the other explanation's channel): ${f(F[c + "_f0"])} kg/m/s. <span>Means over ${WINDM.steps.before[c].toLocaleString("en-GB")} and ${WINDM.steps.now[c].toLocaleString("en-GB")} six-hourly ERA5 steps; ranges are 95 % water-year resamples.</span></div><div class="ev"><span>ERA5 is a reanalysis, a weather model held to the observations. Its land model has no irrigation, but its 2 m air is analysed from station reports, so cloud base over the floor follows what the stations measured. A then-and-now difference here mixes land change and weather. 1959-80 is already a dammed, irrigated valley; ERA5 has no state before 1940. Column vapour is on a 1.5° grid (about 150 km), coarser than the floor. With "Vapour carried" the streaks follow the vapour moved through the whole air column; at the three heights they follow the wind itself. Streak speed is drawn for the eye, on a square-root scale. No CAPE is shown: it is not in the project's ERA5 holdings.</span></div>`;
 }
 let rainOn = false, rainYearShown = null;
@@ -1307,7 +1080,7 @@ const CHAPTERS = [
   { year: 1975, season: 1, view: "all", heat: "off", tag: "p", title: "1930 to 1975: dams and canals",
     text: () => `Rivers were dammed in the mountains and moved across the valley in canals. By 1975, ${damsBy(1975).length} dams held ${Math.round(storeBy(1975)).toLocaleString("en-GB")} million m³ of water, against ${Math.round(storeBy(1930)).toLocaleString("en-GB")} million m³ in 1930. The new lakes appear in the hills in the year each dam was built. <span class="st-src">${SRC_LAND}</span>` },
   { year: 2019, season: 1, view: "sj", heat: "off", tag: "p", title: "2019: a valley of fields and towns",
-    text: () => `By 2019 only ${km(wetOf(2019))} of open water and groundwater-fed native land was left on the floor, against ${km(wetOf(1874))} in 1874. Farms cover ${km(farmOf(2019))} and towns ${km(area(2019)[9])}. Yellow squares are farms (deep gold for orchards and vines, pale yellow for fallow); grey is towns; golden grassland with tufts is native land not farmed. <span class="st-src">${SRC_LAND}</span>` },
+    text: () => `By 2019 only ${km(wetOf(2019))} of open water and groundwater-fed native land was left on the floor, against ${km(wetOf(1874))} in 1874. Farms cover ${km(farmOf(2019))} and towns ${km(area(2019)[9])}. Yellow squares are farms (deep gold for orchards and vines, pale yellow for fallow); black is towns; tan is dry native land. <span class="st-src">${SRC_LAND}</span>` },
   { year: 2015, season: 1, view: "sj", heat: "off", ov: "rivers", tag: "m", title: "Link 1 of 7. Rivers held back by dams",
     text: () => { const dk = "2010", list = rivers.map((r) => { const d = r.decades[dk] || {}; return d.share != null ? [r.river, d.share] : null; }).filter(Boolean).sort((a, b) => a[1] - b[1]); return `At each river leaving the mountains, the white column is the natural flow and the blue column the flow measured below the dam, in km³ a year. Move the slider back to before the dams and the blue columns disappear: there was no dam to measure below. In the 2010s, of each river's natural flow, the share that passed the dam (and the share held back or taken off above the gauge): ${list.map(([r, v]) => `${r} ${Math.round(v * 100)} % (${100 - Math.round(v * 100)} %)`).join(", ")}. These are yearly totals: water stored in winter and let out in summer counts as passed, so the change in timing does not show here.`; } },
   { year: 1910, season: 0, view: "sj", heat: "off", ov: "wells", sub: "then", tag: "m", title: "Link 2 of 7. The floor drained: the water table fell",
@@ -1435,22 +1208,14 @@ let chapter = -1, storyMin = false;
 const storyBox = document.createElement("div"); storyBox.className = "story"; storyBox.hidden = true;
 document.querySelector(".stage").appendChild(storyBox);   // the walkthrough card floats on the map; the panels return for free exploration
 CHAPTERS[1].from = 1874; CHAPTERS[2].from = 1930; CHAPTERS[3].from = 1975;   // Part 1 plays its years
-CHAPTERS[1].cmp = { a: 1874, x: 0.62 }; CHAPTERS[2].cmp = { a: 1930, x: 0.62 }; CHAPTERS[3].cmp = { a: 1850, x: 0.62 };   // left: the chapter's start (before 1900 for the last), right: the year that plays; chapter 1 is before 1900 alone
 const SHOW = [{ regions: 1 }, { pins: 1, dams: 1 }, { pins: 1, dams: 1 }, { regions: 1 }, { dams: 1 }];   // markers each chapter needs; the rest stay off in the walkthrough
 CHAPTERS.forEach((c, k) => (c.show = SHOW[k] || {}));
-const UNDER_FARMS = (() => {   // 2019 farmed pixels (rice, orchard, field, pasture, idle, irrigated other) by their pre-1900 type
-  const code = codes(M.years[1]), px = (G.tex_m / 1000) ** 2; let n = 0, grass = 0, wet = 0;
-  for (let i = 0; i < N; i++) { const cl = cellOf[i]; if (cl < 0) continue; const g = code[cl]; if (g < 3 || g > 8) continue; n++; if (natOf[i] === 1) grass++; else if (WET_TYPES.has(natOf[i])) wet++; }
-  return { km2: n * px, grass: (100 * grass) / n, wet: (100 * wet) / n };
-})();
-{ const t0 = CHAPTERS[0].text; CHAPTERS[0].text = () => t0() + `<p style="margin-top:8px">Of the ${km(UNDER_FARMS.km2)} farmed in ${M.years[1]}, ${Math.round(UNDER_FARMS.grass)} % was grassland and ${Math.round(UNDER_FARMS.wet)} % wet land before 1900 (marsh, seasonally flooded land, riverside forest and open water). <span class="st-src">Computed on this page from the pre-1900 map and CVHM2 land use, 300 m pixels.</span></p>`; }
 let stMoreOpen = false;
 const PARTS = [[0, "Part 1 of 7 · The valley before and after"], [4, "Part 2 of 7 · The ground lost its water"], [7, "Part 3 of 7 · The low air after rain"], [8, "Part 4 of 7 · Cloud and rain"], [12, "Part 5 of 7 · Where the change is, and where it is not"], [13, "Part 6 of 7 · Where water is returned"], [14, "Part 7 of 7 · Settled, and what is measured next"]];
 const partOf = (k) => PARTS.filter(([s]) => s <= k).pop()[1];
 function showChapter(k) {
   chapter = Math.max(0, Math.min(CHAPTERS.length - 1, k)); const c = CHAPTERS[chapter];
-  setPlayBtn(false); stMoreOpen = false; document.body.classList.add("touring"); setPlan(false);
-  if (c.cmp) { cmpA = c.cmp.a; $("cmpA").value = String(c.cmp.a); cmpX = c.cmp.x; cmpKey = ""; setCompare(true); } else if (cmpOn) setCompare(false);
+  setPlayBtn(false); stMoreOpen = false; document.body.classList.add("touring");
   tourShow = c.show || {}; regionGroup.visible = $("bReg").checked && !!tourShow.regions;
   setSeason(c.season); setYear(c.year); view(c.view);
   if (c.from != null) playSpan(c.from, c.year);
@@ -1526,159 +1291,12 @@ $("peek").addEventListener("pointerdown", (e) => { e.preventDefault(); $("peek")
 ["pointerup", "pointercancel", "lostpointercapture"].forEach((t) => $("peek").addEventListener(t, () => setPeek(false)));
 addEventListener("keydown", (e) => { if (e.code === "Space" && !e.repeat && !e.target.closest("input, textarea, button, select, [contenteditable]") && overlay !== "none") { e.preventDefault(); setPeek(true); } });
 addEventListener("keyup", (e) => { if (e.code === "Space") setPeek(false); });
-
-// ---------------------------------------------------------------- layers panel: groups by the question each layer answers; context switches; strength; legend on the map
-{
-  const cards = document.querySelector("#drop .cards"), by = (k) => cards.querySelector(`.card-o[data-ov="${k}"]`);
-  const GROUPS_UI = [["The ground", ["none", "wetland", "wells", "rivers", "evap"]], ["The low air", ["fog", "heat", "wind", "wrf", "cloud", "towers"]], ["Rain", ["rain", "stations", "upslope", "corridor"]]];
-  const frag = document.createDocumentFragment();
-  // each group a collapsible section: a small-caps heading with its count; the group holding the active layer opens, the others close
-  const section = (name, keys) => { const d = document.createElement("details"); d.className = "lgd"; if (keys) d.dataset.keys = keys.join(","); d.innerHTML = `<summary class="lgrp">${name}<span class="lgn"></span></summary><div class="lgb"></div>`; frag.appendChild(d); return d.querySelector(".lgb"); };
-  for (const [name, keys] of GROUPS_UI) { const body = section(name, keys); for (const k of keys) { const c = by(k); if (c) body.appendChild(c); } body.parentNode.querySelector(".lgn").textContent = body.children.length; }
-  const rest = [...cards.querySelectorAll(":scope > .card-o")]; if (rest.length) { const body = section("Other", rest.map((c) => c.dataset.ov)); rest.forEach((c) => body.appendChild(c)); }   // any card not listed
-  const ctxBody = section("On the map", null);
-  const ctx = document.createElement("div"); ctx.className = "ctx"; ctxBody.appendChild(ctx);
-  for (const id of ["bReg", "bRoads", "bNames"]) { const lab = $(id) && $(id).closest("label"); if (lab) ctx.appendChild(lab); }
-  ctx.insertAdjacentHTML("beforeend", `<label class="chk"><input type="checkbox" id="bDams" checked> Dams (large ones; all when zoomed in)</label><label class="chk"><input type="checkbox" id="bPins" checked> Events of the timeline</label>`);
-  const note = document.querySelector("#views .pnote"); if (note) ctx.appendChild(note);
-  cards.appendChild(frag);
-  ctxBody.parentNode.querySelector(".lgn").textContent = ctx.querySelectorAll("label").length;
-  $("bDams").addEventListener("change", (e) => { ctxOn.dams = e.target.checked; readout(); });
-  $("bPins").addEventListener("change", (e) => { ctxOn.pins = e.target.checked; readout(); });
-}
-// layer strength: one factor on the active layer's materials (the wet-land layer is painted into the land and has no strength)
-let layerK = 1;
-function layerObjs(o) {
-  const M_ = { rain: [rainMesh], wind: [windMesh, windLines], wrf: [windMesh, windLines], heat: [heatMesh], evap: [evMesh], rivers: [riverGroup], stations: [stationGroup], fog: [fogGroup], upslope: [upGroup], towers: [towerGroup], corridor: [corGroup], wells: Object.values(wells) };
-  return M_[o] || [];
-}
-function applyStrength() {
-  for (const root of layerObjs(overlay)) root.traverse((m) => { if (!m.material) return; for (const mt of [].concat(m.material)) { if (mt.userData.baseOp == null) mt.userData.baseOp = mt.opacity; mt.transparent = true; mt.opacity = mt.userData.baseOp * layerK; } });
-}
-$("opac").addEventListener("input", (e) => { layerK = +e.target.value; applyStrength(); });
-// legend card on the map: the active layer's colours, or a short land key
-function mapLegend() {
-  const el = $("mapLeg"); if (!el) return;
-  const c = overlay !== "none" ? document.querySelector(`#drop .card-o[data-ov="${overlay}"]`) : null;
-  if (overlay === "wrf" && WRFM) {
-    const tR = wrfRamp("T2"), R = wrfField !== "none" ? wrfRamp(wrfField) : null, who = { pre_w: "old land", ctrl: "today's land", diff: "old land minus today's land" }[wrfMem], when = { afternoon: "afternoon, 13:00", predawn: "pre-dawn, 04:00", storm: "storm hours" }[wrfComp];
-    const rl = (Rr) => `<span class="ramp" style="background:linear-gradient(90deg,${Rr.stops.join(",")})"></span><span class="rl"><i>${Rr.lo < 0 ? "−" + Math.abs(Rr.lo) : Rr.lo} ${Rr.u}</i><i>${wrfMem === "diff" ? "+" : ""}${Rr.hi} ${Rr.u}</i></span>`;
-    el.innerHTML = `<b>Model, winter 2013-14: ${who}, ${when}</b><div class="mlab">Streaks: wind at 10 m${wrfMem === "diff" ? " over today's land" : ""}, coloured by ${tR.name}</div>${rl(tR)}` + (R ? `<div class="mlab">Under the streaks: ${R.name}</div>${rl(R)}` : "");
-    el.hidden = false; return;
-  }
-  if (overlay === "wind" && typeof W_MOIST !== "undefined") {
-    const R = windField !== "none" ? wRamp() : null, era = windEra === "diff" ? "change 1959-80 to 2000-22" : windEra === "before" ? "1959-80" : "2000-22";
-    el.innerHTML = `<b>Wind, ${windComp === "storm" ? "storm days" : "afternoon after a storm"}, ${era}</b>` +
-      (streakMoist ? `<div class="mlab">Streaks: water vapour in the air column</div><span class="ramp" style="background:linear-gradient(90deg,${W_MOIST.stops.join(",")})"></span><span class="rl"><i>${W_MOIST.lo} mm, dry</i><i>${W_MOIST.hi} mm, moist</i></span>` : `<div class="mlab">Streaks: the wind, white</div>`) +
-      (R ? `<div class="mlab">Under the streaks: ${R.name}</div><span class="ramp" style="background:linear-gradient(90deg,${R.stops.join(",")})"></span><span class="rl"><i>${R.lo < 0 ? "−" + Math.abs(R.lo) : R.lo} ${R.u}</i><i>${windEra === "diff" ? "+" : ""}${R.hi} ${R.u}</i></span>` : "");
-    el.hidden = false; return;
-  }
-  if (c) { el.innerHTML = `<b>${c.querySelector("b").textContent}</b>` + [...c.querySelectorAll(".dots, .ramp, .rl")].filter((e) => !e.hidden).map((e) => e.outerHTML).join(""); el.hidden = !el.querySelector(".dots, .ramp"); return; }
-  const sw = [["water", "Water"], ["marsh", "Marsh"], ["grass", "Grassland"], ["oak", "Oak savanna"], ["field", "Field crops"], ["orchard", "Orchard"], ["urban", "Town"], ["forestE", "Conifer forest"], ["burn0", "Burnt this year"], ["burn1", "Burnt 1 to 2 years"]];
-  el.innerHTML = `<b>Land cover, ${season ? "summer" : "winter"} ${typeof cmpOn !== "undefined" && cmpOn ? `${yLab(cmpA)} left, ${yLab(year)} right` : year < M.years[0] ? "before 1900" : year}</b><div class="lk">${sw.map(([k, l]) => `<span><i style="background:rgb(${PAL[k][season].map(Math.round).join(",")})"></i>${l}</span>`).join("")}</div>`;
-  el.hidden = false;
-}
-// ---------------------------------------------------------------- before/after swipe: left = the chosen year, right = the slider year
-let cmpOn = false, cmpA = 1850, cmpX = 0.5, cmpKey = "";
-const yLab = (y) => (y < M.years[0] ? "before 1900" : String(y));
-function cmpLayout() {
-  const W = canvas.clientWidth, x = Math.round(cmpX * W);
-  $("cmpLine").style.left = `${x}px`;
-  $("cmpL").style.right = `${W - x + 12}px`; $("cmpL").style.left = "auto";
-  $("cmpR").style.left = `${x + 12}px`; $("cmpR").textContent = isPhone() ? `Right ${yLab(year)}` : `Right ${yLab(year)} (year slider)`;
-}
-function setCompare(v) {
-  cmpOn = v; $("bCmp").setAttribute("aria-pressed", String(v)); $("cmp").hidden = !v; cmpKey = "";
-  if (v && year <= cmpA) setYear(M.years[1]);   // the right side starts on the latest land use
-  if (!v) { land.visible = true; land2.visible = false; dirty = true; }
-  cmpLayout(); mapLegend();
-}
-$("bCmp").addEventListener("click", () => setCompare(!cmpOn));
-$("cmpA").addEventListener("change", (e) => { cmpA = +e.target.value; cmpKey = ""; mapLegend(); });
-{ let drag = false; const mv = (e) => { if (!drag) return; const r = canvas.getBoundingClientRect(); cmpX = Math.min(0.97, Math.max(0.03, (e.clientX - r.left) / r.width)); cmpLayout(); };
-  for (const el of [$("cmpLine"), $("cmpH")]) el.addEventListener("pointerdown", (e) => { drag = true; e.preventDefault(); e.stopPropagation(); el.setPointerCapture(e.pointerId); });
-  addEventListener("pointermove", mv); addEventListener("pointerup", () => (drag = false)); }
-addEventListener("keydown", (e) => { if (e.target.closest("input, textarea, select, [contenteditable]")) return; if (e.key === "c" || e.key === "C") setCompare(!cmpOn); });
-function damsFor(y) { for (const m of damGroup.children) m.visible = m.userData.built <= y && (tourShow ? !!tourShow.dams : ctxOn.dams) && (m.userData.mcm >= DAM_BIG || zoomedIn); }
-function cmpPrepare() {   // paint the left year into its own canvas when the year, season or wet-land layer changes, then repaint the slider year
-  const want = `${cmpA}|${season}|${overlay === "wetland"}`; if (want === cmpKey) return; cmpKey = want;
-  paint(cmpA, season); cmpCanvas.getContext("2d").drawImage(tex, 0, 0); cmpTexture.needsUpdate = true; dirty = true;
-}
-function renderFrame() {
-  if (!cmpOn) { renderer.render(scene, camera); return; }
-  const W = canvas.clientWidth, H = canvas.clientHeight, x = Math.round(cmpX * W), pins = pinGroup.visible;
-  renderer.setScissorTest(true);
-  const pk = !!window.__peek;   // during a peek the markers stay hidden on both sides
-  land.visible = false; land2.visible = true; if (!pk) damsFor(cmpA); pinGroup.visible = false;
-  renderer.setScissor(0, 0, x, H); renderer.render(scene, camera);
-  land.visible = true; land2.visible = false; if (!pk) { damsFor(year); pinGroup.visible = pins; }
-  renderer.setScissor(x, 0, W - x, H); renderer.render(scene, camera);
-  renderer.setScissorTest(false);
-}
-// ---------------------------------------------------------------- 2D map, compass and scale bar
-function setPlan(v) {
-  if (v === planOn) return; planOn = v; goal = null;
-  $("bPlan").setAttribute("aria-pressed", String(v)); $("bPlan").textContent = v ? "3D view" : "2D map";
-  const t = controls.target.clone();
-  if (v) {
-    save3d = { off: camera.position.clone().sub(t), fogN: scene.fog.near, fogF: scene.fog.far, maxD: controls.maxDistance };
-    const half = Math.max(20, Math.min(hKm * 0.54, camera.position.distanceTo(t) * Math.tan((camera.fov / 2) * Math.PI / 180)));
-    camera.fov = PLAN_FOV; camera.near = 300; camera.far = 80000; camera.updateProjectionMatrix();
-    scene.fog.near = 1e7; scene.fog.far = 2e7;
-    Object.assign(controls, { minPolarAngle: 0, maxPolarAngle: 0, minAzimuthAngle: 0, maxAzimuthAngle: 0, enableRotate: false, screenSpacePanning: true, minDistance: planDist(6), maxDistance: planDist(hKm * 0.62) });
-    controls.mouseButtons.LEFT = THREE.MOUSE.PAN; controls.touches.ONE = THREE.TOUCH.PAN;
-    camera.position.set(t.x, t.y + planDist(half), t.z + 0.01);
-    sun.position.set(-500, 700, -500);   // north-west light for the plan, the print convention
-  } else {
-    camera.fov = 38; camera.near = 1; camera.far = 5000; camera.updateProjectionMatrix();
-    scene.fog.near = save3d ? save3d.fogN : 700; scene.fog.far = save3d ? save3d.fogF : 1500;
-    Object.assign(controls, { minPolarAngle: 0, maxPolarAngle: Math.PI * 0.46, minAzimuthAngle: -Infinity, maxAzimuthAngle: Infinity, enableRotate: true, screenSpacePanning: true, minDistance: 25, maxDistance: save3d ? save3d.maxD : 1600 });
-    controls.mouseButtons.LEFT = THREE.MOUSE.ROTATE; controls.touches.ONE = THREE.TOUCH.ROTATE;
-    camera.position.copy(t).add(save3d ? save3d.off : new THREE.Vector3(0, 300, 300));
-    sun.position.set(-600, 500, -300);
-  }
-  controls.update(); resize(); if (window.__declutter) window.__declutter(true);
-}
-function northUp() {
-  if (planOn) return;
-  const t = controls.target, d = camera.position.distanceTo(t), ph = controls.getPolarAngle();
-  goal = { t: t.clone(), c: new THREE.Vector3(t.x, t.y + d * Math.cos(ph), t.z + d * Math.sin(ph)) };
-}
-$("bPlan").addEventListener("click", () => setPlan(!planOn));
-$("compass").addEventListener("click", northUp);
-addEventListener("keydown", (e) => { if (e.target.closest("input, textarea, select, [contenteditable]")) return; if (e.key === "n" || e.key === "N") northUp(); if (e.key === "m" || e.key === "M") setPlan(!planOn); });
-const _pa = new THREE.Vector3(), _pb = new THREE.Vector3(), _right = new THREE.Vector3();
-let refKey = "";
-const NICE = [1, 2, 5, 10, 20, 25, 50, 100, 200];
-function mapRefs() {   // compass needle and scale bar, from where the camera looks
-  const W = canvas.clientWidth, H = canvas.clientHeight, t = controls.target;
-  _pa.copy(t).project(camera); _pb.set(t.x, t.y, t.z - 20).project(camera);
-  const ang = (Math.atan2((_pb.x - _pa.x) * W, (_pb.y - _pa.y) * H) * 180) / Math.PI;
-  _right.setFromMatrixColumn(camera.matrixWorld, 0); _pb.copy(t).addScaledVector(_right, 10).project(camera);
-  const pxKm = Math.hypot(((_pb.x - _pa.x) * W) / 2, ((_pb.y - _pa.y) * H) / 2) / 10;
-  let L = NICE[0]; for (const n of NICE) if (n * pxKm <= 130) L = n;
-  const zi = pxKm > 2.6; if (zi !== zoomedIn) { zoomedIn = zi; readout(); }
-  const key = `${ang.toFixed(0)}|${L}|${Math.round(L * pxKm)}|${planOn}`; if (key === refKey) return; refKey = key;
-  $("needle").setAttribute("transform", `rotate(${ang.toFixed(1)} 20 20)`);
-  $("sbBar").style.width = `${Math.round(L * pxKm)}px`;
-  $("sbT").innerHTML = planOn ? `${L} km<small>2D map, north up; California Albers (EPSG:3310)</small>` : `${L} km at the centre of the view<small>terrain drawn 4 times higher than real</small>`;
-}
 let hintT = 0;
 function showHint(t) { const h = $("hint"); h.textContent = t; h.hidden = false; clearTimeout(hintT); hintT = setTimeout(() => (h.hidden = true), 9000); }
 $("hint").addEventListener("click", () => ($("hint").hidden = true));
-function welcome(v) {
-  $("welcome").hidden = !v; if (!v) return;
-  if (!isPhone()) { dock("dockL", false); dock("dockR", false); }
-  cmpA = 1850; $("cmpA").value = "1850"; setYear(M.years[1]); cmpX = 0.62; setCompare(true);
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {   // one entrance: the line moves from the right across to its place
-    const t0 = performance.now(), x0 = 0.9, x1 = 0.62;
-    const step = (now) => { const k = Math.min(1, (now - t0) / 2200), e = 1 - (1 - k) ** 3; if (!$("welcome").hidden && cmpOn) { cmpX = x0 + (x1 - x0) * e; cmpLayout(); if (k < 1) requestAnimationFrame(step); } };
-    requestAnimationFrame(step);
-  }
-  $("wStart").focus();
-}
+function welcome(v) { $("welcome").hidden = !v; if (v) $("wStart").focus(); }
 $("wStart").addEventListener("click", () => { welcome(false); showChapter(0); });
-$("wSkip").addEventListener("click", () => { welcome(false); closeStory(); if (cmpOn) showHint("The line compares two years: drag it, choose the left year at its top, move the slider for the right. Compare (C) turns it off. Press ▶ Play to watch the land use change from 1850 to 2025."); });
+$("wSkip").addEventListener("click", () => { welcome(false); closeStory(); });
 $("bTour").addEventListener("click", () => { welcome(false); showChapter(0); });
 $("bStory").addEventListener("click", () => showChapter(0));
 
@@ -1966,15 +1584,14 @@ function setOverlay(o, sub) {
   if (o === "heat" && sub) heatStyle = sub;
   if (o === "cloud" && sub) cloudStyle = sub;
   heatMode = o === "heat" ? heatStyle : "off";
-  rainOn = o === "rain"; windOn = o === "wind" || (o === "wrf" && !!WRFM);
-  if (o === "wrf" && sub) { if (sub.rm) wrfMem = sub.rm; if (sub.rc) wrfComp = sub.rc; if (sub.rf) wrfField = sub.rf; }
-  if (o === "wind" && sub) { if (sub.wd) windEra = sub.wd; if (sub.wc) windComp = sub.wc; if (sub.wf && (sub.wf !== "t2m" || T2M)) windField = sub.wf; if (sub.wm != null) streakMoist = sub.wm === "1"; if (sub.wh && (sub.wh === "ivt" || WINDLM)) windHeight = sub.wh; }
+  rainOn = o === "rain"; windOn = o === "wind";
+  if (o === "wind" && sub) { if (sub.wd) windEra = sub.wd; if (sub.wc) windComp = sub.wc; if (sub.wf) windField = sub.wf; if (sub.wh && (sub.wh === "ivt" || WINDLM)) windHeight = sub.wh; }
   setCloud("off");   // the cloud-base card is numbers only
   if (o === "wells" && sub) wellWhen = sub;
   if (o === "evap" && sub && (sub === "then" || sub === "now")) evWhen = sub;
   for (const k in wells) wells[k].visible = o === "wells" && k === wellWhen;
   corGroup.visible = o === "corridor"; riverGroup.visible = o === "rivers"; stationGroup.visible = o === "stations"; fogGroup.visible = o === "fog"; upGroup.visible = o === "upslope"; towerGroup.visible = o === "towers";
-  updateEvap(); updateRivers(); updateStations(); updateWind(); try { mapLegend(); } catch (e) { /* not built yet */ }
+  updateEvap(); updateRivers(); updateStations(); updateWind();
   updateHeat(year); updateRain(year); renderCards(); readout();
 }
 function renderCards() {
@@ -1989,30 +1606,21 @@ function renderCards() {
   nod("heat", overlay === "heat" && heatStyle === "obsclim" ? "Shows the hottest June-September days of 2003-2025 whatever year the slider is on" : !LSTM.years[String(year)] ? `No satellite data for ${year}: move the slider to 2003 or later` : "");
   nod("cloud", overlay === "cloud" ? "Numbers only, no map: see below" : "");
   $("peek").hidden = overlay === "none" || overlay === "cloud";
-  if ($("strength")) { $("strength").hidden = !layerObjs(overlay).length; layerK = 1; $("opac").value = "1"; }
-  document.querySelectorAll("#drop details.lgd[data-keys]").forEach((d) => (d.open = d.dataset.keys.split(",").includes(overlay)));
   document.querySelectorAll("[data-wd]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wd === windEra)));
   document.querySelectorAll("[data-wc]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wc === windComp)));
   document.querySelectorAll("[data-wf]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wf === windField)));
-  document.querySelectorAll("[data-rm]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wrf" && b.dataset.rm === wrfMem)));
-  document.querySelectorAll("[data-rc]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wrf" && b.dataset.rc === wrfComp)));
-  document.querySelectorAll("[data-rf]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wrf" && b.dataset.rf === wrfField)));
-  nod("wrf", overlay === "wrf" ? (WRFM ? "One winter, 2013-14, whatever year the slider is on; stand-in until the drift read" : "Model data not loaded") : "");
-  document.querySelectorAll("[data-wm]").forEach((b) => b.setAttribute("aria-pressed", String(overlay === "wind" && (b.dataset.wm === "1") === streakMoist)));
-  document.querySelectorAll("[data-t2m]").forEach((b) => (b.hidden = !T2M));
   document.querySelectorAll("[data-wh]").forEach((b) => { b.setAttribute("aria-pressed", String(overlay === "wind" && b.dataset.wh === windHeight)); if (b.dataset.wh !== "ivt") b.hidden = !WINDLM; });
   nod("wind", overlay === "wind" ? (WINDM ? "Same map whatever year the slider is on: winters 1959-60 to 1979-80 or 1999-2000 to 2021-22" : "Wind data not loaded") : "");
 }
 document.querySelectorAll(".card-o").forEach((c) => c.addEventListener("click", (e) => {
-  if (e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh], [data-wm], [data-rm], [data-rc], [data-rf]")) return;
+  if (e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh]")) return;
   setOverlay(c.dataset.ov); dropOpen(false);
 }));
 document.addEventListener("click", (e) => {
-  const b = e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh], [data-wm], [data-rm], [data-rc], [data-rf]"); if (!b) return;
+  const b = e.target.closest("[data-hs], [data-cs], [data-ws], [data-es], [data-ess], [data-wd], [data-wc], [data-wf], [data-wh]"); if (!b) return;
   const d = b.dataset;
   if (d.hs) setOverlay("heat", d.hs); else if (d.cs) setOverlay("cloud", d.cs);
-  else if (d.rm || d.rc || d.rf) setOverlay("wrf", { rm: d.rm, rc: d.rc, rf: d.rf });
-  else if (d.wd || d.wc || d.wf || d.wh || d.wm) setOverlay("wind", { wd: d.wd, wc: d.wc, wf: d.wf, wh: d.wh, wm: d.wm });
+  else if (d.wd || d.wc || d.wf || d.wh) setOverlay("wind", { wd: d.wd, wc: d.wc, wf: d.wf, wh: d.wh });
   else if (d.ws) setOverlay("wells", d.ws); else if (d.es) setOverlay("evap", d.es); else if (d.ess) setOverlay("evap", d.ess);
 });
 function showTab(t) {
@@ -2107,7 +1715,7 @@ function buildNames() {
 function declutter(force) {   // greedy: highest rank first, skip a label whose screen box overlaps one already placed
   if (!NAMES) return; const now = performance.now(), key = camera.matrixWorld.elements.map((v) => v.toFixed(2)).join() + year + roadsOn;
   if (!force && (key === namesCam || now - namesAt < 120)) return; namesCam = key; namesAt = now;
-  const W = canvas.clientWidth, H = canvas.clientHeight, f = camera.projectionMatrix.elements[5], s = 0.00042 * LAB_K(), boxes = [], v = new THREE.Vector3();
+  const W = canvas.clientWidth, H = canvas.clientHeight, f = camera.projectionMatrix.elements[5], s = 0.00042, boxes = [], v = new THREE.Vector3();
   for (const sp of NAMES.userData.items) {
     sp.visible = false; if (!namesOn || clean || !sp.userData.show()) continue;
     v.copy(sp.position).project(camera); if (v.z > 1 || Math.abs(v.x) > 1 || Math.abs(v.y) > 1) continue;
@@ -2123,274 +1731,6 @@ window.__names = () => NAMES;
 window.__cv = { setOverlay, setCloud: (m) => setOverlay(m === "off" ? "none" : "cloud", m), setRain: (on) => setOverlay(on ? "rain" : "none"), story: (k) => showChapter(k), setHeat: (m) => setOverlay(m === "off" ? "none" : "heat", m), setYear, setSeason, view, hoverAt, lookAt: (px, py, d) => { VIEWS._look = { t: [px, py], d, a: -0.6 }; view("_look"); }, screenOf: (o) => { const v = o.getWorldPosition(new THREE.Vector3()).project(camera), r = canvas.getBoundingClientRect(); return [r.left + (v.x + 1) / 2 * r.width, r.top + (1 - v.y) / 2 * r.height]; }, stations, pins: pinGroup, get year() { return year; } };
 resize();
 requestAnimationFrame(tick);   // started last, once every layer above has loaded
-
-
-// ---------------------------------------------------------------- print plate: the 2D view in the layout of the project's map plates
-// (figures/map_plates: A3, 10 mm margins, map panels left, side panel right with series, plate number, title, subtitle, legend,
-// table, sources, projection, notes, author). Drawn at 300 dpi on a canvas; the map is rendered by the page at panel size.
-{
-  const DPI = 300, MMPX = DPI / 25.4, PT = DPI / 72;
-  const PAPER = { a3: { w: 420, h: 297, side: 132, t: 1 }, a4: { w: 297, h: 210, side: 100, t: 0.78 } };
-  const INK = "#1f2a30", MUT = "#4f5b63", RULE = "#9aa5ad", ACC = "#0C5560", FONT = "Inter, 'Segoe UI', sans-serif";
-  // EPSG:3310, NAD83 / California Albers (GRS80; standard parallels 34 and 40.5 N; origin 0 N, 120 W; false northing -4,000,000 m)
-  const A_ = 6378137, F_ = 1 / 298.257222101, E2 = 2 * F_ - F_ * F_, E = Math.sqrt(E2), R_ = Math.PI / 180;
-  const qf = (ph) => { const sn = Math.sin(ph); return (1 - E2) * (sn / (1 - E2 * sn * sn) - (1 / (2 * E)) * Math.log((1 - E * sn) / (1 + E * sn))); };
-  const mf = (ph) => Math.cos(ph) / Math.sqrt(1 - E2 * Math.sin(ph) ** 2);
-  const m1 = mf(34 * R_), m2 = mf(40.5 * R_), q1 = qf(34 * R_), q2 = qf(40.5 * R_), nA = (m1 * m1 - m2 * m2) / (q2 - q1), CA = m1 * m1 + nA * q1, rho0 = (A_ * Math.sqrt(CA - nA * qf(0))) / nA;
-  const albers = (lon, lat) => { const rho = (A_ * Math.sqrt(CA - nA * qf(lat * R_))) / nA, th = nA * (lon + 120) * R_; return [rho * Math.sin(th), rho0 - rho * Math.cos(th) - 4000000]; };
-  const toKm = (X, Y) => [(X - G.x0) / 1000 - wKm / 2, (G.y1 - Y) / 1000 - hKm / 2];   // EPSG:3310 metres to world km (x east, z south)
-  const kmF = (v) => `${Math.round(v).toLocaleString("en-GB")}`;
-  const landOf = (y) => {
-    if (y < M.years[0]) {   // pre-1900 map pixels inside the CVHM2 floor cells, the same area the later columns count
-      let wet = 0, dry = 0; for (let i = 0; i < N; i++) { if (cellOf[i] < 0 || !natOf[i]) continue; if (WET_TYPES.has(natOf[i])) wet++; else dry++; }
-      const px = (G.tex_m * G.tex_m) / 1e6; return { label: "Before 1900", wet: wet * px, farm: 0, urban: 0, dry: dry * px };
-    }
-    const a = area(y); return { label: String(y), wet: a[0] + a[1], farm: a.slice(3, 9).reduce((p, v) => p + v, 0), urban: a[9], dry: a[2] };
-  };
-  const damsOf = (y) => { const b = M.dams.filter((d) => d.built && d.built <= y); return [b.length, b.reduce((p, d) => p + (d.mcm || 0), 0) / 1000]; };
-  const yl = (y) => (y < M.years[0] ? "before 1900" : String(y));
-  function autoText() {
-    const R = landOf(year), two = cmpOn, L = two ? landOf(cmpA) : null, sea = season ? "summer (August)" : "winter (February)";
-    if (overlay !== "none") {
-      const c = document.querySelector(`#drop .card-o[data-ov="${overlay}"]`), nm = c ? c.querySelector("b").textContent : overlay, lb = $("mapLeg") && $("mapLeg").querySelector("b");
-      return [`${lb ? lb.textContent : nm}, over the land of ${two ? `${yl(cmpA)} and ${yl(year)}` : yl(year)}`, c ? c.querySelector(".q").textContent : ""];
-    }
-    if (two) return [`Wet land and water ${kmF(L.wet)} km² ${yl(cmpA)}, ${kmF(R.wet)} km² in ${yl(year)}; farmed land ${kmF(L.farm)} to ${kmF(R.farm)} km²`, `The valley floor ${yl(cmpA)} and ${yl(year)}, ${sea}, at the same scale. Land cover from the page: CVHM2 land use by year on the floor, the pre-1900 historic map where land stayed native.`];
-    return year < M.years[0] ? [`Before 1900: wet land and water ${kmF(R.wet)} km² of the valley floor`, `The pre-1900 historic map of the valley floor, ${sea}.`]
-      : [`${year}: farmed ${kmF(R.farm)} km², wet land and water ${kmF(R.wet)} km², towns ${kmF(R.urban)} km²`, `Land cover of ${year}, ${sea}: CVHM2 land use on the floor, the pre-1900 historic map where land stayed native.`];
-  }
-  function wrap(g, text, maxW) { const out = []; for (const para of String(text).split("\n")) { let line = ""; for (const w of para.split(/\s+/)) { const t = line ? line + " " + w : w; if (g.measureText(t).width > maxW && line) { out.push(line); line = w; } else line = t; } out.push(line); } return out; }
-  function para(g, text, x, y, maxW, size, opt = {}) {
-    g.font = `${opt.w || 400} ${size}px ${FONT}`; g.fillStyle = opt.c || INK; g.textBaseline = "top";
-    const lh = size * (opt.lh || 1.3); let yy = y; for (const ln of wrap(g, text, maxW)) { g.fillText(ln, x, yy); yy += lh; } return yy;
-  }
-  // render the current scene into a w x h image of the given ground extent (2D map), for one land year
-  function renderPanel(w, h, centre, halfW, landYear, cmpSide) {
-    const keep = { pr: renderer.getPixelRatio(), size: renderer.getSize(new THREE.Vector2()), asp: camera.aspect, pos: camera.position.clone() };
-    const sprites = [], pts = [], k = h / canvas.clientHeight;
-    scene.traverse((o) => { if (o.isSprite) { sprites.push([o, o.scale.clone()]); o.scale.multiplyScalar(0.75); } if (o.isPoints && o.material && !o.material.sizeAttenuation) { pts.push([o.material, o.material.size]); o.material.size *= k * 0.55; } });
-    renderer.setPixelRatio(1); renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
-    const halfH = halfW / camera.aspect; camera.position.set(centre.x, centre.y + halfH / PLAN_T, centre.z + 0.01); camera.lookAt(centre); camera.updateMatrixWorld();
-    const pins = pinGroup.visible;
-    if (cmpSide === "L") { land.visible = false; land2.visible = true; damsFor(cmpA); pinGroup.visible = false; } else if (cmpSide === "R") { land.visible = true; land2.visible = false; damsFor(year); }
-    renderer.setScissorTest(false); renderer.render(scene, camera);
-    const img = document.createElement("canvas"); img.width = w; img.height = h; img.getContext("2d").drawImage(renderer.domElement, 0, 0, w, h);
-    land.visible = true; land2.visible = false; pinGroup.visible = pins; readout();
-    for (const [o, sc] of sprites) o.scale.copy(sc); for (const [m, sz] of pts) m.size = sz;
-    renderer.setPixelRatio(keep.pr); renderer.setSize(keep.size.x, keep.size.y, false); camera.aspect = keep.asp; camera.position.copy(keep.pos); camera.updateProjectionMatrix(); camera.lookAt(controls.target);
-    return img;
-  }
-  function mapFrame(g, x, y, w, h, centre, halfW, label, sub, leftLabels = true) {
-    const halfH = halfW * (h / w), pxKm = w / (2 * halfW);
-    const at = (lon, lat) => { const [X, Y] = albers(lon, lat), [kx, kz] = toKm(X, Y); return [x + w / 2 + (kx - centre.x) * pxKm, y + h / 2 + (kz - centre.z) * pxKm]; };
-    // graticule: 1 degree, half a degree when the panel spans under 250 km; labels at the frame edge
-    const step = 2 * halfW < 250 ? 0.5 : 1;
-    g.save(); g.beginPath(); g.rect(x, y, w, h); g.clip();
-    g.strokeStyle = "rgba(31,42,48,0.35)"; g.lineWidth = 0.18 * MMPX; g.font = `400 ${7.5 * PT}px ${FONT}`; g.fillStyle = INK;
-    for (let lon = -126; lon <= -115; lon += step) { g.beginPath(); for (let lat = 32; lat <= 43; lat += 0.1) { const [px, py] = at(lon, lat); lat === 32 ? g.moveTo(px, py) : g.lineTo(px, py); } g.stroke(); }
-    for (let lat = 32; lat <= 43; lat += step) { g.beginPath(); for (let lon = -126; lon <= -115; lon += 0.1) { const [px, py] = at(lon, lat); lon === -126 ? g.moveTo(px, py) : g.lineTo(px, py); } g.stroke(); }
-    g.restore();
-    g.font = `400 ${7.5 * PT}px ${FONT}`; g.fillStyle = INK; g.textBaseline = "bottom";
-    const lab = (v, ew) => `${Math.abs(v)}°${ew}`;
-    for (let lon = -126; lon <= -115; lon += step) { // where the meridian meets the top edge
-      for (let lat = 43; lat >= 32; lat -= 0.02) { const [px, py] = at(lon, lat); if (py >= y && px > x + 30 && px < x + w - 30) { if (py - y < 3 * MMPX) { g.textAlign = "center"; g.fillText(lab(lon, "W"), px, y - 1 * MMPX); } break; } }
-    }
-    g.textAlign = "right"; g.textBaseline = "middle";
-    for (let lat = 32; lat <= 43; lat += step) { for (let lon = -126; lon <= -115; lon += 0.02) { const [px, py] = at(lon, lat); if (px >= x && py > y + 30 && py < y + h - 30) { if (px - x < 3 * MMPX && leftLabels) g.fillText(lab(lat, "N"), x - 1 * MMPX, py); break; } } }
-    g.strokeStyle = INK; g.lineWidth = 0.35 * MMPX; g.strokeRect(x, y, w, h);
-    // panel label, as on the map plates
-    g.textAlign = "left"; g.textBaseline = "top";
-    g.font = `700 ${13 * PT}px ${FONT}`; const lw = g.measureText(label).width;
-    g.fillStyle = "rgba(255,255,255,0.92)"; g.fillRect(x + 3 * MMPX, y + 3 * MMPX, lw + 6 * MMPX, 8 * MMPX); g.fillStyle = INK; g.fillText(label, x + 6 * MMPX, y + 4.3 * MMPX);
-    if (sub) { g.font = `400 ${8 * PT}px ${FONT}`; const sw = g.measureText(sub).width; g.fillStyle = "rgba(255,255,255,0.88)"; g.fillRect(x + 3 * MMPX, y + 11 * MMPX, sw + 6 * MMPX, 5 * MMPX); g.fillStyle = MUT; g.fillText(sub, x + 6 * MMPX, y + 12 * MMPX); }
-    return pxKm;
-  }
-  function scaleNorth(g, x, y, pxKm, maxMm) {
-    const nice = [5, 10, 20, 25, 50, 100, 200]; let L = 5; for (const n of nice) if (n * pxKm <= maxMm * MMPX) L = n;
-    const bw = L * pxKm, h = 2.2 * MMPX;
-    g.fillStyle = "rgba(255,255,255,0.88)"; g.fillRect(x - 4 * MMPX, y - 8 * MMPX, bw + 14 * MMPX, 14 * MMPX);
-    g.strokeStyle = INK; g.lineWidth = 0.25 * MMPX;
-    for (let i = 0; i < 2; i++) { g.fillStyle = i ? "#fff" : INK; g.fillRect(x + (i * bw) / 2, y, bw / 2, h); g.strokeRect(x + (i * bw) / 2, y, bw / 2, h); }
-    g.fillStyle = INK; g.font = `400 ${8.5 * PT}px ${FONT}`; g.textAlign = "center"; g.textBaseline = "bottom";
-    g.fillText("0", x, y - 0.8 * MMPX); g.fillText(String(L / 2), x + bw / 2, y - 0.8 * MMPX); g.fillText(`${L} km`, x + bw, y - 0.8 * MMPX);
-    // north arrow above the scale bar
-    const ax = x + 4 * MMPX, ay = y - 22 * MMPX;
-    g.fillStyle = "rgba(255,255,255,0.88)"; g.fillRect(ax - 4 * MMPX, ay - 4 * MMPX, 8 * MMPX, 15 * MMPX);
-    g.beginPath(); g.moveTo(ax, ay); g.lineTo(ax + 2.6 * MMPX, ay + 8 * MMPX); g.lineTo(ax, ay + 6.3 * MMPX); g.closePath(); g.fillStyle = INK; g.fill();
-    g.beginPath(); g.moveTo(ax, ay); g.lineTo(ax - 2.6 * MMPX, ay + 8 * MMPX); g.lineTo(ax, ay + 6.3 * MMPX); g.closePath(); g.lineWidth = 0.25 * MMPX; g.strokeStyle = INK; g.stroke();
-    g.font = `700 ${8 * PT}px ${FONT}`; g.textBaseline = "top"; g.fillText("N", ax, ay + 8.6 * MMPX);
-  }
-  function legend(g, x, y, w, sc, landKey = true) {
-    g.textAlign = "left"; g.textBaseline = "top";
-    g.font = `700 ${11.5 * PT * sc}px ${FONT}`; g.fillStyle = INK; g.fillText("Legend", x, y); y += 7 * MMPX * sc;
-    if (overlay !== "none") {   // the active layer's key, as on the map legend card
-      const el = $("mapLeg"); const lab = (el && el.querySelector("b")) ? el.querySelector("b").textContent : "";
-      if (lab) { g.font = `600 ${10 * PT * sc}px ${FONT}`; g.fillText(lab, x, y); y += 5.5 * MMPX * sc; }
-      for (const r of el ? el.querySelectorAll(".ramp, .mlab, .rl, .dots") : []) {
-        if (r.classList.contains("mlab")) { y = para(g, r.textContent, x, y, w, 9 * PT * sc, { c: MUT }) + 1 * MMPX; continue; }
-        if (r.classList.contains("ramp")) { const m = (r.getAttribute("style") || "").match(/#[0-9a-fA-F]{6}|rgb\([^)]*\)/g) || []; const gr = g.createLinearGradient(x, 0, x + w * 0.8, 0); m.forEach((c, i) => gr.addColorStop(i / Math.max(1, m.length - 1), c)); g.fillStyle = gr; g.fillRect(x, y, w * 0.8, 3.5 * MMPX * sc); g.strokeStyle = RULE; g.lineWidth = 0.2 * MMPX; g.strokeRect(x, y, w * 0.8, 3.5 * MMPX * sc); y += 4.5 * MMPX * sc; continue; }
-        if (r.classList.contains("rl")) { const t = [...r.children].map((e) => e.textContent); g.font = `400 ${9 * PT * sc}px ${FONT}`; g.fillStyle = MUT; g.textAlign = "left"; g.fillText(t[0] || "", x, y); g.textAlign = "right"; g.fillText(t[1] || "", x + w * 0.8, y); g.textAlign = "left"; y += 5 * MMPX * sc; continue; }
-        if (r.classList.contains("dots")) { y = para(g, r.textContent.replace(/\s+/g, " "), x, y, w, 9 * PT * sc, { c: INK }) + 1 * MMPX; }
-      }
-      y += 3 * MMPX * sc;
-    }
-    // land key: the page's classes for the season, two columns, headed by group
-    if (!landKey) { y = para(g, "Land colours as on the page; the full key is on the land-cover plates.", x, y, w, 8.5 * PT * sc, { c: MUT }); return y + 2 * MMPX; }
-    const col = (w - 4 * MMPX) / 2, rowH = 5.2 * MMPX * sc; let cx = 0;
-    const items = KEY.filter(([k]) => k === "head" || PAL[k]);
-    for (const [k, l] of items) {
-      if (k === "head") { if (cx) { cx = 0; y += rowH; } g.font = `600 ${9.5 * PT * sc}px ${FONT}`; g.fillStyle = ACC; g.fillText(l.replace(/\s*\(.*\)\s*$/, ""), x, y + 0.5 * MMPX); y += rowH; continue; }
-      const xx = x + cx * (col + 4 * MMPX), c = PAL[k][season];
-      g.fillStyle = `rgb(${c.map(Math.round).join(",")})`; g.fillRect(xx, y + 0.6 * MMPX, 5.5 * MMPX * sc, 3.6 * MMPX * sc); g.strokeStyle = "rgba(31,42,48,.35)"; g.lineWidth = 0.15 * MMPX; g.strokeRect(xx, y + 0.6 * MMPX, 5.5 * MMPX * sc, 3.6 * MMPX * sc);
-      g.font = `400 ${8.8 * PT * sc}px ${FONT}`; g.fillStyle = INK; g.fillText(l.replace(/\s*\([^)]*\)\s*$/, ""), xx + 7.5 * MMPX * sc, y + 0.4 * MMPX);
-      cx = 1 - cx; if (!cx) y += rowH;
-    }
-    if (cx) y += rowH;
-    return y + 2 * MMPX;
-  }
-  function table(g, x, y, w, sc) {
-    const two = cmpOn, R = landOf(year), L = two ? landOf(cmpA) : null, dR = damsOf(year), dL = two ? damsOf(cmpA) : null;
-    const head = two ? ["Valley floor, km²", L.label, R.label] : ["Valley floor, km²", R.label];
-    const rows = [["Wet land and open water", L && kmF(L.wet), kmF(R.wet)], ["Dry native land", L && kmF(L.dry), kmF(R.dry)], ["Farmed land", L && kmF(L.farm), kmF(R.farm)], ["Towns", L && kmF(L.urban), kmF(R.urban)], ["Dams built (storage, km³)", dL && `${dL[0]} (${dL[1].toFixed(1)})`, `${dR[0]} (${dR[1].toFixed(1)})`]];
-    g.font = `700 ${10.5 * PT * sc}px ${FONT}`; g.fillStyle = INK; g.textBaseline = "top"; g.textAlign = "left"; g.fillText("The floor in numbers", x, y); y += 6.5 * MMPX * sc;
-    const cw = two ? [w * 0.52, w * 0.24, w * 0.24] : [w * 0.62, w * 0.38];
-    const cell = (t, i, yy, bold) => { g.font = `${bold ? 600 : 400} ${9 * PT * sc}px ${FONT}`; g.fillStyle = INK; const cx = x + cw.slice(0, i).reduce((p, v) => p + v, 0); if (i) { g.textAlign = "right"; g.fillText(t || "-", cx + cw[i] - 1 * MMPX, yy); g.textAlign = "left"; } else g.fillText(t, cx, yy); };
-    head.forEach((t, i) => cell(t, i, y, true)); y += 5 * MMPX * sc; g.strokeStyle = INK; g.lineWidth = 0.25 * MMPX; g.beginPath(); g.moveTo(x, y - 0.6 * MMPX); g.lineTo(x + w, y - 0.6 * MMPX); g.stroke();
-    for (const r of rows) { const vals = two ? r : [r[0], r[2]]; vals.forEach((t, i) => cell(t, i, y, false)); y += 5 * MMPX * sc; g.strokeStyle = "#d8e0df"; g.lineWidth = 0.15 * MMPX; g.beginPath(); g.moveTo(x, y - 0.6 * MMPX); g.lineTo(x + w, y - 0.6 * MMPX); g.stroke(); }
-    y = para(g, `${R.label === "Before 1900" || (L && L.label === "Before 1900") ? "Before 1900: pixel areas of the pre-1900 historic map (300 m) inside the same CVHM2 floor cells. " : ""}Years from 1874: CVHM2 land use (cells of about 2.6 km²), as on the page. Dams: Global Dam Watch v1.0 inside the page grid.`, x, y + 1 * MMPX, w, 7.5 * PT * sc, { c: MUT });
-    return y + 2 * MMPX;
-  }
-  async function makePlate() {
-    await document.fonts.load(`700 40px Inter`); await document.fonts.load(`400 40px Inter`); await document.fonts.load(`600 40px Inter`);
-    const P = PAPER[$("pdPaper").value], sc = P.t, W = Math.round(P.w * MMPX), H = Math.round(P.h * MMPX);
-    const wasPlan = planOn; if (!planOn) setPlan(true); controls.update();
-    const cv = document.createElement("canvas"); cv.width = W; cv.height = H; const g = cv.getContext("2d");
-    g.fillStyle = "#fff"; g.fillRect(0, 0, W, H);
-    const M_ = 10 * MMPX, SIDE = P.side * MMPX, GAP = 8 * MMPX, mapW = W - 2 * M_ - SIDE - GAP, mapH = H - 2 * M_ - 6 * MMPX, top = M_ + 4 * MMPX;
-    // ground extent: what the screen shows, fitted to the panel
-    const t = controls.target.clone(), scrHalfH = camera.position.distanceTo(t) * PLAN_T, scrHalfW = scrHalfH * camera.aspect;
-    const n = cmpOn ? 2 : 1, pg = 6 * MMPX, pw = Math.floor((mapW - (n - 1) * pg) / n), panelAsp = pw / mapH;
-    // ground extent: the screen view, inside the page grid; the frame narrows when the ground is taller than the panel
-    let gw = Math.min(2 * (n === 2 ? scrHalfW / 2 : scrHalfW), wKm), gh = Math.min(2 * scrHalfH, hKm), pwUse = pw;
-    if (gw / gh > panelAsp) { gh = Math.min(hKm, gw / panelAsp); gw = gh * panelAsp; } else pwUse = Math.round(mapH * (gw / gh));
-    t.x = Math.max(-wKm / 2 + gw / 2, Math.min(wKm / 2 - gw / 2, t.x)); t.z = Math.max(-hKm / 2 + gh / 2, Math.min(hKm / 2 - gh / 2, t.z));
-    const halfW = gw / 2;
-    const sea = season ? "summer (August)" : "winter (February)";
-    const panels = n === 2 ? [[cmpA, "L"], [year, "R"]] : [[year, null]];
-    let pxKm = 1;
-    panels.forEach(([y, side], i) => {
-      const x = M_ + 5 * MMPX + i * (pwUse + pg), img = renderPanel(pwUse, mapH, t, halfW, y, side);
-      g.drawImage(img, x, top);
-      pxKm = mapFrame(g, x, top, img.width, mapH, t, halfW, y < M.years[0] ? "Before 1900" : String(y), `${y < M.years[0] ? "pre-1900 historic map" : "CVHM2 land use of the year, dams built by then"}, ${sea}`, i === 0);
-    });
-    scaleNorth(g, M_ + 12 * MMPX, top + mapH - 9 * MMPX, pxKm, 45);
-    // side panel: drawn on its own canvas; if the sources would run off the page, drawn again without the land key, then without the table
-    const X0 = W - M_ - SIDE, PW_ = SIDE;
-    const side = (landKey, withTable, force = false) => {
-    const sv = document.createElement("canvas"); sv.width = SIDE + 2; sv.height = H; const g2 = sv.getContext("2d"); const X = 0;
-    let y = M_ + 4 * MMPX; { const g = g2;
-    g.textAlign = "left"; g.textBaseline = "top";
-    g.font = `600 ${8.5 * PT * sc}px ${FONT}`; g.fillStyle = INK; g.fillText("CENTRAL VALLEY IN 3D, PRINT PLATES", X, y); y += 7 * MMPX * sc;
-    g.font = `700 ${13 * PT * sc}px ${FONT}`; g.fillStyle = ACC; g.fillText($("pdCode").value, X, y); y += 9 * MMPX * sc;
-    y = para(g, $("pdTitle").value, X, y, PW_, 19 * PT * sc, { w: 700, lh: 1.18 }) + 2 * MMPX;
-    y = para(g, $("pdSub").value, X, y, PW_, 10.5 * PT * sc, { c: MUT, lh: 1.35 }) + 3 * MMPX;
-    g.strokeStyle = INK; g.lineWidth = 0.35 * MMPX; g.beginPath(); g.moveTo(X, y); g.lineTo(X + PW_, y); g.stroke(); y += 5 * MMPX;
-    y = legend(g, X, y, PW_, sc, landKey);
-    if (withTable) y = table(g, X, y + 2 * MMPX, PW_ * 0.92, sc);
-    // sources, projection, notes, author: anchored to the bottom
-    const card = overlay !== "none" ? document.querySelector(`#drop .card-o[data-ov="${overlay}"] .src`) : null;
-    const src = [`Land cover: USGS CVHM2 land use v3, 1874-2019; pre-1900: Central Valley Historic Mapping Project (CSU Chico GIC; Data Basin); hills: USGS Annual NLCD 2025, Hansen forest loss, CAL FIRE perimeters; towns on the floor: NLCD developed pixels inside CVHM2 town cells.`, `Terrain: Copernicus GLO-90 DEM (© DLR e.V., © Airbus, under COPERNICUS by EU and ESA). Dams: Global Dam Watch v1.0. Rivers: USGS NHD, Natural Earth.`].concat(card ? [`Layer: ${card.textContent.replace(/\s·\s/g, "; ")}`] : []);
-    const notes = `Drawn from the page's 2D map at one scale; field pattern, section-line roads and season colours are drawing conventions, not mapped (see the page's About). ${overlay !== "none" ? (() => { const tx = layerLine().replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim(); if (tx.length <= 650) return tx; const cut = tx.slice(0, 650), k = cut.lastIndexOf(". "); return k > 200 ? cut.slice(0, k + 1) : cut; })() : ""}`.trim().replace(/\s·\s/g, "; ");
-    const blk = document.createElement("canvas").getContext("2d");   // measure the bottom block first
-    const lines = (txt, size) => { blk.font = `400 ${size}px ${FONT}`; return wrap(blk, txt, PW_).length * size * 1.3; };
-    const fs = 7.8 * PT * sc, need = 7 * MMPX + 2 * fs * 1.4 + src.reduce((p, s2) => p + lines("• " + s2, fs) + 0.6 * MMPX, 0) + lines("Projection NAD83 / California Albers (EPSG:3310), equal-area", fs) + lines("Notes " + notes, fs) + 9 * MMPX;
-    if (!force && y + 4 * MMPX > H - M_ - need) return null;   // does not fit
-    let yb = Math.max(y + 4 * MMPX, H - M_ - need);
-    g.strokeStyle = INK; g.lineWidth = 0.35 * MMPX; g.beginPath(); g.moveTo(X, yb); g.lineTo(X + PW_, yb); g.stroke(); yb += 3 * MMPX;
-    g.font = `700 ${fs}px ${FONT}`; g.fillStyle = INK; g.fillText("Sources", X, yb); yb += fs * 1.4;
-    for (const s2 of src) yb = para(g, "• " + s2, X, yb, PW_, fs, { c: INK }) + 0.6 * MMPX;
-    g.font = `700 ${fs}px ${FONT}`; g.fillStyle = INK; g.fillText("Projection", X, yb); yb += fs * 1.4;
-    yb = para(g, "NAD83 / California Albers (EPSG:3310), equal-area", X, yb, PW_, fs, { c: INK }) + 0.6 * MMPX;
-    g.font = `700 ${fs}px ${FONT}`; g.fillStyle = INK; g.fillText("Notes", X, yb); yb += fs * 1.4;
-    yb = para(g, notes, X, yb, PW_, fs, { c: INK }) + 1.5 * MMPX;
-    para(g, `Ali Bin Shahid, ${new Date().toISOString().slice(0, 10)}, Central Valley in 3D (working version)`, X, yb, PW_, 7.2 * PT * sc, { c: MUT });
-    } return sv; };
-    const sv = side(true, true) || side(false, true) || side(false, false, true);
-    if (sv) g.drawImage(sv, X0, 0);
-    if (!wasPlan) setPlan(false);
-    return cv;
-  }
-  const fname = () => `${$("pdCode").value.replace(/[^A-Za-z0-9]+/g, "_").toLowerCase()}_${cmpOn ? `${yl(cmpA)}_${year}` : yl(year)}`.replace(/\s+/g, "");
-  const save = (blob, name) => { const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(() => { URL.revokeObjectURL(a.href); a.remove(); }, 1000); };
-  const busy = (v, msg) => { document.querySelectorAll("#plateDlg .pd-b button").forEach((b) => (b.disabled = v)); $("pdStatus").textContent = msg || ""; };
-  function openDlg() { const [ti, su] = autoText(); $("pdTitle").value = ti; $("pdSub").value = su; $("pdStatus").textContent = ""; $("plateDlg").hidden = false; }
-  $("bPlate").addEventListener("click", openDlg);
-  $("pdX").addEventListener("click", () => ($("plateDlg").hidden = true));
-  $("pdPng").addEventListener("click", async () => { busy(true, "Drawing the plate at 300 dpi…"); try { const cv = await makePlate(); cv.toBlob((b) => { save(b, fname() + ".png"); busy(false, `Saved ${fname()}.png (${cv.width} x ${cv.height} px).`); }, "image/png"); } catch (e) { busy(false, "Could not draw the plate: " + e.message); } });
-  $("pdPdf").addEventListener("click", async () => {
-    busy(true, "Drawing the plate…");
-    try {
-      if (!window.jspdf) await new Promise((res, rej) => { const sc2 = document.createElement("script"); sc2.src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"; sc2.onload = res; sc2.onerror = () => rej(new Error("PDF library did not load")); document.head.appendChild(sc2); });
-      const cv = await makePlate(), P = PAPER[$("pdPaper").value], doc = new window.jspdf.jsPDF({ orientation: "landscape", unit: "mm", format: [P.w, P.h] });
-      doc.addImage(cv.toDataURL("image/jpeg", 0.92), "JPEG", 0, 0, P.w, P.h); save(doc.output("blob"), fname() + ".pdf"); busy(false, `Saved ${fname()}.pdf (the plate as one 300 dpi image).`);
-    } catch (e) { busy(false, "Could not make the PDF: " + e.message); }
-  });
-  // QGIS route: a request file read by src/landscape/valley3d_plate_qgis.py, which writes a map-plates spec and renders it in QGIS
-  $("pdQgis").addEventListener("click", () => {
-    const wasPlan = planOn; if (!planOn) setPlan(true); controls.update();
-    const t = controls.target, halfH = camera.position.distanceTo(t) * PLAN_T, halfW = halfH * camera.aspect;
-    const X = (x) => G.x0 + (x + wKm / 2) * 1000, Y = (z) => G.y1 - (z + hKm / 2) * 1000;
-    const req = { kind: "valley3d_plate_request", made: new Date().toISOString(), plate: $("pdCode").value, title: $("pdTitle").value, subtitle: $("pdSub").value,
-      paper: $("pdPaper").value, season: season ? "summer" : "winter", years: cmpOn ? [cmpA < M.years[0] ? "pre1900" : cmpA, year < M.years[0] ? "pre1900" : year] : [year < M.years[0] ? "pre1900" : year],
-      overlay, extent_3310: [Math.round(X(t.x - halfW)), Math.round(Y(t.z + halfH)), Math.round(X(t.x + halfW)), Math.round(Y(t.z - halfH))],
-      layers_on: { regions: $("bReg").checked, dams: ctxOn.dams, roads: roadsOn } };
-    if (!wasPlan) setPlan(false);
-    save(new Blob([JSON.stringify(req, null, 1)], { type: "application/json" }), fname() + "_qgis_request.json");
-    $("pdStatus").textContent = `Saved ${fname()}_qgis_request.json. Render it with: python src/landscape/valley3d_plate_qgis.py <that file>. The QGIS route draws land cover, dams and towns; page overlays such as the wind are drawn by the PNG and PDF route only.`;
-  });
-  addEventListener("keydown", (e) => { if (e.target.closest("input, textarea, select, [contenteditable]")) return; if (e.key === "p" || e.key === "P") openDlg(); });
-  window.__plate = { makePlate, openDlg, albers };
-}
-// ---------------------------------------------------------------- how to use: eight stops, each control ringed and shown working
-{
-  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
-  const ring = (el) => { const g = $("gring"); if (!el || !el.getClientRects().length) { g.hidden = true; return; } const r = el.getBoundingClientRect(); Object.assign(g.style, { left: `${r.left - 6}px`, top: `${r.top - 6}px`, width: `${r.width + 12}px`, height: `${r.height + 12}px` }); g.hidden = false; };
-  let gi = -1, token = 0;
-  const STOPS = [
-    { t: "Compare two years", s: "Drag the line on the map: the year on its left against the year on the right. Choose the left year in the box at the top of the line; the right side is the year slider. <kbd>C</kbd> turns it on and off.",
-      el: () => $("cmpH"), go: async (k) => { if (!cmpOn) { cmpA = 1850; $("cmpA").value = "1850"; cmpX = 0.62; setCompare(true); } for (const x of [0.4, 0.75, 0.6]) { if (k !== token) return; const x0 = cmpX, t0 = performance.now(); while (performance.now() - t0 < 900) { if (k !== token) return; cmpX = x0 + (x - x0) * ((performance.now() - t0) / 900); cmpLayout(); ring($("cmpH")); await wait(16); } } } },
-    { t: "Play the years", s: "The land use changes year by year from 1850 to 2025. Play runs it; the year shows large on the map. Drag the slider to any year, or step with the arrow keys.",
-      el: () => $("play"), go: async () => { setPlayBtn(false); playSpan(1874, 1930); } },
-    { t: "Turn, tilt and north", s: "Drag the map to turn and tilt it, scroll or pinch to zoom. The compass shows where north is; click it, or press <kbd>N</kbd>, to turn north up.",
-      el: () => $("compass"), go: async (k) => { setPlayBtn(false); await wait(700); if (k === token) northUp(); } },
-    { t: "Flat map for print", s: "The 2D map shows the valley north up at one scale, with a true scale bar: the view for maps in reports and papers. <kbd>M</kbd> switches between the two.",
-      el: () => $("bPlan"), go: async (k) => { await wait(600); if (k !== token) return; setPlan(true); await wait(2600); if (k === token) setPlan(false); } },
-    { t: "Layers", s: "Each layer answers one question: the ground, the low air, or rain. Open a group and pick a layer; its switches open under it, and its key appears at the bottom left of the map.",
-      el: () => document.querySelector('#drop .card-o[data-ov="wind"]') || $("dockL"), go: async () => { if ($("dockL").classList.contains("collapsed") && !isPhone()) dock("dockL", true); showTab("layers"); setOverlay("wind"); } },
-    { t: "See the land underneath", s: "Hold this button, or the space bar, and every layer disappears so you see the land; let go and it returns. The strength slider at the top of the layers fades a layer instead.",
-      el: () => $("peek"), go: async (k) => { await wait(900); if (k !== token) return; setPeek(true); await wait(1400); setPeek(false); } },
-    { t: "Numbers and sources", s: "The Inspector on the right holds the numbers behind the active layer, its sources and the full colour key. Every number on the page comes from a recorded test.",
-      el: () => (!$("dockR").classList.contains("collapsed") ? $("dockR") : document.querySelector('.reopen[data-expand="dockR"]')), go: async () => { if (!isPhone()) dock("dockR", true); } },
-    { t: "The walkthrough", s: "Fifteen chapters tell the case and the other explanation place by place, each with its measured result. Start it here at any time.",
-      el: () => $("bTour"), go: async () => {} }];
-  const card = $("guide");
-  function show() {
-    const st = STOPS[gi], k = ++token;
-    if (planOn) setPlan(false); setPlayBtn(false); if (window.__peek) setPeek(false);   // each stop starts from the 3D view
-    card.innerHTML = `<div class="g-step">Step ${gi + 1} of ${STOPS.length}</div><div class="g-title">${st.t}</div><div class="g-text">${st.s}</div><div class="g-nav"><button data-g="end">Close</button><button data-g="back" ${gi ? "" : "disabled"}>Back</button><button class="pri" data-g="next">${gi < STOPS.length - 1 ? "Next" : "Done"}</button></div>`;
-    card.hidden = false; requestAnimationFrame(() => ring(st.el())); st.go(k).then(() => { if (k === token) ring(st.el()); });
-    card.querySelector('[data-g="next"]').focus();
-  }
-  function start() { if (chapter >= 0) closeStory(); welcome(false); $("hint").hidden = true; gi = 0; show(); }
-  function end() { gi = -1; token++; card.hidden = true; $("gring").hidden = true; setPlayBtn(false); }
-  function step(d) { const j = gi + d; if (j < 0) return; if (j >= STOPS.length) return end(); gi = j; show(); }
-  card.addEventListener("click", (e) => { const b = e.target.closest("[data-g]"); if (!b || b.disabled) return; const a = b.dataset.g; if (a === "end") end(); else step(a === "next" ? 1 : -1); });
-  addEventListener("keydown", (e) => { if (gi < 0) return; if (e.key === "Escape") { e.preventDefault(); end(); } else if (e.key === "ArrowRight" && !e.target.closest("input")) { e.preventDefault(); e.stopImmediatePropagation(); step(1); } else if (e.key === "ArrowLeft" && !e.target.closest("input")) { e.preventDefault(); e.stopImmediatePropagation(); step(-1); } }, true);
-  addEventListener("resize", () => { if (gi >= 0) ring(STOPS[gi].el()); });
-  $("bHow").addEventListener("click", () => (gi < 0 ? start() : end()));
-  $("wHow").addEventListener("click", start);
-  window.__guide = { start, end, step };
-}
 welcome(true);   // every visit opens on the walkthrough's first screen
 </script>
 </body>
