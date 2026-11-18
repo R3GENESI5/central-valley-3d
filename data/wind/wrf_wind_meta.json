@@ -1,0 +1,211 @@
+{
+ "SOURCE": "Model wind and near-surface air over today's land and over the old land, same winter weather, for the 3D page\n(Ali, 2026-11-18: \"is there a way to show the wind now vs then, and the audience can see the temperature rise in low winds as they\npass over fallow, crops, and urban surfaces ... if it is modelled\" ... \"Yes, after drift read\"). Page data, not a test.\n\nRuns: the A28 WRF pair, winter 2013-14, d02 (12 km): ctrl (today's land) and pre_w (pre-1900 land), the pair read by the science\nthread's three-ground profile read and by src/landscape/valley3d_lcl.py (same files, same floor-cell rule, same storm-hour rule).\nComposites, 2013-11-01 to 2014-03-30 (150 days):\n  afternoon   21 UTC (13 PST) of every day\n  predawn     12 UTC (04 PST) of every day\n  storm       hours with CTRL floor-mean rain >= 0.1 mm/h (rule of valley3d_lcl.py)\nFields: U10, V10 (m/s), T2 (deg C), Q2 (g/kg), HFX and LH (W/m2, upward positive).\nDrift (option --drift, run after the science thread's read of the same-land run A36 is recorded): the same-land member ctrl_p\n(F:/CALIFORNIA_wrf_runs/wrf/winter2014_a36b/ctrl_p, 2013-10-01 to 2013-11-08) against ctrl, and pre_w against ctrl, on the days\nthe three runs share, afternoon only: the per-cell mean difference of each field. The page greys land differences smaller than\nthe same-land difference in the same cell.\nGrid: the page's 5 km grid (valley3d_wind.py), nearest d02 cell within 9 km.\nWrites figures/valley_3d/data/wind/wrf_wind.bin (float32; member [ctrl, pre_w], composite, field, row, column), wrf_wind_meta.json;\nwith --drift also wrf_drift.bin (float32; [ctrl_p - ctrl, pre_w - ctrl], field, row, column) and adds the drift block to the meta.\nPrints floor means per member and composite and the pre_w - ctrl difference with a 2,000-sample day resample range.\nRun  python src/landscape/valley3d_wrf_wind.py            then, after the A36 read,  python src/landscape/valley3d_wrf_wind.py --drift",
+ "order": {
+  "member": [
+   "ctrl",
+   "pre_w"
+  ],
+  "comp": [
+   "afternoon",
+   "predawn",
+   "storm"
+  ],
+  "field": [
+   "U10",
+   "V10",
+   "T2",
+   "Q2",
+   "HFX",
+   "LH"
+  ]
+ },
+ "grid": {
+  "wx": 99,
+  "wy": 159
+ },
+ "hours": {
+  "afternoon": 150,
+  "predawn": 150,
+  "storm": 326
+ },
+ "storm_days": 29,
+ "floor_cells_d02": 383,
+ "floor_means": {
+  "afternoon_U10": {
+   "ctrl": 0.685,
+   "pre_w": 0.687
+  },
+  "afternoon_V10": {
+   "ctrl": -0.887,
+   "pre_w": -1.034
+  },
+  "afternoon_T2": {
+   "ctrl": 17.787,
+   "pre_w": 17.172
+  },
+  "afternoon_Q2": {
+   "ctrl": 4.384,
+   "pre_w": 4.989
+  },
+  "afternoon_HFX": {
+   "ctrl": 155.667,
+   "pre_w": 134.988
+  },
+  "afternoon_LH": {
+   "ctrl": 57.025,
+   "pre_w": 91.538
+  },
+  "predawn_U10": {
+   "ctrl": 0.472,
+   "pre_w": 0.496
+  },
+  "predawn_V10": {
+   "ctrl": -0.363,
+   "pre_w": -0.454
+  },
+  "predawn_T2": {
+   "ctrl": 8.619,
+   "pre_w": 8.681
+  },
+  "predawn_Q2": {
+   "ctrl": 4.375,
+   "pre_w": 4.701
+  },
+  "predawn_HFX": {
+   "ctrl": -21.98,
+   "pre_w": -19.586
+  },
+  "predawn_LH": {
+   "ctrl": 5.23,
+   "pre_w": 12.419
+  },
+  "storm_U10": {
+   "ctrl": -0.067,
+   "pre_w": -0.16
+  },
+  "storm_V10": {
+   "ctrl": 1.42,
+   "pre_w": 1.186
+  },
+  "storm_T2": {
+   "ctrl": 12.757,
+   "pre_w": 12.273
+  },
+  "storm_Q2": {
+   "ctrl": 6.587,
+   "pre_w": 6.574
+  },
+  "storm_HFX": {
+   "ctrl": 34.017,
+   "pre_w": 31.791
+  },
+  "storm_LH": {
+   "ctrl": 33.482,
+   "pre_w": 42.581
+  }
+ },
+ "pre_w_minus_ctrl": {
+  "afternoon_U10": [
+   0.002,
+   -0.12,
+   0.113
+  ],
+  "afternoon_V10": [
+   -0.147,
+   -0.269,
+   -0.03
+  ],
+  "afternoon_T2": [
+   -0.616,
+   -0.75,
+   -0.474
+  ],
+  "afternoon_Q2": [
+   0.606,
+   0.446,
+   0.757
+  ],
+  "afternoon_HFX": [
+   -20.679,
+   -23.856,
+   -17.271
+  ],
+  "afternoon_LH": [
+   34.513,
+   31.676,
+   37.207
+  ],
+  "predawn_U10": [
+   0.024,
+   -0.047,
+   0.094
+  ],
+  "predawn_V10": [
+   -0.091,
+   -0.159,
+   -0.024
+  ],
+  "predawn_T2": [
+   0.061,
+   -0.108,
+   0.228
+  ],
+  "predawn_Q2": [
+   0.327,
+   0.178,
+   0.473
+  ],
+  "predawn_HFX": [
+   2.394,
+   1.84,
+   2.969
+  ],
+  "predawn_LH": [
+   7.19,
+   6.835,
+   7.575
+  ],
+  "storm_U10": [
+   -0.129,
+   -0.363,
+   0.137
+  ],
+  "storm_V10": [
+   -0.2,
+   -0.459,
+   0.045
+  ],
+  "storm_T2": [
+   -0.437,
+   -0.706,
+   -0.195
+  ],
+  "storm_Q2": [
+   0.13,
+   -0.087,
+   0.395
+  ],
+  "storm_HFX": [
+   -3.471,
+   -9.825,
+   2.505
+  ],
+  "storm_LH": [
+   11.451,
+   7.76,
+   15.846
+  ]
+ },
+ "units": {
+  "U10": "m/s",
+  "V10": "m/s",
+  "T2": "deg C",
+  "Q2": "g/kg",
+  "HFX": "W/m2",
+  "LH": "W/m2"
+ },
+ "ctrl_isd_dewpoint_depression_bias_k": {
+  "ctrl": 3.43,
+  "pre_w": 0.03
+ }
+}

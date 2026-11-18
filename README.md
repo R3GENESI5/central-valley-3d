@@ -6,6 +6,8 @@ The page opens on the case and the other explanation (a change in the weather fr
 
 Live page: https://r3genesi5.github.io/central-valley-3d/
 
+The page opens on the valley before 1900 and in 2019 side by side: drag the line to compare. Controls: Compare (two years, a draggable line, C); a 2D map (north up, one scale, true scale bar, M) beside the tilted 3D view; a compass (N); Play for the land use 1850 to 2025; layers grouped by question (the ground, the low air, rain) with a strength slider and a legend on the map; hold Land underneath (or the space bar) to see the land under any layer; Plate makes a print plate of the 2D view (A3 or A4, PNG or PDF, 300 dpi) in the layout of the project's map plates, or a request file for the QGIS route (`build/valley3d_plate_qgis.py`); How to use steps through the controls.
+
 ![The Delta in 1850](preview_1850_delta.png)
 ![The Delta in 2019](preview_2019_delta.png)
 
@@ -40,11 +42,14 @@ Live page: https://r3genesi5.github.io/central-valley-3d/
 - **Coast to crest corridor**: one track of 400 km from 37.80 N, 123.50 W on bearing 71 degrees, in 25 km bins. Rain per unit of offshore inflow from PRISM daily rain and ERA5 vapour transport; afternoon air, drying after rain and fog from NOAA ISD hourly reports at nine airports; the sea from NDBC buoy 46026. Values are copied from the project's test records named on the page.
 - **Major roads, 2023**: US Census TIGER/Line 2023 primary and secondary roads, California. Drawn widths from the Caltrans Highway Design Manual, chapter 300 (2020): lanes, shoulders, median and clear recovery zone. The freeway road-effect zone, about 600 m, from Forman and Deblinger 2000 (Conservation Biology 14: 36-46), as given in summaries of that paper.
 - **Winds**: ERA5 column vapour flux (0.25°), 2 m temperature and dew point (cloud base, 125 m per kelvin of their gap) and column water vapour (WeatherBench-2, 1.5°), as means over storm days (offshore inflow of at least 150 kg/m/s on the corridor) and the afternoon after, winters 1959-60 to 1979-80 and 1999-2000 to 2021-22. A reanalysis: a then-and-now difference mixes land and weather. `build/valley3d_wind.py`.
+- **Wind streak colour and air temperature**: streaks coloured by ERA5 column water vapour (6 to 21 mm); 2 m air temperature of the same storm days (`build/valley3d_wind_t2m.py`).
+- **Model of the low air over the old land and today's land**: the project's WRF pair, winter 2013-14 (12 km): 10 m wind, 2 m air temperature and vapour, heat and evaporation from the ground, afternoon, pre-dawn and storm hours (`build/valley3d_wrf_wind.py`). Shown as a stand-in until the read of the same-land run that measures how far two free runs drift apart.
+- **Towns on the floor**: NLCD developed pixels inside the cells CVHM2 calls towns, in one grey; burns from CAL FIRE perimeters in red-brown (first year) and orange (second and third).
 - **Name labels**: dams (Global Dam Watch), rivers (NHD, Natural Earth), roads (TIGER 2023) and stations, in the View menu.
 - **Events**: the author's project chronology.
 
 ## Kinds of layer
-Each layer card says what it is: **Measured** (wells, river flow, rain stations, fog and station pairs, the coast-to-crest corridor, flux towers, satellite surface temperature, rain), **Mapped** (land cover, wet land), **Estimated** (anything "then" built from class rates) or **Model** (cloud base). No layer shows a whole-floor, whole-season average of then against now.
+Each layer card says what it is: **Measured** (wells, river flow, rain stations, fog and station pairs, the coast-to-crest corridor, flux towers, satellite surface temperature, rain), **Mapped** (land cover, wet land), **Estimated** (anything "then" built from class rates) or **Model** (cloud base; the low air over the old land and today's land), and **Reanalysis** (the winds). No layer shows a whole-floor, whole-season average of then against now.
 
 ## What is estimated
 - **Before 1874**: the floor is the pre-1900 map.
