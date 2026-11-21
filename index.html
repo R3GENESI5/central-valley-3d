@@ -264,6 +264,31 @@ body.touring .blc{left:auto;right:64px;align-items:flex-end}
 .mapleg b{display:block;font-size:12.5px;margin-bottom:4px}.mapleg .mlab{font-size:11px;color:#5B6B70;margin-top:4px}
 .mapleg .ramp{display:block;height:9px;border-radius:2px;margin:2px 0}.mapleg .rl{display:flex;justify-content:space-between;color:#5B6B70;font-size:11px}.mapleg .rl i{font-style:normal}
 .mapleg .dots{display:flex;flex-wrap:wrap;gap:3px 10px;align-items:center}.mapleg .dots i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:-5px}
+.wkp{display:none}@media (max-width:760px){.wkp{display:flex;flex-wrap:wrap;gap:2px 9px;margin:0 0 10px;font-size:11.5px;color:#24333B}.wkp span{display:flex;align-items:center;gap:4px;white-space:nowrap}.wkp i{display:inline-block;width:10px;height:10px;border-radius:2px}}
+.sci{position:absolute;inset:0;z-index:40;background:rgba(20,33,42,.28);display:flex;justify-content:center;align-items:flex-start;padding:24px 16px;overflow:auto}.sci[hidden]{display:none}
+.sci-box{background:#fff;color:#14212A;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.25);width:min(760px,100%);padding:20px 24px 22px;font:14px/1.5 Inter,system-ui,sans-serif}
+.sci-h{display:flex;align-items:center;gap:12px}.sci-h h2{font-size:19px;margin:0}.sci-x{margin-left:auto;border:1px solid #c9c9cc;background:#fff;border-radius:4px;width:30px;height:30px;cursor:pointer;color:#24333B;font-size:14px}
+.sci-i{color:#5B6B70;margin:4px 0 14px}.sci-lead{margin:10px 0 12px;padding:12px 14px;background:#F3F6F5;border-left:4px solid #0C5560;border-radius:0 6px 6px 0}.sci-lead p{margin:0 0 6px;font-size:16px;line-height:1.45;font-weight:600;color:#14212A}.sci-lead p:last-child{margin:0}@media (max-width:760px){.sci-lead p{font-size:14.5px}}.sci-s{border-top:2px solid #0C5560;padding-top:12px}.sci-s h3{font-size:16px;margin:0 0 6px}.sci-s h3 span{color:#0C5560;margin-right:6px}
+.sci-s p{margin:0 0 10px;color:#24333B}.sci-s h4{font-size:13.5px;margin:14px 0 2px}.sci-s .cap{font-size:12px;color:#5B6B70;font-style:italic;margin:2px 0 8px}
+.sci-s svg{display:block;width:100%;height:auto;font-family:Inter,system-ui,sans-serif}.sci-s svg .bar:hover{opacity:.8}.sci-s .sci-go{font:inherit;font-size:13px;padding:6px 12px;border-radius:4px;border:1px solid #14212A;background:#14212A;color:#fff;cursor:pointer;margin-top:6px}
+.sci-s .lg{display:flex;gap:14px;font-size:12px;color:#24333B;margin:2px 0 4px}.sci-s .lg i{display:inline-block;width:11px;height:11px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.bsm{display:none}@media (max-width:760px){.bsd{display:none}.bsm{display:inline}.sci{padding:8px}.sci-box{padding:14px 14px 16px;font-size:13.5px}#bSci{padding:4px 7px}}
+.st-what{margin:2px 0 8px;font-size:13px;line-height:1.45;color:#24333B}.st-what b,.st-means b{color:#14212A;font-weight:600}
+.st-means{margin:6px 0 8px;padding:6px 9px;font-size:13px;line-height:1.45;color:#24333B;background:#F3F6F5;border-left:3px solid #14808E;border-radius:0 4px 4px 0}
+.gl{text-decoration:underline dotted #5B6B70;text-underline-offset:3px;cursor:help}.gl:focus-visible{outline:2px solid #0072b2;outline-offset:1px}
+.gltip{position:fixed;z-index:80;max-width:280px;background:#F5F5F2;color:#14212A;border-left:3px solid #14808E;border-radius:0 4px 4px 0;box-shadow:0 2px 12px rgba(0,0,0,.18);padding:7px 10px;font:12.5px/1.45 Inter,system-ui,sans-serif;pointer-events:none}.gltip b{display:block;font-size:12px;margin-bottom:2px}.gltip[hidden]{display:none}
+.glist dt{font-weight:600;margin-top:6px}.glist dd{margin:0 0 2px;color:#24333B}
+.sci-s + .sci-s,#sciBody + .sci-s{margin-top:24px}
+.sci-tb{width:100%;border-collapse:collapse;font-size:12.5px;margin:4px 0 6px}.sci-tb th{text-align:left;font-weight:600;color:#5B6B70;border-bottom:1px solid #D8E0DF;padding:4px 6px}.sci-tb td{padding:4px 6px;border-bottom:1px solid #EDF1F0}.sci-tb td+td,.sci-tb th+th{text-align:right}
+.chain{list-style:none;margin:8px 0 4px;padding:0;counter-reset:none}.chain > li{position:relative;display:grid;grid-template-columns:30px 1fr;gap:0 10px;padding:0 0 12px}
+.chain > li:not(:last-child)::before{content:"";position:absolute;left:14px;top:28px;bottom:2px;border-left:2px solid #D8E0DF}
+.chain .cn{width:28px;height:28px;border-radius:50%;background:#0C5560;color:#fff;font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.pf{margin:4px 0 0;padding-left:16px;font-size:12.5px;line-height:1.45;color:#3A4A52}.pf li{margin:2px 0}.tc .pf{padding-left:15px}
+.chain b{display:block;font-size:14px;color:#14212A;margin:3px 0 2px}.chain p{margin:0;font-size:13px;line-height:1.5;color:#24333B}
+.tests{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 4px}.tc{background:#F3F6F5;border-radius:6px;padding:10px 12px;font-size:13px;line-height:1.5;color:#24333B}.tc b{display:block;font-size:13.5px;color:#14212A;margin-bottom:3px}.tc b span{color:#0C5560;margin-right:5px}
+.expl h4{margin:12px 0 4px}.expl ul,.open{margin:0;padding-left:18px;font-size:13px;line-height:1.5;color:#24333B}.expl li,.open li{margin:3px 0}.expl .st{font-size:11px;color:#0C5560;white-space:nowrap}
+.sci-m{margin-top:26px;font-size:17px;border-top:2px solid #0C5560;padding-top:12px}.srcs{font-size:11.5px;color:#5B6B70;line-height:1.5;padding-left:18px}.srcs li{margin:2px 0}
+@media (max-width:760px){.tests{grid-template-columns:1fr}}
 .mapleg .lk{display:grid;grid-template-columns:1fr 1fr;gap:3px 10px}.mapleg .lk span{display:flex;align-items:center;gap:5px;white-space:nowrap}.mapleg .lk i{display:inline-block;width:11px;height:11px;border-radius:2px;flex:none}
 
 /* before/after swipe 2026-11-18 */
@@ -281,7 +306,7 @@ body.touring .cmp-l,body.touring .cmp-r{top:auto;bottom:70px}
 .welcome[hidden]{display:none!important}
 .welcome .wbox{width:100%!important;max-height:calc(100vh - 220px);box-shadow:0 4px 24px rgba(0,0,0,.22)!important}
 .welcome .wlead{font-weight:600;color:#14212A!important}
-#welcome:not([hidden]) ~ .blc{display:none}
+#welcome:not([hidden]) ~ .blc{top:52px;bottom:auto}#welcome:not([hidden]) ~ .blc .scalebar{display:none}   /* the land key is on the first screen (Ali 2026-11-21) */
 .welcome .wparts{margin:0 0 12px;font-size:13px}.welcome .wparts summary{cursor:pointer;color:#5B6B70}
 .welcome .wparts ol{margin:6px 0 0}
 @media (max-width:760px){.welcome{inset:auto 8px 8px 8px!important;width:auto}.welcome .wbox{max-height:52vh;padding:14px 16px 12px!important;font-size:13px}.welcome p:not(.wlead):not(.wshort){display:none}.welcome .wparts{display:none}.welcome .wb{gap:6px}.welcome .wb button{padding:7px 10px;font-size:13px}}
@@ -384,6 +409,12 @@ body{color:#14212A}
 .wc-b{height:8px;background:#EDF1F0;border-radius:2px;margin-top:2px}.wc-b i{display:block;height:100%;border-radius:2px}
 .wc-r small{font-size:10.5px;color:#6b7378}.wc-c{width:100%;height:68px;display:block;margin-top:8px}.wc-ax{display:flex;justify-content:space-between;font-size:10.5px;color:#6b7378}
 .wc-n{font-size:10.5px;color:#6b7378;margin:6px 0 0;line-height:1.35}
+/* panels review 2026-11-21, A + C (desktop): the list chooses, the Inspector adjusts and reads. Every card shows its question; a picked card does not expand; controls live only in the Inspector. Phones unchanged. */
+@media (min-width:761px){
+#drop .lgb > .card-o > .q,#drop .card-o > .q{display:-webkit-box!important;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;flex:1 1 100%;order:3;color:#5B6B70;font-size:11px!important;line-height:1.35!important;margin:0}
+#drop .lgb > .card-o[aria-pressed=true] > .sub,#drop .lgb > .card-o[aria-pressed=true] > .nod,#drop .card-o[aria-pressed=true] > .sub,#drop .card-o[aria-pressed=true] > .nod{display:none!important}
+#drop .lgb > .card-o[aria-pressed=true] > .q{-webkit-line-clamp:3}
+}
 </style>
 </head>
 <body class="app">
@@ -394,6 +425,7 @@ body{color:#14212A}
     <div class="menu"><button id="bViews" class="tb" aria-expanded="false" aria-controls="views">View ▾</button>
       <div class="pop views" id="views" hidden><div class="ph">Go to</div><div class="vlist"><button data-view="all">Whole valley</button><button data-view="sac">Sacramento</button><button data-view="delta">Delta</button><button data-view="sj">San Joaquin</button><button data-view="tulare">Tulare</button></div>
     <label class="chk"><input type="checkbox" id="bReg" checked> Region outlines</label><label class="chk"><input type="checkbox" id="bRegLab" checked> Region labels</label><label class="chk"><input type="checkbox" id="bRoads"> Major roads, 2023</label><label class="chk"><input type="checkbox" id="bNames"> Name labels</label><div class="pnote">Roads are today's network (Census TIGER 2023), shown in every year when on, at true ground width: the road, its corridor, and for freeways the road-effect zone.</div></div></div>
+    <button id="bSci" class="tb" aria-expanded="false" aria-controls="sci" title="The findings in points and charts"><span class="bsd">Read the science</span><span class="bsm">Science</span></button>
     <button id="bHow" class="tb" title="A short tour of the controls, each shown working">How to use</button>
     <button id="bTour" class="tb" title="Start the guided walkthrough from the beginning">Walkthrough</button>
     <button id="bClean" class="tb" aria-pressed="false" title="Show the map alone (Ctrl+\)">Map only</button>
@@ -461,9 +493,17 @@ body{color:#14212A}
       <p class="wshort"><b>The case:</b> the floor lost its water, and the air over it now turns less ocean vapour into rain. <b>The other explanation:</b> a change in Pacific weather. The walkthrough tests both.</p>
       <details class="wparts"><summary>Read more</summary><p><b>The case:</b> the valley floor lost its water: drained, dammed and pumped. Since then the low air over it warms and dries faster after rain, no longer builds its own fog, and turns less of the same ocean vapour into rain.</p>
       <p><b>The other explanation:</b> a change in the weather from the Pacific (less vapour, a warmer sea, more stable air aloft) would show at sea, aloft and on the mountain slope as much as on the floor. The walkthrough shows both, place by place.</p><p>The walkthrough: 7 parts, 15 chapters.</p><ol><li>The valley before and after <span>(4 chapters)</span></li><li>The ground lost its water <span>(3)</span></li><li>The low air after rain <span>(1)</span></li><li>Cloud and rain <span>(4)</span></li><li>Where the change is, and where it is not <span>(1)</span></li><li>Where water is returned <span>(1)</span></li><li>Settled, and what is measured next <span>(1)</span></li></ol></details>
+      <div class="wkp" id="wKeyPh"></div>
       <div class="wb"><button class="primary" id="wStart">Start the walkthrough</button><button id="wSkip">Explore the map on my own</button><button id="wHow">How to use</button></div>
     </div></div>
     <div class="hint" id="hint" hidden></div>
+    <div class="sci" id="sci" role="dialog" aria-labelledby="sciT" hidden><div class="sci-box">
+      <div class="sci-h"><h2 id="sciT">Read the science</h2><button class="sci-x" id="sciX" aria-label="Close">✕</button></div>
+      <div class="sci-lead"><p>California's water and weather problems were made on the land: drained, pumped, dammed and left bare in winter.</p><p>Where a change of background climate would show (at sea, in the air above the floor, on the forested slope, in the vapour arriving) nothing changed.</p><p>Where water is put back, the air comes back.</p><p>Over California the land air warmed 0.77 K in summer and lost 3.3 % of its water vapour. The ocean air beside it warmed 0.07 K and gained vapour.</p></div>
+      <p class="sci-i">How the land changed the weather, how we know it is the land, what it explains, and what is still open. Each number names its record in the sources at the end.</p>
+      <div id="sciBody"></div>
+      <section class="sci-s" id="sciFire"></section>
+    </div></div>
     <div id="gring" hidden></div>
     <div id="plateDlg" role="dialog" aria-label="Print plate" hidden><div class="pd-box">
       <div class="pd-h">Print plate</div>
@@ -1350,6 +1390,7 @@ function renderLegend() {
   if (open.length) $("legBody").querySelectorAll("details:not(.more)").forEach((d, k) => { if (open[k] !== undefined && $("legBody").dataset.ov === ov) d.open = open[k]; });
   if ($("legBody").dataset.ov !== ov && $("secYear")) $("secYear").open = ov === "none";   // the year tiles and chronology belong to the land; folded under a data layer
   $("legBody").dataset.ov = ov;
+  try { glossify($("legBody")); } catch (e) { /* glossary not built yet */ }
   $("legBody").hidden = !legOpen; $("legToggle").setAttribute("aria-expanded", String(legOpen)); $("legArrow").textContent = legOpen ? "▾" : "▴";
   if (typeof renderCards === "function") try { renderCards(); } catch (e) {}
 }
@@ -1846,6 +1887,40 @@ CHAPTERS[1].from = 1874; CHAPTERS[2].from = 1930; CHAPTERS[3].from = 1975;   // 
 CHAPTERS[1].cmp = { a: 1874, x: 0.62 }; CHAPTERS[2].cmp = { a: 1930, x: 0.62 }; CHAPTERS[3].cmp = { a: 1850, x: 0.62 };   // left: the chapter's start (before 1900 for the last), right: the year that plays; chapter 1 is before 1900 alone
 const SHOW = [{ regions: 1 }, { pins: 1, dams: 1 }, { pins: 1, dams: 1 }, { regions: 1 }, { dams: 1 }];   // markers each chapter needs; the rest stay off in the walkthrough
 CHAPTERS.forEach((c, k) => (c.show = SHOW[k] || {}));
+// G1 (DK pass, Ali 2026-11-21): one line on what the chapter shows, one on what it means. Same claim strength as the chapter text; inference is marked.
+const EXPLAIN = [
+  ["The valley floor before farming, drawn from the pre-1900 historic vegetation map (Central Valley Historic Mapping Project).",
+   "This is the land the later chapters compare today's floor with: a floor that held water at the surface for part of every year."],
+  ["Land use on the floor year by year, 1874 to 1930, from the USGS CVHM2 land-use cells.",
+   "In these years most of the water that stood on the floor in the wet season was drained away and fields took its place. The next chapters follow what that did below the ground and in the air above."],
+  ["The dams in the mountains and the water stored behind them, in the year each was built.",
+   "Water that reached the floor as winter and spring floods is now held in reservoirs and moved in canals on a schedule."],
+  ["Land use in 2019 (CVHM2), with today's towns.",
+   "Of the wet floor in chapter 1 only a small remnant is left. The chapters that follow measure what changed with it: the rivers, the groundwater and the air."],
+  ["Each major river's natural flow, what it would carry with no dams, set against the flow measured below its dam.",
+   "Less river water reaches the floor to spread over it and soak into it."],
+  ["The depth from the ground down to groundwater, measured in wells: surveys of 1905-14 against state wells today.",
+   "Groundwater within reach of roots keeps plants and wet soil giving water to the air; once it falls below the roots, that supply stops."],
+  ["Floor that was wet before 1900 and is not wet now, and floor still wet today.",
+   "Wet land held water at the surface through the storm season. Without it the ground warms faster after rain (measured by satellite), and less of the rain's water goes back to the air from the floor (inference)."],
+  ["How much warmer each winter afternoon gets after a rain, at the valley airports, before 2000 and since.",
+   "The floor used to keep a cool, moist layer of air for days after rain, where fog formed. It now warms as the dry slope does. The warming is measured; the loss of that layer is the reading of it (inference)."],
+  ["A weather model ran one winter three times with the same incoming weather, changing only the land under it.",
+   "A lower cloud base means moister air near the ground, so rain can form lower and sooner (inference, one model winter, for direction only)."],
+  ["Of the vapour the storms carried in from the Pacific, the share that fell as rain on the floor, 1980-99 against 2000-22.",
+   "The vapour arriving shows no change that can be separated from zero, so the drop is in how much of it turns into rain over the land."],
+  ["Storms split by whether the low wind stalls against the Sierra (blocked) or flows straight up it (unblocked).",
+   "Blocked storms lift the valley's own low air; unblocked storms lift ocean air. Only blocked storms lost rain, which is what a change in the valley's own air predicts and a change in the ocean air does not."],
+  ["The same blocked against unblocked comparison on the oldest rain records, winters of 1925-41 against 1957-80.",
+   "The contrast was already there while the floor was being drained and the rivers dammed, decades before the recent warming."],
+  ["The after-rain warming at sea, on the mountain slope and in the air aloft, set beside the low ground.",
+   "A change in the Pacific weather would show everywhere; a change made by the land shows on the land that changed. The records show it on the low ground only."],
+  ["Flux towers on rewetted Delta land (marsh and rice) against towers on drained farmland a few kilometres away, on the same days.",
+   "Where water is put back, the air above it moves back the way the case predicts, in the same weather."],
+  ["What the records have settled, and the questions whose next instrument is named.",
+   "Two questions are answered by measurement. For the other two the page names the instrument that will measure them."],
+];
+CHAPTERS.forEach((c, k) => { if (EXPLAIN[k]) [c.what, c.means] = EXPLAIN[k]; });
 const UNDER_FARMS = (() => {   // 2019 farmed pixels (rice, orchard, field, pasture, idle, irrigated other) by their pre-1900 type
   const code = codes(M.years[1]), px = (G.tex_m / 1000) ** 2; let n = 0, grass = 0, wet = 0;
   for (let i = 0; i < N; i++) { const cl = cellOf[i]; if (cl < 0) continue; const g = code[cl]; if (g < 3 || g > 8) continue; n++; if (natOf[i] === 1) grass++; else if (WET_TYPES.has(natOf[i])) wet++; }
@@ -1887,6 +1962,13 @@ function renderStory() {
   storyBox.innerHTML = `<div class="st-top st-head"><span class="st-pp">${chapter + 1} / ${CHAPTERS.length} · ${partOf(chapter)}</span><button class="st-x" data-st="min" title="Minimise" aria-label="Minimise the chapter">–</button></div><div class="st-prog">${prog}</div><h2>${c.title}${c.tag ? `<span class="kind ${TAGS[c.tag][0]}">${TAGS[c.tag][1]}</span>` : ""}</h2>${nm ? `<div class="st-num"><b>${nm[0]}</b><span>${nm[1]}</span></div>` : ""}${c.fig ? c.fig() : ""}${isPhone() || (c.side && matchMedia("(max-width:1100px)").matches) ? `<details class="st-more"><summary>Read the chapter</summary>${body}</details>` : body}
     <div class="st-b"><button class="st-leave" data-st="leave">Leave the walkthrough</button><button data-st="prev" ${chapter ? "" : "disabled"}>Back</button><button data-st="next">${chapter < CHAPTERS.length - 1 ? "Next" : "Explore the map"}</button></div>`;
   shortenCard(c);
+  if (c.what) {   // G1: what this is under the title, what it means under the headline number (outside the folds)
+    const h2 = storyBox.querySelector("h2"), w = document.createElement("p"), m = document.createElement("p");
+    w.className = "st-what"; w.innerHTML = `<b>What this is:</b> ${c.what}`; h2.after(w);
+    m.className = "st-means"; m.innerHTML = `<b>What it means:</b> ${c.means}`;
+    (storyBox.querySelector(".st-replay") || storyBox.querySelector(".st-num") || w).after(m);
+  }
+  try { glossify(storyBox); } catch (e) { /* glossary not built yet */ }
   if (c.water && globalThis.__w2) {   /* support layer on request: off when the chapter opens, off again when it is left */
     const on = W_ALL.some((id) => $(id).checked), w = document.createElement("div"); w.className = "st-water";
     w.innerHTML = `<button>${on ? "Hide" : "Show"} where this water goes</button><span>Rivers in, canals and pumping, water out to the ocean, from reported records for ${year}.</span>${on ? `<div class="st-wkey">${waterKeyHtml(false)}</div>` : ""}`;
@@ -2006,9 +2088,287 @@ function mapLegend() {
   }
   if (c) { el.innerHTML = `<b>${c.querySelector("b").textContent}</b>` + [...c.querySelectorAll(".dots, .ramp, .rl")].filter((e) => !e.hidden).map((e) => e.outerHTML).join(""); el.hidden = !el.querySelector(".dots, .ramp"); return; }
   const sw = [["water", "Water"], ["marsh", "Marsh"], ["grass", "Grassland"], ["oak", "Oak savanna"], ["field", "Field crops"], ["orchard", "Orchard"], ["urban", "Town"], ["forestE", "Conifer forest"], ["burn0", "Burnt this year"], ["burn1", "Burnt 1 to 2 years"]];
-  el.innerHTML = `<b>Land cover, ${season ? "summer" : "winter"} ${typeof cmpOn !== "undefined" && cmpOn ? `${yLab(cmpA)} left, ${yLab(year)} right` : year < M.years[0] ? "before 1900" : year}</b><div class="lk">${sw.map(([k, l]) => `<span><i style="background:rgb(${PAL[k][season].map(Math.round).join(",")})"></i>${l}</span>`).join("")}</div>`;
+  const lk = sw.map(([k, l]) => `<span><i style="background:rgb(${PAL[k][season].map(Math.round).join(",")})"></i>${l}</span>`).join("");
+  el.innerHTML = `<b>Land cover, ${season ? "summer" : "winter"} ${typeof cmpOn !== "undefined" && cmpOn ? `${yLab(cmpA)} left, ${yLab(year)} right` : year < M.years[0] ? "before 1900" : year}</b><div class="lk">${lk}</div>`;
+  if ($("wKeyPh")) $("wKeyPh").innerHTML = lk;   // phones: the same key as a strip in the welcome card
   el.hidden = false;
 }
+// ---------------------------------------------------------------- glossary (G2, Ali 2026-11-21): first use of a term in a panel gets a dotted underline and a one-line definition
+const GLOSS = [
+  [["tule marsh"], "Tule marsh", "Freshwater marsh of tule, a tall bulrush, standing in shallow water for much of the year."],
+  [["riparian forest", "riverside forest"], "Riverside (riparian) forest", "Forest along rivers, fed by floods and shallow groundwater: valley oak, cottonwood, willow."],
+  [["seasonally flooded"], "Seasonally flooded land", "Land under water in the wet season, from winter and spring floods, and dry in summer."],
+  [["groundwater-fed"], "Groundwater-fed land", "Native land whose plants reach groundwater, so it stays green into the dry season."],
+  [["water table"], "Water table", "The depth below the ground at which the soil is full of water: the top of the groundwater."],
+  [["natural flow"], "Natural flow", "What a river would carry with no dams or diversions upstream (California's full natural flow estimate, CDEC)."],
+  [["degree of regulation", "DOR"], "Degree of regulation", "Water stored behind the dams upstream of a point, as a share of one year's natural flow there."],
+  [["CVHM2"], "CVHM2", "USGS Central Valley Hydrologic Model, version 2. Its land-use record gives one class per one-mile cell for each year from 1874 to 2019."],
+  [["NLCD"], "NLCD", "National Land Cover Database (USGS), a land-cover map of the United States from satellite images at 30 m."],
+  [["water year"], "Water year", "October to September, so one winter's rain falls in one year: water year 2019 runs from October 2018 to September 2019."],
+  [["flux tower", "flux towers"], "Flux tower", "A mast with fast sensors that measures the heat and water vapour moving between the ground and the air."],
+  [["cloud base"], "Cloud base", "The height at which rising air has cooled enough for its water vapour to condense into cloud. Moister air near the ground gives a lower cloud base."],
+  [["reanalysis"], "Reanalysis", "A gridded record of past weather, made by running a weather model that is corrected throughout by observations."],
+  [["weather model"], "Weather model", "A computer simulation of the atmosphere. Here it is run with the same incoming weather over different land."],
+  [["blocked storm", "blocked storms"], "Blocked storm", "A storm whose low wind stalls against the Sierra instead of flowing up it, so the air lifted over the floor is the valley's own low air."],
+  [["unblocked storm", "unblocked storms"], "Unblocked storm", "A storm whose low wind flows straight up the Sierra, so the air lifted is ocean air."],
+  [["rain per unit of incoming vapour", "rain per unit of ocean vapour", "rain per unit of vapour", "same ocean vapour", "same vapour"], "Rain per unit of vapour", "Rain that fell divided by the water vapour the storm carried in from the Pacific: the share of the supply that became rain."],
+  [["vapour flux", "kg/m/s"], "Vapour flux", "The water vapour carried past each metre of a line each second, summed through the whole air column, in kg/m/s."],
+  [["day-night swing", "day-night range"], "Day-night swing", "The difference between the warmest and the coolest air temperature of a day."],
+  [["95 % range", "90 % range"], "95 % range (or 90 %)", "The spread of values the data allow, from resampling the days or stations. A range that does not cross zero is a change the data resolve."],
+  [["applied water"], "Applied water", "Irrigation water spread on fields; winter applied water includes flooding fields after harvest."],
+  [["fallow"], "Fallow", "Farmland left unplanted for a season or more."],
+  [["TCWV", "TPW", "column vapour"], "Column vapour (TCWV, TPW)", "All the water vapour in a column of air, written as the millimetres of water it would make if it all fell out."],
+];
+const GL_MAP = new Map(); GLOSS.forEach((g, i) => g[0].forEach((t) => GL_MAP.set(t.toLowerCase(), i)));
+const GL_RE = new RegExp(`(?<![\\w-])(${[...GL_MAP.keys()].sort((a, b) => b.length - a.length).join("|")})(?![\\w-])`, "i");   // no term holds a regex special character
+const GL_SKIP = "button, summary, select, option, svg, .gl, .kind, .key, .st-key, .lk, .dots, .st-num, .st-src, .src, .st-pp, h2, h3, h4, label, a, th";
+function glossify(root) {
+  if (!root) return;
+  const seen = new Set(), walk = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, { acceptNode: (n) => (n.parentElement && !n.parentElement.closest(GL_SKIP) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT) });
+  const nodes = []; while (walk.nextNode()) nodes.push(walk.currentNode);
+  for (let n of nodes) {
+    let m;
+    while (n && (m = GL_RE.exec(n.nodeValue))) {
+      const i = GL_MAP.get(m[1].toLowerCase());
+      if (seen.has(i)) { const rest = n.splitText(m.index + m[1].length); n = rest; continue; }
+      seen.add(i);
+      const mid = n.splitText(m.index), after = mid.splitText(m[1].length), sp = document.createElement("span");
+      sp.className = "gl"; sp.tabIndex = 0; sp.dataset.g = i; sp.textContent = mid.nodeValue; mid.replaceWith(sp); n = after;
+    }
+  }
+}
+const glTip = document.createElement("div"); glTip.className = "gltip"; glTip.hidden = true; glTip.setAttribute("role", "tooltip"); document.body.appendChild(glTip);
+let glCur = null;
+function glShow(el) {
+  glCur = el;
+  const g = GLOSS[+el.dataset.g]; glTip.innerHTML = `<b>${g[1]}</b>${g[2]}`; glTip.hidden = false;
+  const r = el.getBoundingClientRect(), tw = glTip.offsetWidth, th = glTip.offsetHeight;
+  glTip.style.left = `${Math.max(8, Math.min(innerWidth - tw - 8, r.left))}px`;
+  glTip.style.top = `${r.bottom + 6 + th > innerHeight ? r.top - th - 6 : r.bottom + 6}px`;
+}
+const glHide = () => (glTip.hidden = true);
+document.addEventListener("mouseover", (e) => { const g = e.target.closest && e.target.closest(".gl"); if (g) glShow(g); });
+document.addEventListener("mouseout", (e) => { if (e.target.closest && e.target.closest(".gl")) glHide(); });
+document.addEventListener("focusin", (e) => { if (e.target.classList && e.target.classList.contains("gl")) glShow(e.target); });
+document.addEventListener("focusout", (e) => { if (e.target.classList && e.target.classList.contains("gl")) glHide(); });
+document.addEventListener("click", (e) => { const g = e.target.closest && e.target.closest(".gl"); if (g) { if (!glTip.hidden && glCur === g) glHide(); else glShow(g); } else glHide(); });
+addEventListener("scroll", glHide, true);
+{ const ab = $("about"); if (ab) { const d = document.createElement("div"); d.innerHTML = `<div class="ph">Glossary</div><dl class="glist">${GLOSS.map(([, t, def]) => `<dt>${t}</dt><dd>${def}</dd>`).join("")}</dl>`; ab.appendChild(d); } }
+// ---------------------------------------------------------------- read the science: numbered points with charts (Ali 2026-11-20 note, fire first 2026-11-21)
+// Burnt area by decade on the page grid, km² with reburns counted each time: raw/tests/2026-11-16_valley-3d-fires.md (from src/landscape/valley3d_fires.py).
+const FIRE_DEC = [[1910, 4150, 10], [1920, 8799, 10], [1930, 4918, 10], [1940, 4090, 10], [1950, 6792, 10], [1960, 6141, 10], [1970, 6377, 10], [1980, 8207, 10], [1990, 9820, 10], [2000, 16028, 10], [2010, 22328, 10], [2020, 30212, 6]];
+// Times burnt, two 38-year spans, km²: raw/tests/2026-11-21_valley-3d-review-applied.md (src/landscape/valley3d_fire_counts.py).
+const FIRE_SPAN = [["At least once", 23639, 63972], ["Twice or more", 2306, 13678], ["Three times or more", 279, 1713]];
+const fmtK = (v) => Math.round(v).toLocaleString("en-GB");
+function fireDecadeRows() {   // narrow screens: one row per decade, so labels stay readable
+  const W = 340, rh = 21, L = 54, R = 44, H = FIRE_DEC.length * rh + 18, max = 5100, x = (v) => L + (W - L - R) * v / max;
+  let g = "";
+  FIRE_DEC.forEach(([d, km, yrs], i) => {
+    const v = km / yrs, y0 = i * rh, early = d < 1950, lab = yrs < 10 ? `${d}-${String(d + yrs - 1).slice(2)}` : `${d}s`;
+    g += `<text x="${L - 6}" y="${y0 + 13}" text-anchor="end" font-size="11" fill="#5B6B70">${lab}</text><rect class="bar" x="${L}" y="${y0 + 3}" width="${x(v) - L}" height="13" rx="3" fill="${early ? "#C9CFCF" : "#B2182B"}"><title>${lab}: ${fmtK(v)} km² a year</title></rect><text x="${x(v) + 5}" y="${y0 + 13}" font-size="11" font-weight="700" fill="${early ? "#7A8A90" : "#14212A"}">${fmtK(v)}</text>`;
+  });
+  g += `<text x="${L}" y="${H - 4}" font-size="10.5" font-style="italic" fill="#7A8A90">grey: record incomplete before 1950</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Burnt area per year, mean of each decade, 1910s to 2020-2025">${g}</svg>`;
+}
+function fireDecadeSvg() {
+  if (isPhone()) return fireDecadeRows();
+  const W = 700, H = 270, L = 46, R = 10, T = 22, B = 34, n = FIRE_DEC.length, bw = (W - L - R) / n, max = 5500, y = (v) => T + (H - T - B) * (1 - v / max);
+  let g = "";
+  for (const t of [0, 1000, 2000, 3000, 4000, 5000]) g += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="#D8E0DF" stroke-width="1"/><text x="${L - 6}" y="${y(t) + 4}" text-anchor="end" font-size="11" fill="#5B6B70">${fmtK(t)}</text>`;
+  FIRE_DEC.forEach(([d, km, yrs], i) => {
+    const v = km / yrs, x = L + i * bw + 5, w = bw - 10, early = d < 1950, lab = yrs < 10 ? `${d}-${String(d + yrs - 1).slice(2)}` : `${d}s`;
+    g += `<rect class="bar" x="${x}" y="${y(v)}" width="${w}" height="${y(0) - y(v)}" rx="3" fill="${early ? "#C9CFCF" : "#B2182B"}"><title>${lab}: ${fmtK(v)} km² a year (${fmtK(km)} km² in ${yrs} years)${early ? ", record incomplete" : ""}</title></rect>`;
+    g += `<text x="${x + w / 2}" y="${y(v) - 5}" text-anchor="middle" font-size="11.5" font-weight="700" fill="${early ? "#7A8A90" : "#14212A"}">${fmtK(v)}</text><text x="${x + w / 2}" y="${H - B + 16}" text-anchor="middle" font-size="11" fill="#5B6B70">${lab}</text>`;
+  });
+  g += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="#5B6B70"/><text x="${L + 2 * bw}" y="${H - 4}" text-anchor="middle" font-size="11" font-style="italic" fill="#7A8A90">record incomplete before 1950</text>`;
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Burnt area per year, mean of each decade, 1910s to 2020-2025">${g}</svg>`;
+}
+function fireSpanSvg() {
+  const ph = isPhone(), W = ph ? 340 : 700, rh = 46, T = 6, L = ph ? 96 : 150, R = ph ? 46 : 70, H = T + FIRE_SPAN.length * rh, max = 66000, x = (v) => L + (W - L - R) * v / max;
+  let g = "";
+  FIRE_SPAN.forEach(([lab, a, b], i) => {
+    const y0 = T + i * rh;
+    g += `<text x="${L - 8}" y="${y0 + 20}" text-anchor="end" font-size="${ph ? 11 : 12}" fill="#14212A">${ph ? ["1 time or more", "2 or more", "3 or more"][i] : lab}</text>`;
+    g += `<rect class="bar" x="${L}" y="${y0}" width="${Math.max(2, x(a) - L)}" height="15" rx="3" fill="#F4A582"><title>${lab}, 1950-1987: ${fmtK(a)} km²</title></rect><text x="${Math.max(x(a), L + 2) + 6}" y="${y0 + 12}" font-size="11.5" font-weight="700" fill="#14212A">${fmtK(a)}</text>`;
+    g += `<rect class="bar" x="${L}" y="${y0 + 18}" width="${Math.max(2, x(b) - L)}" height="15" rx="3" fill="#B2182B"><title>${lab}, 1988-2025: ${fmtK(b)} km² (${(b / a).toFixed(1)} times 1950-1987)</title></rect><text x="${x(b) + 6}" y="${y0 + 30}" font-size="11.5" font-weight="700" fill="#14212A">${fmtK(b)}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Area burnt once, twice and three or more times, 1950-1987 against 1988-2025">${g}</svg>`;
+}
+// ---- California's problems and the evidence (Ali 2026-11-21: "read the science shows the story in science terms, what are the general problems associated with california and how all of them are land use related")
+// Problem list and statuses: knowledge/wiki/problems-land-regulation-tracker.md; numbers from the records named in each line.
+const SCC = { ink: "#14212A", mut: "#5B6B70", rule: "#D8E0DF", land: "#D55E00", grey: "#9AA5A8", ocean: "#0072B2", then: "#009E73", farm: "#E69F00" };
+const sciW = () => (isPhone() ? 340 : 700);
+const sgnf = (v, d = 1) => `${v > 0 ? "+" : v < 0 ? "−" : ""}${Math.abs(v).toFixed(d)}`;
+function dotCI(rows, o) {   // rows: [label, sub, [[value, lo, hi, colour, tip], ...]]
+  const ph = isPhone(), W = sciW(), L = ph ? 112 : 200, R = 16, rh = o.rh || 34, T = 6, H = T + rows.length * rh + 22, x = (v) => L + (W - L - R) * (v - o.min) / (o.max - o.min);
+  let g = "";
+  for (const t of (ph && o.ticksPh) || o.ticks) g += `<line x1="${x(t)}" x2="${x(t)}" y1="${T}" y2="${H - 18}" stroke="${t === 0 ? SCC.mut : SCC.rule}" stroke-width="1"/><text x="${x(t)}" y="${H - 5}" text-anchor="middle" font-size="10.5" fill="${SCC.mut}">${o.tf(t)}</text>`;
+  rows.forEach(([lab, sub, ser], i) => {
+    const yc = T + i * rh + rh / 2;
+    g += `<text x="${L - 8}" y="${yc + (sub ? -1 : 4)}" text-anchor="end" font-size="${ph ? 11 : 12}" fill="${SCC.ink}">${lab}</text>` + (sub ? `<text x="${L - 8}" y="${yc + 11}" text-anchor="end" font-size="10" fill="${SCC.mut}">${ph ? sub.replace(/^(central track|central|north), /, "") : sub}</text>` : "");
+    ser.forEach(([v, lo, hi, c, tip], k) => {
+      const y = yc + (ser.length > 1 ? (k ? 6 : -6) : 0);
+      if (lo != null) g += `<line x1="${x(Math.max(o.min, lo))}" x2="${x(Math.min(o.max, hi))}" y1="${y}" y2="${y}" stroke="${c}" stroke-width="2.2" stroke-linecap="round"/>`;
+      g += `<circle class="bar" cx="${x(v)}" cy="${y}" r="5" fill="${c}" stroke="#fff" stroke-width="1.5"><title>${tip}</title></circle>`;
+    });
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.aria}">${g}</svg>`;
+}
+function hBars(rows, o) {   // rows: [label, value, colour, tip]
+  const ph = isPhone(), W = sciW(), L = ph ? 112 : 200, R = 44, rh = 24, H = rows.length * rh + 6, x = (v) => L + (W - L - R) * v / o.max;
+  let g = "";
+  rows.forEach(([lab, v, c, tip], i) => { const y0 = 3 + i * rh; g += `<text x="${L - 8}" y="${y0 + 15}" text-anchor="end" font-size="${ph ? 11 : 12}" fill="${SCC.ink}">${lab}</text><rect class="bar" x="${L}" y="${y0 + 4}" width="${Math.max(2, x(v) - L)}" height="15" rx="3" fill="${c}"><title>${tip}</title></rect><text x="${x(v) + 6}" y="${y0 + 16}" font-size="11.5" font-weight="700" fill="${SCC.ink}">${o.fmt(v)}</text>`; });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.aria}">${g}</svg>`;
+}
+function vapourSvg() {   // western North America, land against ocean, change of specific humidity by season (HadISDH)
+  const S = [["Winter", -1.7, null, null, 2.0], ["Spring", -6.0, -9.3, -2.6, 2.3], ["Summer", -4.3, -7.7, -1.0, 3.9], ["Autumn", -2.7, null, null, 3.1]];
+  const ph = isPhone(), W = sciW(), H = 230, L = 40, R = 8, T = 10, B = 26, gw = (W - L - R) / S.length, y = (v) => T + (H - T - B) * (6 - v) / 16;
+  let g = "";
+  for (const t of [-10, -6, -2, 2, 6]) g += `<line x1="${L}" x2="${W - R}" y1="${y(t)}" y2="${y(t)}" stroke="${SCC.rule}"/><text x="${L - 6}" y="${y(t) + 4}" text-anchor="end" font-size="10.5" fill="${SCC.mut}">${sgnf(t, 0)} %</text>`;
+  g += `<line x1="${L}" x2="${W - R}" y1="${y(0)}" y2="${y(0)}" stroke="${SCC.mut}"/>`;
+  S.forEach(([lab, la, lo, hi, oc], i) => {
+    const x0 = L + i * gw, bw = Math.min(46, gw / 2 - 10), xl = x0 + gw / 2 - bw - 3, xo = x0 + gw / 2 + 3;
+    g += `<rect class="bar" x="${xl}" y="${y(0)}" width="${bw}" height="${y(la) - y(0)}" rx="3" fill="${SCC.land}"><title>Land, ${lab.toLowerCase()}: ${sgnf(la)} %${lo != null ? ` (range ${sgnf(lo)} to ${sgnf(hi)})` : ""}</title></rect>`;
+    if (lo != null) g += `<line x1="${xl + bw / 2}" x2="${xl + bw / 2}" y1="${y(lo)}" y2="${y(hi)}" stroke="${SCC.ink}" stroke-width="1.4"/>`;
+    g += `<text x="${xl + bw / 2}" y="${y(0) + 14}" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">${sgnf(la)}</text>`;   // the value sits on top of the range line
+    g += `<rect class="bar" x="${xo}" y="${y(oc)}" width="${bw}" height="${y(0) - y(oc)}" rx="3" fill="${SCC.ocean}"><title>Ocean, ${lab.toLowerCase()}: ${sgnf(oc)} %</title></rect><text x="${xo + bw / 2}" y="${y(oc) - 4}" text-anchor="middle" font-size="11" font-weight="700" fill="${SCC.ink}">${sgnf(oc)}</text>`;
+    g += `<text x="${x0 + gw / 2}" y="${H - 6}" text-anchor="middle" font-size="11" fill="${SCC.mut}">${lab}</text>`;
+  });
+  return `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Change of water vapour in the air, land against ocean, by season">${g}</svg>`;
+}
+const lg = (items) => `<div class="lg">${items.map(([c, t]) => `<span><i style="background:${c}"></i>${t}</span>`).join("")}</div>`;
+function renderScience() {
+  const sec = (n, t, body) => `<section class="sci-s"><h3>${n ? `<span>${n}</span>` : ""}${t}</h3>${body}</section>`;
+  // 1. the chain (records: raw/notes/2026-11-21_chain-four-tests-open-items-for-science-panel.md)
+  const CHAIN = [
+    ["The wet land and the green winter cover were removed.", "The floor used to give water to the air all winter. It now gives a third as much: 3.79 km³ from November to March before farming, 1.27 km³ today. The water moved to summer, as irrigation."],
+    ["The sun's energy now heats the air instead of evaporating water.", "In the same winter satellite scene, bare crop ground is 1.5 K hotter than wet land. In spring, bare ground sends 53 W/m² of heat into the air; green irrigated land sends 14."],
+    ["The air over the floor got warmer and drier, and the fog stopped forming.", "On dry winter afternoons the floor air warmed 2.1 K more than the air above it, and the air above it did not warm. After rain, fog used to build day by day; it no longer does."],
+    ["Clouds now form higher.", "Drier air has to rise further before its vapour turns to cloud: about 330 m higher today (worked out from air 2.7 K further from saturation). In the weather model, cloud over the old land forms 121 m lower in the same storms."],
+    ["The storm arrives over this dry layer, unchanged at the coast.", "Storms now meet a dry floor more often: 41 % of storm days, up from 32 %. At the coast, a storm that comes after dry floor air is as long and as deep as the others: 12.09 against 12.34 hours of rain at San Francisco, and 1.66 against 1.82 saturated levels over Oakland."],
+    ["The first rain is lost into the dry air.", "When a storm starts over a dry floor, its first rain evaporates into the dry layer: the air cools 1.05 K more than over a moist floor, and about 0.8 mm of each storm's rain is used up this way, against 0.4 mm over a moist floor. The dry layer reaches 500 to 800 m up the slope."],
+    ["The storm lifts the valley's own low air over the Sierra.", "Storms that stall against the Sierra lift the air lying on the floor: they lost 24.9 % of their rain per unit of ocean vapour. Storms that flow straight over the mountains lift ocean air: they lost 0.4 %. Air further from saturation condenses higher and turns less of its vapour to rain on the way up; this join to step 8 is inferred, and both of its ends are measured."],
+    ["The rain loss grows along the path over the land.", "After dry floor air, in storms giving 5 to 15 mm at San Francisco: coast side +0.5 %, floor −15.1 %, Sierra slope −21.8 %, the gauges at 1,052 and 1,431 m −42.7 %. At equal inflow a storm day gives 9.4 mm over a dry floor and 18.2 mm over a moist one."],
+    ["Less rain and snow on the mountains.", "The April 1 snowpack is 10.5 to 19.3 % lower, and the lost precipitation carries 8.6 to 10.1 points of it in every height band."],
+    ["Less water returns to the floor, and the loop closes.", "Less snow and less river water on the floor in spring leave a warmer floor: the Sacramento floor is 2.00 K cooler for each 100 % of the natural spring flow in its rivers, and the San Joaquin now carries 0.27 of its natural spring flow through the floor, against 0.43 in 1930-49. A floor that receives less water is warmer and drier, which returns to step 3; this join is inferred, and both of its ends are measured."],
+    ["The dry air travels on.", "Beyond the Sierra the summer afternoon air holds 13 to 22 % less vapour and is 1.2 to 1.8 K warmer."],
+  ];
+  const PROOF = [
+    ["Land green in winter fell from 48.1 % of the floor in 1981 to 34.0 % in 2019; land bare or leafless in winter rose from 39.8 % to 48.6 %.", "Connected wet land: 20,723 km² before 1900, 570 to 1,180 km² today."],
+    ["The heat the dry floor gained is the size of the evaporation it lost: 1,690 J/kg of heat gained against 1,380 to 1,680 J/kg of evaporation missing.", "In summer, marsh is 14.3 K cooler at the surface by day than bare cropland beside it; in winter, 4.3 K cooler.", "Where the water table fell below 3 m, the ground heats 0.52 K more after rain."],
+    ["By hour: in December and January the floor is 3.02 K warmer in the afternoon, at all 11 stations, and 0.19 K before dawn. The heat arrives with the sun.", "By day since rain: the floor's warming grew from 0.27 K on rain days to 0.70 K after one to five dry days, 1.38 K after six to fifteen, and 1.68 K after more than fifteen.", "After a winter rain in 1982-94 the afternoon stayed near 14 °C for nine days. Today it climbs from 13.5 to 16.6 °C.", "The dew point fell at every one of the 11 floor stations, by 0.91 to 2.58 K on dry ground."],
+    ["Before the rain the air is drier at Sacramento (5 m) by 2.69 K and at Auburn (467 m) by 2.02 K, and not at Blue Canyon (1,611 m, 0.18 K). The dry layer is the floor's own."],
+    ["Over all storm sizes the same holds: 8.82 against 8.79 hours of rain, and 1.45 against 1.50 saturated levels."],
+    [],
+    ["The floor supplies 12.6 % of the vapour in the low air over it when a storm starts, and 21.3 % when storms come 2 to 5 days apart."],
+    ["In the same storms, the slope loses 22.2 points more than the coast side (95 % range −46.9 to −0.8), and the gauges at 1,052 and 1,431 m 34.9 points more (−74.6 to −4.4).", "With the storm's length held, the slope loss stays at 21.5 points. With its depth held it is larger: 23.4 points on the slope, and 49.6 points at 1,052 and 1,431 m (95 % range −89.0 to −16.7). Depth is read from three levels of one balloon on 122 storms, which sets the width of that range.", "Of the vapour storms bring from the Pacific, the floor now gets 21.7 % less as rain, at all 22 floor rain stations.", "In the same storms Blue Canyon receives 23.7 mm against 32.7 mm."],
+    ["The rain did not move to the far side: gauges beyond the crest gained 0.04 mm, where 0.64 mm would show if it had."],
+    ["In a summer after a dry winter, the ridge over California land is higher by 3.5 m for each step of drier basin rain."],
+    ["The vapour aloft over Salt Lake City on storm days is 10.2 % lower.", "Across western North America the land air is 8.3 points below the ocean air in spring and 8.2 in summer."],
+  ];
+  const s1 = sec(1, "How the land changed the weather", `<ol class="chain">${CHAIN.map(([t, x], i) => `<li><span class="cn">${i + 1}</span><div><b>${t}</b><p>${x}</p>${PROOF[i] && PROOF[i].length ? `<ul class="pf">${PROOF[i].map((y) => `<li>${y}</li>`).join("")}</ul>` : ""}</div></li>`).join("")}</ol>`);
+  // 2. the four tests
+  const TESTS = [
+    ["The same water arrives from the ocean.", "The vapour storms carry in from the Pacific did not change: 250 to 238 kg/m/s, a difference within the range of chance. Over the same years the ocean air gained vapour and the land air lost it."],
+    ["Only the land that changed got warmer.", "The floor air warmed 2.1 K; the air above it at 1,500 m did not change (−0.3 K) over the same years. The sea and the forested slope did not change either."],
+    ["Only the storms that lift the valley's own air lost rain.", "Storms that stall against the Sierra lift the air over the floor: they lost 24.9 % of their rain. Storms that flow straight over the mountains lift ocean air: they lost 0.4 %."],
+    ["Where water is put back, the air comes back.", "On rewetted Delta land (marsh and rice) the air swings less between day and night than over drained farmland a few kilometres away, on the same days: 0.8 K less in winter, 2.6 K less in summer, 3.3 K less in October. In flood winters, each 1 % more of the floor under water makes it 0.23 K cooler. In the weather model, the old land puts 37 to 51 % more water into the air and the cloud base drops 201 m."],
+  ];
+  TESTS.push(
+    ["It changed when the land changed.", "The floor stepped up against the air above it in 1987 at the six Sacramento-area and Delta stations, after winter grain fell (Sacramento County winter-green crops 80 to 32 thousand acres, 1981-87), and in 2006 at Modesto, Fresno and Bakersfield, in the years 4,108 km² went from winter-green cover to orchards and vines."],
+    ["The greenhouse account predicts the opposite, and the same instrument shows it elsewhere.", "A warming ocean gives more vapour over land, and over eastern North America, East Asia and High Asia the land vapour rose with the ocean's. Over California and western North America it fell: −0.8 % and −1.5 % a decade against the ocean. Where western North America warmed more, its air gained less vapour: −8.23 % per K in spring and −7.28 % per K in summer with rain held, where unchanged relative humidity would give +6 to +7."],
+    ["The effect has the shape of the land, in height and in time.", "It stays below about 800 m, it arrives in the afternoon and not before dawn, and it grows with each dry day (steps 3 and 6). A change of the air mass would show at all heights and all hours."],
+    ["The storm is the same at the coast and loses its rain over the land.", "After dry floor air, storms are as long and as deep at the coast as the others, and the coast side loses no rain (+0.5 %). Over the land the loss grows: in the same storms the Sierra slope loses 22.2 points more than the coast side (95 % range −46.9 to −0.8). With the storm's length held the loss stays at 21.5 points; with its depth held it is larger, 23.4 points, and 49.6 points at 1,052 and 1,431 m (95 % range −89.0 to −16.7)."]);
+  const TPROOF = [
+    ["Column vapour over Oakland on storm days: −2.3 %, no change.", "With the storm's direction held, the floor loss is 21.7 %; with the stability of the air aloft held, 25.8 %; with the same storm strength in both periods, the weakest and middle thirds of storms lost 18.0 % and 22.7 %."],
+    ["It is not city heat: at Beale, Lemoore and Red Bluff, where almost nothing was built, dry ground warmed 0.98 K and the dew point fell 1.55 K.", "It is not less rain: at equal winter rain the floor is 1.18 K warmer and 1.52 K lower in dew point; with the part carried by rain taken out, the California dew point is still 0.68 K lower in spring and 0.44 K in summer."],
+    ["The same contrast was already there in the first decades of land change: from 1925-41 to 1957-80, stalling storm days lost 17.0 to 20.4 points more than passing days on the floor gauges.", "In the north, the forested Klamath mountains upwind kept their rain (−4.5 %); the valley head lost 47.2 % and the station beyond it 35.1 %.", "The air storms lift over the floor is the floor's own low air: 21 to 36 mm a day of the layer below 1,500 m rises through it over the floor and foothills."],
+    ["Over rewetted land the nights are 0.37 to 2.34 K warmer and the land sends 23 to 91 W/m² less heat into the air, in every month group.", "In the model, the old land is 0.48 K cooler with 0.585 g/kg more vapour in the afternoon."],
+    [],
+    [],
+    [],
+    ["Against Oakland airport, which received 45.0 % more rain after dry floor air, the slope lost 50.1 points more (95 % range −94.8 to −15.6).", "The width of the depth-held range comes from depth read on three levels of one balloon on 122 storms (change −2.4 points, −15.8 to +12.8)."],
+  ];
+  const s2 = sec(2, "How we know it is the land", `<div class="tests">${TESTS.map(([t, x], i) => `<div class="tc"><b><span>${i + 1}</span>${t}</b>${x}${TPROOF[i] && TPROOF[i].length ? `<ul class="pf">${TPROOF[i].map((y) => `<li>${y}</li>`).join("")}</ul>` : ""}</div>`).join("")}</div>`);
+  // 3. what it explains (California's problems, grouped; step = link of the chain)
+  const st = (t) => ` <span class="st">step ${t}</span>`;
+  const EXPL = [
+    ["Water", [["Wet land and floodplain: 20,723 km² before 1900, 925 km² today. The land was drained.", "1"], ["Groundwater: the Tulare floor water table falls 0.72 m a year; the west side sank more than 8.5 m by 1970. The water was pumped.", "1"], ["Rivers: the winter flow reaching the floor fell from 0.99 to 0.72 of the natural flow. The water is stored behind dams.", "1, 3"], ["Tidal marsh: about 85 % of the bay's marsh is gone. The land was reclaimed.", "1"], ["Fallowed land: 3,594 to 4,148 km² of the floor idle in drought years, against 2,123 to 2,937 km² in other years.", "2"]]],
+    ["Heat and air", [["Hotter days: floor afternoons are 2.2 to 3.0 K warmer than in 1949-78; in winter the heat is made at the floor.", "2, 3"], ["Drier air and fire weather: the floor air pulls about 45 % more water from every wet surface; beyond the Sierra the air is 13 to 22 % drier.", "3, 11"], ["The ridge over California land: its height against its latitude belt is up 17.5 m in April and 6.5 m in summers since 2002, over the land, in the lower air.", "3, 10"], ["Fog: foggy ridge mornings fell from 0.45 to 0.26; after rain, fog no longer builds; the floor is half as often near saturation at midday.", "3"]]],
+    ["Rain and snow", [["Less rain from the same storms: 21.7 % less on the floor, at all 22 stations.", "8"], ["Wider swings between dry and wet: storms that lift the valley's air give less, storms that come straight in from the ocean give more.", "7, 8"], ["Less snow: 10 to 19 % less on April 1; the rain lost on the windward slope is 9 to 10 points of it.", "8, 9"]]],
+    ["Downstream", [["Warmer rivers and bay: winter river water +0.76 °C (Sacramento) and +0.67 °C (San Joaquin), the gain made between Wilkins Slough and Freeport (+0.45 K); the bay +0.4 K beyond what the air explains; the open ocean beside it unchanged.", "1, 3"], ["Saltier water at the Golden Gate at the same rain: by 1.3 and 2.9 over the storage periods.", "1"], ["More fire: burnt area around the valley rose from 688 km² a year (1950-89) to 2,177 km² a year (1990-2025). The link to the drier air is open.", "3, 11"]]],
+  ];
+  const s3 = sec(3, "What it explains", `<div class="expl">${EXPL.map(([g, rows]) => `<h4>${g}</h4><ul>${rows.map(([t, k]) => `<li>${t}${st(k)}</li>`).join("")}</ul>`).join("")}</div>`);
+  // 4. open
+  const OPEN = ["How much rain comes back when the floor is rewetted. Next: storm-scale model runs.", "Winter groundwater pumping. No public record; river diversions are counted (0.556 km³ a winter).", "Which land dries the air beyond the Sierra: the valley upstream, or the lee's own land.", "Where the warmer air at 1,500 m that adds to the snow loss comes from.", "The summer ridge over California land, and whether a dry autumn floor delays the first storms.", "The step from drier air to burnt area.", "Winter heat and evaporation of the orchard floor, measured on the floor itself.", "Where in San Francisco Bay the added heat is gained.", "Storm totals over several days, and the flood storage the floor has lost."];
+  const s4 = sec(4, "Open", `<ul class="open">${OPEN.map((t) => `<li><b>Open:</b> ${t}</li>`).join("")}</ul>`);
+  // the measurements
+  const bow = [["Irrigated green land", 0.16, SCC.farm], ["Wet land", 0.48, SCC.then], ["Rain-fed grass", 0.65, SCC.then], ["Rice", 0.69, SCC.farm], ["Bare or leafless in winter", 0.84, SCC.farm], ["Other natural cover", 0.87, SCC.then]].map(([a, v, c]) => [a, v, c, `${a}: Bowen ratio ${v.toFixed(2)}, March to May`]);
+  const mEnergy = sec(0, "Energy by kind of land: bare ground heats the air, wet and green land evaporates", `<p>The Bowen ratio is the heat a surface sends into the air divided by the water it evaporates: low on wet and green land, high on dry or bare land.</p>
+    <h4>Bowen ratio by kind of land, March to May</h4>${lg([[SCC.then, "kinds of land on the floor before 1900"], [SCC.farm, "farm land today"]])}${hBars(bow, { max: 1, fmt: (v) => v.toFixed(2), aria: "Bowen ratio by kind of land, spring" })}
+    <h4>The unbuilt floor, by the area of each kind of land (W/m²)</h4>
+    <table class="sci-tb"><thead><tr><th></th><th>Before 1900</th><th>1981</th><th>2019</th></tr></thead><tbody><tr><td>Heat to the air, March to May</td><td>40.2</td><td>40.9</td><td><b>44.9</b></td></tr><tr><td>Evaporation, June to September</td><td>65.2</td><td>70.8</td><td>69.3</td></tr><tr><td>Floor bare or leafless in winter</td><td>none</td><td>39.8 %</td><td>48.6 %</td></tr></tbody></table>
+    <div class="cap">In spring, ground bare or leafless in winter sends 53.4 W/m² of heat into the air; irrigated green land sends 14.1. In winter the floor's heat is read by thermometers and satellite: the floor warmed 3.2 to 3.4 K more than the air above it in December and January, bare crop ground is 1.5 K hotter than wet land, and the water balance gives 9 W/m² more heat to the air from November to March. Source: AmeriFlux towers, March to May and June to September; station and satellite records for winter.</div>`);
+  const warm = [["At sea", "buoy 46026", 0.031, -0.060, 0.132, 0], ["Coast edge", "built rim", 0.200, 0.056, 0.354, 1], ["Delta gap", "", 0.340, 0.153, 0.517, 1], ["Valley floor", "", 0.308, 0.130, 0.486, 1], ["Forested slope", "Blue Canyon, 1,611 m", 0.095, -0.164, 0.360, 0], ["Reno", "east of the crest, a built basin", 0.077, -0.105, 0.269, 1]]
+    .map(([a, b2, v, lo, hi, l]) => [a, b2, [[v, lo, hi, l ? SCC.land : SCC.grey, `${a}: ${sgnf(v, 3)} °C a day (95 % range ${sgnf(lo, 3)} to ${sgnf(hi, 3)})`]]]);
+  const mPlace = sec(0, "Only the land that changed: warming after rain by place, and vapour over land and ocean", `<h4>After a winter rain, how much faster the afternoon now warms each day (°C a day, 1982-99 to 2000-22)</h4>${lg([[SCC.land, "land that was drained or built"], [SCC.grey, "sea and forested slope"]])}${dotCI(warm, { min: -0.2, max: 0.55, ticks: [-0.2, -0.1, 0, 0.1, 0.2, 0.3, 0.4, 0.5], ticksPh: [-0.2, 0, 0.2, 0.4], tf: (t) => sgnf(t, 1), aria: "Change of the afternoon warming per day after rain, by place" })}
+    <div class="cap">Dots: the change; lines: 95 % ranges. The low ground changed; the sea and the forested slope did not. Source: airports, buoy and the Blue Canyon station, November to March.</div>
+    <h4>Water vapour in the air over western North America: land against ocean (% change, 1979-2001 to 2002-2024)</h4>${lg([[SCC.land, "air over land"], [SCC.ocean, "air over the ocean"]])}${vapourSvg()}
+    <div class="cap">The ocean air gained vapour in every season; the land air lost it (black lines: 95 % ranges, spring and summer). Warmer air with less vapour is what drained and converted land gives: the sun's energy goes into heat, not into evaporation. Source: HadISDH stations and ships.</div>`);
+  const B = (a2, b2, v, lo, hi, u, ulo, uhi) => [a2, b2, [[v, lo, hi, SCC.land, `${a2}, storms that stall: ${sgnf(v)} %${lo != null ? ` (95 % range ${sgnf(lo)} to ${sgnf(hi)})` : ""}`], [u, ulo, uhi, SCC.ocean, `${a2}, storms that pass: ${sgnf(u)} %${ulo != null ? ` (95 % range ${sgnf(ulo)} to ${sgnf(uhi)})` : ""}`]]];
+  const storms = [B("Valley floor", "22 gauges, 1980-99 to 2000-22", -24.9, null, null, -0.4, null, null), B("Valley floor", "central track, 3 gauges", -12.1, -27.9, 8.3, 32.5, -3.0, 99.4), B("Foothills", "central track, 661 m", -7.3, -22.1, 12.9, 11.3, -22.9, 55.4), B("Middle slope", "central, 1,052-1,431 m", -10.3, -22.7, 6.9, -0.6, -28.8, 36.0),
+    B("Forested mountains", "north, Orleans, 123 m", -4.5, -20.9, 11.3, -3.4, null, null), B("Valley head", "north, Red Bluff, 108 m", -47.2, -63.6, -26.6, -6.3, -47.5, 59.8), B("Beyond the head", "north, Chester, 1,387 m", -35.1, -53.7, -12.4, -2.7, -31.9, 37.1)];
+  const mStorms = sec(0, "Storms that stall against the Sierra lost rain; storms that pass over did not", `<p>A storm that stalls against the Sierra lifts the valley's own low air. A storm that flows straight over the mountains lifts ocean air. A change of the ocean air would reach both kinds alike.</p>
+    <h4>Rain per unit of ocean vapour, change on rain gauges (%)</h4>${lg([[SCC.land, "storms that stall (blocked)"], [SCC.ocean, "storms that pass (unblocked)"]])}${dotCI(storms, { min: -70, max: 100, rh: 38, ticks: [-60, -40, -20, 0, 20, 40, 60, 80, 100], ticksPh: [-60, -30, 0, 30, 60, 90], tf: (t) => `${sgnf(t, 0)} %`, aria: "Change of rain per unit of ocean vapour, storms that stall and storms that pass" })}
+    <div class="cap">Top row: all 22 floor gauges, storm direction held fixed; the same stations, stalling minus passing, −25.5 points (95 % range −82.7 to −2.6). Rows below: gauges with complete records on the central and northern tracks, 1982-99 to 2000-22. The forested mountains upwind of the valley in the north kept their rain. Rain is divided by the vapour arriving offshore, so a change of supply is taken out.</div>`);
+  const tw = [["November to January", -0.76, -1.12, -0.60], ["February to March", -1.36, -1.49, -1.24], ["April to May", -1.83, -3.01, -1.66], ["June to September", -2.57, -3.49, -2.39], ["October", -3.30, -4.28, -2.82]]
+    .map(([a2, v, lo, hi]) => [a2, "", [[v, lo, hi, SCC.ocean, `${a2}: ${sgnf(v, 2)} K (95 % range ${sgnf(lo, 2)} to ${sgnf(hi, 2)})`]]]);
+  const mTowers = sec(0, "Rewetted land: the air swings less between day and night", `<p>Flux towers on rewetted Delta land (marsh and rice) and on drained farmland a few kilometres away, on the same days and in the same weather.</p>
+    <h4>Day-night swing of the air, rewetted minus drained land (K)</h4>${dotCI(tw, { min: -4.5, max: 0.3, rh: 28, ticks: [-4, -3, -2, -1, 0], ticksPh: [-4, -2, 0], tf: (t) => sgnf(t, 0), aria: "Day-night swing over rewetted minus drained land by season" })}
+    <div class="cap">Smaller in every season. Over rewetted land the nights are warmer (+0.37 to +2.34 K) and the summer afternoon air cooler (−1.41 K), and the land sends 23 to 91 W/m² less heat into the air by day. Rewetted sites without the US-Tw1 marsh tower. Source: AmeriFlux Delta towers.</div>`);
+  const a = FIRE_DEC.filter(([d]) => d >= 1950 && d < 1990), b = FIRE_DEC.filter(([d]) => d >= 1990);
+  const rate = (r) => r.reduce((s2, [, km]) => s2 + km, 0) / r.reduce((s2, [, , y2]) => s2 + y2, 0);
+  $("sciBody").innerHTML = s1 + s2 + s3 + s4 + `<h2 class="sci-m">The measurements</h2>` + mEnergy + mPlace + mStorms + mTowers;
+  $("sciFire").innerHTML = `<h3>More of the land around the valley burns, and more of it burns again</h3>
+    <p>Burnt area on the page's map averaged ${fmtK(rate(a))} km² a year from 1950 to 1989 and ${fmtK(rate(b))} km² a year from 1990 to 2025; the six years 2020-2025 averaged ${fmtK(FIRE_DEC[FIRE_DEC.length - 1][1] / 6)} km² a year.</p>
+    <h4>Burnt area per year, mean of each decade (km²)</h4>${fireDecadeSvg()}
+    <div class="cap">Land that burnt twice in a decade counts twice. Grey: the perimeter record before about 1950 misses many fires. 2020-25 is six years.</div>
+    <h4>Area burnt once or more, in two spans of 38 years (km²)</h4><div class="lg"><span><i style="background:#F4A582"></i>1950-1987</span><span><i style="background:#B2182B"></i>1988-2025</span></div>${fireSpanSvg()}
+    <div class="cap">Separate fire years per 300 m place. Land burnt three times or more grew from ${fmtK(FIRE_SPAN[2][1])} to ${fmtK(FIRE_SPAN[2][2])} km², ${(FIRE_SPAN[2][2] / FIRE_SPAN[2][1]).toFixed(1)} times. Fire weather is measured as a land signature (steps 3 and 11). Open: the step from the drier air to burnt area. Source: CAL FIRE fire perimeters, 1878-2025.</div>
+    <button class="sci-go" id="sciFireGo">Show times burnt on the map</button>
+    <h2 class="sci-m">Sources</h2><ul class="srcs">${SCI_SOURCES.map((x) => `<li>${x}</li>`).join("")}</ul>`;
+  try { glossify($("sciBody")); glossify($("sciFire")); } catch (e) {}
+  $("sciFireGo").addEventListener("click", () => { sciOpen(false); pickLayer("fire"); });
+}
+// project test records behind the numbers (knowledge/raw/tests unless a wiki page is named)
+const SCI_SOURCES = [
+  "Step 1: wiki inverted-season and wet-valley-loss; 2026-11-20_closing2-land-change-map; 2026-11-20_closing2-winter-surface-water",
+  "Step 2: 2026-11-20_closing2-floor-surface-by-class; 2026-11-20_closing2-floor-energy-by-land-kind-r2",
+  "Step 3: 2026-11-20_closing2-floor-minus-850-by-winter; 2026-11-20_closing2-floor-excess-rain-response; 2026-11-17_corridor-full-ladder",
+  "Step 4: 2026-11-20_closing2-floor-excess-rain-response (330 m computed from 2.7 K); 2026-11-17_a29-same-hours-and-delivery-read",
+  "Step 5: 2026-11-20_station-onset-evaporation; 2026-11-20_onset-amount-mm; 2026-11-20_slope-onset-depth",
+  "Step 6: 2026-11-14_test2c-direction-held-all-storms; 2026-11-20_rain-shortfall-by-gauge; tracker line of 2026-11-21 (storm-day water balance)",
+  "Step 7: 2026-11-19_downwind-distance-ladder; 2026-11-21_vapour-account-slc-soundings",
+  "Step 8: tracker line of 2026-11-21; 2026-11-10_three-tests-snow-courses",
+  "Test 1: 2026-11-17_corridor-a-d-conversion-and-frequency; 2026-11-19_belt-rise-t3-hadisdh-humidity",
+  "Test 2: 2026-11-20_closing2-floor-minus-850-by-winter; 2026-11-17_corridor-full-ladder",
+  "Test 3: 2026-11-14_test2c-direction-held-all-storms; 2026-11-14_test1c-regime-contrast-fixed-direction; 2026-11-17_slope-fixed-gauges; 2026-11-17_corridor-north-grid-and-gauges",
+  "Test 4: 2026-11-16_m9-towers-rewetted-air; 2026-11-20_closing2-time-t4-event-and-spring-flow; 2026-11-22_vapour-account-model-members",
+  "What it explains: wiki problems-land-regulation-tracker and the records it names; coast reads 2026-11-18_coast-c0-buoys to 2026-11-19_coast-c11-gate-century; fire: 2026-11-16_valley-3d-fires, 2026-11-21_valley-3d-review-applied",
+  "Open items: raw/notes/2026-11-21_chain-four-tests-open-items-for-science-panel",
+  "Chain of 11 steps and test 8: wiki/land-use-cascade, raw/tests/2026-11-21_rain-shortfall-path-difference, raw/tests/2026-11-21_rain-shortfall-storm-held, raw/tests/2026-11-14_test2c-direction-held-all-storms, raw/tests/2026-11-10_three-tests-snow-courses",
+  "Proofs under the steps and tests, and tests 5 to 7: raw/notes/2026-11-21_science-panel-strengthening-additions, which names the record behind each number (among them 2026-11-20_closing2-floor-excess-by-ground-state, 2026-11-10_pulse-sizes-open, 2026-11-16_m7-water-table-against-heating, 2026-11-20_closing2-time-t1-day, 2026-11-20_closing2-time-t2-after-rain, 2026-11-20_closing2-floor-excess-eleven-stations, 2026-11-20_rain-shortfall-matched, 2026-11-17_moisture-trace-pilot-winter2014, 2026-11-21_vapour-account-coast-to-lee, 2026-11-20_closing2-time-t4-event-and-spring-flow, 2026-11-18_ridge-local-part-by-year-wetness, 2026-11-17_stability-aloft-rival, 2026-11-17_forcing-strength-split, 2026-11-19_humidity-at-given-rain, 2026-11-17_early-era-rain-amount-contrast, 2026-11-18_corridor-e-two-layer-budget, 2026-11-18_heating-profile-by-ground, 2026-11-19_hadisdh-blocks-and-trend-check, 2026-11-19_closing2-sector-slopes-rain-held, 2026-11-18_ridge-followups-persistence-summer-months, 2026-11-18_coast-c2b-sacramento-ladder)",
+];
+let sciPh = null;
+function sciOpen(v) {
+  if (v && (!$("sciFire").innerHTML || sciPh !== isPhone())) { sciPh = isPhone(); renderScience(); }
+  $("sci").hidden = !v; $("bSci").setAttribute("aria-expanded", String(v));
+  if (v && !$("welcome").hidden) welcome(false);
+}
+$("bSci").addEventListener("click", () => sciOpen($("sci").hidden));
+$("sciX").addEventListener("click", () => sciOpen(false));
+$("sci").addEventListener("click", (e) => { if (e.target === $("sci")) sciOpen(false); });
+addEventListener("keydown", (e) => { if (e.key === "Escape" && !$("sci").hidden) sciOpen(false); });
 // ---------------------------------------------------------------- before/after swipe: left = the chosen year, right = the slider year
 let cmpOn = false, cmpA = 1850, cmpX = 0.5, cmpKey = "";
 const yLab = (y) => (y < M.years[0] ? "before 1900" : String(y));
@@ -2501,6 +2861,7 @@ function renderCards() {
 }
 const CMP_OK = new Set(["none", "wetland", "wells", "rivers"]);   /* layers that have a before 1900 to compare against (review 2026-11-21) */
 const LAYER_SEASON = { fog: 0, wind: 0, wrf: 0, cloud: 0, rain: 0, stations: 0, upslope: 0, corridor: 0, evap: 1, heat: 1 };   /* storm layers in winter, summer layers in summer */
+document.querySelectorAll("#drop .card-o").forEach((c) => { const q = c.querySelector(".q"); if (q && !c.title) c.title = q.textContent; });   // full question on hover where the list cuts it to two lines
 function pickLayer(ov) {
   setOverlay(ov);
   if (chapter >= 0) return;   // chapters set their own compare and season
