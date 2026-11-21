@@ -47,6 +47,8 @@ The page opens on the valley before 1900 and in 2019 side by side: drag the line
 - **Towns on the floor**: NLCD developed pixels inside the cells CVHM2 calls towns, in one grey; burns from CAL FIRE perimeters in red-brown (first year) and orange (second and third).
 - **Name labels**: dams (Global Dam Watch), rivers (NHD, Natural Earth), roads (TIGER 2023) and stations, in the View menu.
 - **Events**: the author's project chronology.
+- **Fire, times burnt**: CAL FIRE perimeters (as above), separate fire years per 300 m place in 1950-1987 and in 1988-2025, 38 years each; the perimeter record before about 1950 is incomplete, so both spans start in 1950 (`build/valley3d_fire_counts.py`). Burnt at least once: 23,639 km2 and 63,972 km2; twice or more: 2,306 km2 and 13,678 km2.
+- **Where the water goes** (support layer, reported records, off at start): rivers in, CDEC full natural flow (water years); federal deliveries, USBR CVO; state deliveries, DWR Bulletin 132-25 Table B-5B; Delta exports and outflow, Dayflow; water rights, eWRIMS; city water, SWRCB urban retail supplier reports; sewage, CIWQS self-monitoring reports (`build/valley3d_water_use.py`, `build/valley3d_water_use_s2.py`, `build/valley3d_water_rights_s3b.py`).
 
 ## Kinds of layer
 Each layer card says what it is: **Measured** (wells, river flow, rain stations, fog and station pairs, the coast-to-crest corridor, flux towers, satellite surface temperature, rain), **Mapped** (land cover, wet land), **Estimated** (anything "then" built from class rates) or **Model** (cloud base; the low air over the old land and today's land), and **Reanalysis** (the winds). No layer shows a whole-floor, whole-season average of then against now.
